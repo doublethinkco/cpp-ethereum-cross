@@ -13,51 +13,48 @@
 # (c) 2015 Kitsilano Software Inc
 #-------------------------------------------------------------------------------
 
-FROM ubuntu:utopic
+FROM ubuntu:14.04
 MAINTAINER Bob Summerwill <bob@summerwill.net>
 
-# Additional repository so we can get cmake 3.x.  The default package
-# repository for Ubuntu only has an older version.
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:george-edison55/cmake-3.x
+# Dependencies below are probably NOT entirely minimal, but that's OK.
+RUN apt-get update
 
-# These are probably NOT entirely minimal, but that's OK.
-RUN apt-get update && apt-get install -y \
-  cmake \
-  git \
-  tree \
-  openssh-server \
-  curl \
-  wget \
-  man \
+# Required by our scripts themselves
+# TODO: fix unzip=6.0-9ubuntu1.4, somehow not found
+RUN apt-get install -y \
+  git=1:1.9.1-1ubuntu0.1 \
+  wget=1.15-1ubuntu1.14.04.1 \
   unzip \
-  bzip2 \
-  p7zip \
-  xz-utils \
-  build-essential \
-  cmake \
-  locate \
-  g++ \
-  make \
-  gawk \
-  bison \
-  flex \
-  texinfo \
-  gawk \
-  automake \
-  libtool \
-  cvs \
-  ncurses-dev \
-  gperf \
-  libexpat1-dev
+  bzip2=1.0.6-5 \
+  tree=1.6.0-1
 
+# Required by crosstool-ng
+RUN apt-get install -y \
+  bison=2:3.0.2.dfsg-2 \
+  flex=2.5.35-10.1ubuntu2 \
+  texinfo=5.2.0.dfsg.1-2 \
+  libtool=2.4.2-1.7ubuntu1 \
+  cvs=2:1.12.13+real-12 \
+  gperf=3.0.4-1 \
+  libexpat1-dev=2.1.0-4ubuntu1.1
+
+# Required to build a newer version of cmake  
+RUN apt-get install -y \
+  cmake=2.8.12.2-0ubuntu3 \
+  build-essential=11.6ubuntu6
+   
 # Switch to a normal user account.  crosstool-ng refuses to run as root.
 RUN useradd -ms /bin/bash xcompiler
 USER xcompiler
-WORKDIR /home/xcompiler/
+
+ENV WEBTHREE_UMBRELLA_DIR /home/xcompiler/webthree-umbrella
 
 # Clone the sandbox repo into the docker container and then build the cross-compiler.
-# The fact that we are using the same repo from the "outside" and the "inside" is
-# probably indicative of incorrect boundaries.   The split will be wrong.
-RUN git clone https://github.com/doublethinkco/sandbox.git ~/sandbox/
-RUN ~/sandbox/cpp-ethereum/scripts/xcompiler.sh ~/crosstool-ng/
+RUN git clone https://github.com/doublethinkco/webthree-umbrella.git $WEBTHREE_UMBRELLA_DIR
+
+WORKDIR $WEBTHREE_UMBRELLA_DIR/webthree-umbrella-cross/ct-ng
+RUN ./ct-ng.sh ~/ct-ng "arm-unknown-linux-gnueabi" "1.20.0" # will produce /home/xcompiler/x-tools/arm-unknown-linux-gnueabi
+
+WORKDIR $WEBTHREE_UMBRELLA_DIR/webthree-umbrella-cross/ethereum
+
+RUN ./main.sh /home/xcompiler/x-tools/arm-unknown-linux-gnueabi
