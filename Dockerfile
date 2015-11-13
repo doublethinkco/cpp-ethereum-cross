@@ -54,9 +54,9 @@ ENV WEBTHREE_UMBRELLA_DIR /home/xcompiler/webthree-umbrella
 # Clone the sandbox repo into the docker container and then build the cross-compiler.
 RUN git clone --recursive https://github.com/doublethinkco/webthree-umbrella.git $WEBTHREE_UMBRELLA_DIR
 
-WORKDIR $WEBTHREE_UMBRELLA_DIR/webthree-umbrella-cross/ct-ng
+WORKDIR $WEBTHREE_UMBRELLA_DIR/cross-build/ct-ng
 RUN ./ct-ng.sh ~/ct-ng "arm-unknown-linux-gnueabi" "1.20.0" # will produce /home/xcompiler/x-tools/arm-unknown-linux-gnueabi
 
-WORKDIR $WEBTHREE_UMBRELLA_DIR/webthree-umbrella-cross/ethereum
+WORKDIR $WEBTHREE_UMBRELLA_DIR/cross-build/ethereum
 RUN ./main.sh /home/xcompiler/x-tools/arm-unknown-linux-gnueabi
 
