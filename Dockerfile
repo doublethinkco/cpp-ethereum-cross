@@ -16,10 +16,15 @@
 FROM ubuntu:14.04
 MAINTAINER Bob Summerwill <bob@summerwill.net>
 
-# Dependencies below are probably NOT entirely minimal, but that's OK.
+# TODO - Is this 'apt-get update' required?  It it desirable?  We are
+# explicitly specifying versions for all packages now, so this would not
+# affect the versioning for the direct dependencies.   I suppose it still
+# has an effect on the versions used for indirect dependencies, which will
+# still use "latest", and which we are still abdicating control over.
+# Is that problematic?  Maybe, maybe not.
 RUN apt-get update
 
-# Required by our scripts themselves
+# External packages required by our scripts themselves
 RUN apt-get install -y \
   bzip2=1.0.6-5 \
     git=1:1.9.1-1ubuntu0.1 \
@@ -27,7 +32,7 @@ RUN apt-get install -y \
   unzip=6.0-9ubuntu1.5 \
    wget=1.15-1ubuntu1.14.04.1
 
-# Required by crosstool-ng
+# External packages required by crosstool-ng
 RUN apt-get install -y \
        automake=1:1.14.1-2ubuntu1 \
           bison=2:3.0.2.dfsg-2 \
@@ -40,23 +45,28 @@ RUN apt-get install -y \
   libexpat1-dev=2.1.0-4ubuntu1.1 \
         texinfo=5.2.0.dfsg.1-2
 
-# Required to build a newer version of cmake  
+# External packages required to build a newer version of cmake  
+#
+# TODO - Do we *need* to build cmake, or should we just get a
+# newer prebuilt binary package from a specific PPA?   What is
+# the specific requirement we are trying to meet?   Is this
+# for cmake usage within the cross-compiler build?
 RUN apt-get install -y \
   build-essential=11.6ubuntu6 \
             cmake=2.8.12.2-0ubuntu3
-   
+
 # Switch to a normal user account.  crosstool-ng refuses to run as root.
 RUN useradd -ms /bin/bash xcompiler
 USER xcompiler
 
-ENV WEBTHREE_UMBRELLA_DIR /home/xcompiler/webthree-umbrella
+# Clone the sandbox repo into the docker container, including sub-modules
+WORKDIR /home/xcompiler
+RUN git clone --recursive https://github.com/doublethinkco/webthree-umbrella.git
 
-# Clone the sandbox repo into the docker container and then build the cross-compiler.
-RUN git clone --recursive https://github.com/doublethinkco/webthree-umbrella.git $WEBTHREE_UMBRELLA_DIR
+# Build the cross-compiler
+WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ct-ng
+RUN ./ct-ng.sh ~/ct-ng "arm-unknown-linux-gnueabi" "1.20.0"
 
-WORKDIR $WEBTHREE_UMBRELLA_DIR/cross-build/ct-ng
-RUN ./ct-ng.sh ~/ct-ng "arm-unknown-linux-gnueabi" "1.20.0" # will produce /home/xcompiler/x-tools/arm-unknown-linux-gnueabi
-
-WORKDIR $WEBTHREE_UMBRELLA_DIR/cross-build/ethereum
-RUN ./main.sh /home/xcompiler/x-tools/arm-unknown-linux-gnueabi
-
+# Use that cross-compiler to build the ARM executable
+WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ethereum
+RUN ./main.sh ~/x-tools/arm-unknown-linux-gnueabi
