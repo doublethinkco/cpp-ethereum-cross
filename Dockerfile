@@ -68,5 +68,5 @@ WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ct-ng
 RUN ./ct-ng.sh ~/ct-ng "arm-unknown-linux-gnueabi" "1.20.0"
 
 # Use that cross-compiler to build the ARM executable
-#WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ethereum
+WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ethereum
 #RUN ./main.sh ~/x-tools/arm-unknown-linux-gnueabi
