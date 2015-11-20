@@ -7,7 +7,7 @@ TurboEthereum and Hardcore Ethereum in various places.
 
 See http://ethereum.org/ to learn more about Ethereum
 
-![Webthree](https://ipfs.pics/QmYj2TSuqp3tRJCRMUyu1Nm5LoMnkaTZ5pnENomx9YKUtf)
+(https://ipfs.pics/QmYj2TSuqp3tRJCRMUyu1Nm5LoMnkaTZ5pnENomx9YKUtf)
 
 This support was developed by Bob Summerwill and Anthony Cros to
 bring Ethereum to mobile/wearable Linux platforms for doublethinkco,
