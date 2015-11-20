@@ -2,20 +2,22 @@
 
 Repository containing a Docker file for cross-compilation of the
 components which comprise "webthree-umbrella", the C++ implementation
-of Ethereum.   That codebase is also referred to as cpp-ethereum,
+of
+[Ethereum](http://ethereum.org/).
+That codebase is also referred to as cpp-ethereum,
 TurboEthereum and Hardcore Ethereum in various places.
-
-See http://ethereum.org/ to learn more about Ethereum
 
 ![Webthree](https://ipfs.pics/ipfs/QmYj2TSuqp3tRJCRMUyu1Nm5LoMnkaTZ5pnENomx9YKUtf)
 
-This support was developed by Bob Summerwill and Anthony Cros to
-bring Ethereum to mobile/wearable Linux platforms for doublethinkco,
+This support was developed by
+[Bob Summerwill](http://bobsummerwill.com)
+and
+[Anthony Cros](https://github.com/anthony-cros) to
+bring Ethereum to mobile/wearable Linux platforms for
+[doublethinkco](http://doublethink.co),
 with the intention of contributing it back to the community.
 
 See http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/
-
-See http://doublethink.co/ to learn more about doublethinkco
 
 At the time of writing, this cross-compilation process only supports
 the building of ARM binaries, and specifically 'armel' binaries for
