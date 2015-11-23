@@ -7,7 +7,7 @@ of
 That codebase is also referred to as cpp-ethereum,
 TurboEthereum and Hardcore Ethereum in various places.
 
-![Webthree](https://ipfs.pics/ipfs/QmYj2TSuqp3tRJCRMUyu1Nm5LoMnkaTZ5pnENomx9YKUtf)
+![Webthree](https://ipfs.pics/ipfs/QmU5DL8HnBvn3FpHBCFX69suLpSh2qCBZKg1FzmUfBiDX5)
 
 This support was developed by
 [Bob Summerwill](http://bobsummerwill.com)
