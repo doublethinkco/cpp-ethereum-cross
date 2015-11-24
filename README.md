@@ -14,15 +14,15 @@ TurboEthereum and Hardcore Ethereum in various places.
 * sudo docker build .
 * sudo docker run -i -t HASH /bin/bash
 * And then inside that docker container
-** cd ~/webthree-umbrella/cross-build/ethereum
-** ./main.sh ~/x-tools/arm-unknown-linux-gnueabi
+* cd ~/webthree-umbrella/cross-build/ethereum
+* ./main.sh ~/x-tools/arm-unknown-linux-gnueabi
 * You end up with a TGZ file in the ~ directory
 * From outside of the container
-** sudo docker cp HASH:/FILENAME.tgz ~/
+* sudo docker cp HASH:/FILENAME.tgz ~/
 * If you are running this in a VM then copy it back out with something like:
-** scp MACHINE:/filename.tgz ~
+* scp MACHINE:/filename.tgz ~
 
-![Webthree](https://ipfs.pics/ipfs/QmU5DL8HnBvn3FpHBCFX69suLpSh2qCBZKg1FzmUfBiDX5)
+![Webthree](https://ipfs.pics/ipfs/QmPoeqadSbjshYZeibtTgdkXAXCyvCtsrejSe8xY2hSure)
 
 This support was developed by
 [Bob Summerwill](http://bobsummerwill.com)
@@ -56,25 +56,15 @@ http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
 
 # High priority issues
 
-* finish dot file
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/16
-* Create go-ethereum-cross repo
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/29
-* Dockerfile: apply light client PR to go-ethereum-cross
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/24
-* test run PR on existing container
-* https://github.com/doublethinkco/webthree-umbrella-cross/issues/23
-* Document how to attach GDB
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/28
-* try geth ARM binary on sailfish
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/21
-* try geth ARM binary on Ubuntu Touch
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/22
-* try geth ARM binary on Android
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/26
-* try geth ARM binary on iOS
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/27
-* eth run time error on Tizen
-** https://github.com/doublethinkco/webthree-umbrella-cross/issues/20
+* [finish dot file](https://github.com/doublethinkco/webthree-umbrella-cross/issues/16)
+* [Create go-ethereum-cross repo](https://github.com/doublethinkco/webthree-umbrella-cross/issues/29)
+* [Dockerfile: apply light client PR to go-ethereum-cross](https://github.com/doublethinkco/webthree-umbrella-cross/issues/24)
+* [test run PR on existing container](https://github.com/doublethinkco/webthree-umbrella-cross/issues/23)
+* [Document how to attach GDB](https://github.com/doublethinkco/webthree-umbrella-cross/issues/28)
+* [try geth ARM binary on sailfish](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
+* [try geth ARM binary on Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/22)
+* [try geth ARM binary on Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/26)
+* [try geth ARM binary on iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/27)
+* [eth run time error on Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
 
 Copyright (c) 2015 Kitsilano Software Inc
