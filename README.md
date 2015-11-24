@@ -7,6 +7,20 @@ of
 That codebase is also referred to as cpp-ethereum,
 TurboEthereum and Hardcore Ethereum in various places.
 
+# How to use it
+
+* git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
+* cd webthree-umbrella-cross
+* docker build .
+* docker run -i -t <hash> /bin/bash
+* And then inside that docker container
+** ./main.sh ~/x-tools/arm-unknown-linux-gnueabi
+* You end up with a TGZ file in the ~ directory
+* From outside of the container
+** docker cp <hash>:/<filename>.tgz ~/filename.tgz
+* If you are running this in a VM then copy it back out with something like:
+** scp <machine>:/filename.tgz ~
+
 ![Webthree](https://ipfs.pics/ipfs/QmU5DL8HnBvn3FpHBCFX69suLpSh2qCBZKg1FzmUfBiDX5)
 
 This support was developed by
