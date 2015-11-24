@@ -14,6 +14,7 @@ TurboEthereum and Hardcore Ethereum in various places.
 * sudo docker build .
 * sudo docker run -i -t HASH /bin/bash
 * And then inside that docker container
+** cd ~/webthree-umbrella/cross-build/ethereum
 ** ./main.sh ~/x-tools/arm-unknown-linux-gnueabi
 * You end up with a TGZ file in the ~ directory
 * From outside of the container
