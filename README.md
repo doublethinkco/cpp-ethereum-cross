@@ -12,9 +12,12 @@ TurboEthereum and Hardcore Ethereum in various places.
 * git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
 * cd webthree-umbrella-cross
 * sudo docker build .
+* sudo docker run -i -t HASH /bin/bash
+* And then inside that docker container
+** ./main.sh ~/x-tools/arm-unknown-linux-gnueabi
 * You end up with a TGZ file in the ~ directory
 * From outside of the container
-** sudo docker cp $CONTAINER_ID:/FILENAME.tgz ~/
+** sudo docker cp HASH:/FILENAME.tgz ~/
 * If you are running this in a VM then copy it back out with something like:
 ** scp MACHINE:/filename.tgz ~
 
