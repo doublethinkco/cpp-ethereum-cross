@@ -46,7 +46,7 @@ WORKDIR /home/xcompiler
 RUN git clone --recursive https://github.com/doublethinkco/webthree-umbrella.git
 
 # wget, untar and unzip the prebuilt cross-compiler.
-RUN wget https://docs.google.com/uc?export=download&id=0B8s2kfOfQTr0TFljcWEzdjNGQkU&confirm=Nm_X x-tools.tar.gz
+RUN wget https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/0.0.1/x-tools.tar.gz ‐‐output-document=x-tools.tar.gz
 RUN tar xvfz x-tools.tar.gz
 
 # Use that cross-compiler to build the ARM executable
