@@ -9,7 +9,7 @@
 # (c) 2015 Kitsilano Software Inc
 #-------------------------------------------------------------------------------
 
-FROM ubuntu:15.04
+FROM ubuntu:14.04
 MAINTAINER Bob Summerwill <bob@summerwill.net>
 
 # External packages required by our scripts themselves
