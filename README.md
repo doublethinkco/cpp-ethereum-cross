@@ -56,12 +56,11 @@ http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
 
 # High priority issues
 
-* [finish dot file](https://github.com/doublethinkco/webthree-umbrella-cross/issues/16)
+* [Fix build breaks (introduced by sub-module updates)](https://github.com/doublethinkco/webthree-umbrella-cross/issues/32)
+* [Document how to attach GDB](https://github.com/doublethinkco/webthree-umbrella-cross/issues/28)
 * [Create go-ethereum-cross repo](https://github.com/doublethinkco/webthree-umbrella-cross/issues/29)
 * [Dockerfile: apply light client PR to go-ethereum-cross](https://github.com/doublethinkco/webthree-umbrella-cross/issues/24)
 * [test run PR on existing container](https://github.com/doublethinkco/webthree-umbrella-cross/issues/23)
-* [Document how to attach GDB](https://github.com/doublethinkco/webthree-umbrella-cross/issues/28)
-* [try geth ARM binary on sailfish](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
 * [try geth ARM binary on Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/22)
 * [try geth ARM binary on Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/26)
 * [try geth ARM binary on iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/27)
