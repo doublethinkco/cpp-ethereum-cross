@@ -1,0 +1,42 @@
+#-------------------------------------------------------------------------------
+# Dockerfile for cross-compiling the Ethereum C++ components for mobile Linux
+# platforms such as Tizen, Sailfish and Ubuntu Touch.  Assumes that we have
+# previous built the cross-compiler and can just copy that into our
+# container.
+#
+# See http://ethereum.org/ to learn more about Ethereum.
+# See http://doublethink.co/ to learn more about doublethinkco
+#
+# (c) 2015 Kitsilano Software Inc
+#-------------------------------------------------------------------------------
+
+FROM ubuntu:14.04
+MAINTAINER Bob Summerwill <bob@summerwill.net>
+
+# So we DO appear to need this, perhaps because the contents in the package
+# repository have changed since the base Dockerfile image was created?
+# Not 100% sure, but without this we get errors about specific versions
+# not being available in later steps.
+RUN apt-get update
+
+# External packages required to build a newer version of cmake  
+#
+# TODO - Do we *need* to build cmake, or should we just get a
+# newer prebuilt binary package from a specific PPA?   What is
+# the specific requirement we are trying to meet?   Is this
+# for cmake usage within the cross-compiler build?
+RUN apt-get install -y \
+  build-essential=11.6ubuntu6 \
+            cmake=2.8.12.2-0ubuntu3
+
+# Switch to a normal user account.  crosstool-ng refuses to run as root.
+RUN useradd -ms /bin/bash xcompiler
+USER xcompiler
+
+# Clone the sandbox repo into the docker container, including sub-modules
+WORKDIR /home/xcompiler
+RUN git clone --recursive https://github.com/doublethinkco/webthree-umbrella.git
+
+# Use that cross-compiler to build the ARM executable
+WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ethereum
+RUN ./main.sh ~/x-tools/arm-unknown-linux-gnueabi
