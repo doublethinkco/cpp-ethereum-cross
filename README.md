@@ -9,7 +9,7 @@ TurboEthereum and Hardcore Ethereum in various places.
 
 # How to use it
 
-Clone this repo and build and run ![Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth):
+Clone this repo and build and run [Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth):
 
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
     $ cd webthree-umbrella-cross
