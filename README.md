@@ -64,7 +64,6 @@ http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
 
 # High priority issues
 
-* [Fix build breaks (introduced by sub-module updates)](https://github.com/doublethinkco/webthree-umbrella-cross/issues/32)
 * [Document how to attach GDB](https://github.com/doublethinkco/webthree-umbrella-cross/issues/28)
 * [Create go-ethereum-cross repo](https://github.com/doublethinkco/webthree-umbrella-cross/issues/29)
 * [Dockerfile: apply light client PR to go-ethereum-cross](https://github.com/doublethinkco/webthree-umbrella-cross/issues/24)
