@@ -1,6 +1,6 @@
 # webthree-umbrella-cross
 
-Repository containing a Docker file for cross-compilation of the
+Repository containing Docker files for cross-compilation of the
 components which comprise "webthree-umbrella", the C++ implementation
 of
 [Ethereum](http://ethereum.org/).
