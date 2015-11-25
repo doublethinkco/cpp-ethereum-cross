@@ -19,6 +19,14 @@ MAINTAINER Bob Summerwill <bob@summerwill.net>
 # not being available in later steps.
 RUN apt-get update
 
+# External packages required by our scripts themselves
+RUN apt-get install -y \
+  bzip2=1.0.6-5 \
+    git=1:1.9.1-1ubuntu0.1 \
+   tree=1.6.0-1 \
+  unzip=6.0-9ubuntu1.5 \
+   wget=1.15-1ubuntu1.14.04.1
+
 # External packages required to build a newer version of cmake  
 #
 # TODO - Do we *need* to build cmake, or should we just get a
