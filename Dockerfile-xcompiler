@@ -37,6 +37,7 @@ RUN apt-get install -y \
   libncurses5-dev=5.9+20140118-1ubuntu1 \
         libtool=2.4.2-1.7ubuntu1 \
   libexpat1-dev=2.1.0-4ubuntu1.1 \
+           make \
         texinfo=5.2.0.dfsg.1-2
 
 # Switch to a normal user account.  crosstool-ng refuses to run as root.
