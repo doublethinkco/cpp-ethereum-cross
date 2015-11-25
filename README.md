@@ -65,12 +65,11 @@ http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
 # High priority issues
 
 * [Document how to attach GDB](https://github.com/doublethinkco/webthree-umbrella-cross/issues/28)
-* [Create go-ethereum-cross repo](https://github.com/doublethinkco/webthree-umbrella-cross/issues/29)
+* [Get to a working eth binary for Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
+* [Test if the buildbot geth binary works on Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/22)
+* [Test if the buildbot geth binary works on Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/26)
+* [Test if the buildbot geth binary works on iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/27)
 * [Dockerfile: apply light client PR to go-ethereum-cross](https://github.com/doublethinkco/webthree-umbrella-cross/issues/24)
 * [test run PR on existing container](https://github.com/doublethinkco/webthree-umbrella-cross/issues/23)
-* [try geth ARM binary on Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/22)
-* [try geth ARM binary on Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/26)
-* [try geth ARM binary on iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/27)
-* [eth run time error on Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
 
 Copyright (c) 2015 Kitsilano Software Inc
