@@ -7,6 +7,16 @@ of
 That codebase is also referred to as cpp-ethereum,
 TurboEthereum and Hardcore Ethereum in various places.
 
+This support was developed by
+[Bob Summerwill](http://bobsummerwill.com)
+and
+[Anthony Cros](https://github.com/anthony-cros) to
+bring Ethereum to mobile/wearable Linux platforms for
+[doublethinkco](http://doublethink.co),
+with the intention of contributing it back to the community.
+
+See http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/
+
 # How to use it
 
 Clone this repo and build and run [Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth):
@@ -26,17 +36,11 @@ then you can copy that back with something like ...
 
     $ scp MACHINE:/filename.tgz ~
 
+# Dependency graph for the Webthree components
+
 ![Webthree](https://ipfs.pics/ipfs/QmPoeqadSbjshYZeibtTgdkXAXCyvCtsrejSe8xY2hSure)
 
-This support was developed by
-[Bob Summerwill](http://bobsummerwill.com)
-and
-[Anthony Cros](https://github.com/anthony-cros) to
-bring Ethereum to mobile/wearable Linux platforms for
-[doublethinkco](http://doublethink.co),
-with the intention of contributing it back to the community.
-
-See http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/
+# Limitations
 
 At the time of writing, this cross-compilation process only supports
 the building of ARM binaries, and specifically 'armel' binaries for
