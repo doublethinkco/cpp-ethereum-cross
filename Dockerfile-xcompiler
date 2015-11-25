@@ -30,6 +30,7 @@ RUN apt-get install -y \
 RUN apt-get install -y \
        automake=1:1.14.1-2ubuntu1 \
           bison=2:3.0.2.dfsg-2 \
+build-essential=11.6ubuntu6 \
             cvs=2:1.12.13+real-12 \
            flex=2.5.35-10.1ubuntu2 \
            gawk=1:4.0.1+dfsg-2.1ubuntu2 \
@@ -37,7 +38,6 @@ RUN apt-get install -y \
   libncurses5-dev=5.9+20140118-1ubuntu1 \
         libtool=2.4.2-1.7ubuntu1 \
   libexpat1-dev=2.1.0-4ubuntu1.1 \
-           make \
         texinfo=5.2.0.dfsg.1-2
 
 # Switch to a normal user account.  crosstool-ng refuses to run as root.
