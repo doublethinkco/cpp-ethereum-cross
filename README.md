@@ -34,7 +34,7 @@ which you can copy out to the host machine like so ...
 If your host machine is a VM (maybe a CoreOS instance in AWS or Azure)
 then you can copy that back with something like ...
 
-    $ scp MACHINE:/filename.tgz ~
+    $ scp VM_IP_ADDRESS:/home/xcompiler/FILENAME.tgz ~
 
 # Dependency graph for the Webthree components
 
