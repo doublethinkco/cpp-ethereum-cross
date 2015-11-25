@@ -13,33 +13,25 @@
 FROM ubuntu:14.04
 MAINTAINER Bob Summerwill <bob@summerwill.net>
 
-# So we DO appear to need this, perhaps because the contents in the package
-# repository have changed since the base Dockerfile image was created?
-# Not 100% sure, but without this we get errors about specific versions
-# not being available in later steps.
+# We need to use an extra PPA (Personal Package Archive) for CMake 3.x
+# builds.   The package archive for the Ubuntu Trusty (14.04) image only
+# comes with CMake 2.8.x, which is not new enough to build Ethereum
+#
+# See https://launchpad.net/~george-edison55/+archive/ubuntu/cmake-3.x
+# for more details on this archive.
+RUN apt-get install software-properties-common
+RUN add-apt-repository ppa:george-edison55/cmake-3.x
 RUN apt-get update
 
-# External packages required by our scripts themselves
+# External packages required by our scripts
 RUN apt-get install -y \
   bzip2=1.0.6-5 \
+  cmake \
     git=1:1.9.1-1ubuntu0.1 \
+     m4=1.4.17-2ubuntu1
    tree=1.6.0-1 \
   unzip=6.0-9ubuntu1.5 \
    wget=1.15-1ubuntu1.14.04.1
-
-# External packages required to build a newer version of cmake  
-#
-# TODO - Do we *need* to build cmake, or should we just get a
-# newer prebuilt binary package from a specific PPA?   What is
-# the specific requirement we are trying to meet?   Is this
-# for cmake usage within the cross-compiler build?
-RUN apt-get install -y \
-  build-essential=11.6ubuntu6 \
-            cmake=2.8.12.2-0ubuntu3
-
-# Packages needed to build GMP
-RUN apt-get install -y \
-               m4=1.4.17-2ubuntu1
 
 # Switch to a normal user account.  crosstool-ng refuses to run as root.
 RUN useradd -ms /bin/bash xcompiler
