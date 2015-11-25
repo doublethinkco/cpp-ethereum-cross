@@ -66,10 +66,9 @@ http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
 
 * [Document how to attach GDB](https://github.com/doublethinkco/webthree-umbrella-cross/issues/28)
 * [Get to a working eth binary for Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
+* [Get to a working eth binary for Sailfish](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
 * [Test if the buildbot geth binary works on Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/22)
 * [Test if the buildbot geth binary works on Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/26)
 * [Test if the buildbot geth binary works on iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/27)
-* [Dockerfile: apply light client PR to go-ethereum-cross](https://github.com/doublethinkco/webthree-umbrella-cross/issues/24)
-* [test run PR on existing container](https://github.com/doublethinkco/webthree-umbrella-cross/issues/23)
 
 Copyright (c) 2015 Kitsilano Software Inc
