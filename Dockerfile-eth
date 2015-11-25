@@ -38,7 +38,8 @@ RUN apt-get install -y \
             cmake=2.8.12.2-0ubuntu3
 
 # Packages needed to build GMP
-RUN apt-get install -y m4
+RUN apt-get install -y \
+               m4=1.4.17-2ubuntu1
 
 # Switch to a normal user account.  crosstool-ng refuses to run as root.
 RUN useradd -ms /bin/bash xcompiler
