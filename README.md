@@ -64,7 +64,6 @@ http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
 
 # High priority issues
 
-* [Document how to attach GDB](https://github.com/doublethinkco/webthree-umbrella-cross/issues/28)
 * [Get to a working eth binary for Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
 * [Get to a working eth binary for Sailfish](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
 * [Test if the buildbot geth binary works on Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/22)
