@@ -47,7 +47,7 @@ RUN git clone --recursive https://github.com/doublethinkco/webthree-umbrella.git
 
 # wget, untar and unzip the prebuilt cross-compiler.  Ignore non-zero return
 # code error caused by HTTPS re-direct to CDN.
-RUN wget ‐‐output-document=x-tools.tar.gz https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/0.0.1/x-tools.tar.gz; exit 0
+RUN wget ‐‐output-document=x-tools.tar.gz https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/0.0.2/x-tools.tar.gz; exit 0
 RUN tar xvfz x-tools.tar.gz
 
 # Use that cross-compiler to build the ARM executable
