@@ -45,9 +45,12 @@ USER xcompiler
 WORKDIR /home/xcompiler
 RUN git clone --recursive https://github.com/doublethinkco/webthree-umbrella.git
 
-# wget, untar and unzip the prebuilt cross-compiler.  Ignore errors caused by re-direct.
+# wget, untar and unzip the prebuilt cross-compiler.  Ignore non-zero return
+# code error caused by HTTPS re-direct to CDN.   Also flatten out the extra
+# level of indentation in the tar.gz file here.   Needs fixing at source.
 RUN wget ‐‐output-document=x-tools.tar.gz https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/0.0.1/x-tools.tar.gz; exit 0
 RUN tar xvfz x-tools.tar.gz
+RUN mv x-tools/x-tools/arm-unknown-linux-gnueabi x-tools/arm-unknown-linux-gnueabi
 
 # Use that cross-compiler to build the ARM executable
 WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ethereum
