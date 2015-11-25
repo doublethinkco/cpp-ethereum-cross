@@ -12,6 +12,12 @@
 FROM ubuntu:14.04
 MAINTAINER Bob Summerwill <bob@summerwill.net>
 
+# So we DO appear to need this, perhaps because the contents in the package
+# repository have changed since the base Dockerfile image was created?
+# Not 100% sure, but without this we get errors about specific versions
+# not being available in later steps.
+RUN apt-get update
+
 # External packages required by our scripts themselves
 RUN apt-get install -y \
   bzip2=1.0.6-5 \
