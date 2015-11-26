@@ -22,9 +22,10 @@ This cross-build support was developed for
 and
 [Anthony Cros](https://github.com/anthony-cros)
 to bring Ethereum to mobile/wearable Linux platforms for the benefit
-of the whole Ethereum community, current and future.   It is released
-as free software under the
-[GPLv2 license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE.txt) by
+of the whole Ethereum community, current and future.
+
+It is released as free software under the
+[GPLv2 license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE.txt).
 
 See [Porting Ethereum to Mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
 blog for an overview of our efforts.
@@ -36,19 +37,33 @@ Clone this repo and build and run [Dockerfile-eth](https://github.com/doublethin
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
     $ cd webthree-umbrella-cross
     $ sudo docker build -f Dockerfile-eth .
-    $ sudo docker run -i -t HASH /bin/bash
 
-You end up with a TGZ file in the ~ directory inside that container,
-which you can copy out to the host machine like so ...
+That generates a Docker *image*, which is not the same as a Docker
+*container* - a specific instance of that binary image.  To get an
+instance of that image running you need to do:
 
-    $ sudo docker cp HASH:/FILENAME.tgz ~/
+    $ sudo docker run -i -t HASH_OF_IMAGE /bin/bash
 
-If your host machine is a VM (maybe a CoreOS instance in AWS or Azure)
-then you can copy that back with something like ...
+In the shell for that container you will see the HASH for the container
+instance.  That container will have a TGZ file in the ~ directory
+which you can copy out to the host machine with the following command
+from another shell instance on your host machine.  Your "docker run"
+*must* still be running for this copy step to work.    If somebody who
+has more Docker experience knows how to streamline this experience,
+please speak up!
+
+    $ sudo docker cp HASH_OF_CONTAINER:/FILENAME.tgz ~/
+
+Then you can "exit" the "docker run" session, and stop that Docker
+container running.   It has served its purpose.
+
+If your host machine is a VM (maybe a CoreOS instance in AWS or Azure?)
+then you can copy that file back from the VM to your machine with a
+command something like ...
 
     $ scp VM_IP_ADDRESS:/home/xcompiler/FILENAME.tgz ~
 
-# Dependency graph for the Webthree components
+# Dependency graph for the webthree components
 
 ![Webthree](https://ipfs.pics/ipfs/QmPoeqadSbjshYZeibtTgdkXAXCyvCtsrejSe8xY2hSure)
 
