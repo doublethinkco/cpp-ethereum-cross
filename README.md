@@ -39,9 +39,10 @@ Clone this repo and build and run [Dockerfile-eth](https://github.com/doublethin
     $ sudo docker build -f Dockerfile-eth .
 
 That generates a Docker *image*, which is not the same as a Docker
-*container*.  Images are immutable binary images, which are analogous
-to VM snapshots.  Containers are particular instances of those images.
-To get and instance of that newly created image running you need to do:
+*container*.  Docker *images* are immutable binary images, which are
+analogous to VM snapshots.  Docker *containers* are particular instances
+of those images.  To get an instance of that newly created image running
+you need to do:
 
     $ sudo docker run -i -t HASH_OF_IMAGE /bin/bash
 
