@@ -77,8 +77,8 @@ process, which can be run in a similar manner:
     $ cd webthree-umbrella-cross
     $ sudo docker build -f Dockerfile-xcompiler .
 
-The results of a particular run of this process are hard-coded in the
-[Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth#L46)
+The results of a particular run of this process are
+[hard-coded in the Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth#L46)
 where they are copied directly into the container.
 
 
