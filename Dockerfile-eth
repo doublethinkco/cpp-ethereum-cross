@@ -19,7 +19,7 @@ MAINTAINER Bob Summerwill <bob@summerwill.net>
 #
 # See https://launchpad.net/~george-edison55/+archive/ubuntu/cmake-3.x
 # for more details on this archive.
-RUN apt-get install software-properties-common
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:george-edison55/cmake-3.x
 RUN apt-get update
 
