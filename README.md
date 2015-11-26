@@ -16,16 +16,18 @@ components within the "webthree umbrella".
     Aleth* are the GUIs
     TurboEthereum is the stylish name for the C++ core.
 
-This cross-build support was developed by under GPLv2 by
+This cross-build support was developed for
+[doublethinkco](http://doublethink.co) by
 [Bob Summerwill](http://bobsummerwill.com)
 and
-[Anthony Cros](https://github.com/anthony-cros) to
-bring Ethereum to mobile/wearable Linux platforms for
-[doublethinkco](http://doublethink.co),
-with the intention of contributing the support back to the community.
+[Anthony Cros](https://github.com/anthony-cros)
+to bring Ethereum to mobile/wearable Linux platforms for the benefit
+of the whole Ethereum community, current and future.   It is released
+as free software under the
+[GPLv2 license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE.txt) by
 
 See [Porting Ethereum to Mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
-blog for an overview.
+blog for an overview of our efforts.
 
 # How to use it
 
