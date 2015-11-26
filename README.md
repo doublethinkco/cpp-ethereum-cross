@@ -63,6 +63,23 @@ command something like ...
 
     $ scp VM_IP_ADDRESS:/home/xcompiler/FILENAME.tgz ~
 
+[Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth)
+makes use of the [crosstool-NG](http://crosstool-ng.org/) toolchain-building
+scripts to generate a cross-compiler which is then used in the rest of the
+build process.  The cross-compiler was originally built and then used as
+part of the same Docker flow, but that was slow and unnecessarily, so has
+been split into its own [Dockerfile-xcompiler](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-xcompiler)
+process, which can be run in a similar manner:
+
+    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
+    $ cd webthree-umbrella-cross
+    $ sudo docker build -f Dockerfile-xcompiler .
+
+The results of a particular run of this process are hard-coded in the
+[Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth#L46)
+where they are copied directly into the container.
+
+
 # Dependency graph for the webthree components
 
 ![Webthree](https://ipfs.pics/ipfs/QmPoeqadSbjshYZeibtTgdkXAXCyvCtsrejSe8xY2hSure)
