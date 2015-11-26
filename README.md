@@ -59,12 +59,6 @@ please speak up!
 Then you can "exit" the "docker run" session, and stop that Docker
 container running.   It has served its purpose.
 
-If your host machine is a VM (maybe a CoreOS instance in AWS or Azure?)
-then you can copy that file back from the VM to your machine with a
-command something like ...
-
-    $ scp VM_IP_ADDRESS:/home/xcompiler/FILENAME.tgz ~
-
 [Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth)
 makes use of the [crosstool-NG](http://crosstool-ng.org/) toolchain-building
 scripts to generate a cross-compiler which is then used in the rest of the
