@@ -1,21 +1,31 @@
 # webthree-umbrella-cross
 
 Repository containing Docker files for cross-compilation of the
-components which comprise "webthree-umbrella", the C++ implementation
-of
-[Ethereum](http://ethereum.org/).
-That codebase is also referred to as cpp-ethereum,
-TurboEthereum and Hardcore Ethereum in various places.
+components within the "webthree umbrella".
 
-This support was developed by
+[Gavin Wood](https://github.com/gavofyork) says ...
+
+    The many names reflect the fact that it is not a single project.
+    Rather it's a collection of software that just happens to have
+    a team (mostly) in common.
+    
+    cpp-ethereum is the historical name.
+    webthree is the name for the repository implementing the webthree framework
+    eth is the name for the webthree client (historical; should be renamed to web3 at some point)
+    ++eth is its sometime "stylish" name.
+    Aleth* are the GUIs
+    TurboEthereum is the stylish name for the C++ core.
+
+This cross-build support was developed by under GPLv2 by
 [Bob Summerwill](http://bobsummerwill.com)
 and
 [Anthony Cros](https://github.com/anthony-cros) to
 bring Ethereum to mobile/wearable Linux platforms for
 [doublethinkco](http://doublethink.co),
-with the intention of contributing it back to the community.
+with the intention of contributing the support back to the community.
 
-See http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/
+See [Porting Ethereum to Mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
+blog for an overview.
 
 # How to use it
 
