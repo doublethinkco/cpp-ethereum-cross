@@ -106,15 +106,11 @@ http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
 
 * Infrastructure
     * [Generalize cross-build scripts to support armhf, i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/10)
-* Eth porting (C++ client)
+* Platforms
     * [Get to a working eth binary for Sailfish](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
     * [Get to a working eth binary for Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
     * [Get to a working eth binary for Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)
     * [Get to a working eth binary for Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
     * [Get to a working eth binary for iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
-* Geth (go client)
-    * [Test if the buildbot geth binary works on Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/22)
-    * [Test if the buildbot geth binary works on Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/26)
-    * [Test if the buildbot geth binary works on iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/27)
 
 Copyright (c) 2015 Kitsilano Software Inc
