@@ -91,6 +91,7 @@ where they are copied directly into the container.
 | Ubuntu Phone | TODO          | TODO    | Anthony struggling with device |
 | Raspberry Pi | Working       | TODO    |
 | Beagleboard  | Working       | TODO    |
+| C.H.I.P.     | TODO          | TODO    |
 | Intel Edison | Working       | TODO    |
 | Odroid XU4   | TODO          | TODO    |
 | Intel NUC    | TODO          | TODO    |
