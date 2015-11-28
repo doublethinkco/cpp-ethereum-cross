@@ -88,8 +88,8 @@ armv5 and software floating-point ABI.  These binaries are very
 generic and should work on many, many devices.   We are adding support
 for other ABIs right now:
 
-    * [Generalize cross-build scripts to support armhf as well as armel](https://github.com/doublethinkco/webthree-umbrella-cross/issues/10)
-    * [Generalize cross-build scripts to support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
+- [Generalize cross-build scripts to support armhf as well as armel](https://github.com/doublethinkco/webthree-umbrella-cross/issues/10)
+- [Generalize cross-build scripts to support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
 
 BEWARE - boot2docker on OSX does not "just work" when installed.
 Here are the commands you will inevitably forget whenever you reboot
