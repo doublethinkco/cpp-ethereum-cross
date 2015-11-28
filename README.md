@@ -83,7 +83,7 @@ where they are copied directly into the container.
 # Platform status
 
 | Platform     | Native        | Cross   | Notes |
-| -------------|---------------|---------|-------|
+| -------------|:-------------:|:-------:|-------|
 | Wandboard    | Working       | Working | Cross working as of [28 Nov 2015](https://twitter.com/BobSummerwill/status/670573142914519040)
 | Odroid XU3   | Working       | Working | Cross working as of [28 Nov 2015](https://twitter.com/BobSummerwill/status/670585217384628224)
 | Tizen        | -             | Broken  | Working through ABI issues
