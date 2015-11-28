@@ -80,6 +80,23 @@ where they are copied directly into the container.
 
 ![Webthree](https://ipfs.pics/ipfs/QmP1WvYxYykanu5J5SjqYv2eJr474wdAZ7w8ctitZS7ivn)
 
+# Platform status
+
+| Platform     | Native        | Cross   | Notes |
+| -------------|---------------|---------|-------|
+| Wandboard    | Working       | Working | Cross working as of [28 Nov 2015](https://twitter.com/BobSummerwill/status/670573142914519040)
+| Odroid XU3   | Working       | Working | Cross working as of [28 Nov 2015](https://twitter.com/BobSummerwill/status/670585217384628224)
+| Tizen        | -             | Broken  | Working through ABI issues
+| Sailfish     | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | Broken | Working through ABI issues
+| Ubuntu Phone | TODO          | TODO    | Anthony struggling with device |
+| Raspberry Pi | Working       | TODO    |
+| Beagleboard  | Working       | TODO    |
+| Intel Edison | Working       | TODO    |
+| Odroid XU4   | TODO          | TODO    |
+| Intel NUC    | TODO          | TODO    |
+| Android      | -             | TODO    |
+| iOS          | -             | TODO    |
+
 # Limitations
 
 At the time of writing, this cross-compilation process only supports
