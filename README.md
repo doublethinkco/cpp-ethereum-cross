@@ -78,7 +78,7 @@ where they are copied directly into the container.
 
 # Dependency graph for the webthree components
 
-![Webthree](https://ipfs.pics/ipfs/QmPoeqadSbjshYZeibtTgdkXAXCyvCtsrejSe8xY2hSure)
+![Webthree](https://ipfs.pics/ipfs/QmP1WvYxYykanu5J5SjqYv2eJr474wdAZ7w8ctitZS7ivn)
 
 # Limitations
 
