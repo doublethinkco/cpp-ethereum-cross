@@ -84,33 +84,18 @@ where they are copied directly into the container.
 
 At the time of writing, this cross-compilation process only supports
 the building of ARM binaries, and specifically 'armel' binaries for
-armv7 and software floating-point ABI.  These binaries are very
-generic and should work on many, many devices.  We will look at other
-ARM ABIs and at x86/x64 support later.
+armv5 and software floating-point ABI.  These binaries are very
+generic and should work on many, many devices.   We are adding support
+for other ABIs right now:
 
-* Tizen OS
-* Sailfish OS
-* Ubuntu Phone
-* Android
-* iOS
+    * [Generalize cross-build scripts to support armhf as well as armel](https://github.com/doublethinkco/webthree-umbrella-cross/issues/10)
+    * [Generalize cross-build scripts to support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
 
-See https://github.com/doublethinkco/webthree-umbrella-cross/issues/10
-
-boot2docker on Mac does not "just work" when installed.  Here are the
-commands you will inevitably forget whenever you reboot or start a new
-terminal session:
+BEWARE - boot2docker on OSX does not "just work" when installed.
+Here are the commands you will inevitably forget whenever you reboot
+or start a new terminal session:
 
 http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
 
-# High priority issues
-
-* Infrastructure
-    * [Generalize cross-build scripts to support armhf, i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/10)
-* Platforms
-    * [Get to a working eth binary for Sailfish](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
-    * [Get to a working eth binary for Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
-    * [Get to a working eth binary for Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)
-    * [Get to a working eth binary for Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
-    * [Get to a working eth binary for iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
 
 Copyright (c) 2015 Kitsilano Software Inc
