@@ -44,7 +44,7 @@ build-essential=11.6ubuntu6 \
 RUN useradd -ms /bin/bash xcompiler
 USER xcompiler
 
-# Copy our cross-building script into the container
+# Copy our cross-building scripts into the container
 ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
 
 # Build the cross-compiler
