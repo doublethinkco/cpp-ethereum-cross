@@ -33,18 +33,21 @@ RUN apt-get install -y \
   unzip=6.0-9ubuntu1.5 \
    wget=1.15-1ubuntu1.14.04.1
 
-# Switch to a normal user account.  crosstool-ng refuses to run as root.
+# Switch to a normal user account.
 RUN useradd -ms /bin/bash xcompiler
 USER xcompiler
 
-# Clone the sandbox repo into the docker container, including sub-modules
+# Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/xcompiler
-RUN git clone --recursive https://github.com/doublethinkco/webthree-umbrella.git
+RUN git clone --recursive https://github.com/ethereum/webthree-umbrella.git
 
 # wget, untar and unzip the prebuilt cross-compiler.  Ignore non-zero return
 # code error caused by HTTPS re-direct to CDN.
 RUN wget ‐‐output-document=x-tools.tar.gz https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/0.0.2/x-tools.tar.gz; exit 0
 RUN tar xvfz x-tools.tar.gz
+
+# Copy our cross-building scripts into the container
+ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
 
 # Use that cross-compiler to build the ARM executable
 WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ethereum
