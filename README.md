@@ -83,8 +83,8 @@ where they are copied directly into the container.
 # Platform status
 
 
-| Form factor     | Vendor                  | Device                | OS             | SoC | Native | Cross | Notes |
-| ----------------|:-----------------------:|:---------------------:|:--------------:|-|---------|---------|----------------------------
+| Form factor      | Vendor                  | Device                | OS             | SoC | Native    | Cross     | Notes |
+| ---------------- |:-----------------------:|:---------------------:|:--------------:| --- | --------- | --------- | ----------------------------
 | Smartwatch      | Samsung                 | Gear S2               | Tizen 2.3.1    | |         | Broken  | Working through ABI issues | 
 | Smartwatch      | Apple                   | Apple Watch Sport     | watchOS 1.0    | |         | TODO    | |
 
