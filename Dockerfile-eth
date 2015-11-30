@@ -33,6 +33,15 @@ RUN apt-get install -y \
   unzip=6.0-9ubuntu1.5 \
    wget=1.15-1ubuntu1.14.04.1
 
+# Install the official armel and armhf cross-compiler packages.
+# It might be possible to use these rather than building our own toolchain
+# with crosstool-NG while we're just aiming to build generic ARM binaries
+# which can be used on a broad range of devices.   As-and-when we start
+# cross-building device-specific binaries, we're probably going to want to
+# either build our own custom toolchains using crosstool-NG, or to use
+# cross-build tools provided officially with the platforms themselves.
+RUN apt-get install -y g++-arm-linux-gnueabi g++-arm-linux-gnueabihf
+
 # Switch to a normal user account.
 RUN useradd -ms /bin/bash xcompiler
 USER xcompiler
@@ -45,15 +54,6 @@ RUN git clone --recursive https://github.com/ethereum/webthree-umbrella.git
 # code error caused by HTTPS re-direct to CDN.
 RUN wget ‐‐output-document=x-tools.tar.gz https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/0.0.2/x-tools.tar.gz; exit 0
 RUN tar xvfz x-tools.tar.gz
-
-# Install the official armel and armhf cross-compiler packages.
-# It might be possible to use these rather than building our own toolchain
-# with crosstool-NG while we're just aiming to build generic ARM binaries
-# which can be used on a broad range of devices.   As-and-when we start
-# cross-building device-specific binaries, we're probably going to want to
-# either build our own custom toolchains using crosstool-NG, or to use
-# cross-build tools provided officially with the platforms themselves.
-RUN apt-get install -y g++-arm-linux-gnueabi g++-arm-linux-gnueabihf
 
 # Copy our cross-building scripts into the container
 ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
