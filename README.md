@@ -82,39 +82,21 @@ where they are copied directly into the container.
 
 # Platform status
 
-| Form factor     | Vendor                  | Device                | OS             | SoC | Native | Cross | Notes |
-| ----------------|:-----------------------:|:---------------------:|:--------------:|-|---------|---------|----------------------------|
-| Smartwatch      | Samsung                 | Gear S2               | Tizen 2.3.1    | |         | Broken  | Working through ABI issues | 
-| Smartwatch      | Apple                   | Apple Watch Sport     | watchOS 1.0    | |         | TODO    | |
-| Smartphone      | Samsung                 | Samsung Z1            | Tizen 2.3.0    | |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20) | Working through ABI issues |
-| Smartphone      | Samsung                 | Samsung Z3            | Tizen 2.4.0    | |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues |
-| Smartphone      | LG                      | Nexus 5               | Sailfish 2.0   | | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues |
-| Smartphone      | Jolla                   | Jolla Phone           | Sailfish 2.0   | | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues |
-| Smartphone      | Intex                   | Aquafish              | Sailfish 2.0   | | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Due for release in Q1 2016 |
-| Smartphone      | Meizu                   | MX4 Ubuntu Edition    | Ubuntu Touch   | | TODO    | TODO    | Anthony struggling with device setup |
-| Smartphone      | Samsung                 | Galaxy S3             | Android        | |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) | |
-| Smartphone      | Samsung                 | Galaxy S4             | Android        | |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) | |
-| Smartphone      | Samsung                 | Galaxy S6             | Android        | |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |  |
-| Smartphone      | Apple                   | iPhone 3GS            | iOS 5          | |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)    | |
-| Smartphone      | Apple                   | iPhone 5              | iOS 5          | |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)    | |
-| Developer phone | Samsung                 | RD-210                | Tizen 2.2.0    | |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues |
-| Developer phone | Samsung                 | RD-PQ                 | Tizen 2.3.0    | |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues |
-| Developer phone | Samsung                 | TM1                   | Tizen 2.4.0    | |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues |
-| Tablet          | Jolla                   | Jolla Tablet          | SailfishOS 2.0 | | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | Broken | Working through ABI issues |
-| Tablet          | Asus                    | Nexus 7               | Android        | |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) | |
-| Tablet          | Samsung                 | Galaxy Tab S          | Android        | |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) | |
-| Tablet          | Apple                   | iPad 3                | iOS            | |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36) | |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Model A  | Debian         | | TODO    | TODO    | |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Model B+ | Debian         | | Working | TODO    | |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi 2        | Debian         | | Working | Working | |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Zero     | Debian         | | TODO    | Working | |
-| SBC             | Odroid                  | Odroid XU3            |                | | Working | [Working](https://twitter.com/BobSummerwill/status/670585217384628224) | |
-| SBC             | Odroid                  | Odroid XU4            |                | | TODO    | TODO    | |
-| SBC             | Beagleboard             | Beagleboard Black     |                | | Working | TODO    | |
-| SBC             | Wandboard               | Wandboard             |                | | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040) | |
-| SBC             | C.H.I.P.                | C.H.I.P.              |                | | TODO    | TODO    | |
-| SBC             | Intel                   | Intel NUC             |                | | TODO    | TODO    | |
-| SBC             | Intel                   | Intel Edison          |                | | Working | TODO    | |
+| Platform     | Native        | Cross   | Notes |
+| -------------|:-------------:|:-------:|-------|
+| Wandboard    | Working       | Working | Cross working as of [28 Nov 2015](https://twitter.com/BobSummerwill/status/670573142914519040)
+| Odroid XU3   | Working       | Working | Cross working as of [28 Nov 2015](https://twitter.com/BobSummerwill/status/670585217384628224)
+| Tizen        | -             | Broken  | Working through ABI issues
+| Sailfish     | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | Broken | Working through ABI issues
+| Ubuntu Phone | TODO          | TODO    | Anthony struggling with device |
+| Raspberry Pi | Working       | TODO    |
+| Beagleboard  | Working       | TODO    |
+| Intel Edison | Working       | TODO    |
+| C.H.I.P.     | TODO          | TODO    |
+| Odroid XU4   | TODO          | TODO    |
+| Intel NUC    | TODO          | TODO    |
+| Android      | -             | TODO    |
+| iOS          | -             | TODO    |
 
 # Limitations
 
