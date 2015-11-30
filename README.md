@@ -115,8 +115,8 @@ where they are copied directly into the container.
 | SBC             | Wandboard               | Wandboard             |                | Freescale i.MX6 | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040) |
 | SBC             | C.H.I.P.                | C.H.I.P.              |                | Allwinner R8 | TODO    | [Broken #40](https://github.com/doublethinkco/webthree-umbrella-cross/issues/40) |
 | SBC             | Intel                   | Intel NUC DCP847SKE   |                | Intel QS77 | TODO    | TODO    |
-| SBC             | Intel                   | Intel Galileo         |                | Intel "Tangier" Quark X1000 | Working | TODO    |
-| SBC             | Intel                   | Intel Edison          |                | Intel "Tangier" Z34XX | TODO | TODO    |
+| SBC             | Intel                   | Intel Galileo         |                | Intel "Tangier" Quark X1000 | TODO | TODO    |
+| SBC             | Intel                   | Intel Edison          |                | Intel "Tangier" Z34XX | Working | TODO    |
 | SBC             | Intel                   | Intel Curie           |                | Intel Quark SE | TODO | TODO    |
 
 # Limitations
