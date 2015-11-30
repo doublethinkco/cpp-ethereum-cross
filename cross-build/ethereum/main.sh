@@ -2,11 +2,10 @@
 #
 # @author: Anthony Cros
 # 
-# usage: ./main.sh /path/to/cross/compiler [%y%m%d%H%M%S-like timestamp]
+# usage: ./main.sh /path/to/cross/compiler
 #
 # notes:
 # - if you don't have one yet, run xcompiler.sh to create a cross-compiler first (sole mandatory argument of the script)
-# - you can optionally pass a timestamp (acts as unique identifier) to re-use, mostly to avoid re-downloading (workspace is then expected to be manually cleaned up)
 # - miniupnpc is currently broken
 #
 # TODO:
@@ -30,10 +29,7 @@ if [ ! -f "./setup.sh" ]; then echo "ERROR: wrong pwd"; exit 1; fi
 # ===========================================================================
 CROSS_COMPILER_ROOT_DIR="${1?}" && shift # e.g. "/home/tony/x-tools/arm-unknown-linux-gnueabi"
 
-TIMESTAMP=$1
-TIMESTAMP=${TIMESTAMP:=$(date '+%y%m%d%H%M%S')}
-
-source ./setup.sh "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
+source ./setup.sh "${CROSS_COMPILER_ROOT_DIR?}"
 
 # ===========================================================================
 
@@ -53,8 +49,7 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 # downloads
 ./download.sh \
   "${CMAKE?}:${JSONCPP?}:${BOOST?}:${LEVELDB?}:${CRYPTOPP?}:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}" \
-  "${CROSS_COMPILER_ROOT_DIR?}" \
-  "${TIMESTAMP?}"
+  "${CROSS_COMPILER_ROOT_DIR?}"
 
 # ===========================================================================
 # cmake:
@@ -68,18 +63,18 @@ echo && tree -L 1 ${BASE_DIR?} && \
 export_cross_compiler
 sanity_check_cross_compiler
 
-./boost.sh     "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
-./jsoncpp.sh   "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
-./leveldb.sh   "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
-./cryptopp.sh  "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
-./gmp.sh       "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
+./boost.sh     "${CROSS_COMPILER_ROOT_DIR?}"
+./jsoncpp.sh   "${CROSS_COMPILER_ROOT_DIR?}"
+./leveldb.sh   "${CROSS_COMPILER_ROOT_DIR?}"
+./cryptopp.sh  "${CROSS_COMPILER_ROOT_DIR?}"
+./gmp.sh       "${CROSS_COMPILER_ROOT_DIR?}"
 
-./curl.sh            "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
-./mhd.sh             "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}" #cp -r ~/eth/151103215114/installs/libmicrohttpd ~/eth/${TIMESTAMP?}/installs/
-./libjson-rpc-cpp.sh "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}" # needs both curl and mhd
+./curl.sh            "${CROSS_COMPILER_ROOT_DIR?}"
+./mhd.sh             "${CROSS_COMPILER_ROOT_DIR?}"
+./libjson-rpc-cpp.sh "${CROSS_COMPILER_ROOT_DIR?}" # needs both curl and mhd
 
-./libscrypt.sh "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
-./secp256k1.sh "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
+./libscrypt.sh "${CROSS_COMPILER_ROOT_DIR?}"
+./secp256k1.sh "${CROSS_COMPILER_ROOT_DIR?}"
 
 # ---------------------------------------------------------------------------
 # webthree-helpers hack (for libethereum):
@@ -92,7 +87,7 @@ generic_hack \
   '!/Miniupnpc/'
 
 # ---------------------------------------------------------------------------
-./libweb3core.sh "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}"
+./libweb3core.sh "${CROSS_COMPILER_ROOT_DIR?}"
 
 
 # ===========================================================================
@@ -100,7 +95,7 @@ generic_hack \
 export_cross_compiler
 sanity_check_cross_compiler
 
-./libethereum.sh "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}" # requires libweb3core
+./libethereum.sh "${CROSS_COMPILER_ROOT_DIR?}" # requires libweb3core
 
 
 # ===========================================================================
@@ -108,7 +103,7 @@ sanity_check_cross_compiler
 export_cross_compiler
 sanity_check_cross_compiler
 
-./webthree.sh "${CROSS_COMPILER_ROOT_DIR?}" "${TIMESTAMP?}" # requires libweb3core and libethereum
+./webthree.sh "${CROSS_COMPILER_ROOT_DIR?}" # requires libweb3core and libethereum
 
 
 # ===========================================================================
@@ -120,7 +115,6 @@ tree -L 4 ${WEBTHREE_INSTALL_DIR?}
 # ===========================================================================
 # produces a packaged-up file (will spit out instructions on how to use it)
 ./package.sh \
-  ${TIMESTAMP?} \
   ${INSTALLS_DIR?} \
   ${WEBTHREE_INSTALL_DIR?}/usr/local/bin
 

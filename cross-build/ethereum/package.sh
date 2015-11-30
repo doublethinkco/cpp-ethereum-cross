@@ -5,11 +5,10 @@
 # ===========================================================================
 set -e
 
-TIMESTAMP=${1?} && shift
 INSTALL_DIR=${1?} && shift
 WEBTHREE_BIN_DIR=${1?} && shift
 
-RESULT_FILE_NAME="eth.${TIMESTAMP?}.tgz"
+RESULT_FILE_NAME="eth.tgz"
 
 TMP_DIR=$(mktemp -d)
 mkdir ${TMP_DIR?}/eth

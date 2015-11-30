@@ -13,14 +13,13 @@ readonly INITIAL_DIR=${PWD?}
 # ===========================================================================
 
 readonly CROSS_COMPILER_ROOT_DIR=${1?}
-readonly TIMESTAMP=${2?}
  
 # ===========================================================================
 readonly ORIGIN_ARCHITECTURE="x86_64"
 readonly TARGET_ARCHITECTURE="arm"
 
 # ===========================================================================
-readonly                BASE_DIR="${HOME?}/eth/${TIMESTAMP?}"
+readonly                BASE_DIR="${HOME?}/eth"
 
 readonly             SOURCES_DIR="${BASE_DIR?}/src"
 readonly                WORK_DIR="${BASE_DIR?}/wd"
