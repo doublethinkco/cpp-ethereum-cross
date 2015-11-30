@@ -113,7 +113,7 @@ where they are copied directly into the container.
 | SBC             | Odroid                  | Odroid XU4            |                | | TODO    | TODO    |
 | SBC             | Beagleboard             | Beagleboard Black     |                | | Working | TODO    |
 | SBC             | Wandboard               | Wandboard             |                | | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040) |
-| SBC             | C.H.I.P.                | C.H.I.P.              |                | | TODO    | TODO    |
+| SBC             | C.H.I.P.                | C.H.I.P.              |                | | TODO    | [Broken #40](https://github.com/doublethinkco/webthree-umbrella-cross/issues/40) |
 | SBC             | Intel                   | Intel NUC             |                | | TODO    | TODO    |
 | SBC             | Intel                   | Intel Edison          |                | | Working | TODO    |
 
