@@ -107,8 +107,8 @@ where they are copied directly into the container.
 | Tablet          | Apple                   | iPad 3                | iOS            | |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36) |
 | SBC             | Raspberry Pi Foundation | Raspberry Pi Model A  | Debian         | | TODO    | TODO    |
 | SBC             | Raspberry Pi Foundation | Raspberry Pi Model B+ | Debian         | | Working | TODO    |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi 2        | Debian         | | Working | Working |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Zero     | Debian         | | TODO    | Working |
+| SBC             | Raspberry Pi Foundation | Raspberry Pi 2        | Debian         | | Working | [Working](https://twitter.com/EthEmbedded/status/670628642125438977) |
+| SBC             | Raspberry Pi Foundation | Raspberry Pi Zero     | Debian         | | TODO    | [Working](https://twitter.com/vgrade/status/670677685622939649) |
 | SBC             | Odroid                  | Odroid XU3            |                | | Working | [Working](https://twitter.com/BobSummerwill/status/670585217384628224) |
 | SBC             | Odroid                  | Odroid XU4            |                | | TODO    | TODO    |
 | SBC             | Beagleboard             | Beagleboard Black     |                | | Working | TODO    |
