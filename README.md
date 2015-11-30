@@ -84,7 +84,7 @@ where they are copied directly into the container.
 
 
 | Form factor     | Vendor                  | Device                | OS                | ABI     | SoC                        | Native  | Cross | Notes |
-| --------------- |:-----------------------:|:---------------------:|:-----------------:| --------| -------------------------- | ------- | ----------------------------
+| --------------- |:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------:|:-----:| ----- |
 | Smartwatch      | Samsung                 | Gear S2               | Tizen 2.3.1       | armv7   | Qualcomm MSM8x26           |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
 | Smartwatch      | Apple                   | Apple Watch Sport     | watchOS 1.0       | armv7k  | Apple S1                   |         | [TODO #41](https://github.com/doublethinkco/webthree-umbrella-cross/issues/41)
 | Smartphone      | Samsung                 | Samsung Z1            | Tizen 2.3.0       | armv7   | Spreadtrum SC7727S         |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20) | Working through ABI issues
