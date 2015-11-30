@@ -24,8 +24,8 @@ and
 to bring Ethereum to mobile/wearable Linux platforms for the benefit
 of the whole Ethereum community, current and future.
 
-It is released as free software under the
-[GPLv2 license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE.txt).
+It is released as open source software under the
+[MIT license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE).
 
 See [Porting Ethereum to Mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
 blog for an overview of our efforts.
