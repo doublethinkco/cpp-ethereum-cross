@@ -93,26 +93,26 @@ where they are copied directly into the container.
 | Smartphone      | Jolla                   | Jolla Phone           | Sailfish 2.0   | Qualcomm Snapdragon 400 | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
 | Smartphone      | Intex                   | Aquafish              | Sailfish 2.0   | | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Due for release in Q1 2016
 | Smartphone      | Meizu                   | MX4 Ubuntu Edition    | Ubuntu Touch   | MediaTek MT6595 | TODO    | [TODO #3](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)    | Anthony struggling with device setup
-| Smartphone      | Samsung                 | Galaxy S3             | Android        | Exynos 4412 Quad |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |
-| Smartphone      | Samsung                 | Galaxy S4             | Android        | Exynos 5 Octa 5410 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |
-| Smartphone      | Samsung                 | Galaxy S6             | Android        | Exynos 7420 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) | 
+| Smartphone      | Samsung                 | Galaxy S3             | Android 4.3    | Exynos 4412 Quad |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |
+| Smartphone      | Samsung                 | Galaxy S4             | Android 4.4    | Exynos 5 Octa 5410 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |
+| Smartphone      | Samsung                 | Galaxy S6             | Android 5.0.2  | Exynos 7420 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) | 
 | Smartphone      | Apple                   | iPhone 3GS            | iOS 3          | Samsung S5PC100 |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)    |
-| Smartphone      | Apple                   | iPhone 5              | iOS 5          | Apple A6 |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)    |
+| Smartphone      | Apple                   | iPhone 5              | iOS 6          | Apple A6 |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)    |
 | Developer phone | Samsung                 | RD-210                | Tizen 2.2.0    | Exynos 4210 |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
 | Developer phone | Samsung                 | RD-PQ                 | Tizen 2.3.0    | Exynos 4412 Quad |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
 | Developer phone | Samsung                 | TM1                   | Tizen 2.4.0    | Spreadtrum SC7730SI |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
 | Tablet          | Jolla                   | Jolla Tablet          | SailfishOS 2.0 | Intel Atom Z3735F | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
-| Tablet          | Asus                    | Nexus 7               | Android        | Nvidia Tegra 3 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |
-| Tablet          | Samsung                 | Galaxy Tab S 10.5     | Android        | Exynos 5 Octa 5420 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |
-| Tablet          | Apple                   | iPad Air 2            | iOS            | Apple A8X |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36) |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Model A  | Debian         | Broadcom BCM2835 | TODO    | TODO    |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Model B+ | Debian         | Broadcom BCM2835 | Working | TODO    |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Zero     | Debian         | Broadcom BCM2835 | TODO    | [Working](https://twitter.com/vgrade/status/670677685622939649) |
-| SBC             | Raspberry Pi Foundation | Raspberry Pi 2        | Debian         | Broadcom BCM2836 | Working | [Working](https://twitter.com/EthEmbedded/status/670628642125438977) |
-| SBC             | Odroid                  | Odroid XU3            |                | Exynos 5422 | Working | [Working](https://twitter.com/BobSummerwill/status/670585217384628224) |
+| Tablet          | Asus                    | Nexus 7               | Android 5.1.1  | Nvidia Tegra 3 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |
+| Tablet          | Samsung                 | Galaxy Tab S 10.5     | Android 5.0.2  | Exynos 5 Octa 5420 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35) |
+| Tablet          | Apple                   | iPad Air 2            | iOS 8.1        | Apple A8X |         | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36) |
+| SBC             | Raspberry Pi Foundation | Raspberry Pi Model A  | Raspbian       | Broadcom BCM2835 | TODO    | TODO    |
+| SBC             | Raspberry Pi Foundation | Raspberry Pi Model B+ | Raspbian       | Broadcom BCM2835 | Working | TODO    |
+| SBC             | Raspberry Pi Foundation | Raspberry Pi Zero     | Raspbian       | Broadcom BCM2835 | TODO    | [Working](https://twitter.com/vgrade/status/670677685622939649) |
+| SBC             | Raspberry Pi Foundation | Raspberry Pi 2        | Raspbian       | Broadcom BCM2836 | Working | [Working](https://twitter.com/EthEmbedded/status/670628642125438977) |
+| SBC             | Odroid                  | Odroid XU3            | Ubuntu 15.04 MATE | Exynos 5422 | Working | [Working](https://twitter.com/BobSummerwill/status/670585217384628224) |
 | SBC             | Odroid                  | Odroid XU4            |                | Exynos 5422 | TODO    | TODO    |
-| SBC             | Beaglebone              | Beaglebone Black      |                | TI AM3358/9 | Working | TODO    |
-| SBC             | Wandboard               | Wandboard             |                | Freescale i.MX6 | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040) |
+| SBC             | Beaglebone              | Beaglebone Black      | Debian         | TI AM3358/9 | Working | TODO    |
+| SBC             | Wandboard               | Wandboard             | Ubuntu 14.04   | Freescale i.MX6 | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040) |
 | SBC             | C.H.I.P.                | C.H.I.P.              |                | Allwinner R8 | TODO    | [Broken #40](https://github.com/doublethinkco/webthree-umbrella-cross/issues/40) |
 | SBC             | Intel                   | Intel NUC DCP847SKE   |                | Intel QS77 | TODO    | TODO    |
 | SBC             | Intel                   | Intel Galileo         |                | Intel Quark X1000 | TODO | TODO    |
