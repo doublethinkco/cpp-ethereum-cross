@@ -84,20 +84,20 @@ where they are copied directly into the container.
 
 | Form factor     | Vendor                  | Device                | OS                | ABI     | SoC                        | Core          | Native  | Cross | Notes |
 | --------------- |:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------------:|:-------:|:-----:| ----- |
-| Smartwatch      | Samsung                 | Gear S2               | Tizen 2.3.1       | armv7   | Qualcomm MSM8x26           | 2 x Cortex-A7 |        | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
-| Smartwatch      | Apple                   | Apple Watch Sport     | watchOS 2.0       | armv7k  | Apple S1                   | 1 x ARM-v7k   | [TODO #41](https://github.com/doublethinkco/webthree-umbrella-cross/issues/41)
+| Smartwatch      | Samsung                 | Gear S2               | Tizen 2.3.1       | armv7   | Qualcomm MSM8x26           | 2 x Cortex-A7 |         | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
+| Smartwatch      | Apple                   | Apple Watch Sport     | watchOS 2.0       | armv7k  | Apple S1                   | 1 x ARM-v7k   |         | [TODO #41](https://github.com/doublethinkco/webthree-umbrella-cross/issues/41)
 
 # Smartphone status
 
 | Vendor                  | Device                | OS                | ABI     | SoC                        | Core          | Native  | Cross | Notes |
 |:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------------:|:-------:|:-----:| ----- |
-| Samsung                 | Samsung Z1            | Tizen 2.3.0       | armv7   | Spreadtrum SC7727S         | 2 x Cortex-A7 | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20) | Working through ABI issues
-| Samsung                 | Samsung Z3            | Tizen 2.4.0       | armv7   | Spreadtrum SC7730S         | 4 x Cortex-A7 | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
+| Samsung                 | Samsung Z1            | Tizen 2.3.0       | armv7   | Spreadtrum SC7727S         | 2 x Cortex-A7 | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20) | | Working through ABI issues
+| Samsung                 | Samsung Z3            | Tizen 2.4.0       | armv7   | Spreadtrum SC7730S         | 4 x Cortex-A7 | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20) | | Working through ABI issues
 | LG                      | Nexus 5               | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 800    | 4 x Krait 400 | [Working](https://twitter.com/vgrade/status/671818784055889921) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
 | Jolla                   | Jolla Phone           | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 400    | 2 x Krait 300 | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
 | Intex                   | Aquafish              | Sailfish 2.0      | armv7   | Qualcomm Snapdragon ???    |               | TODO    | TODO | Due for release in Q1 2016
 | Meizu                   | MX4 Ubuntu Edition    | Ubuntu Touch      | armv7   | MediaTek MT6595            | 4 x Cortex-A17, 4 x Cortex-A7 | TODO    | [TODO #3](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)    | WiFi not working
-| Samsung                 | Galaxy S3             | Android 4.3       | armel   | Samsung Exynos 4412 Quad   | 4 x Cortex-A9 | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
+| Samsung                 | Galaxy S3             | Android 4.3       | armel   | Samsung Exynos 4412 Quad   | 4 x Cortex-A9 |        | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
 | Samsung                 | Galaxy S4             | Android 4.4       | armel   | Qualcomm Snapdragon 600    | 4 x Krait 300 |        | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
 | Samsung                 | Galaxy S6             | Android 5.0.2     | aarch64 | Samsung Exynos 7420        | 4 x Cortex-A57, 4 x Cortex-A53 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
 | Apple                   | iPhone 3GS            | iOS 3             | armv7   | Samsung S5PC100            | 1 x Cortex-A8 |        | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
