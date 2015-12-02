@@ -80,43 +80,63 @@ where they are copied directly into the container.
 
 ![Webthree](https://ipfs.pics/ipfs/QmaZfWq6HHsfYFSzXKzRfxhRsEjU6rmf7LueVyE531SLqq)
 
-# Platform status
+# Smartwatch status
 
 | Form factor     | Vendor                  | Device                | OS                | ABI     | SoC                        | Core          | Native  | Cross | Notes |
 | --------------- |:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------------:|:-------:|:-----:| ----- |
 | Smartwatch      | Samsung                 | Gear S2               | Tizen 2.3.1       | armv7   | Qualcomm MSM8x26           | 2 x Cortex-A7 |        | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
 | Smartwatch      | Apple                   | Apple Watch Sport     | watchOS 1.0       | armv7k  | Apple S1                   | 1 x ARM-v7k   | [TODO #41](https://github.com/doublethinkco/webthree-umbrella-cross/issues/41)
-| Smartphone      | Samsung                 | Samsung Z1            | Tizen 2.3.0       | armv7   | Spreadtrum SC7727S         | 2 x Cortex-A7 | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20) | Working through ABI issues
-| Smartphone      | Samsung                 | Samsung Z3            | Tizen 2.4.0       | armv7   | Spreadtrum SC7730S         | 4 x Cortex-A7 | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
-| Smartphone      | LG                      | Nexus 5               | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 800    | 4 x Krait 400 | [Working](https://twitter.com/vgrade/status/671818784055889921) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
-| Smartphone      | Jolla                   | Jolla Phone           | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 400    | 2 x Krait 300 | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
-| Smartphone      | Intex                   | Aquafish              | Sailfish 2.0      | armv7   | Qualcomm Snapdragon ???    |               | TODO    | TODO | Due for release in Q1 2016
-| Smartphone      | Meizu                   | MX4 Ubuntu Edition    | Ubuntu Touch      | armv7   | MediaTek MT6595            | 4 x Cortex-A17, 4 x Cortex-A7 | TODO    | [TODO #3](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)    | WiFi not working
-| Smartphone      | Samsung                 | Galaxy S3             | Android 4.3       | armel   | Samsung Exynos 4412 Quad   | 4 x Cortex-A9 | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
-| Smartphone      | Samsung                 | Galaxy S4             | Android 4.4       | armel   | Qualcomm Snapdragon 600    | 4 x Krait 300 |        | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
-| Smartphone      | Samsung                 | Galaxy S6             | Android 5.0.2     | aarch64 | Samsung Exynos 7420        | 4 x Cortex-A57, 4 x Cortex-A53 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
-| Smartphone      | Apple                   | iPhone 3GS            | iOS 3             | armv7   | Samsung S5PC100            | 1 x Cortex-A8 |        | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
-| Smartphone      | Apple                   | iPhone 5              | iOS 6             | armv7   | Apple A6                   | 2 x ARMv7A    |        | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
-| Developer phone | Samsung                 | RD-210                | Tizen 2.2.0       | armv7   | Samsung Exynos 4210        | 2 x Cortex-A9 |        | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
-| Developer phone | Samsung                 | RD-PQ                 | Tizen 2.3.0       | armv7   | Samsung Exynos 4412 Quad   | 4 x Cortex-A9 |        | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
-| Developer phone | Samsung                 | TM1                   | Tizen 2.4.0       | armv7   | Spreadtrum SC7730S         | 4 x Cortex-A7 |        | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
-| Tablet          | Jolla                   | Jolla Tablet          | SailfishOS 2.0    | x86_64  | Intel Atom Z3735F          | 4 x Atom      | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
-| Tablet          | Asus                    | Nexus 7               | Android 5.1.1     | armel   | Nvidia Tegra 3             | 4+1 x Cortex-A9 |        | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
-| Tablet          | Samsung                 | Galaxy Tab S 10.5     | Android 5.0.2     | armel   | Samsung Exynos 5 Octa 5420 | 4 x Cortex-A15, 4 x Cortex-A7 |        | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
-| Tablet          | Apple                   | iPad Air 2            | iOS 8.1           | aarch64 | Apple A8X                  | 3 x ARMv8-A   |       | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Model A  | Raspbian          | armv6   | Broadcom BCM2835           | 1 x ARMv6     | TODO    | TODO
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Model B+ | Raspbian          | armv6   | Broadcom BCM2835           | 1 x ARMv6     | Working | TODO
-| SBC             | Raspberry Pi Foundation | Raspberry Pi Zero     | Raspbian          | armv6   | Broadcom BCM2835           | 1 x ARMv6     | TODO    | [Working](https://twitter.com/vgrade/status/670677685622939649)
-| SBC             | Raspberry Pi Foundation | Raspberry Pi 2        | Raspbian          | armv7   | Broadcom BCM2836           | 4 x Cortex-A7 | Working | [Working](https://twitter.com/EthEmbedded/status/670628642125438977)
-| SBC             | Odroid                  | Odroid XU3            | Ubuntu 15.04 MATE | armv7   | Samsung Exynos 5422        | 4 x Cortex-A15, 4 x Cortex-A7 | Working | [Working](https://twitter.com/BobSummerwill/status/670585217384628224)
-| SBC             | Odroid                  | Odroid XU4            | Tizen 3.x         | armv7   | Samsung Exynos 5422        | 4 x Cortex-A15, 4 x Cortex-A7 | TODO    | TODO
-| SBC             | Beaglebone              | Beaglebone Black      | Debian            | armv7   | Texas Instruments AM3358/9 | 1 x Cortex-A8 | Working | Working
-| SBC             | Wandboard               | Wandboard Quad        | Debian            | armv7   | Freescale i.MX6            | 4 x Cortex-A9 | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040)
-| SBC             | C.H.I.P.                | C.H.I.P.              |                   | armv7   | Allwinner R8               | 1 x Cortex-A8 | TODO    | [Broken #40](https://github.com/doublethinkco/webthree-umbrella-cross/issues/40)
-| SBC             | Intel                   | Intel NUC DCP847SKE   |                   | i386    | Intel QS77 Express         |               | TODO    | TODO
-| SBC             | Intel                   | Intel Galileo         |                   | i386    | Intel Quark X1000          |               | TODO    | TODO
-| SBC             | Intel                   | Intel Edison          | Yocto             | x86_64  | Intel "Tangier" Z34XX      |               | Working | TODO
-| SBC             | Intel                   | Intel Curie           |                   | i386    | Intel Quark SE             |               | TODO    | TODO
+
+# Smartphone status
+
+| Vendor                  | Device                | OS                | ABI     | SoC                        | Core          | Native  | Cross | Notes |
+|:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------------:|:-------:|:-----:| ----- |
+| Samsung                 | Samsung Z1            | Tizen 2.3.0       | armv7   | Spreadtrum SC7727S         | 2 x Cortex-A7 | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20) | Working through ABI issues
+| Samsung                 | Samsung Z3            | Tizen 2.4.0       | armv7   | Spreadtrum SC7730S         | 4 x Cortex-A7 | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
+| LG                      | Nexus 5               | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 800    | 4 x Krait 400 | [Working](https://twitter.com/vgrade/status/671818784055889921) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
+| Jolla                   | Jolla Phone           | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 400    | 2 x Krait 300 | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
+| Intex                   | Aquafish              | Sailfish 2.0      | armv7   | Qualcomm Snapdragon ???    |               | TODO    | TODO | Due for release in Q1 2016
+| Meizu                   | MX4 Ubuntu Edition    | Ubuntu Touch      | armv7   | MediaTek MT6595            | 4 x Cortex-A17, 4 x Cortex-A7 | TODO    | [TODO #3](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)    | WiFi not working
+| Samsung                 | Galaxy S3             | Android 4.3       | armel   | Samsung Exynos 4412 Quad   | 4 x Cortex-A9 | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
+| Samsung                 | Galaxy S4             | Android 4.4       | armel   | Qualcomm Snapdragon 600    | 4 x Krait 300 |        | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
+| Samsung                 | Galaxy S6             | Android 5.0.2     | aarch64 | Samsung Exynos 7420        | 4 x Cortex-A57, 4 x Cortex-A53 |         | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
+| Apple                   | iPhone 3GS            | iOS 3             | armv7   | Samsung S5PC100            | 1 x Cortex-A8 |        | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
+| Apple                   | iPhone 5              | iOS 6             | armv7   | Apple A6                   | 2 x ARMv7A    |        | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
+
+# Developer phone status
+
+| Vendor                  | Device                | OS                | ABI     | SoC                        | Core          | Native  | Cross | Notes |
+|:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------------:|:-------:|:-----:| ----- |
+| Samsung                 | RD-210                | Tizen 2.2.0       | armv7   | Samsung Exynos 4210        | 2 x Cortex-A9 |        | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
+| Samsung                 | RD-PQ                 | Tizen 2.3.0       | armv7   | Samsung Exynos 4412 Quad   | 4 x Cortex-A9 |        | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
+| Samsung                 | TM1                   | Tizen 2.4.0       | armv7   | Spreadtrum SC7730S         | 4 x Cortex-A7 |        | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)  | Working through ABI issues
+
+# Tablet status
+
+| Vendor                  | Device                | OS                | ABI     | SoC                        | Core          | Native  | Cross | Notes |
+|:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------------:|:-------:|:-----:| ----- |
+| Jolla                   | Jolla Tablet          | SailfishOS 2.0    | x86_64  | Intel Atom Z3735F          | 4 x Atom      | [WIP](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Broken #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21) | Working through ABI issues
+| Asus                    | Nexus 7               | Android 5.1.1     | armel   | Nvidia Tegra 3             | 4+1 x Cortex-A9 |        | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
+| Samsung                 | Galaxy Tab S 10.5     | Android 5.0.2     | armel   | Samsung Exynos 5 Octa 5420 | 4 x Cortex-A15, 4 x Cortex-A7 |        | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
+| Apple                   | iPad Air 2            | iOS 8.1           | aarch64 | Apple A8X                  | 3 x ARMv8-A   |       | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
+
+# SBC (Single Board Computer) status
+
+| Vendor                  | Device                | OS                | ABI     | SoC                        | Core          | Native  | Cross | Notes |
+|:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------------:|:-------:|:-----:| ----- |
+| Raspberry Pi Foundation | Raspberry Pi Model A  | Raspbian          | armv6   | Broadcom BCM2835           | 1 x ARMv6     | TODO    | TODO
+| Raspberry Pi Foundation | Raspberry Pi Model B+ | Raspbian          | armv6   | Broadcom BCM2835           | 1 x ARMv6     | Working | TODO
+| Raspberry Pi Foundation | Raspberry Pi Zero     | Raspbian          | armv6   | Broadcom BCM2835           | 1 x ARMv6     | TODO    | [Working](https://twitter.com/vgrade/status/670677685622939649)
+| Raspberry Pi Foundation | Raspberry Pi 2        | Raspbian          | armv7   | Broadcom BCM2836           | 4 x Cortex-A7 | Working | [Working](https://twitter.com/EthEmbedded/status/670628642125438977)
+| Odroid                  | Odroid XU3            | Ubuntu 15.04 MATE | armv7   | Samsung Exynos 5422        | 4 x Cortex-A15, 4 x Cortex-A7 | Working | [Working](https://twitter.com/BobSummerwill/status/670585217384628224)
+| Odroid                  | Odroid XU4            | Tizen 3.x         | armv7   | Samsung Exynos 5422        | 4 x Cortex-A15, 4 x Cortex-A7 | TODO    | TODO
+| Beaglebone              | Beaglebone Black      | Debian            | armv7   | Texas Instruments AM3358/9 | 1 x Cortex-A8 | Working | Working
+| Wandboard               | Wandboard Quad        | Debian            | armv7   | Freescale i.MX6            | 4 x Cortex-A9 | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040)
+| C.H.I.P.                | C.H.I.P.              |                   | armv7   | Allwinner R8               | 1 x Cortex-A8 | TODO    | [Broken #40](https://github.com/doublethinkco/webthree-umbrella-cross/issues/40)
+| Intel                   | Intel NUC DCP847SKE   |                   | i386    | Intel QS77 Express         |               | TODO    | TODO
+| Intel                   | Intel Galileo         |                   | i386    | Intel Quark X1000          |               | TODO    | TODO
+| Intel                   | Intel Edison          | Yocto             | x86_64  | Intel "Tangier" Z34XX      |               | Working | TODO
+| Intel                   | Intel Curie           |                   | i386    | Intel Quark SE             |               | TODO    | TODO
 
 NOTE - Here is some information on [ARM options in GCC](https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html).
 
