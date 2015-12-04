@@ -5,6 +5,8 @@
 #
 # TARGET_ARCHITECTURE is an environment variable used to parameterize this
 # process.
+# CONFIG_CHANGES is an environment variable used to further customize this
+# process.
 #
 # See http://ethereum.org/ to learn more about Ethereum.
 # See http://doublethink.co/ to learn more about doublethinkco
@@ -17,6 +19,7 @@ MAINTAINER Bob Summerwill <bob@summerwill.net>
 
 # Target architecture for cross-build.  This default corresponds to 'armel'.
 ENV TARGET_ARCHITECTURE "arm-unknown-linux-gnueabi"
+ENV CONFIG_CHANGES      "none"
 
 # So we DO appear to need this, perhaps because the contents in the package
 # repository have changed since the base Dockerfile image was created?
@@ -55,4 +58,4 @@ ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
 
 # Build the cross-compiler
 WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ct-ng
-RUN ./ct-ng.sh ~/ct-ng $TARGET_ARCHITECTURE "1.20.0"
+RUN ./ct-ng.sh ~/ct-ng CONFIG_CHANGES TARGET_ARCHITECTURE "1.20.0"

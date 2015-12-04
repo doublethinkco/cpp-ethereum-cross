@@ -342,3 +342,34 @@ function cd_if_exists() {
 }
 
 # ===========================================================================
+function ct_ng_to_awk_script() {
+  for ENTRY in $(tee | tr ',' '\n'); do # loop through entries and create an awk clause/action for each
+    KEY=$(echo "${ENTRY?}" | cut -d'=' -f1)
+    VAL=$(echo "${ENTRY?}" | cut -d'=' -f2 | sed 's/"/\\"/g') # if quotes are provided, must escape them in awk script
+    if [ -z "${VAL?}" ]; then
+      echo "/ *${KEY?}[= ]/{print \"# ${KEY?} is not set\"; next}" # next so as to only print the replacement
+    else
+      echo "/ *${KEY?}[= ]/{print \"${KEY?}=${VAL?}\"; next}" # next: see above
+    fi  
+  done | tr -d "\n"
+  echo -n "1" # so as to print every other line
+}
+
+# ---------------------------------------------------------------------------
+function ct_ng_quick_cleanup() { # removes empty lines/comments and trims
+  awk '!/^ *$/ && !/^ *#/{sub(/^ */,"");sub(/ *$/,"");print}'
+}
+
+# ---------------------------------------------------------------------------
+function ct_ng_config_hack() {
+  FILE=${1?} && shift
+  CHANGES_FILE=${1?} && shift
+  
+  AWK_SCRIPT=$(cat ${CHANGES_FILE?} | ct_ng_quick_cleanup | cut -d',' -f1 | ct_ng_to_awk_script)
+  echo -e "using:\n\tawk '${AWK_SCRIPT?}' ${FILE?}"
+
+  generic_hack ${FILE?} "${AWK_SCRIPT?}" 
+}
+
+# ===========================================================================
+
