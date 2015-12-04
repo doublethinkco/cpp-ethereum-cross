@@ -3,6 +3,9 @@
 # Ethereum C++ components for mobile Linux platforms such as Tizen, Sailfish
 # and Ubuntu Touch.
 #
+# TARGET_ARCHITECTURE is an environment variable used to parameterize this
+# process.
+#
 # See http://ethereum.org/ to learn more about Ethereum.
 # See http://doublethink.co/ to learn more about doublethinkco
 #
@@ -50,4 +53,4 @@ ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
 
 # Build the cross-compiler
 WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ct-ng
-RUN ./ct-ng.sh ~/ct-ng "arm-unknown-linux-gnueabi" "1.20.0"
+RUN ./ct-ng.sh ~/ct-ng $TARGET_ARCHITECTURE "1.20.0"
