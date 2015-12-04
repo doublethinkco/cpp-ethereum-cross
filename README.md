@@ -93,7 +93,7 @@ where they are copied directly into the container.
 
 # Dependency graph for the webthree components
 
-![Webthree](https://ipfs.pics/ipfs/QmaZfWq6HHsfYFSzXKzRfxhRsEjU6rmf7LueVyE531SLqq)
+![Webthree](dependency_graph.svg)
 
 # Smartwatch status
 
