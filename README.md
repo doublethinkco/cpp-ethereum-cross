@@ -36,23 +36,25 @@ Clone this repo and build and run [Dockerfile-eth](https://github.com/doublethin
 
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
     $ cd webthree-umbrella-cross
-    $ sudo docker build -f Dockerfile-eth .
+    $ sudo docker build -f Dockerfile-eth -t cross-eth .
 
-That generates a Docker *image*, which is not the same as a Docker
-*container*.  Docker *images* are immutable binary images, which are
+That generates a Docker *image* called 'cross-eth', which is not the same as
+a Docker *container*.  Docker *images* are immutable binary images, which are
 analogous to VM snapshots.  Docker *containers* are particular instances
-of those images.  To get an instance of that newly created image running
-you need to do:
+of those images.
 
-    $ sudo docker run -i -t HASH_OF_IMAGE /bin/bash
+To get an instance of that newly created image running you need to do:
 
-In the shell for that container you will see the HASH for the container
-instance.  That container will have a TGZ file in the ~ directory
-which you can copy out to the host machine with the following command
-from another shell instance on your host machine.  Your "docker run"
-*must* still be running for this copy step to work.    If somebody who
-has more Docker experience knows how to streamline this experience,
-please speak up!
+    $ sudo docker run -i -t cross-eth /bin/bash
+
+Which creates an instance of that container and drops you into a BASH shell.
+Within that shell you will see the HASH which has been assigned to that
+particular container instance.   Note it, because you will need it (see
+next step).   In the root of your ~ directory you will see a TGZ file which
+you can copy out to the host machine with the following command from
+another shell instance on your host machine.  Your "docker run" *must*
+still be running for this copy step to work.    If somebody who has more
+Docker experience knows how to streamline this experience, please speak up!
 
     $ sudo docker cp HASH_OF_CONTAINER:/FILENAME.tgz ~/
 
@@ -69,7 +71,7 @@ process, which can be run in a similar manner:
 
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
     $ cd webthree-umbrella-cross
-    $ sudo docker build -f Dockerfile-xcompiler .
+    $ sudo docker build -f Dockerfile-xcompiler -t xcompiler .
 
 The results of a particular run of this process are
 [hard-coded in the Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth#L46)
