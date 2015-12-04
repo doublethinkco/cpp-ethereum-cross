@@ -3,11 +3,6 @@
 # Ethereum C++ components for mobile Linux platforms such as Tizen, Sailfish
 # and Ubuntu Touch.
 #
-# TARGET_ARCHITECTURE is an environment variable used to parameterize this
-# process.
-# CONFIG_CHANGES is an environment variable used to further customize this
-# process.
-#
 # See http://ethereum.org/ to learn more about Ethereum.
 # See http://doublethink.co/ to learn more about doublethinkco
 #
@@ -16,10 +11,6 @@
 
 FROM ubuntu:14.04
 MAINTAINER Bob Summerwill <bob@summerwill.net>
-
-# Target architecture for cross-build.  This default corresponds to 'armel'.
-ENV TARGET_ARCHITECTURE "arm-unknown-linux-gnueabi"
-ENV CONFIG_CHANGES      "none"
 
 # So we DO appear to need this, perhaps because the contents in the package
 # repository have changed since the base Dockerfile image was created?
@@ -36,6 +27,8 @@ RUN apt-get install -y \
    wget=1.15-1ubuntu1.14.04.1
 
 # External packages required by crosstool-ng
+RUN apt-get update
+RUN apt-get install --fix-missing
 RUN apt-get install -y \
        automake=1:1.14.1-2ubuntu1 \
           bison=2:3.0.2.dfsg-2 \
@@ -58,4 +51,3 @@ ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
 
 # Build the cross-compiler
 WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ct-ng
-RUN ./ct-ng.sh ~/ct-ng CONFIG_CHANGES TARGET_ARCHITECTURE "1.20.0"

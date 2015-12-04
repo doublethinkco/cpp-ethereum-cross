@@ -1,2 +1,13 @@
-TARGET_ARCHITECTURE="arm-unknown-linux-gnueabihf" CONFIG_CHANGES="cross-build/ct-ng/conf/wandboard.config" docker build -f Dockerfile-xcompiler -t xcompiler .
+#!/bin/bash
+docker build \
+  -t xcompiler \
+  -f Dockerfile-xcompiler \
+  .
+docker run \
+   -t xcompiler \
+  ./ct-ng.sh \
+    /home/xcompiler/ct-ng \
+    "conf/wandboard.config" \
+    "arm-unknown-linux-gnueabi" \
+    "1.20.0"
 

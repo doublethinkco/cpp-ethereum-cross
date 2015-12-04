@@ -15,6 +15,8 @@ TARGET_ARCHITECTURE=${TARGET_ARCHITECTURE:="arm-unknown-linux-gnueabi"}
 CTNG_VERSION=$2
 CTNG_VERSION=${CTNG_VERSION:="1.20.0"}
 
+readonly DEFAULT_CONFIG_CHANGES_VALUE="none"
+
 # ===========================================================================
 readonly CTNG_DOWNLOAD_URL="http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-${CTNG_VERSION?}.tar.bz2"
 
@@ -28,7 +30,8 @@ readonly CROSS_COMPILER_DIR="$HOME/x-tools/${TARGET_ARCHITECTURE?}" # TODO: how 
 readonly DEPENDENCIES="" #bison flex texinfo gawk automake libtool cvs ncurses-dev gperf" # TODO: re-enable once dependencies are fleshed out
 hash ${DEPENDENCIES?} 2>&- || { echo -e "ERROR: missing one or more dependencies amongst:\n\t${DEPENDENCIES?}"; exit 1; }
 /sbin/ldconfig -p | grep libexpat || { echo "ERROR: libexpat is missing, please run 'sudo apt-get install libexpat1-dev'"; exit 1; }
-[ "${CONFIG_CHANGES?}" == "default" ] || [ -f "${CONFIG_CHANGES?}" ] ||  { echo "ERROR: must provide config file changes or the value \"default\"" exit 1; }
+[ "${CONFIG_CHANGES?}" == "${DEFAULT_CONFIG_CHANGES_VALUE?}" ] || [ -f "${CONFIG_CHANGES?}" ] ||  { echo "ERROR: must provide config changes file or the value \"${DEFAULT_CONFIG_CHANGES_VALUE?}\" ('${CONFIG_CHANGES?}')" exit 1; }
+CONFIG_CHANGES_ABS="${PWD?}/${CONFIG_CHANGES?}"
 
 # ===========================================================================
 # download
@@ -58,23 +61,19 @@ cd ${CTNG_WORK_DIR?}
 ct-ng ${TARGET_ARCHITECTURE?} # configure for architecture
 
 # modify config file to suit the need of a specific architecture
-if [ "${CONFIG_CHANGES?}" != "none" ]; then
+if [ "${CONFIG_CHANGES?}" != "${DEFAULT_CONFIG_CHANGES_VALUE?}" ]; then
   echo "using:"
   echo
-  cat ${CONFIG_CHANGES?}
+  cat ${CONFIG_CHANGES_ABS?}
   echo
 
   ct_ng_config_hack \
     ${CTNG_WORK_DIR?}/.config \
-    ${CONFIG_CHANGES?}
+    ${CONFIG_CHANGES_ABS?}
 fi
 
 # build cross-compiler
 mkdir -p ${LOGS_DIR?}
-
-
-exit
-
 ct-ng build
 
 # ===========================================================================
