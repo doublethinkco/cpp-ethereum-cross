@@ -17,6 +17,7 @@ MAINTAINER Bob Summerwill <bob@summerwill.net>
 # Not 100% sure, but without this we get errors about specific versions
 # not being available in later steps.
 RUN apt-get update
+RUN apt-get upgrade -y
 
 # External packages required by our scripts themselves
 RUN apt-get install -y \
