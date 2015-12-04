@@ -33,11 +33,17 @@ blog for an overview of our efforts.
 # How to use it
 
 Clone this repo and use [Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth)
-to build 'armel' binaries:
+to build 'armel' binaries or 'armhf' binaries:
 
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
     $ cd webthree-umbrella-cross
     $ sudo ./build-armel.sh
+
+or
+
+    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
+    $ cd webthree-umbrella-cross
+    $ sudo ./build-armhf.sh
 
 That generates a Docker *image* called 'cross-eth', which is not the same as
 a Docker *container*.  Docker *images* are immutable binary images, which are
@@ -72,9 +78,15 @@ process, which can be run in a similar manner:
 
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
     $ cd webthree-umbrella-cross
-    $ sudo docker build -f Dockerfile-xcompiler -t xcompiler .
+    $ sudo ./build-xcompiler-armel.sh
 
-The results of a particular run of this process are
+or
+
+    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
+    $ cd webthree-umbrella-cross
+    $ sudo ./build-xcompiler-armhf.sh
+
+The results of a particular run of this process for 'armel' are
 [hard-coded in the Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth#L46)
 where they are copied directly into the container.
 
