@@ -93,7 +93,7 @@ where they are copied directly into the container.
 
 # Dependency graph for the webthree components
 
-![Webthree](https://raw.githubusercontent.com/doublethinkco/webthree-umbrella-cross/master/dependency_graph.svg)
+![Webthree](http://doublethinkco.github.io/webthree-umbrella-cross/images/dependency_graph.svg)
 
 # Smartwatch status
 
