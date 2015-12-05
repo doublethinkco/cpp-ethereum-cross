@@ -49,26 +49,15 @@ RUN apt-get install -y \
 RUN apt-get install -y g++-arm-linux-gnueabi g++-arm-linux-gnueabihf
 
 # Switch to a normal user account.
-RUN useradd -ms /bin/bash xcompiler
-USER xcompiler
+RUN useradd -ms /bin/bash crosseth
+USER crosseth
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
-WORKDIR /home/xcompiler
+WORKDIR /home/crosseth
 RUN git clone --recursive https://github.com/ethereum/webthree-umbrella.git
 
-# wget, untar and unzip the prebuilt cross-compiler.
-# Ignore non-zero return code error caused by HTTPS re-direct to CDN.
-#
-# NB: This prebuilt binary ONLY contains the cross-compiler which we
-# built ourselves for "arm-unknown-linux-gnuabi".  Other ABI targets
-# are going to need further toolchains building or installing.
-#
-RUN wget ‐‐output-document=x-tools.tar.gz https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/0.0.2/x-tools.tar.gz; exit 0
-RUN tar xvfz x-tools.tar.gz
-
 # Copy our cross-building scripts into the container
-ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
+ADD cross-build/ /home/crosseth/webthree-umbrella/cross-build/
 
 # Use that cross-compiler to build the ARM executable
-WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ethereum
-RUN ./main.sh ~/x-tools/$TARGET_ARCHITECTURE
+WORKDIR /home/crosseth/webthree-umbrella/cross-build/ethereum

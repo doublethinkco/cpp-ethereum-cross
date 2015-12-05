@@ -27,9 +27,10 @@ set -e
 if [ ! -f "./setup.sh" ]; then echo "ERROR: wrong pwd"; exit 1; fi
 
 # ===========================================================================
-CROSS_COMPILER_ROOT_DIR="${1?}" && shift # e.g. "/home/tony/x-tools/arm-unknown-linux-gnueabi"
 
-source ./setup.sh "${CROSS_COMPILER_ROOT_DIR?}"
+TARGET_SUBTYPE=${1?} # "armel" or "armhf"
+
+source ./setup.sh "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
 
@@ -49,7 +50,7 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 # downloads
 ./download.sh \
   "${CMAKE?}:${JSONCPP?}:${BOOST?}:${LEVELDB?}:${CRYPTOPP?}:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}" \
-  "${CROSS_COMPILER_ROOT_DIR?}"
+  "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
 # cmake:
@@ -63,18 +64,18 @@ echo && tree -L 1 ${BASE_DIR?} && \
 export_cross_compiler
 sanity_check_cross_compiler
 
-./boost.sh     "${CROSS_COMPILER_ROOT_DIR?}"
-./jsoncpp.sh   "${CROSS_COMPILER_ROOT_DIR?}"
-./leveldb.sh   "${CROSS_COMPILER_ROOT_DIR?}"
-./cryptopp.sh  "${CROSS_COMPILER_ROOT_DIR?}"
-./gmp.sh       "${CROSS_COMPILER_ROOT_DIR?}"
+./boost.sh     "${TARGET_SUBTYPE?}"
+./jsoncpp.sh   "${TARGET_SUBTYPE?}"
+./leveldb.sh   "${TARGET_SUBTYPE?}"
+./cryptopp.sh  "${TARGET_SUBTYPE?}"
+./gmp.sh       "${TARGET_SUBTYPE?}"
 
-./curl.sh            "${CROSS_COMPILER_ROOT_DIR?}"
-./mhd.sh             "${CROSS_COMPILER_ROOT_DIR?}"
-./libjson-rpc-cpp.sh "${CROSS_COMPILER_ROOT_DIR?}" # needs both curl and mhd
+./curl.sh            "${TARGET_SUBTYPE?}"
+./mhd.sh             "${TARGET_SUBTYPE?}"
+./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}" # needs both curl and mhd
 
-./libscrypt.sh "${CROSS_COMPILER_ROOT_DIR?}"
-./secp256k1.sh "${CROSS_COMPILER_ROOT_DIR?}"
+./libscrypt.sh "${TARGET_SUBTYPE?}"
+./secp256k1.sh "${TARGET_SUBTYPE?}"
 
 # ---------------------------------------------------------------------------
 # webthree-helpers hack (for libethereum):
@@ -87,7 +88,7 @@ generic_hack \
   '!/Miniupnpc/'
 
 # ---------------------------------------------------------------------------
-./libweb3core.sh "${CROSS_COMPILER_ROOT_DIR?}"
+./libweb3core.sh "${TARGET_SUBTYPE?}"
 
 
 # ===========================================================================
@@ -95,7 +96,7 @@ generic_hack \
 export_cross_compiler
 sanity_check_cross_compiler
 
-./libethereum.sh "${CROSS_COMPILER_ROOT_DIR?}" # requires libweb3core
+./libethereum.sh "${TARGET_SUBTYPE?}" # requires libweb3core
 
 
 # ===========================================================================
@@ -103,7 +104,7 @@ sanity_check_cross_compiler
 export_cross_compiler
 sanity_check_cross_compiler
 
-./webthree.sh "${CROSS_COMPILER_ROOT_DIR?}" # requires libweb3core and libethereum
+./webthree.sh "${TARGET_SUBTYPE?}" # requires libweb3core and libethereum
 
 
 # ===========================================================================

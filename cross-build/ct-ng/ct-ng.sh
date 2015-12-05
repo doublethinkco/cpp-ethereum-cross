@@ -82,8 +82,8 @@ ls "${CROSS_COMPILER_DIR?}/bin/${TARGET_ARCHITECTURE?}-gcc"
 echo
 tree -L 3 "${CROSS_COMPILER_DIR?}"
 cd $HOME
-tar -zcf $HOME/x-tools.tgz ./x-tools
-ls $HOME/x-tools.tgz
+tar -zcf $HOME/xcompiler.tgz ./x-tools
+ls $HOME/xcompiler.tgz
 
 # ===========================================================================
 
