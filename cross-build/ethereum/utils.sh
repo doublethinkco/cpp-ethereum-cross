@@ -164,7 +164,6 @@ function set_cmake_paths() {
   set_cmake_include_path "${PACKAGES?}"
   check_cmake_paths
   format_cmake_paths
-  export PATH="${CMAKE_INSTALL_DIR?}/usr/local/bin:$PATH"
 }
 
 # ---------------------------------------------------------------------------
