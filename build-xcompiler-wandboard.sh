@@ -7,9 +7,9 @@ docker run \
    -t xcompiler \
   ./ct-ng.sh \
     "/home/xcompiler/ct-ng" \
-    "none" \
+    "conf/wandboard.config" \
     "arm-unknown-linux-gnueabi" \
-    "1.20.0" # "none" is a special value, as opposed to a file path
+    "1.20.0"
 docker cp \
   ${CONTAINER_ID?}:/home/xcompiler/x-tools.tgz \
   ${DEST_DIR?}/

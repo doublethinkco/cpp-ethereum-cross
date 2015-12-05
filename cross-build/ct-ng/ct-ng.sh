@@ -80,7 +80,10 @@ ct-ng build
 
 ls "${CROSS_COMPILER_DIR?}/bin/${TARGET_ARCHITECTURE?}-gcc"
 echo
-tree "${CROSS_COMPILER_DIR?}"
+tree -L 3 "${CROSS_COMPILER_DIR?}"
+cd $HOME
+tar --remove-files -zcf $HOME/x-tools.tgz ./x-tools
+ls $HOME/x-tools.tgz
 
 # ===========================================================================
 
