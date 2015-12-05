@@ -6,197 +6,210 @@
 set -e
 if [ ! -f "./setup.sh" ]; then echo "ERROR: wrong pwd"; exit 1; fi
 source ./utils.sh $*
+echo "running setup"
 
 # ===========================================================================
-readonly INITIAL_DIR=${PWD?}
+export readonly INITIAL_DIR=${PWD?}
 
 # ===========================================================================
 
-readonly CROSS_COMPILER_ROOT_DIR=${1?}
+export readonly TARGET_SUBTYPE=${1?} # "armel" or "armhf"
  
 # ===========================================================================
-readonly ORIGIN_ARCHITECTURE="x86_64"
-readonly TARGET_ARCHITECTURE="arm"
+export readonly ORIGIN_ARCHITECTURE="x86_64"
+export readonly TARGET_ARCHITECTURE="arm"
 
 # ===========================================================================
-readonly                BASE_DIR="${HOME?}/eth"
+export readonly                BASE_DIR="${HOME?}/eth"
 
-readonly             SOURCES_DIR="${BASE_DIR?}/src"
-readonly                WORK_DIR="${BASE_DIR?}/wd"
-readonly                LOGS_DIR="${BASE_DIR?}/logs"
-readonly            INSTALLS_DIR="${BASE_DIR?}/installs"
-readonly             BACKUPS_DIR="${BASE_DIR?}/baks"
+export readonly             SOURCES_DIR="${BASE_DIR?}/src"
+export readonly                WORK_DIR="${BASE_DIR?}/wd"
+export readonly                LOGS_DIR="${BASE_DIR?}/logs"
+export readonly            INSTALLS_DIR="${BASE_DIR?}/installs"
+export readonly             BACKUPS_DIR="${BASE_DIR?}/baks"
 
 # ===========================================================================
-readonly LIBSCRYPT_LIBRARY_NAME="libscrypt.a"
-readonly SECP256K1_LIBRARY_NAME="libsecp256k1.a"
+export readonly LIBSCRYPT_LIBRARY_NAME="libscrypt.a"
+export readonly SECP256K1_LIBRARY_NAME="libsecp256k1.a"
 
-readonly   DEVCORE_LIBRARY_NAME="libdevcore.so"
-readonly DEVCRYPTO_LIBRARY_NAME="libdevcrypto.so"
-readonly       P2P_LIBRARY_NAME="libp2p.so"
+export readonly   DEVCORE_LIBRARY_NAME="libdevcore.so"
+export readonly DEVCRYPTO_LIBRARY_NAME="libdevcrypto.so"
+export readonly       P2P_LIBRARY_NAME="libp2p.so"
 
-readonly    ETHASH_LIBRARY_NAME="libethash.so"
-readonly ETHASHSEAL_LIBRARY_NAME="libethashseal.so"
-readonly   ETHCORE_LIBRARY_NAME="libethcore.so"
-readonly  ETHEREUM_LIBRARY_NAME="libethereum.so"
-readonly    EVMASM_LIBRARY_NAME="libevmasm.so"
-readonly   EVMCORE_LIBRARY_NAME="libevmcore.so"
-readonly       EVM_LIBRARY_NAME="libevm.so"
-readonly       LLL_LIBRARY_NAME="liblll.so"
-readonly TESTUTILS_LIBRARY_NAME="libtestutils.so"
+export readonly    ETHASH_LIBRARY_NAME="libethash.so"
+export readonly ETHASHSEAL_LIBRARY_NAME="libethashseal.so"
+export readonly   ETHCORE_LIBRARY_NAME="libethcore.so"
+export readonly  ETHEREUM_LIBRARY_NAME="libethereum.so"
+export readonly    EVMASM_LIBRARY_NAME="libevmasm.so"
+export readonly   EVMCORE_LIBRARY_NAME="libevmcore.so"
+export readonly       EVM_LIBRARY_NAME="libevm.so"
+export readonly       LLL_LIBRARY_NAME="liblll.so"
+export readonly TESTUTILS_LIBRARY_NAME="libtestutils.so"
 
 # ---------------------------------------------------------------------------
-readonly SECP256K1_HEADER_FILE_NAME="secp256k1.h"
+export readonly SECP256K1_HEADER_FILE_NAME="secp256k1.h"
 
 # ===========================================================================
-readonly            CMAKE="cmake"
-readonly            BOOST="boost"
-readonly         CRYPTOPP="cryptopp"
-readonly              GMP="gmp"
-readonly          JSONCPP="jsoncpp"
-readonly          LEVELDB="leveldb"
-readonly  LIBJSON_RPC_CPP="libjson-rpc-cpp"
-readonly             CURL="curl"
-readonly              MHD="libmicrohttpd"
+export readonly            CMAKE="cmake"
+export readonly            BOOST="boost"
+export readonly         CRYPTOPP="cryptopp"
+export readonly              GMP="gmp"
+export readonly          JSONCPP="jsoncpp"
+export readonly          LEVELDB="leveldb"
+export readonly  LIBJSON_RPC_CPP="libjson-rpc-cpp"
+export readonly             CURL="curl"
+export readonly              MHD="libmicrohttpd"
 
-readonly WEBTHREE_HELPERS="webthree-helpers"
+export readonly WEBTHREE_HELPERS="webthree-helpers"
     readonly        LIBSCRYPT="libscrypt"
     readonly        SECP256K1="secp256k1"
-readonly      LIBWEB3CORE="libweb3core"
-readonly      LIBETHEREUM="libethereum"
-readonly         WEBTHREE="webthree"
+export readonly      LIBWEB3CORE="libweb3core"
+export readonly      LIBETHEREUM="libethereum"
+export readonly         WEBTHREE="webthree"
 
 # ===========================================================================
 
 # TODO: as param file
-readonly    CMAKE_VERSION="3.3.2"
-readonly    BOOST_VERSION="1.59.0"
-readonly CRYPTOPP_VERSION="5.6.2" # version 5.6.2 is a requirement as per the CMake file
-readonly      GMP_VERSION="6.0.0a"
-readonly     CURL_VERSION="7.45.0"
-readonly      MHD_VERSION="0.9.44"
+export readonly    CMAKE_VERSION="3.3.2"
+export readonly    BOOST_VERSION="1.59.0"
+export readonly CRYPTOPP_VERSION="5.6.2" # version 5.6.2 is a requirement as per the CMake file
+export readonly      GMP_VERSION="6.0.0a"
+export readonly     CURL_VERSION="7.45.0"
+export readonly      MHD_VERSION="0.9.44"
 
-readonly          JSONCPP_VERSION="34bdbb5"
-readonly          LEVELDB_VERSION="77948e7"
-readonly  LIBJSON_RPC_CPP_VERSION="8dc16d3"
+export readonly          JSONCPP_VERSION="34bdbb5"
+export readonly          LEVELDB_VERSION="77948e7"
+export readonly  LIBJSON_RPC_CPP_VERSION="8dc16d3"
 
 # ---------------------------------------------------------------------------
-readonly    BOOST_ARCHIVE_NAME="${BOOST?}_${BOOST_VERSION//\./_}.tar.gz"
-readonly CRYPTOPP_ARCHIVE_NAME="${CRYPTOPP?}${CRYPTOPP_VERSION//\./}.zip"
-readonly      GMP_ARCHIVE_NAME="${GMP?}-${GMP_VERSION?}.tar.bz2"
-readonly     CURL_ARCHIVE_NAME="${CURL?}-${CURL_VERSION?}.tar.gz"
-readonly      MHD_ARCHIVE_NAME="${MHD?}-${MHD_VERSION?}.tar.gz"
+export readonly    BOOST_ARCHIVE_NAME="${BOOST?}_${BOOST_VERSION//\./_}.tar.gz"
+export readonly CRYPTOPP_ARCHIVE_NAME="${CRYPTOPP?}${CRYPTOPP_VERSION//\./}.zip"
+export readonly      GMP_ARCHIVE_NAME="${GMP?}-${GMP_VERSION?}.tar.bz2"
+export readonly     CURL_ARCHIVE_NAME="${CURL?}-${CURL_VERSION?}.tar.gz"
+export readonly      MHD_ARCHIVE_NAME="${MHD?}-${MHD_VERSION?}.tar.gz"
 
 # ===========================================================================
-readonly       BOOST_DOWNLOAD_URL="http://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION?}/${BOOST_ARCHIVE_NAME?}/download"
-readonly    CRYPTOPP_DOWNLOAD_URL="https://www.cryptopp.com/${CRYPTOPP_ARCHIVE_NAME?}"
-readonly         GMP_DOWNLOAD_URL="https://ftp.gnu.org/gnu/gmp/${GMP_ARCHIVE_NAME?}"
-readonly        CURL_DOWNLOAD_URL="http://curl.haxx.se/download/${CURL_ARCHIVE_NAME?}"
-readonly         MHD_DOWNLOAD_URL="http://ftp.gnu.org/gnu/libmicrohttpd/${MHD_ARCHIVE_NAME?}"
+export readonly       BOOST_DOWNLOAD_URL="http://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION?}/${BOOST_ARCHIVE_NAME?}/download"
+export readonly    CRYPTOPP_DOWNLOAD_URL="https://www.cryptopp.com/${CRYPTOPP_ARCHIVE_NAME?}"
+export readonly         GMP_DOWNLOAD_URL="https://ftp.gnu.org/gnu/gmp/${GMP_ARCHIVE_NAME?}"
+export readonly        CURL_DOWNLOAD_URL="http://curl.haxx.se/download/${CURL_ARCHIVE_NAME?}"
+export readonly         MHD_DOWNLOAD_URL="http://ftp.gnu.org/gnu/libmicrohttpd/${MHD_ARCHIVE_NAME?}"
         
-readonly          JSONCPP_DOWNLOAD_URL="https://github.com/open-source-parsers/${JSONCPP?}.git"
-readonly          LEVELDB_DOWNLOAD_URL="https://github.com/google/${LEVELDB?}.git"
-readonly  LIBJSON_RPC_CPP_DOWNLOAD_URL="https://github.com/cinemast/${LIBJSON_RPC_CPP?}.git"
+export readonly          JSONCPP_DOWNLOAD_URL="https://github.com/open-source-parsers/${JSONCPP?}.git"
+export readonly          LEVELDB_DOWNLOAD_URL="https://github.com/google/${LEVELDB?}.git"
+export readonly  LIBJSON_RPC_CPP_DOWNLOAD_URL="https://github.com/cinemast/${LIBJSON_RPC_CPP?}.git"
 
 # ===========================================================================
-readonly           BOOST_BASE_DIR="${SOURCES_DIR?}/${BOOST?}"
-readonly        CRYPTOPP_BASE_DIR="${SOURCES_DIR?}/${CRYPTOPP?}"
-readonly             GMP_BASE_DIR="${SOURCES_DIR?}/${GMP?}"
-readonly         JSONCPP_BASE_DIR="${SOURCES_DIR?}/${JSONCPP?}"
-readonly         LEVELDB_BASE_DIR="${SOURCES_DIR?}/${LEVELDB?}"
-readonly            CURL_BASE_DIR="${SOURCES_DIR?}/${CURL?}"
-readonly LIBJSON_RPC_CPP_BASE_DIR="${SOURCES_DIR?}/${LIBJSON_RPC_CPP?}"
-readonly             MHD_BASE_DIR="${SOURCES_DIR?}/${MHD?}"
+export readonly           BOOST_BASE_DIR="${SOURCES_DIR?}/${BOOST?}"
+export readonly        CRYPTOPP_BASE_DIR="${SOURCES_DIR?}/${CRYPTOPP?}"
+export readonly             GMP_BASE_DIR="${SOURCES_DIR?}/${GMP?}"
+export readonly         JSONCPP_BASE_DIR="${SOURCES_DIR?}/${JSONCPP?}"
+export readonly         LEVELDB_BASE_DIR="${SOURCES_DIR?}/${LEVELDB?}"
+export readonly            CURL_BASE_DIR="${SOURCES_DIR?}/${CURL?}"
+export readonly LIBJSON_RPC_CPP_BASE_DIR="${SOURCES_DIR?}/${LIBJSON_RPC_CPP?}"
+export readonly             MHD_BASE_DIR="${SOURCES_DIR?}/${MHD?}"
 
-readonly WEBTHREE_HELPERS_BASE_DIR="${INITIAL_DIR?}/../../${WEBTHREE_HELPERS?}"
-readonly      LIBWEB3CORE_BASE_DIR="${INITIAL_DIR?}/../../${LIBWEB3CORE?}"
-readonly      LIBETHEREUM_BASE_DIR="${INITIAL_DIR?}/../../${LIBETHEREUM?}"
-readonly         WEBTHREE_BASE_DIR="${INITIAL_DIR?}/../../${WEBTHREE?}"
+export readonly WEBTHREE_HELPERS_BASE_DIR="${INITIAL_DIR?}/../../${WEBTHREE_HELPERS?}"
+export readonly      LIBWEB3CORE_BASE_DIR="${INITIAL_DIR?}/../../${LIBWEB3CORE?}"
+export readonly      LIBETHEREUM_BASE_DIR="${INITIAL_DIR?}/../../${LIBETHEREUM?}"
+export readonly         WEBTHREE_BASE_DIR="${INITIAL_DIR?}/../../${WEBTHREE?}"
 
 # ---------------------------------------------------------------------------
-readonly LIBSCRYPT_BASE_DIR="${WEBTHREE_HELPERS_BASE_DIR?}/utils/${LIBSCRYPT?}"
-readonly SECP256K1_BASE_DIR="${WEBTHREE_HELPERS_BASE_DIR?}/utils/${SECP256K1?}"
+export readonly LIBSCRYPT_BASE_DIR="${WEBTHREE_HELPERS_BASE_DIR?}/utils/${LIBSCRYPT?}"
+export readonly SECP256K1_BASE_DIR="${WEBTHREE_HELPERS_BASE_DIR?}/utils/${SECP256K1?}"
 
 # ===========================================================================
-readonly           BOOST_WORK_DIR="${WORK_DIR?}/${BOOST?}"
-readonly        CRYPTOPP_WORK_DIR="${WORK_DIR?}/${CRYPTOPP?}"
-readonly             GMP_WORK_DIR="${WORK_DIR?}/${GMP?}"
-readonly         LEVELDB_WORK_DIR="${WORK_DIR?}/${LEVELDB?}"
-readonly            CURL_WORK_DIR="${WORK_DIR?}/${CURL?}"
-readonly             MHD_WORK_DIR="${WORK_DIR?}/${MHD?}"
+export readonly           BOOST_WORK_DIR="${WORK_DIR?}/${BOOST?}"
+export readonly        CRYPTOPP_WORK_DIR="${WORK_DIR?}/${CRYPTOPP?}"
+export readonly             GMP_WORK_DIR="${WORK_DIR?}/${GMP?}"
+export readonly         LEVELDB_WORK_DIR="${WORK_DIR?}/${LEVELDB?}"
+export readonly            CURL_WORK_DIR="${WORK_DIR?}/${CURL?}"
+export readonly             MHD_WORK_DIR="${WORK_DIR?}/${MHD?}"
 
 # ---------------------------------------------------------------------------
-readonly WEBTHREE_HELPERS_WORK_DIR="${WORK_DIR?}/${WEBTHREE_HELPERS?}"
+export readonly WEBTHREE_HELPERS_WORK_DIR="${WORK_DIR?}/${WEBTHREE_HELPERS?}"
 
-readonly         JSONCPP_WORK_DIR="${WORK_DIR?}/${JSONCPP?}"
-readonly LIBJSON_RPC_CPP_WORK_DIR="${WORK_DIR?}/${LIBJSON_RPC_CPP?}"
-readonly     LIBWEB3CORE_WORK_DIR="${WORK_DIR?}/${LIBWEB3CORE?}"
-readonly     LIBETHEREUM_WORK_DIR="${WORK_DIR?}/${LIBETHEREUM?}"
-readonly        WEBTHREE_WORK_DIR="${WORK_DIR?}/${WEBTHREE?}"
+export readonly         JSONCPP_WORK_DIR="${WORK_DIR?}/${JSONCPP?}"
+export readonly LIBJSON_RPC_CPP_WORK_DIR="${WORK_DIR?}/${LIBJSON_RPC_CPP?}"
+export readonly     LIBWEB3CORE_WORK_DIR="${WORK_DIR?}/${LIBWEB3CORE?}"
+export readonly     LIBETHEREUM_WORK_DIR="${WORK_DIR?}/${LIBETHEREUM?}"
+export readonly        WEBTHREE_WORK_DIR="${WORK_DIR?}/${WEBTHREE?}"
 
 # ---------------------------------------------------------------------------
-readonly       LIBSCRYPT_WORK_DIR="${WORK_DIR?}/${LIBSCRYPT?}"
-readonly       SECP256K1_WORK_DIR="${WORK_DIR?}/${SECP256K1?}"
+export readonly       LIBSCRYPT_WORK_DIR="${WORK_DIR?}/${LIBSCRYPT?}"
+export readonly       SECP256K1_WORK_DIR="${WORK_DIR?}/${SECP256K1?}"
 
 # ===========================================================================
-readonly           CMAKE_INSTALL_DIR="${INSTALLS_DIR?}/${CMAKE?}"
-readonly           BOOST_INSTALL_DIR="${INSTALLS_DIR?}/${BOOST?}"
-readonly        CRYPTOPP_INSTALL_DIR="${INSTALLS_DIR?}/${CRYPTOPP?}"
-readonly             GMP_INSTALL_DIR="${INSTALLS_DIR?}/${GMP?}"
-readonly         JSONCPP_INSTALL_DIR="${INSTALLS_DIR?}/${JSONCPP?}"
-readonly         LEVELDB_INSTALL_DIR="${INSTALLS_DIR?}/${LEVELDB?}"
-readonly            CURL_INSTALL_DIR="${INSTALLS_DIR?}/${CURL?}"
-readonly             MHD_INSTALL_DIR="${INSTALLS_DIR?}/${MHD?}"
-readonly LIBJSON_RPC_CPP_INSTALL_DIR="${INSTALLS_DIR?}/${LIBJSON_RPC_CPP?}"
+export readonly           CMAKE_INSTALL_DIR="${INSTALLS_DIR?}/${CMAKE?}"
+export readonly           BOOST_INSTALL_DIR="${INSTALLS_DIR?}/${BOOST?}"
+export readonly        CRYPTOPP_INSTALL_DIR="${INSTALLS_DIR?}/${CRYPTOPP?}"
+export readonly             GMP_INSTALL_DIR="${INSTALLS_DIR?}/${GMP?}"
+export readonly         JSONCPP_INSTALL_DIR="${INSTALLS_DIR?}/${JSONCPP?}"
+export readonly         LEVELDB_INSTALL_DIR="${INSTALLS_DIR?}/${LEVELDB?}"
+export readonly            CURL_INSTALL_DIR="${INSTALLS_DIR?}/${CURL?}"
+export readonly             MHD_INSTALL_DIR="${INSTALLS_DIR?}/${MHD?}"
+export readonly LIBJSON_RPC_CPP_INSTALL_DIR="${INSTALLS_DIR?}/${LIBJSON_RPC_CPP?}"
 
 # ---------------------------------------------------------------------------
-readonly     LIBWEB3CORE_INSTALL_DIR="${INSTALLS_DIR?}/${LIBWEB3CORE?}"
-readonly     LIBETHEREUM_INSTALL_DIR="${INSTALLS_DIR?}/${LIBETHEREUM?}"
-readonly        WEBTHREE_INSTALL_DIR="${INSTALLS_DIR?}/${WEBTHREE?}"
+export readonly     LIBWEB3CORE_INSTALL_DIR="${INSTALLS_DIR?}/${LIBWEB3CORE?}"
+export readonly     LIBETHEREUM_INSTALL_DIR="${INSTALLS_DIR?}/${LIBETHEREUM?}"
+export readonly        WEBTHREE_INSTALL_DIR="${INSTALLS_DIR?}/${WEBTHREE?}"
 
 # ---------------------------------------------------------------------------
-readonly       LIBSCRYPT_INSTALL_DIR="${INSTALLS_DIR?}/${LIBSCRYPT?}"
-readonly       SECP256K1_INSTALL_DIR="${INSTALLS_DIR?}/${SECP256K1?}"
+export readonly       LIBSCRYPT_INSTALL_DIR="${INSTALLS_DIR?}/${LIBSCRYPT?}"
+export readonly       SECP256K1_INSTALL_DIR="${INSTALLS_DIR?}/${SECP256K1?}"
 
 # ===========================================================================
-readonly LIBETHEREUM_LIB_DIR="${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib"
-readonly LIBWEB3CORE_LIB_DIR="${LIBWEB3CORE_INSTALL_DIR?}/usr/local/lib"
-readonly   LIBSCRYPT_LIB_DIR="${LIBSCRYPT_INSTALL_DIR?}/usr/local/lib"
-readonly   SECP256K1_LIB_DIR="${SECP256K1_INSTALL_DIR?}/lib"
+export readonly LIBETHEREUM_LIB_DIR="${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib"
+export readonly LIBWEB3CORE_LIB_DIR="${LIBWEB3CORE_INSTALL_DIR?}/usr/local/lib"
+export readonly   LIBSCRYPT_LIB_DIR="${LIBSCRYPT_INSTALL_DIR?}/usr/local/lib"
+export readonly   SECP256K1_LIB_DIR="${SECP256K1_INSTALL_DIR?}/lib"
 
 # ---------------------------------------------------------------------------
-readonly          LIBSCRYPT_LIBRARY="${LIBSCRYPT_LIB_DIR?}/${LIBSCRYPT_LIBRARY_NAME?}"
-readonly          SECP256K1_LIBRARY="${SECP256K1_LIB_DIR?}/${SECP256K1_LIBRARY_NAME?}"
+export readonly          LIBSCRYPT_LIBRARY="${LIBSCRYPT_LIB_DIR?}/${LIBSCRYPT_LIBRARY_NAME?}"
+export readonly          SECP256K1_LIBRARY="${SECP256K1_LIB_DIR?}/${SECP256K1_LIBRARY_NAME?}"
 
-readonly   DEVCORE_WEB3CORE_LIBRARY="${LIBWEB3CORE_LIB_DIR?}/${DEVCORE_LIBRARY_NAME?}"
-readonly DEVCRYPTO_WEB3CORE_LIBRARY="${LIBWEB3CORE_LIB_DIR?}/${DEVCRYPTO_LIBRARY_NAME?}"
-readonly       P2P_WEB3CORE_LIBRARY="${LIBWEB3CORE_LIB_DIR?}/${P2P_LIBRARY_NAME?}"
+export readonly   DEVCORE_WEB3CORE_LIBRARY="${LIBWEB3CORE_LIB_DIR?}/${DEVCORE_LIBRARY_NAME?}"
+export readonly DEVCRYPTO_WEB3CORE_LIBRARY="${LIBWEB3CORE_LIB_DIR?}/${DEVCRYPTO_LIBRARY_NAME?}"
+export readonly       P2P_WEB3CORE_LIBRARY="${LIBWEB3CORE_LIB_DIR?}/${P2P_LIBRARY_NAME?}"
 
-readonly    ETHASH_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${ETHASH_LIBRARY_NAME?}"
-readonly ETHASHSEAL_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${ETHASHSEAL_LIBRARY_NAME?}"
-readonly   ETHCORE_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${ETHCORE_LIBRARY_NAME?}"
-readonly  ETHEREUM_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${ETHEREUM_LIBRARY_NAME?}"
-readonly    EVMASM_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${EVMASM_LIBRARY_NAME?}"
-readonly   EVMCORE_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${EVMCORE_LIBRARY_NAME?}"
-readonly       EVM_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${EVM_LIBRARY_NAME?}"
-readonly       LLL_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${LLL_LIBRARY_NAME?}"
-readonly TESTUTILS_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${TESTUTILS_LIBRARY_NAME?}"
-
-# ===========================================================================
-
-readonly CROSS_COMPILER_TARGET=$(echo "${CROSS_COMPILER_ROOT_DIR?}" | awk -F$'/' '{print $NF}')
-
-readonly  GCC_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR?}/bin/${CROSS_COMPILER_TARGET?}-gcc"
-readonly  GXX_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR?}/bin/${CROSS_COMPILER_TARGET?}-g++"
-
-readonly GCC_CROSS_COMPILER_PATTERN=$(perl -e "print quotemeta('${GCC_CROSS_COMPILER}')")
-readonly GXX_CROSS_COMPILER_PATTERN=$(perl -e "print quotemeta('${GXX_CROSS_COMPILER}')")
-
-readonly CMAKE_TOOLCHAIN_FILE="${CMAKE_INSTALL_DIR?}/toolchain"
+export readonly    ETHASH_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${ETHASH_LIBRARY_NAME?}"
+export readonly ETHASHSEAL_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${ETHASHSEAL_LIBRARY_NAME?}"
+export readonly   ETHCORE_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${ETHCORE_LIBRARY_NAME?}"
+export readonly  ETHEREUM_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${ETHEREUM_LIBRARY_NAME?}"
+export readonly    EVMASM_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${EVMASM_LIBRARY_NAME?}"
+export readonly   EVMCORE_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${EVMCORE_LIBRARY_NAME?}"
+export readonly       EVM_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${EVM_LIBRARY_NAME?}"
+export readonly       LLL_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${LLL_LIBRARY_NAME?}"
+export readonly TESTUTILS_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${TESTUTILS_LIBRARY_NAME?}"
 
 # ===========================================================================
 
-readonly export SETUP=true
+export readonly XCOMPILER_VERSION="15-12-04"
+export readonly XCOMPILER_DOWNLOAD_URL="https://github.com/doublethinkco/webthree-umbrella-cross/releases/download"
+export readonly XCOMPILER_DESTINATION_DIR="$HOME/x-tools"
+export readonly CROSS_COMPILER_ROOT_DIR="${XCOMPILER_DESTINATION_DIR?}/arm-unknown-linux-gnueabi" # name remains the same since the ct-ng configuration is all we are changing from armel to armhf
+
+if [ -d "${XCOMPILER_DESTINATION_DIR?}" ]; then
+  echo "ERROR: '${XCOMPILER_DESTINATION_DIR?}' already exists"
+  exit 1
+fi
+fetch "${XCOMPILER_DOWNLOAD_URL?}/${TARGET_SUBTYPE?}-${XCOMPILER_VERSION}/${TARGET_SUBTYPE?}.tgz" ${XCOMPILER_DESTINATION_DIR?}
+ls -d "${CROSS_COMPILER_ROOT_DIR?}" # check present
+
+export readonly CROSS_COMPILER_TARGET=$(echo "${CROSS_COMPILER_ROOT_DIR?}" | awk -F$'/' '{print $NF}')
+
+export readonly  GCC_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR?}/bin/${CROSS_COMPILER_TARGET?}-gcc"
+export readonly  GXX_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR?}/bin/${CROSS_COMPILER_TARGET?}-g++"
+
+export readonly GCC_CROSS_COMPILER_PATTERN=$(perl -e "print quotemeta('${GCC_CROSS_COMPILER}')")
+export readonly GXX_CROSS_COMPILER_PATTERN=$(perl -e "print quotemeta('${GXX_CROSS_COMPILER}')")
+
+export readonly CMAKE_TOOLCHAIN_FILE="${CMAKE_INSTALL_DIR?}/toolchain"
+
+# ===========================================================================
+
+export readonly SETUP=true
 
 echo "setup done."
 

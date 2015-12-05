@@ -40,7 +40,7 @@ function fetch_non_git() { # private
   URL=${1?} && shift
   DESTINATION_DIR=${1?} && shift
   
-   IS_TAR_GZ=$(echo "${URL?}" | awk '/\.tar.gz/')
+   IS_TAR_GZ=$(echo "${URL?}" | awk '/\.tar.gz/ || /\.tgz/')
   IS_TAR_BZ2=$(echo "${URL?}" | awk '/\.tar.bz2/')
       IS_ZIP=$(echo "${URL?}" | awk '/\.zip/')
 
@@ -370,6 +370,40 @@ function ct_ng_config_hack() {
 
   generic_hack ${FILE?} "${AWK_SCRIPT?}" 
 }
+
+# ===========================================================================
+
+export -f contains
+export -f fetch
+export -f fetch_git
+export -f fetch_non_git
+export -f generate_timestamp
+export -f section_downloading
+export -f section_configuring
+export -f section_cross_compiling
+export -f section_compiling
+export -f section_installing
+export -f section_hacking
+export -f section
+export -f export_cross_compiler
+export -f sanity_check_cross_compiler
+export -f return_code
+export -f get_cmake_toolchain_file_content
+export -f set_cmake_paths
+export -f set_cmake_library_path
+export -f set_cmake_include_path
+export -f check_cmake_paths
+export -f format_cmake_paths
+export -f generic_hack
+export -f backupdir
+export -f backup_potential_install_dir
+export -f clone
+export -f cd_clone
+export -f cd_if_not_exists
+export -f cd_if_exists
+export -f ct_ng_to_awk_script
+export -f ct_ng_quick_cleanup
+export -f ct_ng_config_hack
 
 # ===========================================================================
 

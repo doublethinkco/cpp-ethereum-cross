@@ -8,7 +8,7 @@ set -e
 INSTALL_DIR=${1?} && shift
 WEBTHREE_BIN_DIR=${1?} && shift
 
-RESULT_FILE_NAME="eth.tgz"
+RESULT_FILE_NAME="crosseth.tgz"
 
 TMP_DIR=$(mktemp -d)
 mkdir ${TMP_DIR?}/eth
