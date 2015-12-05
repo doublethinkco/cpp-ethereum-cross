@@ -49,6 +49,6 @@ USER xcompiler
 # Copy our cross-building scripts into the container
 ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
 
-# Build the cross-compiler
+# And switch the working directory to the cross-compiler scripts
 WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ct-ng
 
