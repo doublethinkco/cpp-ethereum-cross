@@ -55,7 +55,7 @@ ct-ng --version
 # build cross-compiler (this takes a while...)
 mkdir -p ${CTNG_WORK_DIR?}
 cd ${CTNG_WORK_DIR?}
-ct-ng ${TARGET_ARCHITECTURE?} # configure for architecture
+ct-ng "arm-unknown-linux-gnueabi" # Default architecture?
 
 # modify config file to suit the need of a specific architecture
 if [ "${CONFIG_CHANGES?}" != "${DEFAULT_CONFIG_CHANGES_VALUE?}" ]; then
