@@ -1,6 +1,5 @@
 #!/bin/bash
 # generates a cross-compiler
-# TODO: skip unnecessary steps?
 
 # ===========================================================================
 set -e
@@ -11,9 +10,7 @@ source ../ethereum/utils.sh
 
 # TODO: enforce both or none
 TARGET_ARCHITECTURE=$1
-TARGET_ARCHITECTURE=${TARGET_ARCHITECTURE:="arm-unknown-linux-gnueabi"}
-CTNG_VERSION=$2
-CTNG_VERSION=${CTNG_VERSION:="1.20.0"}
+CTNG_VERSION="1.20.0"
 
 readonly DEFAULT_CONFIG_CHANGES_VALUE="none"
 
@@ -24,7 +21,7 @@ readonly CTNG_DOWNLOAD_URL="http://crosstool-ng.org/download/crosstool-ng/crosst
  readonly  CTNG_INSTALL_DIR="${BASE_DIR?}/install"
      readonly CTNG_WORK_DIR="${BASE_DIR?}/wd"
           readonly LOGS_DIR="${BASE_DIR?}/logs"     
-readonly CROSS_COMPILER_DIR="$HOME/x-tools/${TARGET_ARCHITECTURE?}" # TODO: how to change this?
+readonly CROSS_COMPILER_DIR="$HOME/x-tools/${TARGET_ARCHITECTURE?}"
 
 # ===========================================================================
 readonly DEPENDENCIES="" #bison flex texinfo gawk automake libtool cvs ncurses-dev gperf" # TODO: re-enable once dependencies are fleshed out

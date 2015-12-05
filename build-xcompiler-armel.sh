@@ -6,6 +6,5 @@ DEST_DIR=$1; DEST_DIR=${DEST_DIR:="/tmp"}
   "./ct-ng.sh" \
     "/home/xcompiler/ct-ng" \
     "none" \
-    "arm-unknown-linux-gnueabi" \
-    "1.20.0" # "none" is a special value
+    "arm-unknown-linux-gnueabi"
 
