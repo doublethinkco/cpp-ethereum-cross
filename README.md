@@ -176,16 +176,14 @@ a working state.  For the ARM devices, that will mainly be a matter of
 iterating on the ABI settings until we get working binaries.  Intel support
 should not be too hard either - just more cross-compilers.
 
-Getting out own working Jenkins setup will also be a big help.  We've
-deferred working on automation until now because we've not had
-*anything* in a good enough state to be worth verifying changes against.
+Getting our own working Jenkins setup will also be a big help.
 
 - [Try official GCC cross-compiler binaries](https://github.com/doublethinkco/webthree-umbrella-cross/issues/42)
 - [Support Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
 - [Support Sailfish OS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
 - [Support Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)
-- [Support Android)(https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
-- [Support iOS)(https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
+- [Support Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
+- [Support iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
 - [Support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
 - [Eliminate hacks.  Upstream fixes](https://github.com/doublethinkco/webthree-umbrella-cross/issues/11)
 - [Clone the C++ Jenkins instance on Azure](https://github.com/doublethinkco/webthree-umbrella-cross/issues/44)
