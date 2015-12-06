@@ -169,22 +169,25 @@ NOTE - Here is some information on [ARM options in GCC](https://gcc.gnu.org/onli
 
 See also [ARM Infocenter](http://infocenter.arm.com) and [ARM Achitecture](https://en.wikipedia.org/wiki/ARM_architecture) page on Wikipedia.
 
-# Limitations
+# Next steps?
 
-At the time of writing, this cross-compilation process only supports
-the building of ARM binaries, and specifically 'armel' binaries for
-armv5 and software floating-point ABI.  These binaries are very
-generic and should work on many, many devices.   We are adding support
-for other ABIs right now:
+The bulk of the remaining work is getting specific platforms and devices into
+a working state.  For the ARM devices, that will mainly be a matter of
+iterating on the ABI settings until we get working binaries.  Intel support
+should not be too hard either - just more cross-compilers.
 
-- [Support armhf](https://github.com/doublethinkco/webthree-umbrella-cross/issues/10)
+Getting out own working Jenkins setup will also be a big help.  We've
+deferred working on automation until now because we've not had
+*anything* in a good enough state to be worth verifying changes against.
+
+- [Try official GCC cross-compiler binaries](https://github.com/doublethinkco/webthree-umbrella-cross/issues/42)
+- [Support Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
+- [Support Sailfish OS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
+- [Support Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)
+- [Support Android)(https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
+- [Support iOS)(https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
 - [Support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
-
-BEWARE - boot2docker on OSX does not "just work" when installed.
-Here are the commands you will inevitably forget whenever you reboot
-or start a new terminal session:
-
-http://stackoverflow.com/questions/29594800/docker-tls-error-on-mac/
-
+- [Eliminate hacks.  Upstream fixes](https://github.com/doublethinkco/webthree-umbrella-cross/issues/11)
+- [Clone the C++ Jenkins instance on Azure](https://github.com/doublethinkco/webthree-umbrella-cross/issues/44)
 
 Copyright (c) 2015 Kitsilano Software Inc
