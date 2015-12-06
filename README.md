@@ -1,39 +1,58 @@
 # webthree-umbrella-cross
 
-Repository containing Docker files for cross-compilation of the
-components within the "webthree umbrella".
+[Docker](https://www.docker.com/) files for cross-compilation of Ethereum C++
+components which fall within the "webthree umbrella".
 
-[Gavin Wood](https://github.com/gavofyork) says ...
+[What is Ethereum?](https://en.wikipedia.org/wiki/Ethereum)
+
+[Gavin Wood](https://github.com/gavofyork) explains the naming of the code as such ...
 
     The many names reflect the fact that it is not a single project.
     Rather it's a collection of software that just happens to have
     a team (mostly) in common.
     
-    cpp-ethereum is the historical name.
-    webthree is the name for the repository implementing the webthree framework
-    eth is the name for the webthree client (historical; should be renamed to web3 at some point)
-    ++eth is its sometime "stylish" name.
-    Aleth* are the GUIs
-    TurboEthereum is the stylish name for the C++ core.
+    - cpp-ethereum is the historical name.
+    - webthree is the name for the repository implementing the webthree framework.
+    - eth is the name for the webthree client (historical; should be renamed to web3 at some point).
+    - ++eth is its sometime "stylish" name.
+    - Aleth* are the GUIs.
+    - TurboEthereum is the stylish name for the C++ core.
 
-This cross-build support was developed for
-[doublethinkco](http://doublethink.co) by
+This C++ cross-build support was developed by
 [Bob Summerwill](http://bobsummerwill.com)
 and
 [Anthony Cros](https://github.com/anthony-cros)
-to bring Ethereum to mobile/wearable Linux platforms for the benefit
-of the whole Ethereum community, current and future.
+during the summer and fall of 2015 for [doublethinkco](http://doublethink.co).
+The intention of the project was to bring Ethereum to mobile/wearable Linux
+platforms for the benefit of the whole Ethereum community, current and future.
+Given the ubiquitous nature of ARM processes, it was trivial to extend the
+scope to cover a huge range of platforms.   There is a large test matrix
+showing them all later on.
 
-It is released as open source software under the permissive
+"webthree-umbrella-cross" is released as open source software under the
+permissive
 [MIT license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE).
 
 See [Porting Ethereum to Mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
 blog for an overview of our efforts.
 
-# How to use it
+# How to use "webthree-umbrella-cross" releases
 
-Clone this repo and use [Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth)
-to build 'armel' binaries or 'armhf' binaries:
+There are prebuilt releases available at Github which will be updated
+periodically.  New releases will be announced to the [Gitter Ethereum Porting channel](http://gitter.im/ethereum/porting).
+Here are the latest releases:
+
+* [crosseth-armel-1097743](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-1097743)
+* [crosseth-armhf-1097743](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-1097743)
+
+NOTE - This stuff is brand-new and experimental.  Please log a [GitHub Issue](https://github.com/doublethinkco/webthree-umbrella-cross/issues)
+of you try them out and have any success or failure.   Please remember to specify
+which you used and on what exact device and operating system.   Thanks!
+
+# How to use "webthree-umbrella-cross" to build from source code.
+
+Clone this repo and use [Dockerfile-crosseth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-crosseth)
+to build either 'armel' binaries or 'armhf' binaries:
 
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
     $ cd webthree-umbrella-cross
@@ -45,35 +64,14 @@ or
     $ cd webthree-umbrella-cross
     $ sudo ./build-armhf.sh
 
-That generates a Docker *image* called 'cross-eth', which is not the same as
-a Docker *container*.  Docker *images* are immutable binary images, which are
-analogous to VM snapshots.  Docker *containers* are particular instances
-of those images.
+If the build succeeds then you will end up with an output file at /tmp/crosseth.tgz.
 
-To get an instance of that newly created image running you need to do:
-
-    $ sudo docker run -i -t cross-eth /bin/bash
-
-Which creates an instance of that container and drops you into a BASH shell.
-Within that shell you will see the HASH which has been assigned to that
-particular container instance.   Note it, because you will need it (see
-next step).   In the root of your ~ directory you will see a TGZ file which
-you can copy out to the host machine with the following command from
-another shell instance on your host machine.  Your "docker run" *must*
-still be running for this copy step to work.    If somebody who has more
-Docker experience knows how to streamline this experience, please speak up!
-
-    $ sudo docker cp HASH_OF_CONTAINER:/FILENAME.tgz ~/
-
-Then you can "exit" the "docker run" session, and stop that Docker
-container running.   It has served its purpose.
-
-[Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth)
+[Dockerfile-crosseth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-crosseth)
 makes use of the [crosstool-NG](http://crosstool-ng.org/) toolchain-building
 scripts to generate a cross-compiler which is then used in the rest of the
 build process.  The cross-compiler was originally built and then used as
-part of the same Docker flow, but that was slow and unnecessarily, so has
-been split into its own [Dockerfile-xcompiler](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-xcompiler)
+part of the same Docker flow, but that was slow and unnecessarily, so that
+step was been split into its own [Dockerfile-xcompiler](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-xcompiler)
 process, which can be run in a similar manner:
 
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
@@ -86,9 +84,14 @@ or
     $ cd webthree-umbrella-cross
     $ sudo ./build-xcompiler-armhf.sh
 
-The results of a particular run of this process for 'armel' are
-[hard-coded in the Dockerfile-eth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-eth#L46)
-where they are copied directly into the container.
+If the cross-compiler build succeeds then you will end up with an output file at /tmp/xcompiler.tgz.
+
+The results from two specific runs of this process are stored as releases on
+Github and are used in the crosseth build process.   The "glue"
+for this process is in [cross-build/ethereum/setup.sh](https://github.com/doublethinkco/webthree-umbrella-cross/blob/873761bba4f9b9c8e401dd0c9ac52a8c8e9b780b/cross-build/ethereum/setup.sh#L197):
+
+https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armel-15-12-04
+https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armhf-15-12-04
 
 
 # Dependency graph for the webthree components
