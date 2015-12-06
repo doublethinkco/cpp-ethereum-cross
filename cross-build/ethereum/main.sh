@@ -1,26 +1,9 @@
 #!/bin/bash
 #
 # @author: Anthony Cros
-# 
-# usage: ./main.sh /path/to/cross/compiler
-#
-# notes:
-# - if you don't have one yet, run xcompiler.sh to create a cross-compiler first (sole mandatory argument of the script)
-# - miniupnpc is currently broken
 #
 # TODO:
 # - libjson RPC CPP seems to contact github somehow...
-# - homogenize dependency install dirs
-# - use log dir and parse logs
-# - check signatures (see https://www.cryptopp.com/)
-# - traps
-# - homogenize hack sanity checks
-# - generalize to more target architectures
-# - options to turn on/off components/steps (e.g. download_all, cmake, ...)
-# - generalize GMP/MHD build (exact same steps)
-# - MHD: address warnings
-# - make checks
-# - associative array for each component's property (base dir, version, ...)
  
 # ===========================================================================
 set -e
