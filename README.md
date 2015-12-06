@@ -2,11 +2,11 @@
 
 This repo contains [Docker](https://www.docker.com/) files for
 [cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler) of the
-[Ethereum](https://en.wikipedia.org/wiki/Ethereum) C++ components.  Those
-components are gathered in a repo called
-[webthree-umbrella](http://github.com/ethereum/webthree-umbrella).
+[Ethereum](https://en.wikipedia.org/wiki/Ethereum) C++ components.
 
-[Gavin Wood](https://github.com/gavofyork) explains the naming of the components:
+These components are gathered in a repo called
+[webthree-umbrella](http://github.com/ethereum/webthree-umbrella).
+[Gavin Wood](https://github.com/gavofyork) explains the names:
 
     The many names reflect the fact that it is not a single project.
     Rather it's a collection of software that just happens to have
@@ -40,8 +40,9 @@ blog for an overview of our efforts.
 
 # Releases
 
-There are prebuilt releases available at Github which will be updated
-periodically:
+There are prebuilt releases
+[available at Github](https://github.com/doublethinkco/webthree-umbrella-cross/releases)
+which will be updated periodically:
 
 * [crosseth-armel-1097743](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-1097743)
 * [crosseth-armhf-1097743](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-1097743)
@@ -55,7 +56,9 @@ device and operating system version.   Thanks!
 # Cross-build from source
 
 To cross-build the HEAD of **webthree-umbrella** from source yourself,
-follow these instructions.   Clone this repo and use
+follow these instructions.
+
+Clone this repo and use
 [Dockerfile-crosseth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-crosseth)
 to build either 'armel' binaries or 'armhf' binaries:
 
@@ -95,13 +98,14 @@ The results from two specific runs of this process are stored as releases on
 Github and are used in the crosseth build process.   The "glue"
 for this process is in [cross-build/ethereum/setup.sh](https://github.com/doublethinkco/webthree-umbrella-cross/blob/873761bba4f9b9c8e401dd0c9ac52a8c8e9b780b/cross-build/ethereum/setup.sh#L197):
 
-https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armel-15-12-04
-https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armhf-15-12-04
+* [armel-15-12-04](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armel-15-12-04)
+* [armhf-15-12-04](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armhf-15-12-04)
 
 
 # Dependency graph for the webthree components
 
 ![Webthree](http://doublethinkco.github.io/webthree-umbrella-cross/images/dependency_graph.svg)
+
 
 # Smartwatch status
 
