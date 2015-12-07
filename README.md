@@ -39,6 +39,7 @@ This code is released as open source software under the permissive
 
 We have written blogs and articles through development:
 
+* [Github documentation blitz](http://doublethink.co/2015/12/07/github-documentation-blitz/)
 * [First working Ethereum C++ cross-builds](http://doublethink.co/2015/11/30/first-working-ethereum-c-cross-builds/)
 * [Github repo README revamped](http://doublethink.co/2015/11/26/github-repo-readme-revamped/)
 * [Jolla Phone has arrived at doublethinkco!](http://doublethink.co/2015/11/26/jolla-phone-has-arrived/)
