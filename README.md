@@ -1,5 +1,7 @@
 # What is "webthree-umbrella-cross"?
 
+![Build farm](https://doublethinkco.files.wordpress.com/2015/11/20151120_083926.jpg?w=788)
+
 This repo contains [Docker](https://www.docker.com/) files for
 [cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler) of the
 [Ethereum](https://en.wikipedia.org/wiki/Ethereum) C++ components.
