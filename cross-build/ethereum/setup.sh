@@ -5,17 +5,18 @@
 
 set -e
 if [ ! -f "./setup.sh" ]; then echo "ERROR: wrong pwd"; exit 1; fi
-source ./utils.sh $*
+source ./utils.sh
 echo "running setup"
 
+# ===========================================================================
+export readonly TARGET_SUBTYPE=${1?} # "armel" or "armhf"
+export readonly CROSS_COMPILER_PROVENANCE=${2?} # true/false
+ 
 # ===========================================================================
 export readonly INITIAL_DIR=${PWD?}
 
 # ===========================================================================
 
-export readonly TARGET_SUBTYPE=${1?} # "armel" or "armhf"
- 
-# ===========================================================================
 export readonly ORIGIN_ARCHITECTURE="x86_64"
 export readonly TARGET_ARCHITECTURE="arm"
 
@@ -185,26 +186,31 @@ export readonly TESTUTILS_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${TESTUTILS_
 
 # ===========================================================================
 
-export readonly XCOMPILER_VERSION="15-12-04"
-export readonly XCOMPILER_DOWNLOAD_URL="https://github.com/doublethinkco/webthree-umbrella-cross/releases/download"
-export readonly XCOMPILER_DESTINATION_DIR="$HOME/x-tools"
-export readonly CROSS_COMPILER_ROOT_DIR="${XCOMPILER_DESTINATION_DIR?}/arm-unknown-linux-gnueabi" # name remains the same since the ct-ng configuration is all we are changing from armel to armhf
+if [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" ]; then
+  export readonly CROSS_COMPILER_ROOT_DIR="/usr"
 
-if [ -d "${XCOMPILER_DESTINATION_DIR?}" ]; then
-  echo "ERROR: '${XCOMPILER_DESTINATION_DIR?}' already exists"
-  exit 1
+  export readonly  GCC_CROSS_COMPILER="/usr/bin/arm-linux-gnueabihf-gcc"
+  export readonly  GXX_CROSS_COMPILER="/usr/bin/arm-linux-gnueabihf-g++"
+else
+  export readonly XCOMPILER_VERSION="15-12-04"
+  export readonly XCOMPILER_DOWNLOAD_URL="https://github.com/doublethinkco/webthree-umbrella-cross/releases/download"
+  export readonly XCOMPILER_DESTINATION_DIR="$HOME/x-tools"
+  export readonly CROSS_COMPILER_ROOT_DIR="${XCOMPILER_DESTINATION_DIR?}/arm-unknown-linux-gnueabi" # name remains the same since the ct-ng configuration is all we are changing from armel to armhf
+
+  if [ -d "${XCOMPILER_DESTINATION_DIR?}" ]; then
+    echo "ERROR: '${XCOMPILER_DESTINATION_DIR?}' already exists"
+    exit 1
+  fi
+  fetch "${XCOMPILER_DOWNLOAD_URL?}/${TARGET_SUBTYPE?}-${XCOMPILER_VERSION}/${TARGET_SUBTYPE?}.tgz" ${XCOMPILER_DESTINATION_DIR?}
+  ls -d "${CROSS_COMPILER_ROOT_DIR?}" # check present
+
+  export readonly CROSS_COMPILER_TARGET=$(echo "${CROSS_COMPILER_ROOT_DIR?}" | awk -F$'/' '{print $NF}')
+
+  export readonly  GCC_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR?}/bin/${CROSS_COMPILER_TARGET?}-gcc"
+  export readonly  GXX_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR?}/bin/${CROSS_COMPILER_TARGET?}-g++"
 fi
-fetch "${XCOMPILER_DOWNLOAD_URL?}/${TARGET_SUBTYPE?}-${XCOMPILER_VERSION}/${TARGET_SUBTYPE?}.tgz" ${XCOMPILER_DESTINATION_DIR?}
-ls -d "${CROSS_COMPILER_ROOT_DIR?}" # check present
-
-export readonly CROSS_COMPILER_TARGET=$(echo "${CROSS_COMPILER_ROOT_DIR?}" | awk -F$'/' '{print $NF}')
-
-export readonly  GCC_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR?}/bin/${CROSS_COMPILER_TARGET?}-gcc"
-export readonly  GXX_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR?}/bin/${CROSS_COMPILER_TARGET?}-g++"
-
 export readonly GCC_CROSS_COMPILER_PATTERN=$(perl -e "print quotemeta('${GCC_CROSS_COMPILER}')")
 export readonly GXX_CROSS_COMPILER_PATTERN=$(perl -e "print quotemeta('${GXX_CROSS_COMPILER}')")
-
 export readonly CMAKE_TOOLCHAIN_FILE="${CMAKE_INSTALL_DIR?}/toolchain"
 
 # ===========================================================================

@@ -4,6 +4,8 @@
 
 # ===========================================================================
 set -e
+source ./utils.sh
+check_args $*
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
 COMPONENT=${CURL?}
 cd_clone ${CURL_BASE_DIR?} ${CURL_WORK_DIR?}
