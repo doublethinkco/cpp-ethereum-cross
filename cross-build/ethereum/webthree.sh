@@ -30,12 +30,6 @@ generic_hack \
 generic_hack \
   ${WEBTHREE_WORK_DIR?}/eth/CMakeLists.txt \
   '!/OPTIONAL Readline/{gsub(/ Web3::jsconsole/,"");print}'
-generic_hack \
-  ${WEBTHREE_WORK_DIR?}/eth/main.cpp \
-  '/if \(mode == OperationMode::Attach\)/{ON=1} \
-    ON{print "// " $0} \
-   !ON{print ""    $0} \
-    ON && /}$/{ON=0}' # see corresponding bug subbmited: https://github.com/ethereum/webthree/issues/69
 
 # We appear unable to deal with optional dependencies in these
 # cross-builds at the moment, so just chop this out.
