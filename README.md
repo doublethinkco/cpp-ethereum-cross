@@ -39,22 +39,39 @@ This code is released as open source software under the permissive
 
 We have written blogs and articles through development:
 
-* [Github documentation blitz](http://doublethink.co/2015/12/07/github-documentation-blitz/)
-* [First working Ethereum C++ cross-builds](http://doublethink.co/2015/11/30/first-working-ethereum-c-cross-builds/)
-* [Github repo README revamped](http://doublethink.co/2015/11/26/github-repo-readme-revamped/)
-* [Jolla Phone has arrived at doublethinkco!](http://doublethink.co/2015/11/26/jolla-phone-has-arrived/)
-* [Mobile/wearable test farm takes shape](http://doublethink.co/2015/11/23/mobilewearable-test-farm-takes-shape/)
-* [We got on screen at #devcon1 on the final day](http://doublethink.co/2015/11/13/we-got-on-screen-at-devcon1-on-the-final-day/)
-* [Porting Ethereum – geth running on Samsung Gear S2 smartwatch. eth coming soon](http://doublethink.co/2015/11/13/porting-ethereum-geth-running-on-samsung-gear-s2-smartwatch-eth-coming-soon/)
-* [Porting Ethereum – Tizen cross-builds. Update by Anthony Cros, 5th November 2015](http://doublethink.co/2015/11/06/porting-ethereum-tizen-cross-builds-update-by-anthony-cros-5th-november-2015/)
-* [Porting Ethereum – Tizen cross-builds. Update by Anthony Cros, 14th October 2015](http://doublethink.co/2015/10/14/porting-ethereum-tizen-cross-builds-by-anthony-cros-14th-october-2015/)
-* [Porting Ethereum – Native build on Tizen emulator (dead-end) – by Anthony Cros](http://doublethink.co/2015/09/24/native-build-on-tizen-emulator/)
-* [Porting Ethereum to mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
-* [Go for mobile Linux platforms](http://doublethink.co/2015/09/10/go-for-mobile-linux-platforms/)
-* [Ethereum Light Client update, Wednesday 9th September (by Anthony Cros)](http://doublethink.co/2015/09/09/ethereum-light-client-update-wednesday-9th-september-by-anthony-cros/)
-* [Ethereum Light Client update, Friday 21st August (by Anthony Cros)](http://doublethink.co/2015/08/22/ethereum-light-client-update-friday-21st-august-by-anthony-cros/)
-* [Ethereum Light Client update, Thursday 6th August](http://doublethink.co/2015/08/06/ethereum-light-client-update-thursday-6th-august/)
+July 2015
+
 * [Ethereum Light Client support](http://doublethink.co/2015/07/29/ethereum-light-client-support/)
+
+August 2015
+
+* [Ethereum Light Client update, Thursday 6th August](http://doublethink.co/2015/08/06/ethereum-light-client-update-thursday-6th-august/)
+* [Ethereum Light Client update, Friday 21st August (by Anthony Cros)](http://doublethink.co/2015/08/22/ethereum-light-client-update-friday-21st-august-by-anthony-cros/)
+
+September 2015
+
+* [Ethereum Light Client update, Wednesday 9th September (by Anthony Cros)](http://doublethink.co/2015/09/09/ethereum-light-client-update-wednesday-9th-september-by-anthony-cros/)
+* [Go for mobile Linux platforms](http://doublethink.co/2015/09/10/go-for-mobile-linux-platforms/)
+* [Porting Ethereum to mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
+* [Porting Ethereum – Native build on Tizen emulator (dead-end) – by Anthony Cros](http://doublethink.co/2015/09/24/native-build-on-tizen-emulator/)
+
+October 2015
+
+* [Porting Ethereum – Tizen cross-builds. Update by Anthony Cros, 14th October 2015](http://doublethink.co/2015/10/14/porting-ethereum-tizen-cross-builds-by-anthony-cros-14th-october-2015/)
+
+November 2015
+
+* [Porting Ethereum – Tizen cross-builds. Update by Anthony Cros, 5th November 2015](http://doublethink.co/2015/11/06/porting-ethereum-tizen-cross-builds-update-by-anthony-cros-5th-november-2015/)
+* [Porting Ethereum – geth running on Samsung Gear S2 smartwatch. eth coming soon](http://doublethink.co/2015/11/13/porting-ethereum-geth-running-on-samsung-gear-s2-smartwatch-eth-coming-soon/)
+* [We got on screen at #devcon1 on the final day](http://doublethink.co/2015/11/13/we-got-on-screen-at-devcon1-on-the-final-day/)
+* [Mobile/wearable test farm takes shape](http://doublethink.co/2015/11/23/mobilewearable-test-farm-takes-shape/)
+* [Jolla Phone has arrived at doublethinkco!](http://doublethink.co/2015/11/26/jolla-phone-has-arrived/)
+* [Github repo README revamped](http://doublethink.co/2015/11/26/github-repo-readme-revamped/)
+* [First working Ethereum C++ cross-builds](http://doublethink.co/2015/11/30/first-working-ethereum-c-cross-builds/)
+
+December 2015
+
+* [Github documentation blitz](http://doublethink.co/2015/12/07/github-documentation-blitz/)
 
 
 # Releases
