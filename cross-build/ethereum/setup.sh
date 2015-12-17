@@ -96,7 +96,7 @@ export readonly         GMP_DOWNLOAD_URL="https://ftp.gnu.org/gnu/gmp/${GMP_ARCH
 export readonly        CURL_DOWNLOAD_URL="http://curl.haxx.se/download/${CURL_ARCHIVE_NAME?}"
 export readonly         MHD_DOWNLOAD_URL="http://ftp.gnu.org/gnu/libmicrohttpd/${MHD_ARCHIVE_NAME?}"
         
-export readonly          JSONCPP_DOWNLOAD_URL="https://github.com/open-source-parsers/${JSONCPP?}.git"
+export readonly          JSONCPP_DOWNLOAD_URL="https://github.com/doublethinkco/${JSONCPP?}.git"
 export readonly          LEVELDB_DOWNLOAD_URL="https://github.com/google/${LEVELDB?}.git"
 export readonly  LIBJSON_RPC_CPP_DOWNLOAD_URL="https://github.com/cinemast/${LIBJSON_RPC_CPP?}.git"
 
