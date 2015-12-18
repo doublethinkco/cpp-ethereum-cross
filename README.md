@@ -156,10 +156,10 @@ for this process is in [cross-build/ethereum/setup.sh](https://github.com/double
 |:-----------------------:|:---------------------:|:-----------------:|:-------:|:--------------------------:|:-------------:|:-------:|:-----:|
 | Samsung                 | Samsung Z1            | Tizen 2.3.0       | armv7   | Spreadtrum SC7727S         | 2 x Cortex-A7 | N/A     | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
 | Samsung                 | Samsung Z3            | Tizen 2.4.0       | armv7   | Spreadtrum SC7730S         | 4 x Cortex-A7 | N/A     | [Broken #20](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
-| LG                      | Nexus 5               | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 800    | 4 x Krait 400 | [Working](https://twitter.com/vgrade/status/671818784055889921) | [Should work #21](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
-| Jolla                   | Jolla Phone           | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 400    | 2 x Krait 300 | [TODO - OBS](https://build.merproject.org/project/show/home:vgrade:ethereum) | [Working](https://twitter.com/doublethink_co/status/677942232549208064?lang=en)
-| Intex                   | Aquafish              | Sailfish 2.0      | armv7   | Qualcomm Snapdragon ???    |               | TODO    | TODO | Due for release in Q1 2016
-| Meizu                   | MX4 Ubuntu Edition    | Ubuntu Touch      | armv7   | MediaTek MT6595            | 4 x Cortex-A17, 4 x Cortex-A7 | TODO | [Working](https://twitter.com/doublethink_co/status/677662911687434241)
+| LG                      | Nexus 5               | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 800    | 4 x Krait 400 | [Working](https://twitter.com/vgrade/status/671818784055889921) | [TODO #60](https://github.com/doublethinkco/webthree-umbrella-cross/issues/60)
+| Jolla                   | Jolla Phone           | Sailfish 2.0      | armv7   | Qualcomm Snapdragon 400    | 2 x Krait 300 | [TODO #61](https://github.com/doublethinkco/webthree-umbrella-cross/issues/61) | [Working](https://twitter.com/doublethink_co/status/677942232549208064?lang=en)
+| Intex                   | Aquafish              | Sailfish 2.0      | armv7   | Qualcomm Snapdragon ???    |               | TODO    | TODO
+| Meizu                   | MX4 Ubuntu Edition    | Ubuntu Touch      | armv7   | MediaTek MT6595            | 4 x Cortex-A17, 4 x Cortex-A7 | [TODO #62](https://github.com/doublethinkco/webthree-umbrella-cross/issues/62) | [Working](https://twitter.com/doublethink_co/status/677662911687434241)
 | Samsung                 | Galaxy S3             | Android 4.3       | armel   | Samsung Exynos 4412 Quad   | 4 x Cortex-A9 | N/A     | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
 | Samsung                 | Galaxy S4             | Android 4.4       | armel   | Qualcomm Snapdragon 600    | 4 x Krait 300 | N/A     | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
 | Samsung                 | Galaxy S6             | Android 5.0.2     | aarch64 | Samsung Exynos 7420        | 4 x Cortex-A57, 4 x Cortex-A53 | N/A | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
@@ -214,14 +214,12 @@ should not be too hard either - just more cross-compilers.
 
 Getting our own working Jenkins setup will also be a big help.
 
-- [Try official GCC cross-compiler binaries](https://github.com/doublethinkco/webthree-umbrella-cross/issues/42)
+- [Support official GCC cross-compiler binaries](https://github.com/doublethinkco/webthree-umbrella-cross/issues/42)
 - [Support Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
-- [Support Sailfish OS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/21)
-- [Support Ubuntu Touch](https://github.com/doublethinkco/webthree-umbrella-cross/issues/3)
 - [Support Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
 - [Support iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
 - [Support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
 - [Eliminate hacks.  Upstream fixes](https://github.com/doublethinkco/webthree-umbrella-cross/issues/11)
-- [Clone the C++ Jenkins instance on Azure](https://github.com/doublethinkco/webthree-umbrella-cross/issues/44)
+- [Set up continuous builds](https://github.com/doublethinkco/webthree-umbrella-cross/issues/44)
 
 Copyright (c) 2015 Kitsilano Software Inc
