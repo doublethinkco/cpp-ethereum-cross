@@ -195,9 +195,10 @@ for this process is in [cross-build/ethereum/setup.sh](https://github.com/double
 | Odroid                  | Odroid XU4            | Tizen 3.x         | armv7   | Samsung Exynos 5422        | 4 x Cortex-A15, 4 x Cortex-A7 | TODO    | TODO
 | Beaglebone              | Beaglebone Black      | Debian            | armv7   | Texas Instruments AM3358/9 | 1 x Cortex-A8 | Working | Working
 | Wandboard               | Wandboard Quad        | Debian            | armv7   | Freescale i.MX6            | 4 x Cortex-A9 | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040)
+| Dragonboard             | DragonBoard 410c      |                   | armv7   | Qualcomm Snapdragon 410    | 4 x Cortex-A7 | TODO    | TODO
 | C.H.I.P.                | C.H.I.P.              |                   | armv7   | Allwinner R8               | 1 x Cortex-A8 | TODO    | [Broken #40](https://github.com/doublethinkco/webthree-umbrella-cross/issues/40)
+| Minnowboard             | Minnowboard MAX       |                   | x86_64  | Intel Atom E3800           | 2 x Core      | TODO    | TODO
 | Intel                   | Intel NUC DCP847SKE   |                   | i386    | Intel QS77 Express         |               | TODO    | TODO
-| Intel                   | Intel Galileo         |                   | i386    | Intel Quark X1000          |               | TODO    | TODO
 | Intel                   | Intel Edison          | Yocto             | x86_64  | Intel "Tangier" Z34XX      |               | Working | TODO
 | Intel                   | Intel Curie           |                   | i386    | Intel Quark SE             |               | TODO    | TODO
 
@@ -212,14 +213,10 @@ a working state.  For the ARM devices, that will mainly be a matter of
 iterating on the ABI settings until we get working binaries.  Intel support
 should not be too hard either - just more cross-compilers.
 
-Getting our own working Jenkins setup will also be a big help.
-
-- [Support official GCC cross-compiler binaries](https://github.com/doublethinkco/webthree-umbrella-cross/issues/42)
-- [Support Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
-- [Support Android](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
-- [Support iOS](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
-- [Support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
-- [Eliminate hacks.  Upstream fixes](https://github.com/doublethinkco/webthree-umbrella-cross/issues/11)
-- [Set up continuous builds](https://github.com/doublethinkco/webthree-umbrella-cross/issues/44)
+1. [Support official GCC cross-compiler binaries](https://github.com/doublethinkco/webthree-umbrella-cross/issues/42)
+2. [Support Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
+3. [Set up continuous builds](https://github.com/doublethinkco/webthree-umbrella-cross/issues/44)
+4. [Eliminate hacks.  Upstream fixes](https://github.com/doublethinkco/webthree-umbrella-cross/issues/11)
+5. [Support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
 
 Copyright (c) 2015 Kitsilano Software Inc
