@@ -72,6 +72,7 @@ November 2015
 December 2015
 
 * [Github documentation blitz](http://doublethink.co/2015/12/07/github-documentation-blitz/)
+* [Wrapping Up](http://doublethink.co/2015/12/22/wrapping-up/)
 
 
 # Releases
@@ -80,8 +81,9 @@ There are prebuilt releases
 [available at Github](https://github.com/doublethinkco/webthree-umbrella-cross/releases)
 which will be updated periodically:
 
-* [crosseth-armel-1097743](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-1097743)
-* [crosseth-armhf-1097743](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-1097743)
+* [crosseth-armel-1097743 (ARMv5)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-1097743)
+* [crosseth-armhf-1097743 (ARMv5)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-1097743)
+* [crosseth-armhf-15-12-17 (ARMv7)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-15-12-17)
 
 NOTE - This stuff is unsupported, but please do let us know how you get on,
 either via [Ethereum Porting](http://gitter.im/ethereum/porting) on Gitter
