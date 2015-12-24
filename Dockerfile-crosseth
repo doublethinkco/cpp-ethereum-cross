@@ -25,12 +25,11 @@ ENV TARGET_ARCHITECTURE "arm-unknown-linux-gnueabi"
 #
 # See https://launchpad.net/~george-edison55/+archive/ubuntu/cmake-3.x
 # for more details on this archive.
-RUN apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:george-edison55/cmake-3.x
-RUN apt-get update
 
 # External packages required by our scripts
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
   bzip2=1.0.6-5 \
   cmake=3.2.2-2ubuntu2~ubuntu14.04.1~ppa1 \
     git=1:1.9.1-1ubuntu0.1 \
@@ -46,7 +45,7 @@ RUN apt-get install -y \
 # cross-building device-specific binaries, we're probably going to want to
 # either build our own custom toolchains using crosstool-NG, or to use
 # cross-build tools provided officially with the platforms themselves.
-RUN apt-get install -y g++-arm-linux-gnueabi g++-arm-linux-gnueabihf
+RUN apt-get update && apt-get install -y g++-arm-linux-gnueabi g++-arm-linux-gnueabihf
 
 # Switch to a normal user account.
 RUN useradd -ms /bin/bash crosseth
