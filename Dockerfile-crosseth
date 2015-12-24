@@ -38,14 +38,11 @@ RUN apt-get update && apt-get install -y \
   unzip=6.0-9ubuntu1.5 \
    wget=1.15-1ubuntu1.14.04.1
 
-# Install the official armel and armhf cross-compiler packages.
-# It might be possible to use these rather than building our own toolchain
-# with crosstool-NG while we're just aiming to build generic ARM binaries
-# which can be used on a broad range of devices.   As-and-when we start
-# cross-building device-specific binaries, we're probably going to want to
-# either build our own custom toolchains using crosstool-NG, or to use
-# cross-build tools provided officially with the platforms themselves.
-RUN apt-get update && apt-get install -y g++-arm-linux-gnueabi g++-arm-linux-gnueabihf
+# Install "official" armel and armhf cross-compiler packages, which
+# can be used as an alternative to our own custom crosstool-NG toolchains.
+RUN apt-get update && apt-get install -y \
+    g++-arm-linux-gnueabi=4:4.7.2-1 \
+  g++-arm-linux-gnueabihf=4:4.8.2-1
 
 # Switch to a normal user account.
 RUN useradd -ms /bin/bash crosseth
