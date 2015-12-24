@@ -6,6 +6,17 @@
 set -e
 
 # ===========================================================================
+function check_args() {
+  TARGET_SUBTYPE=${1?} && shift
+  CROSS_COMPILER_PROVENANCE=${1?} && shift  
+  [ "${TARGET_SUBTYPE?}" == "armel" -o "${TARGET_SUBTYPE?}" == "armhf" ] && [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" -o "${CROSS_COMPILER_PROVENANCE?}" == "manual" ] || {
+    echo "ERROR: TODO $TARGET_SUBTYPE $CROSS_COMPILER_PROVENANCE"
+    exit 1
+  }
+  echo "args are valid"
+}
+
+# ===========================================================================
 function contains() {
   STR=${1?} && shift # colon-separated
   TARGET=${1?}
@@ -130,7 +141,7 @@ function export_cross_compiler() {
 function sanity_check_cross_compiler() {
   (echo $CC   | grep ${TARGET_ARCHITECTURE?} >&/dev/null && \
    echo $CXX  | grep ${TARGET_ARCHITECTURE?} >&/dev/null && \
-   echo $PATH | grep ${TARGET_ARCHITECTURE?} >&/dev/null) || {
+   echo $PATH | tr ':' '\n' | xargs ls | grep ${TARGET_ARCHITECTURE?} >&/dev/null) || {
     echo "ERROR: CC and/or CXX and/or PATH are not properly configured: CC='$CC', CXX='$CXX', PATH='$PATH'"
     exit 1
   }
@@ -372,6 +383,7 @@ function ct_ng_config_hack() {
 
 # ===========================================================================
 
+export -f check_args
 export -f contains
 export -f fetch
 export -f fetch_git

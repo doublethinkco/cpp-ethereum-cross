@@ -8,7 +8,7 @@ SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DI
 COMPONENT=${JSONCPP?}
 cd ${JSONCPP_BASE_DIR?} && git checkout ${JSONCPP_VERSION?}
 export_cross_compiler && sanity_check_cross_compiler
-cd_if_not_exists ${JSONCPP_WORK_DIR?}
+cd_clone ${JSONCPP_BASE_DIR?} ${JSONCPP_WORK_DIR?}
 
 
 # ===========================================================================

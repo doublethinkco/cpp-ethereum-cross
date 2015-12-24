@@ -11,9 +11,9 @@ if [ ! -f "./setup.sh" ]; then echo "ERROR: wrong pwd"; exit 1; fi
 
 # ===========================================================================
 
-TARGET_SUBTYPE=${1?} # "armel" or "armhf"
-
-source ./setup.sh "${TARGET_SUBTYPE?}"
+source ./utils.sh
+check_args $* # "armel"/"armhf" and "apt"/"manual"
+source ./setup.sh $*
 
 # ===========================================================================
 
