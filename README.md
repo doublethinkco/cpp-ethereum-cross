@@ -73,6 +73,7 @@ December 2015
 
 * [Github documentation blitz](http://doublethink.co/2015/12/07/github-documentation-blitz/)
 * [Wrapping Up](http://doublethink.co/2015/12/22/wrapping-up/)
+* [New Year, New Focus](http://bobsummerwill.com/2015/12/24/new-year-new-focus/)
 
 
 # Releases
@@ -167,6 +168,8 @@ for this process is in [cross-build/ethereum/setup.sh](https://github.com/double
 | Samsung                 | Galaxy S6             | Android 5.0.2     | aarch64 | Samsung Exynos 7420        | 4 x Cortex-A57, 4 x Cortex-A53 | N/A | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
 | Apple                   | iPhone 3GS            | iOS 3             | armv7   | Samsung S5PC100            | 1 x Cortex-A8 | N/A     | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
 | Apple                   | iPhone 5              | iOS 6             | armv7   | Apple A6                   | 2 x ARMv7A    | N/A     | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
+| Nokia                   | N900                  | Maemo 5           | armv7   | Apple A6                   | 2 x ARMv7A    | N/A     | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
+| Nokia                   | N9                    | MeeGo 1.3         | armv7   | Apple A6                   | 2 x ARMv7A    | N/A     | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
 
 # Developer phone status
 
@@ -215,10 +218,9 @@ a working state.  For the ARM devices, that will mainly be a matter of
 iterating on the ABI settings until we get working binaries.  Intel support
 should not be too hard either - just more cross-compilers.
 
-1. [Support official GCC cross-compiler binaries](https://github.com/doublethinkco/webthree-umbrella-cross/issues/42)
-2. [Support Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/issues/20)
-3. [Set up continuous builds](https://github.com/doublethinkco/webthree-umbrella-cross/issues/44)
-4. [Eliminate hacks.  Upstream fixes](https://github.com/doublethinkco/webthree-umbrella-cross/issues/11)
-5. [Support i386 and x86_64](https://github.com/doublethinkco/webthree-umbrella-cross/issues/37)
+* [Milestone 1 - Loose Ends, Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%201%20-%20Loose%20ends,%20Tizen)
+* [Milestone 2 - DevOps, Android](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%202%20-%20DevOps,%20Android)
+* [Milestone 3 - V8, Intel, iOS](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%203%20-%20V8,%20Intel,%20iOS)
+* [Milestone 4 - Light Client Phase 1](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%204%20-%20Light%20Client%20Phase%201)
 
 Copyright (c) 2015 Kitsilano Software Inc
