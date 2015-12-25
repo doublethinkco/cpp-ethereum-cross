@@ -32,20 +32,17 @@ RUN add-apt-repository ppa:george-edison55/cmake-3.x
 RUN apt-get update && apt-get install -y \
   bzip2=1.0.6-5 \
   cmake=3.2.2-2ubuntu2~ubuntu14.04.1~ppa1 \
-    git=1:1.9.1-1ubuntu0.1 \
+    git=1:1.9.1-1ubuntu0.2 \
      m4=1.4.17-2ubuntu1 \
    tree=1.6.0-1 \
   unzip=6.0-9ubuntu1.5 \
    wget=1.15-1ubuntu1.14.04.1
 
-# Install the official armel and armhf cross-compiler packages.
-# It might be possible to use these rather than building our own toolchain
-# with crosstool-NG while we're just aiming to build generic ARM binaries
-# which can be used on a broad range of devices.   As-and-when we start
-# cross-building device-specific binaries, we're probably going to want to
-# either build our own custom toolchains using crosstool-NG, or to use
-# cross-build tools provided officially with the platforms themselves.
-RUN apt-get update && apt-get install -y g++-arm-linux-gnueabi g++-arm-linux-gnueabihf
+# Install "official" armel and armhf cross-compiler packages, which
+# can be used as an alternative to our own custom crosstool-NG toolchains.
+RUN apt-get update && apt-get install -y \
+    g++-arm-linux-gnueabi=4:4.7.2-1 \
+  g++-arm-linux-gnueabihf=4:4.8.2-1
 
 # Switch to a normal user account.
 RUN useradd -ms /bin/bash crosseth
