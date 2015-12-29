@@ -42,12 +42,12 @@ fi
 
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} ${CRYPTOPP?})" ]; then 
-  section_downloading ${CRYPTOPP?}
+if [ -n "$(contains ${COMPONENTS?} cryptopp)" ]; then 
+  section_downloading cryptopp
   fetch ${CRYPTOPP_DOWNLOAD_URL?} ${CRYPTOPP_BASE_DIR?}
   return_code $?
 else
-  echo "skipping ${CRYPTOPP?}"
+  echo "skipping cryptopp"
 fi
 
 

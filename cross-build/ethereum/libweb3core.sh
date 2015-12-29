@@ -14,7 +14,7 @@ export_cross_compiler && sanity_check_cross_compiler
 # configuration:
 
 section_configuring ${COMPONENT?}
-set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:${CRYPTOPP?}:${GMP?}"
+set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}"
 
 # ---------------------------------------------------------------------------
 # configuration hack to remove miniupnp (optional and broken at the moment)

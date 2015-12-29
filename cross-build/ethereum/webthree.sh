@@ -38,7 +38,7 @@ generic_hack \
   '!/Solidity/'
 
 # ---------------------------------------------------------------------------
-set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:${CRYPTOPP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}:${LIBWEB3CORE?}:${LIBETHEREUM?}:${LIBSCRYPT?}"
+set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}:${LIBWEB3CORE?}:${LIBETHEREUM?}:${LIBSCRYPT?}"
 
 # TODO: ETH_JSON_RPC_STUB off ok?; doesn't use libnatspec.so?
 cmake \

@@ -195,7 +195,7 @@ function set_cmake_library_path() { # private
   if [ -n "$(contains ${LIBS?} ${LEVELDB?})" ]; then      
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${LEVELDB_INSTALL_DIR?}/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${CRYPTOPP?})" ]; then      
+  if [ -n "$(contains ${LIBS?} cryptopp)" ]; then      
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${CRYPTOPP_INSTALL_DIR?}/lib"
   fi
   if [ -n "$(contains ${LIBS?} ${GMP?})" ]; then      
@@ -238,7 +238,7 @@ function set_cmake_include_path() { # private
   if [ -n "$(contains ${INCLUDES?} ${LEVELDB?})" ]; then    
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${LEVELDB_INSTALL_DIR?}/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${CRYPTOPP?})" ]; then    
+  if [ -n "$(contains ${INCLUDES?} cryptopp" ]; then    
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${SOURCES_DIR?}" # hack + see softlink hack in install-dependencies script
   fi
   if [ -n "$(contains ${INCLUDES?} ${GMP?})" ]; then    

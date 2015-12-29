@@ -29,7 +29,7 @@ generic_hack \
   }1"
 
 # ---------------------------------------------------------------------------
-set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:${CRYPTOPP?}:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}"
+set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}"
 cmake \
    . \
    -G "Unix Makefiles" \

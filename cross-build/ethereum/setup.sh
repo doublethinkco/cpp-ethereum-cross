@@ -53,7 +53,6 @@ export readonly SECP256K1_HEADER_FILE_NAME="secp256k1.h"
 # ===========================================================================
 export readonly            CMAKE="cmake"
 export readonly            BOOST="boost"
-export readonly         CRYPTOPP="cryptopp"
 export readonly              GMP="gmp"
 export readonly          JSONCPP="jsoncpp"
 export readonly          LEVELDB="leveldb"
@@ -73,36 +72,35 @@ export readonly         WEBTHREE="webthree"
 # TODO: as param file
 export readonly    CMAKE_VERSION="3.3.2"
 export readonly    BOOST_VERSION="1.59.0"
-export readonly CRYPTOPP_VERSION="5.6.2" # version 5.6.2 is a requirement as per the CMake file
 export readonly      GMP_VERSION="6.0.0a"
 export readonly     CURL_VERSION="7.45.0"
 export readonly      MHD_VERSION="0.9.44"
 
+export readonly         CRYPTOPP_VERSION="f7f38ac"
 export readonly          JSONCPP_VERSION="8a6e50a"
 export readonly          LEVELDB_VERSION="77948e7"
 export readonly  LIBJSON_RPC_CPP_VERSION="0da64a9"
 
 # ---------------------------------------------------------------------------
 export readonly    BOOST_ARCHIVE_NAME="${BOOST?}_${BOOST_VERSION//\./_}.tar.gz"
-export readonly CRYPTOPP_ARCHIVE_NAME="${CRYPTOPP?}${CRYPTOPP_VERSION//\./}.zip"
 export readonly      GMP_ARCHIVE_NAME="${GMP?}-${GMP_VERSION?}.tar.bz2"
 export readonly     CURL_ARCHIVE_NAME="${CURL?}-${CURL_VERSION?}.tar.gz"
 export readonly      MHD_ARCHIVE_NAME="${MHD?}-${MHD_VERSION?}.tar.gz"
 
 # ===========================================================================
 export readonly       BOOST_DOWNLOAD_URL="http://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION?}/${BOOST_ARCHIVE_NAME?}/download"
-export readonly    CRYPTOPP_DOWNLOAD_URL="https://www.cryptopp.com/${CRYPTOPP_ARCHIVE_NAME?}"
 export readonly         GMP_DOWNLOAD_URL="https://ftp.gnu.org/gnu/gmp/${GMP_ARCHIVE_NAME?}"
 export readonly        CURL_DOWNLOAD_URL="http://curl.haxx.se/download/${CURL_ARCHIVE_NAME?}"
 export readonly         MHD_DOWNLOAD_URL="http://ftp.gnu.org/gnu/libmicrohttpd/${MHD_ARCHIVE_NAME?}"
         
+export readonly         CRYPTOPP_DOWNLOAD_URL="https://github.com/doublethinkco/cryptopp.git"
 export readonly          JSONCPP_DOWNLOAD_URL="https://github.com/doublethinkco/${JSONCPP?}.git"
 export readonly          LEVELDB_DOWNLOAD_URL="https://github.com/google/${LEVELDB?}.git"
 export readonly  LIBJSON_RPC_CPP_DOWNLOAD_URL="https://github.com/doublethinkco/${LIBJSON_RPC_CPP?}.git"
 
 # ===========================================================================
 export readonly           BOOST_BASE_DIR="${SOURCES_DIR?}/${BOOST?}"
-export readonly        CRYPTOPP_BASE_DIR="${SOURCES_DIR?}/${CRYPTOPP?}"
+export readonly        CRYPTOPP_BASE_DIR="${SOURCES_DIR?}/cryptopp"
 export readonly             GMP_BASE_DIR="${SOURCES_DIR?}/${GMP?}"
 export readonly         JSONCPP_BASE_DIR="${SOURCES_DIR?}/${JSONCPP?}"
 export readonly         LEVELDB_BASE_DIR="${SOURCES_DIR?}/${LEVELDB?}"
@@ -121,7 +119,7 @@ export readonly SECP256K1_BASE_DIR="${WEBTHREE_HELPERS_BASE_DIR?}/utils/${SECP25
 
 # ===========================================================================
 export readonly           BOOST_WORK_DIR="${WORK_DIR?}/${BOOST?}"
-export readonly        CRYPTOPP_WORK_DIR="${WORK_DIR?}/${CRYPTOPP?}"
+export readonly        CRYPTOPP_WORK_DIR="${WORK_DIR?}/cryptopp"
 export readonly             GMP_WORK_DIR="${WORK_DIR?}/${GMP?}"
 export readonly         LEVELDB_WORK_DIR="${WORK_DIR?}/${LEVELDB?}"
 export readonly            CURL_WORK_DIR="${WORK_DIR?}/${CURL?}"
@@ -143,7 +141,7 @@ export readonly       SECP256K1_WORK_DIR="${WORK_DIR?}/${SECP256K1?}"
 # ===========================================================================
 export readonly           CMAKE_INSTALL_DIR="${INSTALLS_DIR?}/${CMAKE?}"
 export readonly           BOOST_INSTALL_DIR="${INSTALLS_DIR?}/${BOOST?}"
-export readonly        CRYPTOPP_INSTALL_DIR="${INSTALLS_DIR?}/${CRYPTOPP?}"
+export readonly        CRYPTOPP_INSTALL_DIR="${INSTALLS_DIR?}/cryptopp"
 export readonly             GMP_INSTALL_DIR="${INSTALLS_DIR?}/${GMP?}"
 export readonly         JSONCPP_INSTALL_DIR="${INSTALLS_DIR?}/${JSONCPP?}"
 export readonly         LEVELDB_INSTALL_DIR="${INSTALLS_DIR?}/${LEVELDB?}"

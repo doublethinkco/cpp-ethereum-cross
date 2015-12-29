@@ -5,7 +5,7 @@
 # ===========================================================================
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
-COMPONENT=${CRYPTOPP?}
+COMPONENT=cryptopp
 cd_clone ${CRYPTOPP_BASE_DIR?} ${CRYPTOPP_WORK_DIR?}
 export_cross_compiler && sanity_check_cross_compiler
 
@@ -23,7 +23,7 @@ generic_hack ./GNUmakefile '!/=native/'
 generic_hack \
   ./GNUmakefile \
   '{gsub(/O2/,"O2 -fPIC")}1'
-
+echo 
 # hack sanity check
 grep '=native' ./GNUmakefile.bak
 grep '=native' ./GNUmakefile && exit 1 || :
@@ -44,10 +44,10 @@ section_installing ${COMPONENT?}
 backup_potential_install_dir ${CRYPTOPP_INSTALL_DIR?}
 mkdir ${CRYPTOPP_INSTALL_DIR?}
 rm ${CRYPTOPP_INSTALL_DIR?}/lib 2>&- || :
-rm $HOME/${CRYPTOPP?} 2>&- || :
+rm $HOME/cryptopp 2>&- || :
 mkdir ${CRYPTOPP_INSTALL_DIR?}/lib
 cp    ${CRYPTOPP_WORK_DIR?}/lib*    ${CRYPTOPP_INSTALL_DIR?}/lib
-ln -s ${CRYPTOPP_WORK_DIR?} $HOME/${CRYPTOPP?} # hack: somehow this is necessary for includes to work with cryptopp
+ln -s ${CRYPTOPP_WORK_DIR?} $HOME/cryptopp # hack: somehow this is necessary for includes to work with cryptopp
 
 
 # ===========================================================================
