@@ -187,8 +187,14 @@ export readonly TESTUTILS_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${TESTUTILS_
 if [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" ]; then
   export readonly CROSS_COMPILER_ROOT_DIR="/usr"
 
-  export readonly  GCC_CROSS_COMPILER="/usr/bin/arm-linux-gnueabihf-gcc"
-  export readonly  GXX_CROSS_COMPILER="/usr/bin/arm-linux-gnueabihf-g++"
+  if [ "${TARGET_SUBTYPE?}" == "armel" ]; then
+    export readonly  GCC_CROSS_COMPILER="/usr/bin/arm-linux-gnueabi-gcc"
+    export readonly  GXX_CROSS_COMPILER="/usr/bin/arm-linux-gnueabi-g++"
+  else
+    export readonly  GCC_CROSS_COMPILER="/usr/bin/arm-linux-gnueabihf-gcc"
+    export readonly  GXX_CROSS_COMPILER="/usr/bin/arm-linux-gnueabihf-g++"
+  fi
+
 else
   export readonly XCOMPILER_VERSION="15-12-04"
   export readonly XCOMPILER_DOWNLOAD_URL="https://github.com/doublethinkco/webthree-umbrella-cross/releases/download"
