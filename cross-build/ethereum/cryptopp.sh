@@ -7,6 +7,7 @@ set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
 COMPONENT=cryptopp
 cd ${CRYPTOPP_BASE_DIR?} && git checkout ${CRYPTOPP_VERSION?}
+cd src
 export_cross_compiler && sanity_check_cross_compiler
 
 # ---------------------------------------------------------------------------
