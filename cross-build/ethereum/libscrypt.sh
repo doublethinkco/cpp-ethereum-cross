@@ -22,6 +22,13 @@ cmake \
 return_code $?
 
 
+# ---------------------------------------------------------------------------
+# hacks
+generic_hack \
+  ${LIBSCRYPT_BASE_DIR?}/CMakeLists.txt \
+  '{gsub(/DSTATICLIB/,"DSTATICLIB -fPIC")}1'
+
+
 # ===========================================================================
 # cross-compile:
 

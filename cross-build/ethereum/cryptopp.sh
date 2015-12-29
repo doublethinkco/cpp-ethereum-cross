@@ -21,6 +21,10 @@ return_code $?
 section_hacking ${COMPONENT?}
 generic_hack ./GNUmakefile '!/=native/'
 
+generic_hack \
+  ${LIBSCRYPT_BASE_DIR?}/CMakeLists.txt \
+  '{gsub(/O2/,"O2 -fPIC")}1'
+
 # hack sanity check
 grep '=native' ./GNUmakefile.bak
 grep '=native' ./GNUmakefile && exit 1 || :
