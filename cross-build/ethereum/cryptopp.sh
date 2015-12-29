@@ -22,7 +22,7 @@ section_hacking ${COMPONENT?}
 generic_hack ./GNUmakefile '!/=native/'
 
 generic_hack \
-  ${LIBSCRYPT_BASE_DIR?}/CMakeLists.txt \
+  ${CRYPTOPP_BASE_DIR?}/CMakeLists.txt \
   '{gsub(/O2/,"O2 -fPIC")}1'
 
 # hack sanity check
