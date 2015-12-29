@@ -32,7 +32,7 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 # ===========================================================================
 # downloads
 ./download.sh \
-  "${CMAKE?}:${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}" \
+  "${CMAKE?}:cryptopp" \
   "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
