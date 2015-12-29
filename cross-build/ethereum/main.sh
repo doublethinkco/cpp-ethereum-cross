@@ -32,7 +32,7 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 # ===========================================================================
 # downloads
 ./download.sh \
-  "${CMAKE?}:${JSONCPP?}:${BOOST?}:${LEVELDB?}:${CRYPTOPP?}:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}" \
+  "${CMAKE?}:${CRYPTOPP?}" \
   "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
@@ -47,10 +47,10 @@ echo && tree -L 1 ${BASE_DIR?} && \
 export_cross_compiler
 sanity_check_cross_compiler
 
+./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./boost.sh     "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
-./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./gmp.sh       "${TARGET_SUBTYPE?}"
 
 ./curl.sh            "${TARGET_SUBTYPE?}"
