@@ -76,7 +76,7 @@ export readonly      GMP_VERSION="6.0.0a"
 export readonly     CURL_VERSION="7.45.0"
 export readonly      MHD_VERSION="0.9.44"
 
-export readonly         CRYPTOPP_VERSION="f7f38ac"
+export readonly         CRYPTOPP_VERSION="2ee933d"
 export readonly          JSONCPP_VERSION="8a6e50a"
 export readonly          LEVELDB_VERSION="77948e7"
 export readonly  LIBJSON_RPC_CPP_VERSION="0da64a9"
