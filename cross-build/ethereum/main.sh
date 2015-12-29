@@ -47,10 +47,10 @@ echo && tree -L 1 ${BASE_DIR?} && \
 export_cross_compiler
 sanity_check_cross_compiler
 
+./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./boost.sh     "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
-./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./gmp.sh       "${TARGET_SUBTYPE?}"
 
 ./curl.sh            "${TARGET_SUBTYPE?}"
