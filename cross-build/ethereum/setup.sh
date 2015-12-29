@@ -78,9 +78,9 @@ export readonly      GMP_VERSION="6.0.0a"
 export readonly     CURL_VERSION="7.45.0"
 export readonly      MHD_VERSION="0.9.44"
 
-export readonly          JSONCPP_VERSION="34bdbb5"
+export readonly          JSONCPP_VERSION="8a6e50a"
 export readonly          LEVELDB_VERSION="77948e7"
-export readonly  LIBJSON_RPC_CPP_VERSION="8dc16d3"
+export readonly  LIBJSON_RPC_CPP_VERSION="0da64a9"
 
 # ---------------------------------------------------------------------------
 export readonly    BOOST_ARCHIVE_NAME="${BOOST?}_${BOOST_VERSION//\./_}.tar.gz"
