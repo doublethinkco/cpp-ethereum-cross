@@ -45,7 +45,7 @@ rm ${CRYPTOPP_INSTALL_DIR?}/lib 2>&- || :
 rm $HOME/cryptopp 2>&- || :
 mkdir ${CRYPTOPP_INSTALL_DIR?}/lib
 cp    ${CRYPTOPP_WORK_DIR?}/lib*    ${CRYPTOPP_INSTALL_DIR?}/lib
-ln -s ${CRYPTOPP_WORK_DIR?} $HOME/cryptopp # hack: somehow this is necessary for includes to work with cryptopp
+ln -s ${CRYPTOPP_WORK_DIR?} $HOME/cryptopp/src # hack: somehow this is necessary for includes to work with cryptopp
 
 
 # ===========================================================================
