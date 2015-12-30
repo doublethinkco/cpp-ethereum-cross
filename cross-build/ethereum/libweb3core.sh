@@ -26,11 +26,21 @@ generic_hack \
 
 
 # ---------------------------------------------------------------------------
+# Hack to address std versus boost exception namespace ambiguity.
+# Probably indicative of a more global build configuration issue, but
+# this should at least get us past it.
+generic_hack \
+  ${LIBWEB3CORE_WORK_DIR?}/libdevcore/TransientDirectory.cpp \
+  '{gsub(/this_thread/,"boost::this_thread")}1'
+
+
+# ---------------------------------------------------------------------------
 # configuration hack to remove miniupnp (optional and broken at the moment)
 
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libp2p/CMakeLists.txt \
   '!/Miniupnpc/'
+
 
 # ---------------------------------------------------------------------------
 cmake \
