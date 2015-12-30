@@ -56,12 +56,12 @@ generic_hack \
 # ===========================================================================
 
 # Layer 0
+./gmp.sh       "${TARGET_SUBTYPE?}"
 ./secp256k1.sh "${TARGET_SUBTYPE?}"
 ./libscrypt.sh "${TARGET_SUBTYPE?}"
 ./boost.sh     "${TARGET_SUBTYPE?}"
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./curl.sh      "${TARGET_SUBTYPE?}"
-./gmp.sh       "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
 ./mhd.sh       "${TARGET_SUBTYPE?}"
