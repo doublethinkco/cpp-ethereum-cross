@@ -26,7 +26,7 @@ generic_hack \
   'BEGIN{printf("list(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
 generic_hack \
   ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
-  'BEGIN{printf("set(ETH_CMAKE_DIR \"${CMAKE_CURRENT_LIST_DIR}/../cmake\" CACHE PATH \"The path to the cmake directory\")\n")}1'
+  'BEGIN{printf("set(ETH_CMAKE_DIR \"${CMAKE_CURRENT_LIST_DIR}/../../cmake\" CACHE PATH \"The path to the cmake directory\")\n")}1'
 
 cat ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt
 
