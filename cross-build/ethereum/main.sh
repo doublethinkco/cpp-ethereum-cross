@@ -31,9 +31,9 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 
 # ===========================================================================
 # downloads
-./download.sh \
-  "${CMAKE?}:${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}" \
-  "${TARGET_SUBTYPE?}"
+#./download.sh \
+#  "${CMAKE?}:${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}" \
+#  "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
 # cmake:
@@ -56,13 +56,13 @@ generic_hack \
 # ===========================================================================
 
 # Layer 0
+./libscrypt.sh "${TARGET_SUBTYPE?}"
 ./boost.sh     "${TARGET_SUBTYPE?}"
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./curl.sh      "${TARGET_SUBTYPE?}"
 ./gmp.sh       "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
-./libscrypt.sh "${TARGET_SUBTYPE?}"
 ./mhd.sh       "${TARGET_SUBTYPE?}"
 
 # Layer 1
