@@ -30,11 +30,13 @@ mkdir -p ${BASE_DIR?}
 mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DIR?}
 
 # ===========================================================================
-# downloads
+# We *have* to download Boost because EthDependencies.cmake in
+# webthree-helper does a find_package() for it unconditionally, no matter
+# what we are actually building.
 ./download.sh \
-  "gmp"
-#  "${CMAKE?}:${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}" \
-#  "${TARGET_SUBTYPE?}"
+#  "boost;cmake;cryptopp;curl;gmp;libjson-rpc-cpp;mhd"
+  "boost;gmp"
+  "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
 # cmake:
