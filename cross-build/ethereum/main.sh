@@ -104,11 +104,8 @@ generic_hack \
 # stacked on top of each other.
 
 ./libweb3core.sh "${TARGET_SUBTYPE?}" # requires secp256k1 and more
-tree -L 4 ${LIBWEB3CORE_INSTALL_DIR?}
 ./libethereum.sh "${TARGET_SUBTYPE?}" # requires libweb3core and more
-tree -L 4 ${LIBETHEREUM_INSTALL_DIR?}
 ./webthree.sh "${TARGET_SUBTYPE?}" # requires libethereum and more
-tree -L 4 ${WEBTHREE_INSTALL_DIR?}
 
 
 # ===========================================================================
