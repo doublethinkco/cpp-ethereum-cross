@@ -31,7 +31,7 @@ generic_hack \
 # this should at least get us past it.
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libdevcore/TransientDirectory.cpp \
-  '{gsub(/this_thread/,"boost::this_thread")}1'
+  'BEGIN{printf("#include <boost/thread/thread.hpp>\n")}1'
 
 
 # ---------------------------------------------------------------------------
