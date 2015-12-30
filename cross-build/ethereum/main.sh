@@ -72,6 +72,7 @@ generic_hack \
 # dependency could be skipped then we could improve the build ordering here.
 
 ./gmp.sh       "${TARGET_SUBTYPE?}"
+./secp256k1.sh       "${TARGET_SUBTYPE?}"
 ./libscrypt.sh "${TARGET_SUBTYPE?}"
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./curl.sh      "${TARGET_SUBTYPE?}"
