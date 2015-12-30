@@ -34,6 +34,7 @@ section_cross_compiling ${COMPONENT?}
 backup_potential_install_dir ${BOOST_INSTALL_DIR?}
 ./b2 \
   install \
+  -j 8 \
   --debug-configuration \
   --prefix=${BOOST_INSTALL_DIR?} # also installs (expect some warnings) - takes a while
 return_code $?
