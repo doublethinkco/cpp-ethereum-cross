@@ -17,7 +17,7 @@ FROM ubuntu:14.04
 MAINTAINER Bob Summerwill <bob@summerwill.net>
 
 # Target architecture for cross-build.  This default corresponds to 'armel'.
-ENV TARGET_ARCHITECTURE "arm-unknown-lincrux-gnueabi"
+ENV TARGET_ARCHITECTURE "arm-unknown-linux-gnueabi"
 
 # We need to use an extra PPA (Personal Package Archive) for CMake 3.x
 # builds.   The package archive for the Ubuntu Trusty (14.04) image only
