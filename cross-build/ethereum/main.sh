@@ -68,16 +68,14 @@ generic_hack \
 
 # Layer 1
 ./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}" # requires curl, jsoncpp and mhd
-
-# Layer 2
-./libweb3core.sh "${TARGET_SUBTYPE?}"
+./libweb3core.sh     "${TARGET_SUBTYPE?}" # requires boost, cryptopp, jsoncpp, leveldb, gmp
 tree -L 4 ${LIBWEB3CORE_INSTALL_DIR?}
 
-# Layer 3
+# Layer 2
 ./libethereum.sh "${TARGET_SUBTYPE?}" # requires libweb3core
 tree -L 4 ${LIBETHEREUM_INSTALL_DIR?}
 
-# Layer 4
+# Layer 3
 ./webthree.sh "${TARGET_SUBTYPE?}" # requires libweb3core and libethereum
 tree -L 4 ${WEBTHREE_INSTALL_DIR?}
 
