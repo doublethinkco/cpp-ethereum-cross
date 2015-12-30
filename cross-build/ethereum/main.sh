@@ -43,10 +43,10 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 # NOTE - We use orphaned copies secp256k1 and scrypt which live inside
 # the webthree-helper package.   Their oddness makes them pigs to
 # cross-build, because we are not running CMake from a repo root
-# directory, as is the case for every other package.
+# directory
 
 ./download.sh \
-  "boost;cmake;cryptopp;curl;gmp;libjson-rpc-cpp;mhd" \
+  "boost:cmake:cryptopp:curl:gmp:libjson-rpc-cpp:mhd" \
   "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
