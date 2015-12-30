@@ -83,8 +83,8 @@ generic_hack \
 # dependency could be skipped then we could improve the build ordering here.
 
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
-./gmp.sh       "${TARGET_SUBTYPE?}"
 ./curl.sh      "${TARGET_SUBTYPE?}"
+./gmp.sh       "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
 ./libscrypt.sh "${TARGET_SUBTYPE?}"
