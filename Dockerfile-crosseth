@@ -54,7 +54,8 @@ USER crosseth
 WORKDIR /home/crosseth
 RUN git clone --recursive https://github.com/ethereum/webthree-umbrella.git && \
     cd webthree-umbrella && \
-	git checkout e550c51
+    git checkout e550c51 && \
+    git submodule sync
 
 # Copy our cross-building scripts into the container
 ADD cross-build/ /home/crosseth/webthree-umbrella/cross-build/
