@@ -10,6 +10,13 @@ cd_if_not_exists ${LIBSCRYPT_WORK_DIR?}
 export_cross_compiler && sanity_check_cross_compiler
 
 
+# ---------------------------------------------------------------------------
+# hacks
+generic_hack \
+  ${LIBSCRYPT_BASE_DIR?}/CMakeLists.txt \
+  '{gsub(/DSTATICLIB/,"DSTATICLIB -fPIC")}1'
+
+
 # ===========================================================================
 # configuration:
 
@@ -20,13 +27,6 @@ cmake \
   -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?}
 return_code $?
-
-
-# ---------------------------------------------------------------------------
-# hacks
-generic_hack \
-  ${LIBSCRYPT_BASE_DIR?}/CMakeLists.txt \
-  '{gsub(/DSTATICLIB/,"DSTATICLIB -fPIC")}1'
 
 
 # ===========================================================================
