@@ -22,7 +22,7 @@ set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}"
 
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libdevcore/CMakeLists.txt \
-  'BEGIN{printf("STRING(REGEX REPLACE "-Werror" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})")}1'
+  'BEGIN{printf("STRING(REGEX REPLACE \"-Werror\" \"\" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})")}1'
 
 
 # ---------------------------------------------------------------------------
