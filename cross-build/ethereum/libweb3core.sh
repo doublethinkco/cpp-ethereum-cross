@@ -17,6 +17,15 @@ section_configuring ${COMPONENT?}
 set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}"
 
 # ---------------------------------------------------------------------------
+# remove warnings-as-errors as workaround for unmerged pull request
+# See https://github.com/ethereum/libweb3core/pull/44
+
+generic_hack \
+  ${LIBWEB3CORE_WORK_DIR?}/libdevcore/CMakeLists.txt \
+  'BEGIN{printf("STRING(REGEX REPLACE "-Werror" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})")}1'
+
+
+# ---------------------------------------------------------------------------
 # configuration hack to remove miniupnp (optional and broken at the moment)
 
 generic_hack \
