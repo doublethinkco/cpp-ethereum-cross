@@ -15,18 +15,18 @@ cd_clone ${LIBSCRYPT_BASE_DIR?} ${LIBSCRYPT_WORK_DIR?}
 generic_hack \
   ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
   'BEGIN{printf("set(CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS} -fPIC\")\n")}1'
+#generic_hack \
+#  ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
+#  'BEGIN{printf("include(EthCompilerSettings)\n")}1'
+#generic_hack \
+#  ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
+#  'BEGIN{printf("include(EthExecutableHelper)\n")}1'
+#generic_hack \
+#  ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
+#  'BEGIN{printf("list(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
 generic_hack \
   ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
-  'BEGIN{printf("include(EthCompilerSettings)\n")}1'
-generic_hack \
-  ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
-  'BEGIN{printf("include(EthExecutableHelper)\n")}1'
-generic_hack \
-  ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
-  'BEGIN{printf("list(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
-generic_hack \
-  ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
-  'BEGIN{printf("set(ETH_CMAKE_DIR \"${CMAKE_CURRENT_LIST_DIR}/../../cmake\" CACHE PATH \"The path to the cmake directory\")\n")}1'
+  'BEGIN{printf("set(ETH_CMAKE_DIR \"${CMAKE_CURRENT_LIST_DIR}/../../cmake\" CACHE PATH \"The path to the cmake directory\")\nlist(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
 
 cat ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt
 
