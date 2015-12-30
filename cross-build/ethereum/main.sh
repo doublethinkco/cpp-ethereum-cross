@@ -33,10 +33,21 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 # We *have* to download Boost because EthDependencies.cmake in
 # webthree-helper does a find_package() for it unconditionally, no matter
 # what we are actually building.
+#
+# We are also still downloading cmake even though the Docker files have
+# already been updated to "apt-get install" it, because there are still
+# references to CMAKE_TOOLCHAIN_FILE all over the place.   Those should
+# be re-directed to point at the installed version, and then we can
+# strip out the cmake download here.
+#
+# NOTE - We use orphaned copies secp256k1 and scrypt which live inside
+# the webthree-helper package.   Their oddness makes them pigs to
+# cross-build, because we are not running CMake from a repo root
+# directory, as is the case for every other package.
+
 ./download.sh \
-  "boost:gmp" \
+  "boost;cmake;cryptopp;curl;gmp;libjson-rpc-cpp;mhd" \
   "${TARGET_SUBTYPE?}"
-#  "boost;cmake;cryptopp;curl;gmp;libjson-rpc-cpp;mhd"
 
 # ===========================================================================
 # cmake:
@@ -71,12 +82,12 @@ generic_hack \
 # that if we fixed up the CMake code so that the unconditional Boost
 # dependency could be skipped then we could improve the build ordering here.
 
-./libscrypt.sh "${TARGET_SUBTYPE?}"
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./gmp.sh       "${TARGET_SUBTYPE?}"
 ./curl.sh      "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
+./libscrypt.sh "${TARGET_SUBTYPE?}"
 ./mhd.sh       "${TARGET_SUBTYPE?}"
 
 
