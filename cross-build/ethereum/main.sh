@@ -42,24 +42,6 @@ get_cmake_toolchain_file_content > ${CMAKE_TOOLCHAIN_FILE?}
 echo && tree -L 1 ${BASE_DIR?} && \
   echo -e "\n\n${CMAKE_TOOLCHAIN_FILE?}:\n$(cat ${CMAKE_TOOLCHAIN_FILE?})\n"
 
-# ===========================================================================
-# libweb3core dependencies cross-compilation
-export_cross_compiler
-sanity_check_cross_compiler
-
-./boost.sh     "${TARGET_SUBTYPE?}"
-./jsoncpp.sh   "${TARGET_SUBTYPE?}"
-./leveldb.sh   "${TARGET_SUBTYPE?}"
-./cryptopp.sh  "${TARGET_SUBTYPE?}"
-./gmp.sh       "${TARGET_SUBTYPE?}"
-
-./curl.sh            "${TARGET_SUBTYPE?}"
-./mhd.sh             "${TARGET_SUBTYPE?}"
-./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}" # needs both curl and mhd
-
-./libscrypt.sh "${TARGET_SUBTYPE?}"
-./secp256k1.sh "${TARGET_SUBTYPE?}"
-
 # ---------------------------------------------------------------------------
 # webthree-helpers hack (for libethereum):
 clone ${WEBTHREE_HELPERS_BASE_DIR?} ${WEBTHREE_HELPERS_WORK_DIR?} # clones without cd-ing
@@ -70,31 +52,38 @@ generic_hack \
   ${WEBTHREE_HELPERS_WORK_DIR?}/cmake/UseDev.cmake \
   '!/Miniupnpc/'
 
-# ---------------------------------------------------------------------------
+
+# ===========================================================================
+
+# Layer 0
+./boost.sh     "${TARGET_SUBTYPE?}"
+./cryptopp.sh  "${TARGET_SUBTYPE?}"
+./curl.sh      "${TARGET_SUBTYPE?}"
+./gmp.sh       "${TARGET_SUBTYPE?}"
+./jsoncpp.sh   "${TARGET_SUBTYPE?}"
+./leveldb.sh   "${TARGET_SUBTYPE?}"
+./libscrypt.sh "${TARGET_SUBTYPE?}"
+./mhd.sh       "${TARGET_SUBTYPE?}"
+./secp256k1.sh "${TARGET_SUBTYPE?}"
+
+# Layer 1
+./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}" # requires curl, jsoncpp and mhd
+
+# Layer 2
 ./libweb3core.sh "${TARGET_SUBTYPE?}"
+tree -L 4 ${LIBWEB3CORE_INSTALL_DIR?}
 
-
-# ===========================================================================
-# libethereum dependencies cross-compilation
-export_cross_compiler
-sanity_check_cross_compiler
-
+# Layer 3
 ./libethereum.sh "${TARGET_SUBTYPE?}" # requires libweb3core
+tree -L 4 ${LIBETHEREUM_INSTALL_DIR?}
 
-
-# ===========================================================================
-# webthree dependencies cross-compilation
-export_cross_compiler
-sanity_check_cross_compiler
-
+# Layer 4
 ./webthree.sh "${TARGET_SUBTYPE?}" # requires libweb3core and libethereum
+tree -L 4 ${WEBTHREE_INSTALL_DIR?}
 
 
 # ===========================================================================
 printf '=%.0s' {1..75} && echo
-tree -L 4 ${LIBWEB3CORE_INSTALL_DIR?}
-tree -L 4 ${LIBETHEREUM_INSTALL_DIR?}
-tree -L 4 ${WEBTHREE_INSTALL_DIR?}
 
 # ===========================================================================
 # produces a packaged-up file (will spit out instructions on how to use it)
