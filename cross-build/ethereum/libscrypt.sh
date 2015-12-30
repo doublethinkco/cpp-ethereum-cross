@@ -6,23 +6,23 @@
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
 COMPONENT=${LIBSCRYPT?}
-cd_if_not_exists ${LIBSCRYPT_WORK_DIR?}
 export_cross_compiler && sanity_check_cross_compiler
+cd_clone ${LIBSCRYPT_BASE_DIR?} ${LIBSCRYPT_WORK_DIR?}
 
 
 # ---------------------------------------------------------------------------
 # hacks
 generic_hack \
-  ${LIBSCRYPT_BASE_DIR?}/CMakeLists.txt \
-  'BEGIN{printf("set(CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS} -fPIC\")\n\n")}1'
-cat ${LIBSCRYPT_BASE_DIR?}/CMakeLists.txt
+  ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
+  'BEGIN{printf("set(CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS} -fPIC\")\ninclude(EthCompilerSettings)\ninclude(EthExecutableHelper)\n")}1'
+cat ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt
 
 # ===========================================================================
 # configuration:
 
 section_configuring ${COMPONENT?}
 cmake \
-   ${LIBSCRYPT_BASE_DIR?} \
+   . \
   -G "Unix Makefiles" \
   -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?}
