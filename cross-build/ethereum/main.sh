@@ -35,7 +35,7 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 # what we are actually building.
 ./download.sh \
 #  "boost;cmake;cryptopp;curl;gmp;libjson-rpc-cpp;mhd"
-  "boost;gmp"
+  "boost;gmp" \
   "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
