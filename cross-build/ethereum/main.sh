@@ -46,7 +46,7 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 # directory
 
 ./download.sh \
-  "boost:cmake:cryptopp:curl:gmp:jsoncpp;leveldb;libjson-rpc-cpp:libmicrohttpd" \
+  "boost:cmake:cryptopp:curl:gmp:jsoncpp:leveldb:libjson-rpc-cpp:libmicrohttpd" \
   "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
