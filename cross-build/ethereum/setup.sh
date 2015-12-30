@@ -88,7 +88,7 @@ export readonly     CURL_ARCHIVE_NAME="${CURL?}-${CURL_VERSION?}.tar.gz"
 export readonly      MHD_ARCHIVE_NAME="${MHD?}-${MHD_VERSION?}.tar.gz"
 
 # ===========================================================================
-export readonly       BOOST_DOWNLOAD_URL="http://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION?}/${BOOST_ARCHIVE_NAME?}/download"
+export readonly       BOOST_DOWNLOAD_URL="http://downloads.sourceforge.net/project/boost/boost/${BOOST_VERSION?}/${BOOST_ARCHIVE_NAME?}"
 export readonly         GMP_DOWNLOAD_URL="https://ftp.gnu.org/gnu/gmp/${GMP_ARCHIVE_NAME?}"
 export readonly        CURL_DOWNLOAD_URL="http://curl.haxx.se/download/${CURL_ARCHIVE_NAME?}"
 export readonly         MHD_DOWNLOAD_URL="http://ftp.gnu.org/gnu/libmicrohttpd/${MHD_ARCHIVE_NAME?}"
