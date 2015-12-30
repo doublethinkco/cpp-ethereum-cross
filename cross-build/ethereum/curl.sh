@@ -30,7 +30,7 @@ grep ${TARGET_ARCHITECTURE?} ./Makefile # sanity check
 # cross-compile:
 
 section_cross_compiling ${COMPONENT?}
-make
+make -j 8
 return_code $?
 
 

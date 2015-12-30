@@ -50,7 +50,7 @@ return_code $?
 
 section_installing ${COMPONENT?}
 backup_potential_install_dir ${LIBJSON_RPC_CPP_INSTALL_DIR?}
-make DESTDIR="${LIBJSON_RPC_CPP_INSTALL_DIR?}" install
+make DESTDIR="${LIBJSON_RPC_CPP_INSTALL_DIR?}" -j 8 install
 return_code $?
 
 # homogenization
