@@ -14,7 +14,7 @@ export_cross_compiler && sanity_check_cross_compiler
 # hacks
 generic_hack \
   ${LIBSCRYPT_BASE_DIR?}/CMakeLists.txt \
-  '{gsub(/DSTATICLIB/,"DSTATICLIB -fPIC")}1'
+  'BEGIN{printf("set\(CMAKE_CXX_FLAGS \"\$\{CMAKE_CXX_FLAGS\} -fPIC\"\)\n\n")}1'
 
 
 # ===========================================================================
