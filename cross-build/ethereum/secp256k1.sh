@@ -13,7 +13,12 @@ export_cross_compiler && sanity_check_cross_compiler
 # ===========================================================================
 # configuration:
 
+generic_hack \
+  ${SECP256K1_WORK_DIR?}/CMakeLists.txt \
+  'BEGIN{printf("cmake_minimum_required(VERSION 3.0.0)\nset(ETH_CMAKE_DIR \"'${WEBTHREE_HELPERS_BASE_DIR?}/cmake'\" CACHE PATH \"The path to the cmake directory\")\nlist(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
+
 section_configuring ${COMPONENT?}
+set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}" # overkill but necessary until https://github.com/ethereum/webthree-helpers/issues/68 is addressed properly
 cmake \
    . \
   -G "Unix Makefiles" \
