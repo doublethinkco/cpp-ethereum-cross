@@ -71,9 +71,8 @@ generic_hack \
 # that if we fixed up the CMake code so that the unconditional Boost
 # dependency could be skipped then we could improve the build ordering here.
 
-./gmp.sh       "${TARGET_SUBTYPE?}"
-./secp256k1.sh       "${TARGET_SUBTYPE?}"
 ./libscrypt.sh "${TARGET_SUBTYPE?}"
+./gmp.sh       "${TARGET_SUBTYPE?}"
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
 ./curl.sh      "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
