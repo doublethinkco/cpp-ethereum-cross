@@ -26,12 +26,16 @@ generic_hack \
 
 
 # ---------------------------------------------------------------------------
-# Hack to address std versus boost exception namespace ambiguity.
-# Probably indicative of a more global build configuration issue, but
-# this should at least get us past it.
+# Hack to address "error: ‘sleep_for’ is not a member of ‘std::this_thread’"
+# This *can* be improved.   I'm only seeing this for build-armel-apt.sh,
+# which might mean it is an out-of-date GCC version?
+#
+# See http://stackoverflow.com/questions/4438084/stdthis-threadsleep-for-and-gcc
+# See http://stackoverflow.com/questions/12523122/what-is-glibcxx-use-nanosleep-all-about
+
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libdevcore/TransientDirectory.cpp \
-  'BEGIN{printf("#include <boost/thread/thread.hpp>\n")}1'
+  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}1'
 
 
 # ---------------------------------------------------------------------------
