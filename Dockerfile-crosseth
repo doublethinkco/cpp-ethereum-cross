@@ -52,7 +52,9 @@ USER crosseth
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
-RUN git clone --recursive https://github.com/ethereum/webthree-umbrella.git
+RUN git clone --recursive https://github.com/ethereum/webthree-umbrella.git && \
+    cd webthree-umbrella && \
+	git checkout e550c51
 
 # Copy our cross-building scripts into the container
 ADD cross-build/ /home/crosseth/webthree-umbrella/cross-build/
