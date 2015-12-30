@@ -12,9 +12,10 @@ cd_clone ${LIBSCRYPT_BASE_DIR?} ${LIBSCRYPT_WORK_DIR?}
 
 # ===========================================================================
 # configuration:
+# Two hacks here.   One to add the "scaffolding" and another to add -fPIC
 generic_hack \
   ${LIBSCRYPT_WORK_DIR?}/CMakeLists.txt \
-  'BEGIN{printf("cmake_minimum_required(VERSION 3.0.0)\nset(ETH_CMAKE_DIR \"'${WEBTHREE_HELPERS_BASE_DIR?}/cmake'\" CACHE PATH \"The path to the cmake directory\")\nlist(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
+  'BEGIN{printf("cmake_minimum_required(VERSION 3.0.0)\nset(ETH_CMAKE_DIR \"'${WEBTHREE_HELPERS_BASE_DIR?}/cmake'\" CACHE PATH \"The path to the cmake directory\")\nlist(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\nset(CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS} -fPIC\")\n")}1'
 
 # TODO - Only including boost here because of EthDependencies bug, not because we need it.
 section_configuring ${COMPONENT?}
