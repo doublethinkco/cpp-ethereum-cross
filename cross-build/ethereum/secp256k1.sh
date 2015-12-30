@@ -18,7 +18,7 @@ generic_hack \
   'BEGIN{printf("cmake_minimum_required(VERSION 3.0.0)\nset(ETH_CMAKE_DIR \"'${WEBTHREE_HELPERS_BASE_DIR?}/cmake'\" CACHE PATH \"The path to the cmake directory\")\nlist(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
 
 section_configuring ${COMPONENT?}
-set_cmake_paths "gmp"
+set_cmake_paths "boost:gmp"
 cmake \
    . \
   -G "Unix Makefiles" \
