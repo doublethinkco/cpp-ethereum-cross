@@ -56,6 +56,7 @@ generic_hack \
 # ===========================================================================
 
 # Layer 0
+./secp256k1.sh "${TARGET_SUBTYPE?}"
 ./libscrypt.sh "${TARGET_SUBTYPE?}"
 ./boost.sh     "${TARGET_SUBTYPE?}"
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
@@ -66,11 +67,7 @@ generic_hack \
 ./mhd.sh       "${TARGET_SUBTYPE?}"
 
 # Layer 1
-# TODO - Move secp256k1 to layer 0 when
-# https://github.com/ethereum/webthree-helpers/commit/88af602
-# is added to webthree-umbrella
 ./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}" # requires curl, jsoncpp and mhd
-./secp256k1.sh       "${TARGET_SUBTYPE?}" # HACK for its CMake requires libjson-rpc-cpp
 ./libweb3core.sh     "${TARGET_SUBTYPE?}" # requires boost, cryptopp, jsoncpp, leveldb, gmp
 tree -L 4 ${LIBWEB3CORE_INSTALL_DIR?}
 
