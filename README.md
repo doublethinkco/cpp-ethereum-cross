@@ -113,7 +113,7 @@ And then one of ...
 
 If the build succeeds then you will end up with an output file in **/tmp/crosseth.tgz**.
 
-The "apt" versions used the pre-built **g++-arm-linux-gnueabi** and
+The "apt" versions use the pre-built **g++-arm-linux-gnueabi** and
 **g++-arm-linux-gnueabihf** cross-compilers which "apt-get install"-ed,
 rather than the cross-compilers which we built ourselves (see next paragraph).
 
