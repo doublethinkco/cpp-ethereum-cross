@@ -35,16 +35,17 @@ generic_hack \
 
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libdevcore/TransientDirectory.cpp \
-  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}1'
+  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}{print}1'
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libdevcore/Worker.cpp \
-  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}1'
+  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}{print}1'
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libdevcrypto/OverlayDB.cpp \
-  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}1'
+  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}{print}1'
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libp2p/Host.cpp \
-  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}1'
+  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}{print}1'
+
 # Looks like we'll also need
 #     libethereum/libethereum/BlockChain.cpp
 #     libethereum/libethereum/Client.cpp
@@ -61,7 +62,7 @@ generic_hack \
 
 generic_hack \
   ${LIBWEB3CORE_WORK_DIR?}/libdevcore/Worker.cpp \
-  'BEGIN{printf("#pragma GCC diagnostic ignored \"-fpermissive\"\n")}1'
+  'BEGIN{printf("#pragma GCC diagnostic ignored \"-fpermissive\"\n")}{print}1'
 
 
 # ---------------------------------------------------------------------------
