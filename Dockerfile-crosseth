@@ -42,6 +42,13 @@ RUN apt-get update && apt-get install -y \
 
 # Install "official" armel and armhf cross-compiler packages, which
 # can be used as an alternative to our own custom crosstool-NG toolchains.
+#
+# They are actually REALLY OLD, aren't they, which will be where the
+# std::this_thread issues are coming from for build-armel-apt.sh.
+#
+# GCC-4.7.2 (used for armel) was released in September 2012
+# GCC-4.8.2 (used for armhf) was released in October 2013
+
 RUN apt-get update && apt-get install -y \
     g++-arm-linux-gnueabi=4:4.7.2-1 \
   g++-arm-linux-gnueabihf=4:4.8.2-1

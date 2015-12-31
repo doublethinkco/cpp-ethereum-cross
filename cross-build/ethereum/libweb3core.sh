@@ -52,6 +52,18 @@ generic_hack \
 #     webthree/flu/main.cpp
 # And a bunch of tests which I think we aren't building yet.
 
+
+# gcc TemplateClass<::GlobalSymbol> error on <::
+# firing because of this in Common.h:
+# #define DEV_TIMED_ABOVE(S, MS) for (::std::pair<::dev::TimerHelper, bool> __eth_t(::dev::TimerHelper(S, MS), true); __eth_t.second; __eth_t.second = false)
+#
+# See http://stackoverflow.com/questions/9129272/gcc-templateclassglobalsymbol-error-on
+
+generic_hack \
+  ${LIBWEB3CORE_WORK_DIR?}/libdevcore/Worker.cpp \
+  'BEGIN{printf("#pragma GCC diagnostic ignored \"-fpermissive\"\n")}1'
+
+
 # ---------------------------------------------------------------------------
 # configuration hack to remove miniupnp (optional and broken at the moment)
 
