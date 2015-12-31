@@ -16,8 +16,8 @@ export_cross_compiler && sanity_check_cross_compiler
 
 section_configuring ${COMPONENT?}
 ./configure \
-  --build="${ORIGIN_ARCHITECTURE?}-linux-gnu" \
-   --host="${TARGET_ARCHITECTURE?}-unknown-linux-gnueabi" \
+  --build="${AUTOCONF_BUILD_ARCHITECTURE}" \
+   --host="${AUTOCONF_HOST_ARCHITECTURE}" \
  --prefix="${GMP_INSTALL_DIR?}"
 return_code $?
 grep ${TARGET_ARCHITECTURE?} ./Makefile >/dev/null # sanity check

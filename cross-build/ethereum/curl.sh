@@ -19,8 +19,8 @@ export PATH="$PATH:${CROSS_COMPILER_ROOT_DIR?}/bin"
 
 section_configuring ${COMPONENT?}
 ./configure \
-  --build="${ORIGIN_ARCHITECTURE?}-linux-gnu" \
-   --host="${TARGET_ARCHITECTURE?}-unknown-linux-gnueabi" \
+  --build="${AUTOCONF_BUILD_ARCHITECTURE}" \
+   --host="${AUTOCONF_HOST_ARCHITECTURE}" \
  --prefix="${CURL_INSTALL_DIR?}"
 return_code $?
 grep ${TARGET_ARCHITECTURE?} ./Makefile # sanity check

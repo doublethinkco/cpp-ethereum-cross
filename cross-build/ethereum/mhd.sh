@@ -20,8 +20,8 @@ section_configuring ${COMPONENT?}
 touch configure.ac aclocal.m4 configure Makefile.am Makefile.in
 
 ./configure \
-  --build="${ORIGIN_ARCHITECTURE?}-linux-gnu" \
-   --host="${TARGET_ARCHITECTURE?}-unknown-linux-gnueabi" \
+  --build="${AUTOCONF_BUILD_ARCHITECTURE}" \
+   --host="${AUTOCONF_HOST_ARCHITECTURE}" \
  --prefix="${MHD_INSTALL_DIR?}"
 return_code $?
 grep ${TARGET_ARCHITECTURE?} ./Makefile >/dev/null # sanity check

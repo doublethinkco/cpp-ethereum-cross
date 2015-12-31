@@ -184,6 +184,15 @@ export readonly TESTUTILS_ETHEREUM_LIBRARY="${LIBETHEREUM_LIB_DIR?}/${TESTUTILS_
 
 # ===========================================================================
 
+export readonly AUTOCONF_BUILD_ARCHITECTURE="${ORIGIN_ARCHITECTURE?}-linux-gnu"
+
+if [ "${TARGET_SUBTYPE?}" == "armel" ]; then
+  export readonly AUTOCONF_HOST_ARCHITECTURE="${TARGET_ARCHITECTURE?}-unknown-linux-gnueabi"
+else
+  export readonly AUTOCONF_HOST_ARCHITECTURE="${TARGET_ARCHITECTURE?}-unknown-linux-gnueabihf"
+fi
+
+# ===========================================================================
 if [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" ]; then
   export readonly CROSS_COMPILER_ROOT_DIR="/usr"
 
