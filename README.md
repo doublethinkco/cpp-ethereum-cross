@@ -103,15 +103,19 @@ to build either 'armel' binaries or 'armhf' binaries:
 
     $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
     $ cd webthree-umbrella-cross
+
+And then one of ...
+
     $ sudo ./build-armel.sh
-
-or
-
-    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
-    $ cd webthree-umbrella-cross
     $ sudo ./build-armhf.sh
+    $ sudo ./build-armel-apt.sh
+    $ sudo ./build-armhf-apt.sh
 
 If the build succeeds then you will end up with an output file in **/tmp/crosseth.tgz**.
+
+The "apt" versions used the pre-built **g++-arm-linux-gnueabi** and
+**g++-arm-linux-gnueabihf** cross-compilers which "apt-get install"-ed,
+rather than the cross-compilers which we built ourselves (see next paragraph).
 
 [Dockerfile-crosseth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-crosseth)
 makes use of the [crosstool-NG](http://crosstool-ng.org/#introduction) toolchain-building
