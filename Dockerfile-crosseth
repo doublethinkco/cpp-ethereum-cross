@@ -48,6 +48,14 @@ RUN apt-get update && apt-get install -y \
 #
 # GCC-4.7.2 (used for armel) was released in September 2012
 # GCC-4.8.2 (used for armhf) was released in October 2013
+#
+# We should try upgrading from Ubuntu 14.04 (Trusty), released
+# April 2014 to Ubuntu 15.10 (Wiley), released October 2015, for
+# the base Docker image, because that will bump up our GCC versions
+# quite a lot, to ...
+#
+# GCC-5.2.1 (used for armel) was released in July 2015
+# GCC-5.2.1 (used for armhf) was released in July 2015
 
 RUN apt-get update && apt-get install -y \
     g++-arm-linux-gnueabi=4:4.7.2-1 \
