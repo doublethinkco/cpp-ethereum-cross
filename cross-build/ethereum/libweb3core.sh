@@ -26,46 +26,6 @@ generic_hack \
 
 
 # ---------------------------------------------------------------------------
-# Hack to address "error: ‘sleep_for’ is not a member of ‘std::this_thread’"
-# This *can* be improved.   I'm only seeing this for build-armel-apt.sh,
-# which might mean it is an out-of-date GCC version?
-#
-# See http://stackoverflow.com/questions/4438084/stdthis-threadsleep-for-and-gcc
-# See http://stackoverflow.com/questions/12523122/what-is-glibcxx-use-nanosleep-all-about
-
-generic_hack \
-  ${LIBWEB3CORE_WORK_DIR?}/libdevcore/TransientDirectory.cpp \
-  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}{print}1'
-generic_hack \
-  ${LIBWEB3CORE_WORK_DIR?}/libdevcore/Worker.cpp \
-  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}{print}1'
-generic_hack \
-  ${LIBWEB3CORE_WORK_DIR?}/libdevcrypto/OverlayDB.cpp \
-  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}{print}1'
-generic_hack \
-  ${LIBWEB3CORE_WORK_DIR?}/libp2p/Host.cpp \
-  'BEGIN{printf("#define _GLIBCXX_USE_NANOSLEEP\n")}{print}1'
-
-# Looks like we'll also need
-#     libethereum/libethereum/BlockChain.cpp
-#     libethereum/libethereum/Client.cpp
-#     webthree/eth/main.cpp
-#     webthree/flu/main.cpp
-# And a bunch of tests which I think we aren't building yet.
-
-
-# gcc TemplateClass<::GlobalSymbol> error on <::
-# firing because of this in Common.h:
-# #define DEV_TIMED_ABOVE(S, MS) for (::std::pair<::dev::TimerHelper, bool> __eth_t(::dev::TimerHelper(S, MS), true); __eth_t.second; __eth_t.second = false)
-#
-# See http://stackoverflow.com/questions/9129272/gcc-templateclassglobalsymbol-error-on
-
-generic_hack \
-  ${LIBWEB3CORE_WORK_DIR?}/libdevcore/Worker.cpp \
-  'BEGIN{printf("#pragma GCC diagnostic ignored \"-fpermissive\"\n")}{print}1'
-
-
-# ---------------------------------------------------------------------------
 # configuration hack to remove miniupnp (optional and broken at the moment)
 
 generic_hack \
