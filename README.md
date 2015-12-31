@@ -82,8 +82,8 @@ There are prebuilt releases
 [available at Github](https://github.com/doublethinkco/webthree-umbrella-cross/releases)
 which will be updated periodically:
 
-* [crosseth-armel-1097743 (ARMv5)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-1097743)
-* [crosseth-armhf-1097743 (ARMv5)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-1097743)
+* [crosseth-armel-2015-12-31 (ARMv5)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-2015-12-31)
+* [crosseth-armhf-2015-12-31 (ARMv5)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-2015-12-31)
 * [crosseth-armel-apt-2015-12-31 (ARMv7)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-apt-2015-12-31)
 * [crosseth-armhf-apt-2015-12-31 (ARMv7)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-apt-2015-12-31)
 
