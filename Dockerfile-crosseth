@@ -37,6 +37,30 @@ RUN apt-get update && apt-get install -y \
 # NOTE - The GCC armel cross-compiler package which comes with
 # Ubuntu-14.04 (Trusty) is REALLY old (GCC 4.7.2, released September 2012)
 # and is pretty much unusable on this code-base.
+#
+# NOTE - Tizen ships with an even older version of GCC again :-)
+# The Gear S2 smartwatch comes with libstdc++.so.6.0.16, which is the
+# version which shipped with GCC 4.6.1, released in April 2010.   Running
+# the armel binaries generated with the GCC 5.2.1 cross-compiler which
+# we are now using here results in binaries which we cannot run on the
+# Gear S2.  That results in the following runtime errors:
+#
+#     ./eth: /usr/lib/libstdc++.so.6: version `GLIBCXX_3.4.21' not found (required by ./eth)
+#     ./eth: /usr/lib/libstdc++.so.6: version `GLIBCXX_3.4.19' not found (required by ./eth)
+#     ./eth: /usr/lib/libstdc++.so.6: version `GLIBCXX_3.4.17' not found (required by ./eth)
+#     ./eth: /usr/lib/libstdc++.so.6: version `GLIBCXX_3.4.18' not found (required by
+#
+# So it looks like I am going to have to specifically use an older
+# sysroot to get something which can work on the Gear S2.  I am unable
+# SDB connect to any of my other Tizen devices right now, so cannot verify
+# if they have slightly newer runtime libraries.  The SDK does also have a
+# GCC-4.9 toolchain, which perhaps was included in the Tizen 2.4 runtime?
+# Using a different sysroot will involve getting GCC 4.6 headers and libraries
+# onto the build machine, and then getting -sysroot into the CC and CXX
+# command-lines, probably by creating a shell script which wraps the
+# actual GCC binaries, as per the example below.
+#
+# See http://stackoverflow.com/questions/2977182/alternatives-to-the-sysroot-switch-of-gcc
 
 RUN apt-get update && apt-get install -y \
     g++-arm-linux-gnueabi=4:5.2.1-1 \
