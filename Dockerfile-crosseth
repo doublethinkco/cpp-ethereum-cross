@@ -4,9 +4,6 @@
 # previous built the cross-compiler and can just copy that into our
 # container.
 #
-# TARGET_ARCHITECTURE is an environment variable used to parameterize this
-# process.
-#
 # See http://ethereum.org/ to learn more about Ethereum.
 # See http://doublethink.co/ to learn more about doublethinkco
 #
@@ -15,9 +12,6 @@
 
 FROM ubuntu:wily
 MAINTAINER Bob Summerwill <bob@summerwill.net>
-
-# Target architecture for cross-build.  This default corresponds to 'armel'.
-ENV TARGET_ARCHITECTURE "arm-unknown-linux-gnueabi"
 
 # External packages required by our scripts
 RUN apt-get update && apt-get install -y \
