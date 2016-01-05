@@ -63,7 +63,7 @@ RUN apt-get update && apt-get install -y \
 # And let's try installing LLVM too.   This is probably "sub-optimal", but should
 # be enough to get us started.
 RUN apt-get -y install software-properties-common
-RUN wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
+RUN wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | apt-key add -
 RUN add-apt-repository "deb http://llvm.org/apt/wily/ llvm-toolchain-wily-3.7 main"
 RUN apt-get -y install llvm-3.7-dev
 
