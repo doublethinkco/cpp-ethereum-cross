@@ -72,7 +72,7 @@ RUN useradd -ms /bin/bash crosseth
 USER crosseth
 
 # Commit on the webthree-umbrella master branch to use.
-ENV WEBTHREE_UMBRELLA_COMMIT eee2b32
+ENV WEBTHREE_UMBRELLA_COMMIT b315d82
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
