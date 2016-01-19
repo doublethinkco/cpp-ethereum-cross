@@ -196,6 +196,11 @@ fi
 if [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" ]; then
   export readonly CROSS_COMPILER_ROOT_DIR="/usr"
 
+  # HACK - Point to the Tizen rootstrap directory, so we cross-compile
+  # against older glibc API, to match the heinously old GCC 3.2 system
+  # libraries shipped with the Samsung Gear S2.
+  export readonly CFLAGS=--sysroot="/home/crosseth/Tizen-2.3.1/rootstrap/"
+
   if [ "${TARGET_SUBTYPE?}" == "armel" ]; then
     export readonly  GCC_CROSS_COMPILER="/usr/bin/arm-linux-gnueabi-gcc"
     export readonly  GXX_CROSS_COMPILER="/usr/bin/arm-linux-gnueabi-g++"
