@@ -76,7 +76,7 @@ export readonly      GMP_VERSION="6.0.0a"
 export readonly     CURL_VERSION="7.45.0"
 export readonly      MHD_VERSION="0.9.44"
 
-export readonly         CRYPTOPP_VERSION="2ee933d"
+export readonly         CRYPTOPP_VERSION="789f81f"
 export readonly          JSONCPP_VERSION="8a6e50a"
 export readonly          LEVELDB_VERSION="77948e7"
 export readonly  LIBJSON_RPC_CPP_VERSION="0da64a9"
@@ -192,14 +192,14 @@ else
   export readonly AUTOCONF_HOST_ARCHITECTURE="${TARGET_ARCHITECTURE?}-unknown-linux-gnueabihf"
 fi
 
+# HACK - Point to the Tizen rootstrap directory, so we cross-compile
+# against older glibc API, to match the heinously old GCC 3.2 system
+# libraries shipped with the Samsung Gear S2.
+export readonly CFLAGS=--sysroot="/home/crosseth/Tizen-2.3.1/rootstrap/"
+
 # ===========================================================================
 if [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" ]; then
   export readonly CROSS_COMPILER_ROOT_DIR="/usr"
-
-  # HACK - Point to the Tizen rootstrap directory, so we cross-compile
-  # against older glibc API, to match the heinously old GCC 3.2 system
-  # libraries shipped with the Samsung Gear S2.
-  export readonly CFLAGS=--sysroot="/home/crosseth/Tizen-2.3.1/rootstrap/"
 
   if [ "${TARGET_SUBTYPE?}" == "armel" ]; then
     export readonly  GCC_CROSS_COMPILER="/usr/bin/arm-linux-gnueabi-gcc"
