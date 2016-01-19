@@ -74,8 +74,8 @@ USER crosseth
 # Unzip the Tizen wearable rootstrap, so we can use it for a --sysroot override within
 # the cross-compilation process.  That gets us back to the glibc version shipped with
 # GCC 3.2, which is what we need to be able run on the Samsung Gear S2.
-RUN wget https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/wearable-2.3.1-device.core.zip/wearable-2.3.1-device.core.zip
-RUN unzip wearable-2.3.1-device.core.zip -d /home/crosseth/Tizen-2.3.1/rootstrap/
+RUN wget -O /home/crosseth/wearable-2.3.1-device.core.zip https://github.com/doublethinkco/webthree-umbrella-cross/releases/download/wearable-2.3.1-device.core.zip/wearable-2.3.1-device.core.zip
+RUN unzip /home/crosseth/wearable-2.3.1-device.core.zip -d /home/crosseth/Tizen-2.3.1/rootstrap/
 
 # Commit on the webthree-umbrella master branch to use.
 ENV WEBTHREE_UMBRELLA_COMMIT b315d82
