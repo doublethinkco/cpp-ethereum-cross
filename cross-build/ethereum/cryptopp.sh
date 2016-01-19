@@ -8,7 +8,7 @@ SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DI
 COMPONENT=cryptopp
 cd ${CRYPTOPP_BASE_DIR?} && git checkout ${CRYPTOPP_VERSION?}
 export_cross_compiler && sanity_check_cross_compiler
-cd_clone ${CRYPTOPP_BASE_DIR?}/src ${CRYPTOPP_WORK_DIR?}
+cd_clone ${CRYPTOPP_BASE_DIR?} ${CRYPTOPP_WORK_DIR?}
 
 
 # ---------------------------------------------------------------------------
@@ -26,10 +26,6 @@ generic_hack ./GNUmakefile '!/=native/'
 # hack sanity check
 grep '=native' ./GNUmakefile.bak
 grep '=native' ./GNUmakefile && exit 1 || :
-
-# copy the headers UP a level, so that they can be found when we are looking
-# for include paths later for libweb3core.
-cp ${CRYPTOPP_BASE_DIR?}/src/*.h ${CRYPTOPP_BASE_DIR?}/
 
 
 # ===========================================================================
