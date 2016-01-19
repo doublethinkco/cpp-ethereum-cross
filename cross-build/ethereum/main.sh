@@ -82,13 +82,8 @@ generic_hack \
 # that if we fixed up the CMake code so that the unconditional Boost
 # dependency could be skipped then we could improve the build ordering here.
 
-# Looks like there is some extra configure magic required to get curl
-# building successfully against the Tizen rootstrap image.  Will skip
-# that for right now and come back to it later.
-# See http://stackoverflow.com/questions/18124658/curl-with-ssl-dependency-error-libssl-so-libcrypto-so-needed-in-ubuntu-32bit.
-#./curl.sh      "${TARGET_SUBTYPE?}"
-
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
+./curl.sh      "${TARGET_SUBTYPE?}"
 ./gmp.sh       "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
