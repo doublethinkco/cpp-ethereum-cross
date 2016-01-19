@@ -195,7 +195,8 @@ fi
 # HACK - Point to the Tizen rootstrap directory, so we cross-compile
 # against older glibc API, to match the heinously old GCC 3.2 system
 # libraries shipped with the Samsung Gear S2.
-export readonly CFLAGS=--sysroot="/home/crosseth/Tizen-2.3.1/rootstrap/"
+export readonly  CFLAGS=--sysroot="/home/crosseth/Tizen-2.3.1/rootstrap/"
+export readonly LDFLAGS=--sysroot="/home/crosseth/Tizen-2.3.1/rootstrap/"
 
 # ===========================================================================
 if [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" ]; then
