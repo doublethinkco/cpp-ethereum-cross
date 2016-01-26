@@ -173,8 +173,8 @@ for this process is in [cross-build/ethereum/setup.sh](https://github.com/double
 | Samsung                 | Galaxy S6             | Android 5.0.2     | aarch64 | Samsung Exynos 7420        | 4 x Cortex-A57, 4 x Cortex-A53 | N/A | [TODO #35](https://github.com/doublethinkco/webthree-umbrella-cross/issues/35)
 | Apple                   | iPhone 3GS            | iOS 3             | armv7   | Samsung S5PC100            | 1 x Cortex-A8 | N/A     | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
 | Apple                   | iPhone 5              | iOS 6             | armv7   | Apple A6                   | 2 x ARMv7A    | N/A     | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
-| Nokia                   | N900                  | Maemo 5           | armv7   | Apple A6                   | 2 x ARMv7A    | N/A     | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
-| Nokia                   | N9                    | MeeGo 1.3         | armv7   | Apple A6                   | 2 x ARMv7A    | N/A     | [TODO #36](https://github.com/doublethinkco/webthree-umbrella-cross/issues/36)
+| Nokia                   | N900                  | Maemo 5           | armv7   | Apple A6                   | 2 x ARMv7A    | N/A     | [TODO #74](https://github.com/doublethinkco/webthree-umbrella-cross/issues/74)
+| Nokia                   | N9                    | MeeGo 1.3         | armv7   | Apple A6                   | 2 x ARMv7A    | N/A     | [TODO #73](https://github.com/doublethinkco/webthree-umbrella-cross/issues/73)
 
 # Developer phone status
 
@@ -214,7 +214,7 @@ for this process is in [cross-build/ethereum/setup.sh](https://github.com/double
 
 NOTE - Here is some information on [ARM options in GCC](https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html).
 
-See also [ARM Infocenter](http://infocenter.arm.com) and [ARM Achitecture](https://en.wikipedia.org/wiki/ARM_architecture) page on Wikipedia.
+See also [ARM Infocenter](http://infocenter.arm.com) and [ARM Architecture](https://en.wikipedia.org/wiki/ARM_architecture) page on Wikipedia.
 
 # Next steps?
 
