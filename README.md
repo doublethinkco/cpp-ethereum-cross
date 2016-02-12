@@ -205,7 +205,7 @@ for this process is in [cross-build/ethereum/setup.sh](https://github.com/double
 | Beaglebone              | Beaglebone Black      | Debian            | armv7   | Texas Instruments AM3358/9 | 1 x Cortex-A8 | Working | Working
 | Wandboard               | Wandboard Quad        | Debian            | armv7   | Freescale i.MX6            | 4 x Cortex-A9 | Working | [Working](https://twitter.com/BobSummerwill/status/670573142914519040)
 | Dragonboard             | DragonBoard 410c      |                   | armv7   | Qualcomm Snapdragon 410    | 4 x Cortex-A7 | TODO    | TODO
-| C.H.I.P.                | C.H.I.P.              |                   | armv7   | Allwinner R8               | 1 x Cortex-A8 | TODO    | [Working](https://twitter.com/EthEmbedded/status/697220510208258048)
+| C.H.I.P.                | C.H.I.P.              | Debian            | armv7   | Allwinner R8               | 1 x Cortex-A8 | TODO    | [Working](https://twitter.com/EthEmbedded/status/697220510208258048)
 | Minnowboard             | Minnowboard MAX       |                   | x86_64  | Intel Atom E3800           | 2 x Core      | TODO    | TODO
 | Intel                   | Intel NUC DCP847SKE   |                   | i386    | Intel QS77 Express         |               | TODO    | TODO
 | Intel                   | Intel Edison          | Yocto             | x86_64  | Intel "Tangier" Z34XX      |               | Working | TODO
