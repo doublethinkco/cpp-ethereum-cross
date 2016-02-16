@@ -224,6 +224,6 @@ should not be too hard either - just more cross-compilers.
 
 * [Milestone 1 - Loose Ends, Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%201%20-%20Loose%20ends,%20Tizen)
 * [Milestone 2 - DevOps, Android, iOS](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%202%20-%20DevOps,%20Android,%20iOS)
-* [Milestone 4 - Light Client Phase 1](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%203%20-%20Light%20Client%20Phase%201)
+* [Milestone 3 - Light Client Phase 1](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%203%20-%20Light%20Client%20Phase%201)
 
 Copyright (c) 2015 Kitsilano Software Inc
