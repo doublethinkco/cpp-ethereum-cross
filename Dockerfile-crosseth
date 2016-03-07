@@ -64,8 +64,8 @@ RUN apt-get update && apt-get install -y \
 RUN useradd -ms /bin/bash crosseth
 USER crosseth
 
-# Commit on the webthree-umbrella master branch to use.
-ENV WEBTHREE_UMBRELLA_COMMIT eee2b32
+# Commit of the webthree-umbrella repo to use.
+ENV WEBTHREE_UMBRELLA_COMMIT v1.2.1
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
