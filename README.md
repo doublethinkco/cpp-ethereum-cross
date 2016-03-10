@@ -1,25 +1,10 @@
-# What is "webthree-umbrella-cross"?
+# What is "cpp-ethereum-cross"?
 
 ![Build farm](https://doublethinkco.files.wordpress.com/2015/11/20151120_083926.jpg?w=788)
 
 This repo contains [Docker](https://www.docker.com/) files for
 [cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler) of the
 [Ethereum](https://en.wikipedia.org/wiki/Ethereum) C++ components.
-
-These components are gathered in a repo called
-[webthree-umbrella](http://github.com/ethereum/webthree-umbrella).
-[Gavin Wood](https://github.com/gavofyork) explains the names:
-
-    The many names reflect the fact that it is not a single project.
-    Rather it's a collection of software that just happens to have
-    a team (mostly) in common.
-    
-    - cpp-ethereum is the historical name.
-    - webthree is the name for the repository implementing the webthree framework.
-    - eth is the name for the webthree client (historical; should be renamed to web3 at some point).
-    - ++eth is its sometime "stylish" name.
-    - Aleth* are the GUIs.
-    - TurboEthereum is the stylish name for the C++ core.
 
 The C++ cross-build support was developed by
 [Bob Summerwill](http://bobsummerwill.com)
@@ -37,58 +22,22 @@ our understanding of the status of each of them.
 This code is released as open source software under the permissive
 [MIT license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE).
 
-We have written blogs and articles through development:
+We have written blogs and articles through development which are hosted at
+[doublethink.co](http://doublethink.co).  Here are some key articles
 
-July 2015
-
-* [Ethereum Light Client support](http://doublethink.co/2015/07/29/ethereum-light-client-support/)
-
-August 2015
-
-* [Ethereum Light Client update, Thursday 6th August](http://doublethink.co/2015/08/06/ethereum-light-client-update-thursday-6th-august/)
-* [Ethereum Light Client update, Friday 21st August (by Anthony Cros)](http://doublethink.co/2015/08/22/ethereum-light-client-update-friday-21st-august-by-anthony-cros/)
-
-September 2015
-
-* [Ethereum Light Client update, Wednesday 9th September (by Anthony Cros)](http://doublethink.co/2015/09/09/ethereum-light-client-update-wednesday-9th-september-by-anthony-cros/)
-* [Go for mobile Linux platforms](http://doublethink.co/2015/09/10/go-for-mobile-linux-platforms/)
 * [Porting Ethereum to mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
-* [Porting Ethereum – Native build on Tizen emulator (dead-end) – by Anthony Cros](http://doublethink.co/2015/09/24/native-build-on-tizen-emulator/)
-
-October 2015
-
-* [Porting Ethereum – Tizen cross-builds. Update by Anthony Cros, 14th October 2015](http://doublethink.co/2015/10/14/porting-ethereum-tizen-cross-builds-by-anthony-cros-14th-october-2015/)
-
-November 2015
-
-* [Porting Ethereum – Tizen cross-builds. Update by Anthony Cros, 5th November 2015](http://doublethink.co/2015/11/06/porting-ethereum-tizen-cross-builds-update-by-anthony-cros-5th-november-2015/)
-* [Porting Ethereum – geth running on Samsung Gear S2 smartwatch. eth coming soon](http://doublethink.co/2015/11/13/porting-ethereum-geth-running-on-samsung-gear-s2-smartwatch-eth-coming-soon/)
-* [We got on screen at #devcon1 on the final day](http://doublethink.co/2015/11/13/we-got-on-screen-at-devcon1-on-the-final-day/)
-* [Mobile/wearable test farm takes shape](http://doublethink.co/2015/11/23/mobilewearable-test-farm-takes-shape/)
-* [Jolla Phone has arrived at doublethinkco!](http://doublethink.co/2015/11/26/jolla-phone-has-arrived/)
-* [Github repo README revamped](http://doublethink.co/2015/11/26/github-repo-readme-revamped/)
 * [First working Ethereum C++ cross-builds](http://doublethink.co/2015/11/30/first-working-ethereum-c-cross-builds/)
-
-December 2015
-
-* [Github documentation blitz](http://doublethink.co/2015/12/07/github-documentation-blitz/)
-* [Wrapping Up](http://doublethink.co/2015/12/22/wrapping-up/)
 * [New Year, New Focus](http://bobsummerwill.com/2015/12/24/new-year-new-focus/)
-
 
 # Releases
 
-There are prebuilt releases
-[available at Github](https://github.com/doublethinkco/webthree-umbrella-cross/releases)
-which will be updated periodically:
+Prebuilt releases are [hosted on Github](https://github.com/doublethinkco/webthree-umbrella-cross/releases)
+and are updated periodically.
 
-* [crosseth-armel-2015-12-31 (ARMv5)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-2015-12-31)
-* [crosseth-armhf-2015-12-31 (ARMv5)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-2015-12-31)
-* [crosseth-armel-apt-2015-12-31 (ARMv7)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armel-apt-2015-12-31)
-* [crosseth-armhf-apt-2015-12-31 (ARMv7)](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-apt-2015-12-31)
+See also (RELEASED – Cross-build eth binaries for Homestead)[http://doublethink.co/2016/03/07/released-cross-build-eth-binaries-for-homestead/].
 
-NOTE - This stuff is unsupported, but please do let us know how you get on,
-either via [Ethereum Porting](http://gitter.im/ethereum/porting) on Gitter
+If you use these binaries please do let us know how you get on,
+either via [cpp-ethereum](http://gitter.im/ethereum/porting) on Gitter
 or by logging [an issue](https://github.com/doublethinkco/webthree-umbrella-cross/issues)
 in Github.  Please give as much detail as you can, including your exact
 device and operating system version.   Thanks!
@@ -144,11 +93,6 @@ for this process is in [cross-build/ethereum/setup.sh](https://github.com/double
 
 * [armel-15-12-04](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armel-15-12-04)
 * [armhf-15-12-04](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armhf-15-12-04)
-
-
-# Dependency graph for the webthree components
-
-![Webthree](http://doublethinkco.github.io/webthree-umbrella-cross/images/dependency_graph.svg)
 
 
 # Smartwatch status
@@ -225,5 +169,3 @@ should not be too hard either - just more cross-compilers.
 * [Milestone 1 - Loose Ends, Tizen](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%201%20-%20Loose%20ends,%20Tizen)
 * [Milestone 2 - DevOps, Android, iOS](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%202%20-%20DevOps,%20Android,%20iOS)
 * [Milestone 3 - Light Client Phase 1](https://github.com/doublethinkco/webthree-umbrella-cross/milestones/Milestone%203%20-%20Light%20Client%20Phase%201)
-
-Copyright (c) 2015 Kitsilano Software Inc
