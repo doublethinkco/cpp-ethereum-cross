@@ -4,20 +4,22 @@ This repo contains [Docker](https://www.docker.com/) files for
 [cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler) of the
 [Ethereum](https://en.wikipedia.org/wiki/Ethereum) C++ components.
 
+**Homestead binaries ==> [RELEASED – Cross-build eth binaries for Homestead](http://doublethink.co/2016/03/07/released-cross-build-eth-binaries-for-homestead/) <==**
+
 The C++ cross-build support was developed by
 [Bob Summerwill](http://bobsummerwill.com)
 and
 [Anthony Cros](https://github.com/anthony-cros)
 for [doublethinkco](http://doublethink.co).
 
-The intention of the project was to bring Ethereum to mobile/wearable Linux
+The intention of the project is to bring Ethereum to mobile/wearable Linux
 platforms for the benefit of the whole Ethereum community, current and future.
 Given the ubiquitous nature of ARM processors, it was trivial to extend the
 scope of the project from mobile/wearable to cover a huge range of devices
 and OSes.  There is a large test matrix further down this document showing
-our understanding of the status of each of them.
+our understanding of the status on a very broad range of devices.
 
-Our nascent mobile/wearable build and testing farm:
+Here is a photo of our nascent mobile/wearable build and testing farm:
 
 ![Build farm](https://doublethinkco.files.wordpress.com/2015/11/20151120_083926.jpg?w=788)
 
