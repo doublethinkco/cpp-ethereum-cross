@@ -1,7 +1,5 @@
 # What is "cpp-ethereum-cross"?
 
-![Build farm](https://doublethinkco.files.wordpress.com/2015/11/20151120_083926.jpg?w=788)
-
 This repo contains [Docker](https://www.docker.com/) files for
 [cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler) of the
 [Ethereum](https://en.wikipedia.org/wiki/Ethereum) C++ components.
@@ -19,6 +17,10 @@ scope of the project from mobile/wearable to cover a huge range of devices
 and OSes.  There is a large test matrix further down this document showing
 our understanding of the status of each of them.
 
+Our nascent mobile/wearable build and testing farm:
+
+![Build farm](https://doublethinkco.files.wordpress.com/2015/11/20151120_083926.jpg?w=788)
+
 This code is released as open source software under the permissive
 [MIT license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE).
 
@@ -28,72 +30,6 @@ We have written blogs and articles through development which are hosted at
 * [Porting Ethereum to mobile Linux](http://doublethink.co/2015/09/22/porting-ethereum-to-mobile-linux/)
 * [First working Ethereum C++ cross-builds](http://doublethink.co/2015/11/30/first-working-ethereum-c-cross-builds/)
 * [New Year, New Focus](http://bobsummerwill.com/2015/12/24/new-year-new-focus/)
-
-# Releases
-
-Prebuilt releases are [hosted on Github](https://github.com/doublethinkco/webthree-umbrella-cross/releases)
-and are updated periodically.
-
-See also (RELEASED – Cross-build eth binaries for Homestead)[http://doublethink.co/2016/03/07/released-cross-build-eth-binaries-for-homestead/].
-
-If you use these binaries please do let us know how you get on,
-either via [cpp-ethereum](http://gitter.im/ethereum/porting) on Gitter
-or by logging [an issue](https://github.com/doublethinkco/webthree-umbrella-cross/issues)
-in Github.  Please give as much detail as you can, including your exact
-device and operating system version.   Thanks!
-
-# Cross-build from source
-
-To cross-build the HEAD of **webthree-umbrella** from source yourself,
-follow these instructions.
-
-Clone this repo and use
-[Dockerfile-crosseth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-crosseth)
-to build either 'armel' binaries or 'armhf' binaries:
-
-    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
-    $ cd webthree-umbrella-cross
-
-And then one of ...
-
-    $ sudo ./build-armel.sh
-    $ sudo ./build-armhf.sh
-    $ sudo ./build-armel-apt.sh
-    $ sudo ./build-armhf-apt.sh
-
-If the build succeeds then you will end up with an output file in **/tmp/crosseth.tgz**.
-
-The "apt" versions use the pre-built **g++-arm-linux-gnueabi** and
-**g++-arm-linux-gnueabihf** cross-compilers which "apt-get install"-ed,
-rather than the cross-compilers which we built ourselves (see next paragraph).
-
-[Dockerfile-crosseth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-crosseth)
-makes use of the [crosstool-NG](http://crosstool-ng.org/#introduction) toolchain-building
-scripts to generate a cross-compiler which is then used in the rest of the
-build process.  The cross-compiler was originally built and then used as
-part of the same Docker flow, but that was slow and unnecessarily, so that
-step was been split into its own [Dockerfile-xcompiler](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-xcompiler)
-process, which can be run in a similar manner:
-
-    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
-    $ cd webthree-umbrella-cross
-    $ sudo ./build-xcompiler-armel.sh
-
-or
-
-    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
-    $ cd webthree-umbrella-cross
-    $ sudo ./build-xcompiler-armhf.sh
-
-If the cross-compiler build succeeds then you will end up with an output file in **/tmp/xcompiler.tgz**.
-
-The results from two specific runs of this process are stored as releases on
-Github and are used in the crosseth build process.   The "glue"
-for this process is in [cross-build/ethereum/setup.sh](https://github.com/doublethinkco/webthree-umbrella-cross/blob/873761bba4f9b9c8e401dd0c9ac52a8c8e9b780b/cross-build/ethereum/setup.sh#L197):
-
-* [armel-15-12-04](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armel-15-12-04)
-* [armhf-15-12-04](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armhf-15-12-04)
-
 
 # Smartwatch status
 
@@ -158,6 +94,73 @@ for this process is in [cross-build/ethereum/setup.sh](https://github.com/double
 NOTE - Here is some information on [ARM options in GCC](https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html).
 
 See also [ARM Infocenter](http://infocenter.arm.com) and [ARM Architecture](https://en.wikipedia.org/wiki/ARM_architecture) page on Wikipedia.
+
+
+# Releases
+
+Prebuilt releases are [hosted on Github](https://github.com/doublethinkco/webthree-umbrella-cross/releases)
+and are updated periodically.
+
+See also [RELEASED – Cross-build eth binaries for Homestead](http://doublethink.co/2016/03/07/released-cross-build-eth-binaries-for-homestead/).
+
+If you use these binaries please do let us know how you get on,
+either via [cpp-ethereum](http://gitter.im/ethereum/porting) on Gitter
+or by logging [an issue](https://github.com/doublethinkco/webthree-umbrella-cross/issues)
+in Github.  Please give as much detail as you can, including your exact
+device and operating system version.   Thanks!
+
+# Cross-build from source
+
+To cross-build the HEAD of **webthree-umbrella** from source yourself,
+follow these instructions.
+
+Clone this repo and use
+[Dockerfile-crosseth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-crosseth)
+to build either 'armel' binaries or 'armhf' binaries:
+
+    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
+    $ cd webthree-umbrella-cross
+
+And then one of ...
+
+    $ sudo ./build-armel.sh
+    $ sudo ./build-armhf.sh
+    $ sudo ./build-armel-apt.sh
+    $ sudo ./build-armhf-apt.sh
+
+If the build succeeds then you will end up with an output file in **/tmp/crosseth.tgz**.
+
+The "apt" versions use the pre-built **g++-arm-linux-gnueabi** and
+**g++-arm-linux-gnueabihf** cross-compilers which "apt-get install"-ed,
+rather than the cross-compilers which we built ourselves (see next paragraph).
+
+[Dockerfile-crosseth](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-crosseth)
+makes use of the [crosstool-NG](http://crosstool-ng.org/#introduction) toolchain-building
+scripts to generate a cross-compiler which is then used in the rest of the
+build process.  The cross-compiler was originally built and then used as
+part of the same Docker flow, but that was slow and unnecessarily, so that
+step was been split into its own [Dockerfile-xcompiler](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/Dockerfile-xcompiler)
+process, which can be run in a similar manner:
+
+    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
+    $ cd webthree-umbrella-cross
+    $ sudo ./build-xcompiler-armel.sh
+
+or
+
+    $ git clone https://github.com/doublethinkco/webthree-umbrella-cross.git
+    $ cd webthree-umbrella-cross
+    $ sudo ./build-xcompiler-armhf.sh
+
+If the cross-compiler build succeeds then you will end up with an output file in **/tmp/xcompiler.tgz**.
+
+The results from two specific runs of this process are stored as releases on
+Github and are used in the crosseth build process.   The "glue"
+for this process is in [cross-build/ethereum/setup.sh](https://github.com/doublethinkco/webthree-umbrella-cross/blob/873761bba4f9b9c8e401dd0c9ac52a8c8e9b780b/cross-build/ethereum/setup.sh#L197):
+
+* [armel-15-12-04](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armel-15-12-04)
+* [armhf-15-12-04](https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/armhf-15-12-04)
+
 
 # Next steps?
 
