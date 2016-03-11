@@ -81,13 +81,6 @@ generic_hack \
   ${WEBTHREE_WORK_DIR?}/libwebthree/CMakeFiles/webthree.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBETHEREUM?}"' ")}1'
 generic_hack \
-  ${WEBTHREE_WORK_DIR?}/test/CMakeFiles/testweb3.dir/flags.make \
-  '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBETHEREUM?}"' ")}1'
-generic_hack \
-  ${WEBTHREE_WORK_DIR?}/test/ethrpctest/CMakeFiles/ethrpctest.dir/flags.make \
-  '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBETHEREUM?}"' ")}1'
-
-generic_hack \
   ${WEBTHREE_WORK_DIR?}/eth/CMakeFiles/eth.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBETHEREUM?} ${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ")}1'
 generic_hack \
