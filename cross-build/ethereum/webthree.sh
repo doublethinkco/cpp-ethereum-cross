@@ -16,28 +16,6 @@ export_cross_compiler && sanity_check_cross_compiler
 section_configuring ${COMPONENT?}
 
 # ---------------------------------------------------------------------------
-# hacks
-
-# Remove 'flu', 'libjsengine' and 'libjsconsole' executables.  They depends on V8 which we are not
-# cross-building.  It is very large and complex.
-generic_hack \
-  ${WEBTHREE_WORK_DIR?}/CMakeLists.txt \
-  '!/OPTIONAL Readline/ && \
-   !/set\(JSCONSOLE 1\)/ && \
-   !/add_subdirectory\(flu\)/ && \
-   !/add_subdirectory\(libjsengine\)/ && \
-   !/add_subdirectory\(libjsconsole\)/'
-generic_hack \
-  ${WEBTHREE_WORK_DIR?}/eth/CMakeLists.txt \
-  '!/OPTIONAL Readline/{gsub(/ Web3::jsconsole/,"");print}'
-
-# We appear unable to deal with optional dependencies in these
-# cross-builds at the moment, so just chop this out.
-generic_hack \
-  ${WEBTHREE_WORK_DIR?}/libweb3jsonrpc/CMakeLists.txt \
-  '!/Solidity/'
-
-# ---------------------------------------------------------------------------
 set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}:${LIBWEB3CORE?}:${LIBETHEREUM?}:${LIBSCRYPT?}"
 
 # TODO: ETH_JSON_RPC_STUB off ok?; doesn't use libnatspec.so?
