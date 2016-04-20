@@ -4,8 +4,6 @@ This repo contains [Docker](https://www.docker.com/) files for
 [cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler) of the
 [Ethereum](https://en.wikipedia.org/wiki/Ethereum) C++ components.
 
-**[Get your Homestead binaries here](http://doublethink.co/2016/03/07/released-cross-build-eth-binaries-for-homestead/)**
-
 The C++ cross-build support was developed by
 [Bob Summerwill](http://bobsummerwill.com)
 and
