@@ -102,8 +102,6 @@ See also [ARM Infocenter](http://infocenter.arm.com) and [ARM Architecture](http
 Prebuilt releases are [hosted on Github](https://github.com/doublethinkco/webthree-umbrella-cross/releases)
 and are updated periodically.
 
-See also [RELEASED – Cross-build eth binaries for Homestead](http://doublethink.co/2016/03/07/released-cross-build-eth-binaries-for-homestead/).
-
 If you use these binaries please do let us know how you get on,
 either via [cpp-ethereum](http://gitter.im/ethereum/porting) on Gitter
 or by logging [an issue](https://github.com/doublethinkco/webthree-umbrella-cross/issues)
