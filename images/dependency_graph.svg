@@ -10,121 +10,46 @@
 <title>webthree</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-932 1222,-932 1222,4 -4,4"/>
 <text text-anchor="middle" x="609" y="-6.8" font-family="Times,serif" font-size="14.00">webthree dependencies</text>
-<g id="clust2" class="cluster"><title>cluster_webthree</title>
-<polygon fill="Honeydew" stroke="black" points="664,-546 664,-846 816,-846 816,-546 664,-546"/>
-<text text-anchor="middle" x="740" y="-830.8" font-family="Times,serif" font-size="14.00">webthree dependencies</text>
-</g>
-<g id="clust3" class="cluster"><title>cluster_webthree_helpers</title>
+<g id="clust1" class="cluster"><title>cluster_webthree_helpers</title>
 <polygon fill="LemonChiffon" stroke="black" points="304,-30 304,-176 649,-176 649,-30 304,-30"/>
 <text text-anchor="start" x="388.85" y="-160.8" font-family="Times,serif" font-size="14.00">webthree&#45;helpers dependencies</text>
 </g>
-<g id="clust5" class="cluster"><title>cluster_alethzero</title>
+<g id="clust3" class="cluster"><title>cluster_alethzero</title>
 <polygon fill="LightGray" stroke="black" points="510,-772 510,-920 656,-920 656,-772 510,-772"/>
 <text text-anchor="start" x="517.898" y="-904.8" font-family="Times,serif" font-size="14.00">alethzero dependencies</text>
 </g>
-<g id="clust9" class="cluster"><title>cluster_libethereum</title>
+<g id="clust8" class="cluster"><title>cluster_libethereum</title>
 <polygon fill="LavenderBlush" stroke="black" points="906,-328 906,-764 1156,-764 1156,-328 906,-328"/>
 <text text-anchor="start" x="958.115" y="-748.8" font-family="Times,serif" font-size="14.00">libethereum dependencies</text>
 </g>
-<g id="clust10" class="cluster"><title>cluster_libweb3core</title>
+<g id="clust9" class="cluster"><title>cluster_libweb3core</title>
 <polygon fill="AliceBlue" stroke="black" points="432,-184 432,-474 646,-474 646,-184 432,-184"/>
 <text text-anchor="start" x="464.95" y="-458.8" font-family="Times,serif" font-size="14.00">libweb3core dependencies</text>
 </g>
-<g id="clust11" class="cluster"><title>cluster_mix</title>
+<g id="clust10" class="cluster"><title>cluster_mix</title>
 <polygon fill="LightGray" stroke="black" points="386,-772 386,-846 502,-846 502,-772 386,-772"/>
 <text text-anchor="start" x="393.657" y="-830.8" font-family="Times,serif" font-size="14.00">mix dependencies</text>
 </g>
-<g id="clust13" class="cluster"><title>cluster_solidity</title>
+<g id="clust12" class="cluster"><title>cluster_solidity</title>
 <polygon fill="WhiteSmoke" stroke="black" points="8,-618 8,-846 310,-846 310,-618 8,-618"/>
 <text text-anchor="start" x="98.543" y="-830.8" font-family="Times,serif" font-size="14.00">solidity dependencies</text>
 </g>
-<!-- web3jsonrpc -->
-<g id="node1" class="node"><title>web3jsonrpc</title>
-<ellipse fill="none" stroke="black" cx="720" cy="-716" rx="47.0244" ry="18"/>
-<text text-anchor="middle" x="720" y="-713" font-family="Courier,monospace" font-size="10.00">web3jsonrpc</text>
-</g>
-<!-- webthree -->
-<g id="node2" class="node"><title>webthree</title>
-<ellipse fill="none" stroke="black" cx="720" cy="-644" rx="36.433" ry="18"/>
-<text text-anchor="middle" x="720" y="-641" font-family="Courier,monospace" font-size="10.00">webthree</text>
-</g>
-<!-- web3jsonrpc&#45;&gt;webthree -->
-<g id="edge16" class="edge"><title>web3jsonrpc&#45;&gt;webthree</title>
-<path fill="none" stroke="black" d="M720,-697.697C720,-689.983 720,-680.712 720,-672.112"/>
-<polygon fill="black" stroke="black" points="723.5,-672.104 720,-662.104 716.5,-672.104 723.5,-672.104"/>
-</g>
-<!-- JsonRpc* -->
-<g id="node47" class="node"><title>JsonRpc*</title>
-<ellipse fill="none" stroke="black" cx="861" cy="-572" rx="36.433" ry="18"/>
-<text text-anchor="middle" x="861" y="-569" font-family="Courier,monospace" font-size="10.00">JsonRpc*</text>
-</g>
-<!-- web3jsonrpc&#45;&gt;JsonRpc* -->
-<g id="edge17" class="edge"><title>web3jsonrpc&#45;&gt;JsonRpc*</title>
-<path fill="none" stroke="black" d="M735.9,-698.987C760.891,-673.819 809.467,-624.898 838.182,-595.98"/>
-<polygon fill="black" stroke="black" points="840.81,-598.3 845.373,-588.738 835.843,-593.368 840.81,-598.3"/>
-</g>
-<!-- whisper -->
-<g id="node4" class="node"><title>whisper</title>
-<ellipse fill="none" stroke="black" cx="713" cy="-572" rx="33.2355" ry="18"/>
-<text text-anchor="middle" x="713" y="-569" font-family="Courier,monospace" font-size="10.00">whisper</text>
-</g>
-<!-- webthree&#45;&gt;whisper -->
-<g id="edge24" class="edge"><title>webthree&#45;&gt;whisper</title>
-<path fill="none" stroke="black" d="M718.27,-625.697C717.498,-617.983 716.571,-608.712 715.711,-600.112"/>
-<polygon fill="black" stroke="black" points="719.188,-599.706 714.71,-590.104 712.223,-600.403 719.188,-599.706"/>
-</g>
-<!-- ethashseal -->
-<g id="node14" class="node"><title>ethashseal</title>
-<ellipse fill="none" stroke="black" cx="1036" cy="-572" rx="43.3279" ry="18"/>
-<text text-anchor="middle" x="1036" y="-569" font-family="Courier,monospace" font-size="10.00">ethashseal</text>
-</g>
-<!-- webthree&#45;&gt;ethashseal -->
-<g id="edge23" class="edge"><title>webthree&#45;&gt;ethashseal</title>
-<path fill="none" stroke="black" d="M752.627,-635.772C808.758,-623.338 923.808,-597.853 988.721,-583.473"/>
-<polygon fill="black" stroke="black" points="989.686,-586.844 998.693,-581.264 988.172,-580.01 989.686,-586.844"/>
-</g>
-<!-- eth -->
-<g id="node3" class="node"><title>eth</title>
-<polygon fill="none" stroke="black" stroke-width="2" points="808,-816 754,-816 754,-780 808,-780 808,-816"/>
-<text text-anchor="middle" x="781" y="-795" font-family="Courier,monospace" font-size="10.00">eth</text>
-</g>
-<!-- eth&#45;&gt;web3jsonrpc -->
-<g id="edge58" class="edge"><title>eth&#45;&gt;web3jsonrpc</title>
-<path fill="none" stroke="black" d="M767.764,-779.641C759.28,-768.514 748.138,-753.903 738.75,-741.59"/>
-<polygon fill="black" stroke="black" points="741.432,-739.335 732.585,-733.505 735.865,-743.579 741.432,-739.335"/>
-</g>
-<!-- p2p -->
-<g id="node27" class="node"><title>p2p</title>
-<ellipse fill="none" stroke="black" cx="467" cy="-354" rx="27" ry="18"/>
-<text text-anchor="middle" x="467" y="-351" font-family="Courier,monospace" font-size="10.00">p2p</text>
-</g>
-<!-- whisper&#45;&gt;p2p -->
-<g id="edge59" class="edge"><title>whisper&#45;&gt;p2p</title>
-<path fill="none" stroke="black" d="M697.462,-555.624C667.354,-526.057 598.603,-459.631 537,-408 522.912,-396.193 506.565,-383.749 493.212,-373.889"/>
-<polygon fill="black" stroke="black" points="495.059,-370.903 484.924,-367.815 490.921,-376.549 495.059,-370.903"/>
-</g>
-<!-- testweb3 -->
-<g id="node5" class="node"><title>testweb3</title>
-<polygon fill="none" stroke="black" stroke-width="2" points="736.006,-816 671.994,-816 671.994,-780 736.006,-780 736.006,-816"/>
-<text text-anchor="middle" x="704" y="-795" font-family="Courier,monospace" font-size="10.00">testweb3</text>
-</g>
-<!-- testweb3&#45;&gt;web3jsonrpc -->
-<g id="edge60" class="edge"><title>testweb3&#45;&gt;web3jsonrpc</title>
-<path fill="none" stroke="black" d="M707.472,-779.641C709.562,-769.192 712.266,-755.668 714.628,-743.862"/>
-<polygon fill="black" stroke="black" points="718.061,-744.542 716.59,-734.05 711.197,-743.169 718.061,-744.542"/>
+<g id="clust14" class="cluster"><title>cluster_webthree</title>
+<polygon fill="Honeydew" stroke="black" points="664,-546 664,-846 816,-846 816,-546 664,-546"/>
+<text text-anchor="middle" x="740" y="-830.8" font-family="Times,serif" font-size="14.00">webthree dependencies</text>
 </g>
 <!-- buildinfo -->
-<g id="node6" class="node"><title>buildinfo</title>
+<g id="node1" class="node"><title>buildinfo</title>
 <ellipse fill="none" stroke="black" cx="451" cy="-128" rx="40.13" ry="18"/>
 <text text-anchor="middle" x="451" y="-125" font-family="Courier,monospace" font-size="10.00">buildinfo</text>
 </g>
 <!-- base -->
-<g id="node7" class="node"><title>base</title>
+<g id="node2" class="node"><title>base</title>
 <ellipse fill="none" stroke="black" cx="614" cy="-128" rx="27" ry="18"/>
 <text text-anchor="middle" x="614" y="-125" font-family="Courier,monospace" font-size="10.00">base</text>
 </g>
 <!-- json_spirit -->
-<g id="node8" class="node"><title>json_spirit</title>
+<g id="node3" class="node"><title>json_spirit</title>
 <ellipse fill="none" stroke="black" cx="592" cy="-56" rx="47.0244" ry="18"/>
 <text text-anchor="middle" x="592" y="-53" font-family="Courier,monospace" font-size="10.00">json_spirit</text>
 </g>
@@ -174,12 +99,12 @@
 <polygon fill="black" stroke="black" points="813.66,-74.4466 821.908,-67.7968 811.313,-67.8516 813.66,-74.4466"/>
 </g>
 <!-- scrypt -->
-<g id="node9" class="node"><title>scrypt</title>
+<g id="node4" class="node"><title>scrypt</title>
 <ellipse fill="none" stroke="black" cx="539" cy="-128" rx="30.0384" ry="18"/>
 <text text-anchor="middle" x="539" y="-125" font-family="Courier,monospace" font-size="10.00">scrypt</text>
 </g>
 <!-- secp256k1 -->
-<g id="node10" class="node"><title>secp256k1</title>
+<g id="node5" class="node"><title>secp256k1</title>
 <ellipse fill="none" stroke="black" cx="352" cy="-128" rx="40.13" ry="18"/>
 <text text-anchor="middle" x="352" y="-125" font-family="Courier,monospace" font-size="10.00">secp256k1</text>
 </g>
@@ -194,12 +119,12 @@
 <polygon fill="black" stroke="black" points="657.139,-76.2139 664.806,-68.9015 654.252,-69.8368 657.139,-76.2139"/>
 </g>
 <!-- AlethZero -->
-<g id="node11" class="node"><title>AlethZero</title>
+<g id="node6" class="node"><title>AlethZero</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="588.007,-890 517.993,-890 517.993,-854 588.007,-854 588.007,-890"/>
 <text text-anchor="middle" x="553" y="-869" font-family="Courier,monospace" font-size="10.00">AlethZero</text>
 </g>
 <!-- aleth -->
-<g id="node12" class="node"><title>aleth</title>
+<g id="node7" class="node"><title>aleth</title>
 <ellipse fill="none" stroke="black" cx="621" cy="-798" rx="27" ry="18"/>
 <text text-anchor="middle" x="621" y="-795" font-family="Courier,monospace" font-size="10.00">aleth</text>
 </g>
@@ -209,7 +134,7 @@
 <polygon fill="black" stroke="black" points="602.974,-823.184 607.295,-813.511 597.885,-818.378 602.974,-823.184"/>
 </g>
 <!-- lll -->
-<g id="node34" class="node"><title>lll</title>
+<g id="node29" class="node"><title>lll</title>
 <ellipse fill="none" stroke="black" cx="183" cy="-716" rx="27" ry="18"/>
 <text text-anchor="middle" x="183" y="-713" font-family="Courier,monospace" font-size="10.00">lll</text>
 </g>
@@ -219,22 +144,17 @@
 <polygon fill="black" stroke="black" points="199.253,-740.008 190.969,-733.402 193.325,-743.731 199.253,-740.008"/>
 </g>
 <!-- solidity -->
-<g id="node36" class="node"><title>solidity</title>
+<g id="node31" class="node"><title>solidity</title>
 <ellipse fill="none" stroke="black" cx="265" cy="-716" rx="36.433" ry="18"/>
 <text text-anchor="middle" x="265" y="-713" font-family="Courier,monospace" font-size="10.00">solidity</text>
 </g>
 <!-- AlethZero&#45;&gt;solidity -->
 <g id="edge10" class="edge"><title>AlethZero&#45;&gt;solidity</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M517.765,-869.601C474.19,-867.241 403.172,-861.14 382,-846 351.926,-824.495 368.337,-799.832 344,-772 331.034,-757.172 313.26,-744.339 297.855,-734.807"/>
+<path fill="none" stroke="black" d="M517.765,-869.601C474.19,-867.241 403.172,-861.14 382,-846 351.926,-824.495 368.337,-799.832 344,-772 331.034,-757.172 313.26,-744.339 297.855,-734.807"/>
 <polygon fill="black" stroke="black" points="299.493,-731.708 289.113,-729.586 295.904,-737.718 299.493,-731.708"/>
 </g>
-<!-- aleth&#45;&gt;web3jsonrpc -->
-<g id="edge12" class="edge"><title>aleth&#45;&gt;web3jsonrpc</title>
-<path fill="none" stroke="black" d="M638.291,-784.002C646.192,-777.994 655.634,-770.716 664,-764 673.876,-756.072 684.56,-747.185 693.922,-739.29"/>
-<polygon fill="black" stroke="black" points="696.386,-741.79 701.755,-732.657 691.862,-736.448 696.386,-741.79"/>
-</g>
 <!-- natspec -->
-<g id="node16" class="node"><title>natspec</title>
+<g id="node11" class="node"><title>natspec</title>
 <ellipse fill="none" stroke="black" cx="1069" cy="-716" rx="33.2355" ry="18"/>
 <text text-anchor="middle" x="1069" y="-713" font-family="Courier,monospace" font-size="10.00">natspec</text>
 </g>
@@ -242,6 +162,16 @@
 <g id="edge13" class="edge"><title>aleth&#45;&gt;natspec</title>
 <path fill="none" stroke="black" d="M637.458,-783.605C644.063,-779.022 651.999,-774.439 660,-772 699.015,-760.106 989.954,-781.065 1027,-764 1037.54,-759.143 1046.56,-750.239 1053.51,-741.477"/>
 <polygon fill="black" stroke="black" points="1056.44,-743.396 1059.52,-733.257 1050.79,-739.266 1056.44,-743.396"/>
+</g>
+<!-- web3jsonrpc -->
+<g id="node36" class="node"><title>web3jsonrpc</title>
+<ellipse fill="none" stroke="black" cx="720" cy="-716" rx="47.0244" ry="18"/>
+<text text-anchor="middle" x="720" y="-713" font-family="Courier,monospace" font-size="10.00">web3jsonrpc</text>
+</g>
+<!-- aleth&#45;&gt;web3jsonrpc -->
+<g id="edge12" class="edge"><title>aleth&#45;&gt;web3jsonrpc</title>
+<path fill="none" stroke="black" d="M638.291,-784.002C646.192,-777.994 655.634,-770.716 664,-764 673.876,-756.072 684.56,-747.185 693.922,-739.29"/>
+<polygon fill="black" stroke="black" points="696.386,-741.79 701.755,-732.657 691.862,-736.448 696.386,-741.79"/>
 </g>
 <!-- Qt* -->
 <g id="node46" class="node"><title>Qt*</title>
@@ -254,12 +184,12 @@
 <polygon fill="black" stroke="black" points="629.123,-744.317 626.508,-734.05 622.15,-743.707 629.123,-744.317"/>
 </g>
 <!-- ethereum -->
-<g id="node13" class="node"><title>ethereum</title>
+<g id="node8" class="node"><title>ethereum</title>
 <ellipse fill="none" stroke="black" cx="951" cy="-500" rx="36.433" ry="18"/>
 <text text-anchor="middle" x="951" y="-497" font-family="Courier,monospace" font-size="10.00">ethereum</text>
 </g>
 <!-- evm -->
-<g id="node23" class="node"><title>evm</title>
+<g id="node18" class="node"><title>evm</title>
 <ellipse fill="none" stroke="black" cx="1017" cy="-426" rx="27" ry="18"/>
 <text text-anchor="middle" x="1017" y="-423" font-family="Courier,monospace" font-size="10.00">evm</text>
 </g>
@@ -268,10 +198,20 @@
 <path fill="none" stroke="black" d="M969.977,-484.278C973.768,-481.04 977.62,-477.522 981,-474 987.65,-467.071 994.241,-458.939 999.931,-451.405"/>
 <polygon fill="black" stroke="black" points="1003.05,-453.075 1006.15,-442.943 997.405,-448.931 1003.05,-453.075"/>
 </g>
+<!-- p2p -->
+<g id="node22" class="node"><title>p2p</title>
+<ellipse fill="none" stroke="black" cx="467" cy="-354" rx="27" ry="18"/>
+<text text-anchor="middle" x="467" y="-351" font-family="Courier,monospace" font-size="10.00">p2p</text>
+</g>
 <!-- ethereum&#45;&gt;p2p -->
 <g id="edge14" class="edge"><title>ethereum&#45;&gt;p2p</title>
 <path fill="none" stroke="black" d="M916.603,-493.89C891.896,-489.753 857.978,-483.113 829,-474 758.354,-451.783 746.612,-430.324 676,-408 601.117,-384.326 577.47,-396.941 503,-372 501.083,-371.358 499.134,-370.641 497.185,-369.874"/>
 <polygon fill="black" stroke="black" points="498.165,-366.485 487.596,-365.744 495.396,-372.914 498.165,-366.485"/>
+</g>
+<!-- ethashseal -->
+<g id="node9" class="node"><title>ethashseal</title>
+<ellipse fill="none" stroke="black" cx="1036" cy="-572" rx="43.3279" ry="18"/>
+<text text-anchor="middle" x="1036" y="-569" font-family="Courier,monospace" font-size="10.00">ethashseal</text>
 </g>
 <!-- ethashseal&#45;&gt;ethereum -->
 <g id="edge18" class="edge"><title>ethashseal&#45;&gt;ethereum</title>
@@ -279,7 +219,7 @@
 <polygon fill="black" stroke="black" points="978.883,-519.428 968.939,-515.773 974.433,-524.832 978.883,-519.428"/>
 </g>
 <!-- ethash&#45;cl -->
-<g id="node22" class="node"><title>ethash&#45;cl</title>
+<g id="node17" class="node"><title>ethash&#45;cl</title>
 <ellipse fill="none" stroke="black" cx="1046" cy="-500" rx="40.13" ry="18"/>
 <text text-anchor="middle" x="1046" y="-497" font-family="Courier,monospace" font-size="10.00">ethash&#45;cl</text>
 </g>
@@ -299,7 +239,7 @@
 <polygon fill="black" stroke="black" points="1163.88,-519.983 1171.14,-512.264 1160.65,-513.772 1163.88,-519.983"/>
 </g>
 <!-- ethcore -->
-<g id="node15" class="node"><title>ethcore</title>
+<g id="node10" class="node"><title>ethcore</title>
 <ellipse fill="none" stroke="black" cx="947" cy="-354" rx="33.2355" ry="18"/>
 <text text-anchor="middle" x="947" y="-351" font-family="Courier,monospace" font-size="10.00">ethcore</text>
 </g>
@@ -309,7 +249,7 @@
 <polygon fill="black" stroke="black" points="472.352,-150.83 463.121,-145.629 467.094,-155.451 472.352,-150.83"/>
 </g>
 <!-- devcrypto -->
-<g id="node28" class="node"><title>devcrypto</title>
+<g id="node23" class="node"><title>devcrypto</title>
 <ellipse fill="none" stroke="black" cx="539" cy="-282" rx="40.13" ry="18"/>
 <text text-anchor="middle" x="539" y="-279" font-family="Courier,monospace" font-size="10.00">devcrypto</text>
 </g>
@@ -319,7 +259,7 @@
 <polygon fill="black" stroke="black" points="586.406,-287.582 575.959,-289.341 585.223,-294.482 586.406,-287.582"/>
 </g>
 <!-- ethkey -->
-<g id="node17" class="node"><title>ethkey</title>
+<g id="node12" class="node"><title>ethkey</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="972,-444 918,-444 918,-408 972,-408 972,-444"/>
 <text text-anchor="middle" x="945" y="-423" font-family="Courier,monospace" font-size="10.00">ethkey</text>
 </g>
@@ -329,7 +269,7 @@
 <polygon fill="black" stroke="black" points="949.724,-382.2 946.511,-372.104 942.727,-382 949.724,-382.2"/>
 </g>
 <!-- ethminer -->
-<g id="node18" class="node"><title>ethminer</title>
+<g id="node13" class="node"><title>ethminer</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="978.006,-662 913.994,-662 913.994,-626 978.006,-626 978.006,-662"/>
 <text text-anchor="middle" x="946" y="-641" font-family="Courier,monospace" font-size="10.00">ethminer</text>
 </g>
@@ -338,13 +278,18 @@
 <path fill="none" stroke="black" d="M968.247,-625.697C980.374,-616.265 995.493,-604.506 1008.37,-594.49"/>
 <polygon fill="black" stroke="black" points="1010.71,-597.105 1016.45,-588.202 1006.41,-591.579 1010.71,-597.105"/>
 </g>
+<!-- JsonRpc* -->
+<g id="node47" class="node"><title>JsonRpc*</title>
+<ellipse fill="none" stroke="black" cx="861" cy="-572" rx="36.433" ry="18"/>
+<text text-anchor="middle" x="861" y="-569" font-family="Courier,monospace" font-size="10.00">JsonRpc*</text>
+</g>
 <!-- ethminer&#45;&gt;JsonRpc* -->
 <g id="edge35" class="edge"><title>ethminer&#45;&gt;JsonRpc*</title>
 <path fill="none" stroke="black" d="M924.989,-625.697C913.485,-616.223 899.13,-604.402 886.934,-594.357"/>
 <polygon fill="black" stroke="black" points="888.841,-591.394 878.897,-587.738 884.391,-596.797 888.841,-591.394"/>
 </g>
 <!-- ethvm -->
-<g id="node19" class="node"><title>ethvm</title>
+<g id="node14" class="node"><title>ethvm</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="1148,-662 1094,-662 1094,-626 1148,-626 1148,-662"/>
 <text text-anchor="middle" x="1121" y="-641" font-family="Courier,monospace" font-size="10.00">ethvm</text>
 </g>
@@ -354,12 +299,12 @@
 <polygon fill="black" stroke="black" points="1064.69,-592.092 1054.74,-588.436 1060.24,-597.495 1064.69,-592.092"/>
 </g>
 <!-- evmjit -->
-<g id="node20" class="node"><title>evmjit</title>
-<polygon fill="none" stroke="black" stroke-width="2" points="1052,-372 998,-372 998,-336 1052,-336 1052,-372"/>
-<text text-anchor="middle" x="1025" y="-351" font-family="Courier,monospace" font-size="10.00">evmjit</text>
+<g id="node15" class="node"><title>evmjit</title>
+<polygon fill="none" stroke="black" stroke-width="2" points="1137,-372 1083,-372 1083,-336 1137,-336 1137,-372"/>
+<text text-anchor="middle" x="1110" y="-351" font-family="Courier,monospace" font-size="10.00">evmjit</text>
 </g>
 <!-- ethash -->
-<g id="node21" class="node"><title>ethash</title>
+<g id="node16" class="node"><title>ethash</title>
 <ellipse fill="none" stroke="black" cx="1092" cy="-426" rx="30.0384" ry="18"/>
 <text text-anchor="middle" x="1092" y="-423" font-family="Courier,monospace" font-size="10.00">ethash</text>
 </g>
@@ -385,31 +330,31 @@
 </g>
 <!-- evm&#45;&gt;evmjit -->
 <g id="edge40" class="edge"><title>evm&#45;&gt;evmjit</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M1018.98,-407.697C1019.86,-399.983 1020.92,-390.712 1021.9,-382.112"/>
-<polygon fill="black" stroke="black" points="1025.39,-382.437 1023.05,-372.104 1018.43,-381.642 1025.39,-382.437"/>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M1034.49,-411.834C1046.98,-402.431 1064.13,-389.529 1078.92,-378.394"/>
+<polygon fill="black" stroke="black" points="1081.42,-380.892 1087.31,-372.082 1077.21,-375.299 1081.42,-380.892"/>
 </g>
 <!-- evmcore -->
-<g id="node24" class="node"><title>evmcore</title>
-<ellipse fill="none" stroke="black" cx="1103" cy="-354" rx="33.2355" ry="18"/>
-<text text-anchor="middle" x="1103" y="-351" font-family="Courier,monospace" font-size="10.00">evmcore</text>
+<g id="node19" class="node"><title>evmcore</title>
+<ellipse fill="none" stroke="black" cx="1032" cy="-354" rx="33.2355" ry="18"/>
+<text text-anchor="middle" x="1032" y="-351" font-family="Courier,monospace" font-size="10.00">evmcore</text>
 </g>
 <!-- evm&#45;&gt;evmcore -->
 <g id="edge41" class="edge"><title>evm&#45;&gt;evmcore</title>
-<path fill="none" stroke="black" d="M1033.58,-411.503C1045.99,-401.407 1063.18,-387.414 1077.35,-375.879"/>
-<polygon fill="black" stroke="black" points="1079.74,-378.446 1085.29,-369.419 1075.32,-373.017 1079.74,-378.446"/>
+<path fill="none" stroke="black" d="M1020.63,-408.055C1022.3,-400.261 1024.32,-390.822 1026.2,-382.079"/>
+<polygon fill="black" stroke="black" points="1029.63,-382.787 1028.3,-372.275 1022.78,-381.32 1029.63,-382.787"/>
 </g>
 <!-- devcore -->
-<g id="node29" class="node"><title>devcore</title>
+<g id="node24" class="node"><title>devcore</title>
 <ellipse fill="none" stroke="black" cx="605" cy="-210" rx="33.2355" ry="18"/>
 <text text-anchor="middle" x="605" y="-207" font-family="Courier,monospace" font-size="10.00">devcore</text>
 </g>
 <!-- evmcore&#45;&gt;devcore -->
 <g id="edge42" class="edge"><title>evmcore&#45;&gt;devcore</title>
-<path fill="none" stroke="black" d="M1083.1,-339.575C1076.31,-335.425 1068.52,-331.127 1061,-328 914.627,-267.141 728.3,-231.34 646.579,-217.562"/>
-<polygon fill="black" stroke="black" points="647.118,-214.103 636.679,-215.915 645.969,-221.009 647.118,-214.103"/>
+<path fill="none" stroke="black" d="M1011.51,-339.793C1004.55,-335.657 996.599,-331.313 989,-328 868.136,-275.298 716.184,-236.59 645.109,-219.977"/>
+<polygon fill="black" stroke="black" points="645.755,-216.534 635.223,-217.687 644.175,-223.354 645.755,-216.534"/>
 </g>
 <!-- testutils -->
-<g id="node25" class="node"><title>testutils</title>
+<g id="node20" class="node"><title>testutils</title>
 <ellipse fill="none" stroke="black" cx="1036" cy="-644" rx="40.13" ry="18"/>
 <text text-anchor="middle" x="1036" y="-641" font-family="Courier,monospace" font-size="10.00">testutils</text>
 </g>
@@ -419,7 +364,7 @@
 <polygon fill="black" stroke="black" points="1039.5,-600.104 1036,-590.104 1032.5,-600.104 1039.5,-600.104"/>
 </g>
 <!-- testeth -->
-<g id="node26" class="node"><title>testeth</title>
+<g id="node21" class="node"><title>testeth</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="1018.01,-734 959.995,-734 959.995,-698 1018.01,-698 1018.01,-734"/>
 <text text-anchor="middle" x="989" y="-713" font-family="Courier,monospace" font-size="10.00">testeth</text>
 </g>
@@ -474,7 +419,7 @@
 <polygon fill="black" stroke="black" points="614.442,-156.379 612.082,-146.05 607.486,-155.596 614.442,-156.379"/>
 </g>
 <!-- bench -->
-<g id="node30" class="node"><title>bench</title>
+<g id="node25" class="node"><title>bench</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="638,-372 584,-372 584,-336 638,-336 638,-372"/>
 <text text-anchor="middle" x="611" y="-351" font-family="Courier,monospace" font-size="10.00">bench</text>
 </g>
@@ -484,7 +429,7 @@
 <polygon fill="black" stroke="black" points="564.729,-303.133 555.119,-298.671 559.849,-308.152 564.729,-303.133"/>
 </g>
 <!-- rlp -->
-<g id="node31" class="node"><title>rlp</title>
+<g id="node26" class="node"><title>rlp</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="566,-372 512,-372 512,-336 566,-336 566,-372"/>
 <text text-anchor="middle" x="539" y="-351" font-family="Courier,monospace" font-size="10.00">rlp</text>
 </g>
@@ -494,7 +439,7 @@
 <polygon fill="black" stroke="black" points="542.5,-310.104 539,-300.104 535.5,-310.104 542.5,-310.104"/>
 </g>
 <!-- testweb3core -->
-<g id="node32" class="node"><title>testweb3core</title>
+<g id="node27" class="node"><title>testweb3core</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="528.009,-444 439.991,-444 439.991,-408 528.009,-408 528.009,-444"/>
 <text text-anchor="middle" x="484" y="-423" font-family="Courier,monospace" font-size="10.00">testweb3core</text>
 </g>
@@ -503,28 +448,28 @@
 <path fill="none" stroke="black" d="M479.798,-407.697C477.904,-399.898 475.623,-390.509 473.516,-381.829"/>
 <polygon fill="black" stroke="black" points="476.915,-380.996 471.154,-372.104 470.113,-382.648 476.915,-380.996"/>
 </g>
-<!-- Mix -->
-<g id="node33" class="node"><title>Mix</title>
-<ellipse fill="none" stroke="black" cx="467" cy="-798" rx="27" ry="18"/>
-<text text-anchor="middle" x="467" y="-795" font-family="Courier,monospace" font-size="10.00">Mix</text>
+<!-- Mix&#45;ide -->
+<g id="node28" class="node"><title>Mix&#45;ide</title>
+<ellipse fill="none" stroke="black" cx="461" cy="-798" rx="33.2355" ry="18"/>
+<text text-anchor="middle" x="461" y="-795" font-family="Courier,monospace" font-size="10.00">Mix&#45;ide</text>
 </g>
-<!-- Mix&#45;&gt;web3jsonrpc -->
-<g id="edge50" class="edge"><title>Mix&#45;&gt;web3jsonrpc</title>
-<path fill="none" stroke="black" d="M483.496,-783.727C490.105,-779.159 498.035,-774.554 506,-772 539.477,-761.265 631.279,-776.858 664,-764 676.864,-758.945 688.916,-749.687 698.52,-740.716"/>
+<!-- Mix&#45;ide&#45;&gt;solidity -->
+<g id="edge51" class="edge"><title>Mix&#45;ide&#45;&gt;solidity</title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M434.973,-786.377C400.798,-772.428 340.598,-747.856 301.778,-732.011"/>
+<polygon fill="black" stroke="black" points="302.979,-728.721 292.398,-728.183 300.334,-735.202 302.979,-728.721"/>
+</g>
+<!-- Mix&#45;ide&#45;&gt;web3jsonrpc -->
+<g id="edge50" class="edge"><title>Mix&#45;ide&#45;&gt;web3jsonrpc</title>
+<path fill="none" stroke="black" d="M480.747,-783.468C488.312,-778.988 497.236,-774.509 506,-772 539.798,-762.323 631.279,-776.858 664,-764 676.864,-758.945 688.916,-749.687 698.52,-740.716"/>
 <polygon fill="black" stroke="black" points="701.003,-743.182 705.666,-733.669 696.088,-738.198 701.003,-743.182"/>
 </g>
-<!-- Mix&#45;&gt;solidity -->
-<g id="edge51" class="edge"><title>Mix&#45;&gt;solidity</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M444.221,-787.978C409.642,-774.284 343.544,-748.107 302.005,-731.655"/>
-<polygon fill="black" stroke="black" points="303.103,-728.326 292.517,-727.898 300.526,-734.834 303.103,-728.326"/>
-</g>
-<!-- Mix&#45;&gt;Qt* -->
-<g id="edge49" class="edge"><title>Mix&#45;&gt;Qt*</title>
-<path fill="none" stroke="black" d="M483.947,-783.665C490.485,-779.207 498.251,-774.691 506,-772 540.173,-760.133 554.846,-780.575 587,-764 597.211,-758.736 606,-749.763 612.793,-741.059"/>
+<!-- Mix&#45;ide&#45;&gt;Qt* -->
+<g id="edge49" class="edge"><title>Mix&#45;ide&#45;&gt;Qt*</title>
+<path fill="none" stroke="black" d="M481.262,-783.432C488.737,-779.062 497.469,-774.665 506,-772 540.53,-761.214 554.846,-780.575 587,-764 597.211,-758.736 606,-749.763 612.793,-741.059"/>
 <polygon fill="black" stroke="black" points="615.65,-743.081 618.674,-732.927 609.978,-738.979 615.65,-743.081"/>
 </g>
 <!-- evmasm -->
-<g id="node37" class="node"><title>evmasm</title>
+<g id="node32" class="node"><title>evmasm</title>
 <ellipse fill="none" stroke="black" cx="265" cy="-644" rx="30.0384" ry="18"/>
 <text text-anchor="middle" x="265" y="-641" font-family="Courier,monospace" font-size="10.00">evmasm</text>
 </g>
@@ -534,7 +479,7 @@
 <polygon fill="black" stroke="black" points="242.937,-668.436 248.27,-659.282 238.392,-663.112 242.937,-668.436"/>
 </g>
 <!-- soljson -->
-<g id="node35" class="node"><title>soljson</title>
+<g id="node30" class="node"><title>soljson</title>
 <ellipse fill="none" stroke="black" cx="121" cy="-798" rx="33.2355" ry="18"/>
 <text text-anchor="middle" x="121" y="-795" font-family="Courier,monospace" font-size="10.00">soljson</text>
 </g>
@@ -554,7 +499,7 @@
 <polygon fill="black" stroke="black" points="624.227,-233.784 616.017,-227.088 618.259,-237.442 624.227,-233.784"/>
 </g>
 <!-- lllc -->
-<g id="node38" class="node"><title>lllc</title>
+<g id="node33" class="node"><title>lllc</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="70,-816 16,-816 16,-780 70,-780 70,-816"/>
 <text text-anchor="middle" x="43" y="-795" font-family="Courier,monospace" font-size="10.00">lllc</text>
 </g>
@@ -569,7 +514,7 @@
 <polygon fill="black" stroke="black" points="157.216,-737.014 163.985,-728.863 153.611,-731.014 157.216,-737.014"/>
 </g>
 <!-- solc -->
-<g id="node39" class="node"><title>solc</title>
+<g id="node34" class="node"><title>solc</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="226,-816 172,-816 172,-780 226,-780 226,-816"/>
 <text text-anchor="middle" x="199" y="-795" font-family="Courier,monospace" font-size="10.00">solc</text>
 </g>
@@ -579,7 +524,7 @@
 <polygon fill="black" stroke="black" points="248.164,-742.907 251.829,-732.965 242.765,-738.452 248.164,-742.907"/>
 </g>
 <!-- soltest -->
-<g id="node40" class="node"><title>soltest</title>
+<g id="node35" class="node"><title>soltest</title>
 <polygon fill="none" stroke="black" stroke-width="2" points="302.005,-816 243.995,-816 243.995,-780 302.005,-780 302.005,-816"/>
 <text text-anchor="middle" x="273" y="-795" font-family="Courier,monospace" font-size="10.00">soltest</text>
 </g>
@@ -592,6 +537,61 @@
 <g id="edge57" class="edge"><title>soltest&#45;&gt;solidity</title>
 <path fill="none" stroke="black" d="M271.264,-779.641C270.23,-769.297 268.894,-755.941 267.722,-744.221"/>
 <polygon fill="black" stroke="black" points="271.183,-743.652 266.705,-734.05 264.218,-744.349 271.183,-743.652"/>
+</g>
+<!-- webthree -->
+<g id="node37" class="node"><title>webthree</title>
+<ellipse fill="none" stroke="black" cx="720" cy="-644" rx="36.433" ry="18"/>
+<text text-anchor="middle" x="720" y="-641" font-family="Courier,monospace" font-size="10.00">webthree</text>
+</g>
+<!-- web3jsonrpc&#45;&gt;webthree -->
+<g id="edge16" class="edge"><title>web3jsonrpc&#45;&gt;webthree</title>
+<path fill="none" stroke="black" d="M720,-697.697C720,-689.983 720,-680.712 720,-672.112"/>
+<polygon fill="black" stroke="black" points="723.5,-672.104 720,-662.104 716.5,-672.104 723.5,-672.104"/>
+</g>
+<!-- web3jsonrpc&#45;&gt;JsonRpc* -->
+<g id="edge17" class="edge"><title>web3jsonrpc&#45;&gt;JsonRpc*</title>
+<path fill="none" stroke="black" d="M735.9,-698.987C760.891,-673.819 809.467,-624.898 838.182,-595.98"/>
+<polygon fill="black" stroke="black" points="840.81,-598.3 845.373,-588.738 835.843,-593.368 840.81,-598.3"/>
+</g>
+<!-- webthree&#45;&gt;ethashseal -->
+<g id="edge23" class="edge"><title>webthree&#45;&gt;ethashseal</title>
+<path fill="none" stroke="black" d="M752.627,-635.772C808.758,-623.338 923.808,-597.853 988.721,-583.473"/>
+<polygon fill="black" stroke="black" points="989.686,-586.844 998.693,-581.264 988.172,-580.01 989.686,-586.844"/>
+</g>
+<!-- whisper -->
+<g id="node39" class="node"><title>whisper</title>
+<ellipse fill="none" stroke="black" cx="713" cy="-572" rx="33.2355" ry="18"/>
+<text text-anchor="middle" x="713" y="-569" font-family="Courier,monospace" font-size="10.00">whisper</text>
+</g>
+<!-- webthree&#45;&gt;whisper -->
+<g id="edge24" class="edge"><title>webthree&#45;&gt;whisper</title>
+<path fill="none" stroke="black" d="M718.27,-625.697C717.498,-617.983 716.571,-608.712 715.711,-600.112"/>
+<polygon fill="black" stroke="black" points="719.188,-599.706 714.71,-590.104 712.223,-600.403 719.188,-599.706"/>
+</g>
+<!-- eth -->
+<g id="node38" class="node"><title>eth</title>
+<polygon fill="none" stroke="black" stroke-width="2" points="808,-816 754,-816 754,-780 808,-780 808,-816"/>
+<text text-anchor="middle" x="781" y="-795" font-family="Courier,monospace" font-size="10.00">eth</text>
+</g>
+<!-- eth&#45;&gt;web3jsonrpc -->
+<g id="edge58" class="edge"><title>eth&#45;&gt;web3jsonrpc</title>
+<path fill="none" stroke="black" d="M767.764,-779.641C759.28,-768.514 748.138,-753.903 738.75,-741.59"/>
+<polygon fill="black" stroke="black" points="741.432,-739.335 732.585,-733.505 735.865,-743.579 741.432,-739.335"/>
+</g>
+<!-- whisper&#45;&gt;p2p -->
+<g id="edge59" class="edge"><title>whisper&#45;&gt;p2p</title>
+<path fill="none" stroke="black" d="M697.462,-555.624C667.354,-526.057 598.603,-459.631 537,-408 522.912,-396.193 506.565,-383.749 493.212,-373.889"/>
+<polygon fill="black" stroke="black" points="495.059,-370.903 484.924,-367.815 490.921,-376.549 495.059,-370.903"/>
+</g>
+<!-- testweb3 -->
+<g id="node40" class="node"><title>testweb3</title>
+<polygon fill="none" stroke="black" stroke-width="2" points="736.006,-816 671.994,-816 671.994,-780 736.006,-780 736.006,-816"/>
+<text text-anchor="middle" x="704" y="-795" font-family="Courier,monospace" font-size="10.00">testweb3</text>
+</g>
+<!-- testweb3&#45;&gt;web3jsonrpc -->
+<g id="edge60" class="edge"><title>testweb3&#45;&gt;web3jsonrpc</title>
+<path fill="none" stroke="black" d="M707.472,-779.641C709.562,-769.192 712.266,-755.668 714.628,-743.862"/>
+<polygon fill="black" stroke="black" points="718.061,-744.542 716.59,-734.05 711.197,-743.169 718.061,-744.542"/>
 </g>
 </g>
 </svg>
