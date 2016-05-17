@@ -1,0 +1,16 @@
+#------------------------------------------------------------------------------
+# TravisCI configuration file for cpp-ethereum-cross.
+#
+# See https://github.com/doublethinkco/cpp-ethereum-cross
+#
+# (c) 2016 Kitsilano Software Inc
+#------------------------------------------------------------------------------
+
+sudo: required
+services:
+    - docker
+script:
+    - sudo ./build-armel.sh
+    - sudo ./build-armhf.sh
+    - sudo ./build-armel-apt.sh
+    - sudo ./build-armhf-apt.sh
