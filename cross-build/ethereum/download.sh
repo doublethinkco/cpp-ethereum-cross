@@ -13,38 +13,38 @@ if [ ! -f "./setup.sh" ]; then echo "ERROR: wrong pwd"; exit 1; fi
 
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} ${BOOST?})" ]; then  
-  section_downloading ${BOOST?}
-  fetch ${BOOST_DOWNLOAD_URL?} ${BOOST_BASE_DIR?}
+if [ -n "$(contains ${COMPONENTS?} boost)" ]; then  
+  section_downloading boost
+  fetch ${BOOST_DOWNLOAD_URL?} ${SOURCES_DIR?}/boost
   return_code $?
 else
-  echo "skipping ${BOOST?}"
+  echo "skipping boost"
 fi
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} ${JSONCPP?})" ]; then
-  section_downloading ${JSONCPP?}
-  fetch ${JSONCPP_DOWNLOAD_URL?} ${JSONCPP_BASE_DIR?}
+if [ -n "$(contains ${COMPONENTS?} jsoncpp)" ]; then
+  section_downloading jsoncpp
+  fetch ${JSONCPP_DOWNLOAD_URL?} ${SOURCES_DIR?}/jsoncpp
   return_code $?
 else
-  echo "skipping ${JSONCPP?}"
+  echo "skipping jsoncpp"
 fi
 
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} ${LEVELDB?})" ]; then
-  section_downloading ${LEVELDB?}
-  fetch ${LEVELDB_DOWNLOAD_URL?} ${LEVELDB_BASE_DIR?}
+if [ -n "$(contains ${COMPONENTS?} leveldb)" ]; then
+  section_downloading leveldb
+  fetch ${LEVELDB_DOWNLOAD_URL?} ${SOURCES_DIR?}/leveldb
   return_code $?
 else
-  echo "skipping ${LEVELDB?}"
+  echo "skipping leveldb
 fi
 
 
 # ---------------------------------------------------------------------------
 if [ -n "$(contains ${COMPONENTS?} cryptopp)" ]; then 
   section_downloading cryptopp
-  fetch ${CRYPTOPP_DOWNLOAD_URL?} ${CRYPTOPP_BASE_DIR?}
+  fetch ${CRYPTOPP_DOWNLOAD_URL?} ${SOURCES_DIR?}/cryptopp
   return_code $?
 else
   echo "skipping cryptopp"
@@ -52,41 +52,41 @@ fi
 
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} ${GMP?})" ]; then 
-  section_downloading ${GMP?}
-  fetch ${GMP_DOWNLOAD_URL?} ${GMP_BASE_DIR?}
+if [ -n "$(contains ${COMPONENTS?} gmp)" ]; then 
+  section_downloading gmp
+  fetch ${GMP_DOWNLOAD_URL?} ${SOURCES_DIR?}/gmp
   return_code $?
 
 else
-  echo "skipping ${GMP?}"
+  echo "skipping gmp"
 fi
 
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} ${CURL?})" ]; then 
-  section_downloading ${CURL?}
-  fetch ${CURL_DOWNLOAD_URL?} ${CURL_BASE_DIR?}
+if [ -n "$(contains ${COMPONENTS?} curl)" ]; then 
+  section_downloading curl
+  fetch ${CURL_DOWNLOAD_URL?} ${SOURCES_DIR?}/curl
   return_code $?
 else
-  echo "skipping ${CURL?}"
+  echo "skipping curl"
 fi
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} ${LIBJSON_RPC_CPP?})" ]; then 
-  section_downloading ${LIBJSON_RPC_CPP?}
-  fetch ${LIBJSON_RPC_CPP_DOWNLOAD_URL?} ${LIBJSON_RPC_CPP_BASE_DIR?}
+if [ -n "$(contains ${COMPONENTS?} libjson-rpc-cpp)" ]; then 
+  section_downloading libjson-rpc-cpp
+  fetch ${LIBJSON_RPC_CPP_DOWNLOAD_URL?} ${SOURCES_DIR?}/libjson-rpc-cpp
   return_code $?
 else
-  echo "skipping ${LIBJSON_RPC_CPP?}"
+  echo "skipping libjson-rpc-cpp"
 fi
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} ${MHD?})" ]; then 
-  section_downloading ${MHD?}
-  fetch ${MHD_DOWNLOAD_URL?} ${MHD_BASE_DIR?}
+if [ -n "$(contains ${COMPONENTS?} libmicrohttpd)" ]; then 
+  section_downloading libmicrohttpd
+  fetch ${MHD_DOWNLOAD_URL?} ${SOURCES_DIR?}/libmicrohttpd
   return_code $?
 else
-  echo "skipping ${MHD?}"
+  echo "skipping libmicrohttpd"
 fi
 
 

@@ -17,17 +17,17 @@ source ./setup.sh $*
 
 # ===========================================================================
 
-cd ${INITIAL_DIR?}               && pwd && git log -1 --format="%h"
-cd ${WEBTHREE_HELPERS_BASE_DIR?} && pwd && git log -1 --format="%h"
-cd ${LIBWEB3CORE_BASE_DIR?}      && pwd && git log -1 --format="%h"
-cd ${LIBETHEREUM_BASE_DIR?}      && pwd && git log -1 --format="%h"
-cd ${WEBTHREE_BASE_DIR?}         && pwd && git log -1 --format="%h"
+cd ${INITIAL_DIR?}                         && pwd && git log -1 --format="%h"
+cd ${INITIAL_DIR?}/../../webthree-helpers  && pwd && git log -1 --format="%h"
+cd ${INITIAL_DIR?}/../../libweb3core       && pwd && git log -1 --format="%h"
+cd ${INITIAL_DIR?}/../../libethereum       && pwd && git log -1 --format="%h"
+cd ${INITIAL_DIR?}/../../webthree          && pwd && git log -1 --format="%h"
 cd ${INITIAL_DIR?}
 
 # ===========================================================================
 # init:
 mkdir -p ${BASE_DIR?}
-mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DIR?}
+mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?}
 
 # ===========================================================================
 # We *have* to download Boost because EthDependencies.cmake in
@@ -51,19 +51,19 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?} ${BACKUPS_DI
 
 # ===========================================================================
 # cmake:
-mkdir -p ${CMAKE_INSTALL_DIR?}
+mkdir -p ${INSTALLS_DIR?}/cmake
 get_cmake_toolchain_file_content > ${CMAKE_TOOLCHAIN_FILE?}
 echo && tree -L 1 ${BASE_DIR?} && \
   echo -e "\n\n${CMAKE_TOOLCHAIN_FILE?}:\n$(cat ${CMAKE_TOOLCHAIN_FILE?})\n"
 
 # ---------------------------------------------------------------------------
 # webthree-helpers hack (for libethereum):
-clone ${WEBTHREE_HELPERS_BASE_DIR?} ${WEBTHREE_HELPERS_WORK_DIR?} # clones without cd-ing
+clone ${INITIAL_DIR?}/../../webthree-helpers ${WORK_DIR?}/webthree-helpers # clones without cd-ing
 generic_hack \
-  ${WEBTHREE_HELPERS_WORK_DIR?}/cmake/UseEth.cmake \
+  ${WORK_DIR?}/webthree-helpers/cmake/UseEth.cmake \
   '!/Eth::ethash-cl Cpuid/'
 generic_hack \
-  ${WEBTHREE_HELPERS_WORK_DIR?}/cmake/UseDev.cmake \
+  ${WORK_DIR?}/webthree-helpers/cmake/UseDev.cmake \
   '!/Miniupnpc/'
 
 
@@ -115,9 +115,7 @@ printf '=%.0s' {1..75} && echo
 # produces a packaged-up file (will spit out instructions on how to use it)
 ./package.sh \
   ${INSTALLS_DIR?} \
-  ${WEBTHREE_INSTALL_DIR?}/usr/local/bin
+  ${INSTALLS_DIR?}/webthree/usr/local/bin
 
 # ===========================================================================
 echo "done."
-
-# ===========================================================================

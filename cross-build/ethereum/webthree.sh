@@ -5,18 +5,17 @@
 # ===========================================================================
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
-COMPONENT=${WEBTHREE?}
-cd_clone ${WEBTHREE_BASE_DIR?} ${WEBTHREE_WORK_DIR?}
+cd_clone ${INITIAL_DIR?}/../../webthree ${WORK_DIR?}/webthree
 export_cross_compiler && sanity_check_cross_compiler
 
 
 # ===========================================================================
 # configuration:
 
-section_configuring ${COMPONENT?}
+section_configuring webthree
 
 # ---------------------------------------------------------------------------
-set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}:${LIBWEB3CORE?}:${LIBETHEREUM?}:${LIBSCRYPT?}"
+set_cmake_paths "jsoncpp:boost:leveldb:cryptopp:curl:libjson-rpc-cpp:libmicrohttpd:libweb3core:libethereum:libscrypt"
 
 # TODO: ETH_JSON_RPC_STUB off ok?; doesn't use libnatspec.so?
 cmake \
@@ -33,43 +32,43 @@ cmake \
   -DEVMJIT=OFF \
   -DSOLIDITY=OFF  \
  -DETH_JSON_RPC_STUB=OFF \
-   -DUtils_SCRYPT_LIBRARY=${LIBSCRYPT_LIBRARY?} \
--DUtils_SECP256K1_LIBRARY=${SECP256K1_LIBRARY?} \
-    -DDev_DEVCORE_LIBRARY=${DEVCORE_WEB3CORE_LIBRARY?} \
-  -DDev_DEVCRYPTO_LIBRARY=${DEVCRYPTO_WEB3CORE_LIBRARY?} \
-        -DDev_P2P_LIBRARY=${P2P_WEB3CORE_LIBRARY?} \
-     -DEth_ETHASH_LIBRARY=${ETHASH_ETHEREUM_LIBRARY?} \
- -DEth_ETHASHSEAL_LIBRARY=${ETHASHSEAL_ETHEREUM_LIBRARY?} \
-    -DEth_ETHCORE_LIBRARY=${ETHCORE_ETHEREUM_LIBRARY?} \
-   -DEth_ETHEREUM_LIBRARY=${ETHEREUM_ETHEREUM_LIBRARY?} \
-     -DEth_EVMASM_LIBRARY=${EVMASM_ETHEREUM_LIBRARY?} \
-    -DEth_EVMCORE_LIBRARY=${EVMCORE_ETHEREUM_LIBRARY?} \
-        -DEth_EVM_LIBRARY=${EVM_ETHEREUM_LIBRARY?} \
-        -DEth_LLL_LIBRARY=${LLL_ETHEREUM_LIBRARY?} \
-  -DEth_TESTUTILS_LIBRARY=${TESTUTILS_ETHEREUM_LIBRARY?}
+   -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/usr/local/lib/libscrypt.a \
+-DUtils_SECP256K1_LIBRARY=${INSTALLS_DIR?}/secp256k1/lib/libsecp256k1.a \
+    -DDev_DEVCORE_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/liblibdevcore.so \
+  -DDev_DEVCRYPTO_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libdevcrypto.so \
+        -DDev_P2P_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libp2p.so \
+     -DEth_ETHASH_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libethash.so \
+ -DEth_ETHASHSEAL_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libethashseal.so \
+    -DEth_ETHCORE_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libethcore.so \
+   -DEth_ETHEREUM_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libethereum.so \
+     -DEth_EVMASM_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libevmasm.so \
+    -DEth_EVMCORE_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libevmcore.so \
+        -DEth_EVM_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libevm.so \
+        -DEth_LLL_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/liblll.so \
+  -DEth_TESTUTILS_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libtestutils.so
 return_code $?
 
 # ---------------------------------------------------------------------------
 # hack: somehow these don't get properly included
 readonly MISSING_LIBETHEREUM="-I${LIBETHEREUM_INSTALL_DIR}/include"
-readonly MISSING_LIBJSON_RPC_CPP1="-I${LIBJSON_RPC_CPP_WORK_DIR?}/src"
-readonly MISSING_LIBJSON_RPC_CPP2="-I${LIBJSON_RPC_CPP_INSTALL_DIR?}/include/jsonrpccpp/common"
+readonly MISSING_LIBJSON_RPC_CPP1="-I${WORK_DIR?}/libjson-rpc-cpp/src"
+readonly MISSING_LIBJSON_RPC_CPP2="-I${INSTALLS_DIR?}/libjson-rpc-cpp/include/jsonrpccpp/common"
 
 generic_hack \
-  ${WEBTHREE_WORK_DIR?}/libwebthree/CMakeFiles/webthree.dir/flags.make \
+  ${WORK_DIR?}/webthree/libwebthree/CMakeFiles/webthree.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBETHEREUM?}"' ")}1'
 generic_hack \
-  ${WEBTHREE_WORK_DIR?}/eth/CMakeFiles/eth.dir/flags.make \
+  ${WORK_DIR?}/webthree/eth/CMakeFiles/eth.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBETHEREUM?} ${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ")}1'
 generic_hack \
-  ${WEBTHREE_WORK_DIR?}/libweb3jsonrpc/CMakeFiles/web3jsonrpc.dir/flags.make \
+  ${WORK_DIR?}/webthree/libweb3jsonrpc/CMakeFiles/web3jsonrpc.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBETHEREUM?} ${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ");gsub(/ -Werror/,"")}1'
 
 
 # ===========================================================================
 # cross-compile:
 
-section_cross_compiling ${COMPONENT?}
+section_cross_compiling webthree
 make -j 8
 return_code $?
 
@@ -77,17 +76,12 @@ return_code $?
 # ===========================================================================
 # install:
 
-section_installing ${COMPONENT?}
-backup_potential_install_dir ${WEBTHREE_INSTALL_DIR?}
-make DESTDIR="${WEBTHREE_INSTALL_DIR?}" install
+section_installing webthree
+make DESTDIR="${INSTALLS_DIR?}/webthree" install
 return_code $?
 
 
 # ===========================================================================
 
-section "done" ${COMPONENT?}
-tree ${WEBTHREE_INSTALL_DIR?}
-
-
-# ===========================================================================
-
+section "done" webthree
+tree ${INSTALLS_DIR?}/webthree

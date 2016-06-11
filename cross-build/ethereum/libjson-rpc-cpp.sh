@@ -6,19 +6,18 @@
 # ===========================================================================
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
-COMPONENT=${LIBJSON_RPC_CPP?}
-cd ${LIBJSON_RPC_CPP_BASE_DIR?} && git checkout ${LIBJSON_RPC_CPP_VERSION?}
-cd_if_not_exists ${LIBJSON_RPC_CPP_WORK_DIR?}
+cd ${SOURCES_DIR?}/libjson-rpc-cpp && git checkout ${LIBJSON_RPC_CPP_VERSION?}
+cd_if_not_exists ${WORK_DIR?}/libjson-rpc-cpp
 export_cross_compiler && sanity_check_cross_compiler
 
 
 # ===========================================================================
 # configuration:
 
-section_configuring ${COMPONENT?}
-set_cmake_paths "${JSONCPP?}:${CURL?}:${MHD?}"
+section_configuring libjson-rpc-cpp
+set_cmake_paths "jsoncpp:curl:libmicrohttpd"
 cmake \
-   ${LIBJSON_RPC_CPP_BASE_DIR?} \
+   ${SOURCES_DIR?}/libjson-rpc-cpp \
   -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?} \
   -DHTTP_SERVER=YES \
@@ -34,12 +33,12 @@ return_code $?
 # ===========================================================================
 # cross-compile:
 
-section_cross_compiling ${COMPONENT?}
+section_cross_compiling libjson-rpc-cpp
 
 # somehow these aren't available as is (throws a lot of warnings and eventually dies for lack of finding curl.h)
-generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpccommon.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${CURL_INSTALL_DIR}'/include ")}1'
-generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpcserver.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${CURL_INSTALL_DIR}'/include ")}1'
-generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpcclient.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${CURL_INSTALL_DIR}'/include ")}1'
+generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpccommon.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${INSTALLS_DIR?}/curl'/include ")}1'
+generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpcserver.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${INSTALLS_DIR?}/curl'/include ")}1'
+generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpcclient.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${INSTALLS_DIR?}/curl'/include ")}1'
 
 make
 return_code $?
@@ -48,20 +47,19 @@ return_code $?
 # ===========================================================================
 # install:
 
-section_installing ${COMPONENT?}
-backup_potential_install_dir ${LIBJSON_RPC_CPP_INSTALL_DIR?}
-make DESTDIR="${LIBJSON_RPC_CPP_INSTALL_DIR?}" -j 8 install
+section_installing libjson-rpc-cpp
+make DESTDIR="${INSTALLS_DIR?}/libjson-rpc-cpp" -j 8 install
 return_code $?
 
 # homogenization
-ln -s ${LIBJSON_RPC_CPP_INSTALL_DIR?}/usr/local/lib     ${LIBJSON_RPC_CPP_INSTALL_DIR?}/lib
-ln -s ${LIBJSON_RPC_CPP_INSTALL_DIR?}/usr/local/include ${LIBJSON_RPC_CPP_INSTALL_DIR?}/include
+ln -s ${INSTALLS_DIR?}/libjson-rpc-cpp/usr/local/lib     ${INSTALLS_DIR?}/libjson-rpc-cpp/lib
+ln -s ${INSTALLS_DIR?}/libjson-rpc-cpp/usr/local/include ${INSTALLS_DIR?}/libjson-rpc-cpp/include
 
 
 # ===========================================================================
 
-section "done" ${COMPONENT?}
-tree ${LIBJSON_RPC_CPP_INSTALL_DIR?}
+section "done" libjson-rpc-cpp
+tree ${INSTALLS_DIR?}/libjson-rpc-cpp
 
 
 # ===========================================================================
