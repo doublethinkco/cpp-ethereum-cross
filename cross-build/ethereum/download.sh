@@ -37,7 +37,7 @@ if [ -n "$(contains ${COMPONENTS?} leveldb)" ]; then
   fetch ${LEVELDB_DOWNLOAD_URL?} ${SOURCES_DIR?}/leveldb
   return_code $?
 else
-  echo "skipping leveldb
+  echo "skipping leveldb"
 fi
 
 
