@@ -44,5 +44,5 @@ return_code $?
 
 # ===========================================================================
 
-section "done" $libmicrohttpd
+section "done" libmicrohttpd
 tree "${INSTALLS_DIR?}/libmicrohttpd"
