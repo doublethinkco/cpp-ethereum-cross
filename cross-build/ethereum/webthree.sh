@@ -37,20 +37,20 @@ cmake \
     -DDev_DEVCORE_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/liblibdevcore.so \
   -DDev_DEVCRYPTO_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libdevcrypto.so \
         -DDev_P2P_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libp2p.so \
-     -DEth_ETHASH_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libethash.so \
- -DEth_ETHASHSEAL_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libethashseal.so \
-    -DEth_ETHCORE_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libethcore.so \
-   -DEth_ETHEREUM_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libethereum.so \
-     -DEth_EVMASM_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libevmasm.so \
-    -DEth_EVMCORE_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libevmcore.so \
-        -DEth_EVM_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libevm.so \
-        -DEth_LLL_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/liblll.so \
-  -DEth_TESTUTILS_LIBRARY=${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib/libtestutils.so
+     -DEth_ETHASH_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libethash.so \
+ -DEth_ETHASHSEAL_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libethashseal.so \
+    -DEth_ETHCORE_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libethcore.so \
+   -DEth_ETHEREUM_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libethereum.so \
+     -DEth_EVMASM_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libevmasm.so \
+    -DEth_EVMCORE_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libevmcore.so \
+        -DEth_EVM_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libevm.so \
+        -DEth_LLL_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/liblll.so \
+  -DEth_TESTUTILS_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libtestutils.so
 return_code $?
 
 # ---------------------------------------------------------------------------
 # hack: somehow these don't get properly included
-readonly MISSING_LIBETHEREUM="-I${LIBETHEREUM_INSTALL_DIR}/include"
+readonly MISSING_LIBETHEREUM="-I${INSTALLS_DIR?}/libethereum/include"
 readonly MISSING_LIBJSON_RPC_CPP1="-I${WORK_DIR?}/libjson-rpc-cpp/src"
 readonly MISSING_LIBJSON_RPC_CPP2="-I${INSTALLS_DIR?}/libjson-rpc-cpp/include/jsonrpccpp/common"
 
