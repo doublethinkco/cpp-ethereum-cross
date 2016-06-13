@@ -22,7 +22,7 @@ Here is a photo of our nascent mobile/wearable build and testing farm:
 ![Build farm](https://doublethinkco.files.wordpress.com/2015/11/20151120_083926.jpg?w=788)
 
 This code is released as open source software under the permissive
-[MIT license](https://github.com/doublethinkco/webthree-umbrella-cross/blob/master/LICENSE).
+[Apache 2.0 license](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)).
 
 We have written blogs and articles through development which are hosted at
 [doublethink.co](http://doublethink.co).  Here are some key articles
