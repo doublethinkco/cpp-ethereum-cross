@@ -5,31 +5,20 @@
 # ===========================================================================
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
-COMPONENT=${LIBWEB3CORE?}
-cd_clone ${LIBWEB3CORE_BASE_DIR?} ${LIBWEB3CORE_WORK_DIR?}
+cd_clone ${INITIAL_DIR?}/../../libweb3core ${WORK_DIR?}/libweb3core
 export_cross_compiler && sanity_check_cross_compiler
 
 
 # ===========================================================================
 # configuration:
 
-section_configuring ${COMPONENT?}
-set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}"
-
-# ---------------------------------------------------------------------------
-# remove warnings-as-errors as workaround for unmerged pull request
-# See https://github.com/ethereum/libweb3core/pull/44
-
-generic_hack \
-  ${LIBWEB3CORE_WORK_DIR?}/libdevcore/CMakeLists.txt \
-  'BEGIN{printf("STRING(REGEX REPLACE \"-Werror\" \"\" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})\n\n")}1'
-
+section_configuring web3core
+set_cmake_paths "jsoncpp:boost:leveldb:cryptopp:gmp"
 
 # ---------------------------------------------------------------------------
 # configuration hack to remove miniupnp (optional and broken at the moment)
-
 generic_hack \
-  ${LIBWEB3CORE_WORK_DIR?}/libp2p/CMakeLists.txt \
+  ${WORK_DIR?}/libweb3core/libp2p/CMakeLists.txt \
   '!/Miniupnpc/'
 
 
@@ -47,15 +36,15 @@ cmake \
   -DSOLIDITY=OFF  \
   -DTESTS=OFF \
   -DTOOLS=OFF \
-  -DUtils_SCRYPT_LIBRARY=${LIBSCRYPT_LIBRARY?} \
-  -DUtils_SECP256K1_LIBRARY=${SECP256K1_LIBRARY?}
+  -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/usr/local/lib/libscrypt.a \
+  -DUtils_SECP256K1_LIBRARY=${INSTALLS_DIR?}/secp256k1/lib/libsecp256k1.a
 return_code $?
 
 
 # ===========================================================================
 # cross-compile:
 
-section_cross_compiling ${COMPONENT?}
+section_cross_compiling libweb3core
 make -j 8
 return_code $?
 
@@ -63,19 +52,18 @@ return_code $?
 # ===========================================================================
 # install:
 
-section_installing ${COMPONENT?}
-backup_potential_install_dir ${LIBWEB3CORE_INSTALL_DIR?}
-make DESTDIR="${LIBWEB3CORE_INSTALL_DIR?}" install
+section_installing libweb3core
+make DESTDIR="${INSTALLS_DIR?}/libweb3core" install
 return_code $?
 
 # homogenization
-ln -s ${LIBWEB3CORE_INSTALL_DIR?}/usr/local/lib     ${LIBWEB3CORE_INSTALL_DIR?}/lib
-ln -s ${LIBWEB3CORE_INSTALL_DIR?}/usr/local/include ${LIBWEB3CORE_INSTALL_DIR?}/include
+ln -s ${INSTALLS_DIR?}/libweb3core/usr/local/lib     ${INSTALLS_DIR?}/libweb3core/lib
+ln -s ${INSTALLS_DIR?}/libweb3core/usr/local/include ${INSTALLS_DIR?}/libweb3core/include
 
 # ===========================================================================
 
-section "done" ${COMPONENT?}
-tree ${LIBWEB3CORE_INSTALL_DIR?}
+section "done" libweb3core
+tree ${INSTALLS_DIR?}/libweb3core
 
 
 # ===========================================================================

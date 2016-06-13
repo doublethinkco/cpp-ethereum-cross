@@ -5,19 +5,18 @@
 # ===========================================================================
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
-COMPONENT=${JSONCPP?}
-cd ${JSONCPP_BASE_DIR?} && git checkout ${JSONCPP_VERSION?}
+cd ${SOURCES_DIR?}/jsoncpp && git checkout ${JSONCPP_VERSION?}
 export_cross_compiler && sanity_check_cross_compiler
-cd_clone ${JSONCPP_BASE_DIR?} ${JSONCPP_WORK_DIR?}
+cd_clone ${SOURCES_DIR?}/jsoncpp ${WORK_DIR?}/jsoncpp
 
 
 # ===========================================================================
 # configuration:
 
-section_configuring ${COMPONENT?}
+section_configuring jsoncpp
 
 cmake \
-   ${JSONCPP_BASE_DIR?} \
+   ${SOURCES_DIR?}/jsoncpp \
   -G "Unix Makefiles" \
   -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?} \
@@ -31,7 +30,7 @@ return_code $?
 # ===========================================================================
 # cross-compile:
 
-section_cross_compiling ${COMPONENT?}
+section_cross_compiling jsoncpp
 make -j 8
 return_code $?
 
@@ -39,22 +38,21 @@ return_code $?
 # ===========================================================================
 # install:
 
-section_installing ${COMPONENT?}
-backup_potential_install_dir ${JSONCPP_INSTALL_DIR?}
-make DESTDIR="${JSONCPP_INSTALL_DIR?}" install
+section_installing jsoncpp
+make DESTDIR="${INSTALLS_DIR?}/jsoncpp" install
 return_code $?
 
 # hack: required by libjson-rpc-cpp
-ln -s ${JSONCPP_INSTALL_DIR?}/usr/local/include ${JSONCPP_INSTALL_DIR?}/usr/local/include/jsoncpp
+ln -s ${INSTALLS_DIR?}/jsoncpp/usr/local/include ${INSTALLS_DIR?}/jsoncpp/usr/local/include/jsoncpp
 
 # homogenization
-ln -s ${JSONCPP_INSTALL_DIR?}/usr/local/lib     ${JSONCPP_INSTALL_DIR?}/lib
-ln -s ${JSONCPP_INSTALL_DIR?}/usr/local/include ${JSONCPP_INSTALL_DIR?}/include
+ln -s ${INSTALLS_DIR?}/jsoncpp/usr/local/lib     ${INSTALLS_DIR?}/jsoncpp/lib
+ln -s ${INSTALLS_DIR?}/jsoncpp/usr/local/include ${INSTALLS_DIR?}/jsoncpp/include
 
 # ===========================================================================
 
-section "done" ${COMPONENT?}
-tree ${JSONCPP_INSTALL_DIR?}
+section "done" jsoncpp
+tree ${INSTALLS_DIR?}/jsoncpp
 
 
 # ===========================================================================

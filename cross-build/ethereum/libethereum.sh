@@ -5,23 +5,22 @@
 # ===========================================================================
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
-COMPONENT=${LIBETHEREUM?}
-cd_clone ${LIBETHEREUM_BASE_DIR?} ${LIBETHEREUM_WORK_DIR?}
+cd_clone ${INITIAL_DIR?}/../../libethereum ${WORK_DIR?}/libethereum
 export_cross_compiler && sanity_check_cross_compiler
 
 
 # ===========================================================================
 # configuration:
 
-section_configuring ${COMPONENT?}
+section_configuring libethereum
 
 # ---------------------------------------------------------------------------
 # hacks
 generic_hack \
-  ${LIBETHEREUM_WORK_DIR?}/libethcore/CMakeLists.txt \
+  ${WORK_DIR?}/libethereum/libethcore/CMakeLists.txt \
   '!/Eth::ethash-cl Cpuid/'
 generic_hack \
-  ${LIBETHEREUM_WORK_DIR?}/libethereum/ExtVM.cpp \
+  ${WORK_DIR?}/libethereum/libethereum/ExtVM.cpp \
   "{ \
     gsub(/std::exception_ptr/,     \"boost::exception_ptr\"    ); \
     gsub(/std::current_exception/, \"boost::current_exception\"); \
@@ -29,7 +28,7 @@ generic_hack \
   }1"
 
 # ---------------------------------------------------------------------------
-set_cmake_paths "${JSONCPP?}:${BOOST?}:${LEVELDB?}:cryptopp:${GMP?}:${CURL?}:${LIBJSON_RPC_CPP?}:${MHD?}"
+set_cmake_paths "jsoncpp:boost:leveldb:cryptopp:gmp:curl:libjson-rpc-cpp:libmicrohttpd"
 cmake \
    . \
    -G "Unix Makefiles" \
@@ -43,18 +42,18 @@ cmake \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
   -DSOLIDITY=OFF  \
-  -DUtils_SCRYPT_LIBRARY=${LIBSCRYPT_LIBRARY?} \
-  -DUtils_SECP256K1_LIBRARY=${SECP256K1_LIBRARY?} \
-  -DDev_DEVCORE_LIBRARY=${DEVCORE_WEB3CORE_LIBRARY?} \
-  -DDev_DEVCRYPTO_LIBRARY=${DEVCRYPTO_WEB3CORE_LIBRARY?} \
-  -DDev_P2P_LIBRARY=${P2P_WEB3CORE_LIBRARY?}
+  -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/usr/local/lib/libscrypt.a \
+  -DUtils_SECP256K1_LIBRARY=${INSTALLS_DIR?}/secp256k1/lib/libsecp256k1.a \
+  -DDev_DEVCORE_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libdevcore.so \
+  -DDev_DEVCRYPTO_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libdevcrypto.so \
+  -DDev_P2P_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libp2p.so
 return_code $?
 
 
 # ===========================================================================
 # cross-compile:
 
-section_cross_compiling ${COMPONENT?}
+section_cross_compiling libethereum
 make -j 8
 return_code $?
 
@@ -62,23 +61,22 @@ return_code $?
 # ===========================================================================
 # install:
 
-section_installing ${COMPONENT?}
-backup_potential_install_dir ${LIBETHEREUM_INSTALL_DIR?}
-make DESTDIR="${LIBETHEREUM_INSTALL_DIR?}" install
+section_installing libethereum
+make DESTDIR="${INSTALLS_DIR?}/libethereum" install
 return_code $?
 
 # hack (somehow this doesn't get "installed")
-ln -s ${LIBETHEREUM_WORK_DIR?}/include/ethereum/BuildInfo.h  ${LIBETHEREUM_INSTALL_DIR?}/usr/local/include/ethereum/BuildInfo.h
-ln -s ${LIBETHEREUM_WORK_DIR?}/include/ethereum/ConfigInfo.h ${LIBETHEREUM_INSTALL_DIR?}/usr/local/include/ethereum/ConfigInfo.h
+ln -s ${WORK_DIR?}/libethereum/include/ethereum/BuildInfo.h  ${INSTALLS_DIR?}/libethereum/usr/local/include/ethereum/BuildInfo.h
+ln -s ${WORK_DIR?}/libethereum/include/ethereum/ConfigInfo.h ${INSTALLS_DIR?}/libethereum/usr/local/include/ethereum/ConfigInfo.h
 
 # homogenization
-ln -s ${LIBETHEREUM_INSTALL_DIR?}/usr/local/lib     ${LIBETHEREUM_INSTALL_DIR?}/lib
-ln -s ${LIBETHEREUM_INSTALL_DIR?}/usr/local/include ${LIBETHEREUM_INSTALL_DIR?}/include
+ln -s ${INSTALLS_DIR?}/libethereum/usr/local/lib     ${INSTALLS_DIR?}/libethereum/lib
+ln -s ${INSTALLS_DIR?}/libethereum/usr/local/include ${INSTALLS_DIR?}/libethereum/include
 
 # ===========================================================================
 
-section "done" ${COMPONENT?}
-tree ${LIBETHEREUM_INSTALL_DIR?}
+section "done" libethereum
+tree ${INSTALLS_DIR?}/libethereum
 
 
 # ===========================================================================

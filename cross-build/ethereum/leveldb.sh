@@ -5,9 +5,8 @@
 # ===========================================================================
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
-COMPONENT=${LEVELDB?}
-cd ${LEVELDB_BASE_DIR?} && git checkout ${LEVELDB_VERSION?}
-cd_clone ${LEVELDB_BASE_DIR?} ${LEVELDB_WORK_DIR?}
+cd ${SOURCES_DIR?}/leveldb && git checkout ${LEVELDB_VERSION?}
+cd_clone ${SOURCES_DIR?}/leveldb ${WORK_DIR?}/leveldb
 export_cross_compiler && sanity_check_cross_compiler
 
 
@@ -22,7 +21,7 @@ return_code $?
 # ===========================================================================
 # cross-compile:
 
-section_cross_compiling ${COMPONENT?}
+section_cross_compiling leveldb
 make -j 8
 return_code $?
 
@@ -30,19 +29,18 @@ return_code $?
 # ===========================================================================
 # install: no install target, emulate for consistency
 
-section_installing ${COMPONENT?}
-backup_potential_install_dir ${LEVELDB_INSTALL_DIR?}
-mkdir ${LEVELDB_INSTALL_DIR?}
-rm ${LEVELDB_INSTALL_DIR?}/lib 2>&- || :
-rm ${LEVELDB_INSTALL_DIR?}/include 2>&- || :
-mkdir ${LEVELDB_INSTALL_DIR?}/lib
-cp    ${LEVELDB_WORK_DIR?}/lib*    ${LEVELDB_INSTALL_DIR?}/lib
-cp -r ${LEVELDB_WORK_DIR?}/include ${LEVELDB_INSTALL_DIR?}
+section_installing leveldb
+mkdir ${INSTALLS_DIR?}/leveldb
+rm ${INSTALLS_DIR?}/leveldb/lib 2>&- || :
+rm ${INSTALLS_DIR?}/leveldb/include 2>&- || :
+mkdir ${INSTALLS_DIR?}/leveldb/lib
+cp    ${WORK_DIR?}/leveldb/lib*    ${INSTALLS_DIR?}/leveldb/lib
+cp -r ${WORK_DIR?}/leveldb/include ${INSTALLS_DIR?}/leveldb
 
 # ===========================================================================
 
-section "done" ${COMPONENT?}
-tree ${LEVELDB_INSTALL_DIR?}
+section "done" leveldb
+tree ${INSTALLS_DIR?}/leveldb
 
 
 # ===========================================================================

@@ -183,38 +183,38 @@ function set_cmake_library_path() { # private
   LIBS=${1?}
   unset CMAKE_LIBRARY_PATH
   
-  if [ -n "$(contains ${LIBS?} ${LIBSCRYPT?})" ]; then
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${LIBSCRYPT_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} libscrypt)" ]; then
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libscrypt/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${JSONCPP?})" ]; then
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${JSONCPP_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} jsoncpp)" ]; then
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/jsoncpp/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${BOOST?})" ]; then  
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${BOOST_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} boost)" ]; then  
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/boost/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${LEVELDB?})" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${LEVELDB_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} leveldb)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/leveldb/lib"
   fi
   if [ -n "$(contains ${LIBS?} cryptopp)" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${CRYPTOPP_INSTALL_DIR?}/lib"
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/cryptopp/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${GMP?})" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${GMP_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} gmp)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/gmp/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${CURL?})" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${CURL_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} curl)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/curl/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${LIBJSON_RPC_CPP?})" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${LIBJSON_RPC_CPP_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} libjson-rpc-cpp)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libjson-rpc-cpp/lib"
   fi    
-  if [ -n "$(contains ${LIBS?} ${MHD?})" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${MHD_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} libmicrohttpd)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libmicrohttpd/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${LIBWEB3CORE?})" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${LIBWEB3CORE_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} libweb3core)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libweb3core/lib"
   fi
-  if [ -n "$(contains ${LIBS?} ${LIBETHEREUM?})" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${LIBETHEREUM_INSTALL_DIR?}/lib"
+  if [ -n "$(contains ${LIBS?} libethereum)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libweb3core/lib"
   fi
   CMAKE_LIBRARY_PATH=$(echo "$CMAKE_LIBRARY_PATH" | sed 's/^://')
   
@@ -226,38 +226,38 @@ function set_cmake_include_path() { # private
   INCLUDES=${1?}
   unset CMAKE_INCLUDE_PATH
   
-  if [ -n "$(contains ${INCLUDES?} ${LIBSCRYPT?})" ]; then
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${LIBSCRYPT_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} libscrypt)" ]; then
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libscrypt/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${JSONCPP?})" ]; then
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${JSONCPP_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} jsoncpp)" ]; then
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/jsoncpp/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${BOOST?})" ]; then
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${BOOST_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} boost)" ]; then
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/boost/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${LEVELDB?})" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${LEVELDB_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} leveldb)" ]; then    
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/leveldb/include"
   fi
   if [ -n "$(contains ${INCLUDES?} cryptopp)" ]; then    
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${SOURCES_DIR?}" # hack + see softlink hack in install-dependencies script
   fi
-  if [ -n "$(contains ${INCLUDES?} ${GMP?})" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${GMP_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} gmp)" ]; then    
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/gmp/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${CURL?})" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${CURL_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} curl)" ]; then    
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/curl/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${LIBJSON_RPC_CPP?})" ]; then
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${LIBJSON_RPC_CPP_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} libjson-rpc-cpp)" ]; then
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libjson-rpc-cpp/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${MHD?})" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${MHD_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} libmicrohttpd)" ]; then    
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libmicrohttpd/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${LIBWEB3CORE?})" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${LIBWEB3CORE_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} libweb3core)" ]; then    
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libweb3core/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} ${LIBETHEREUM?})" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${LIBETHEREUM_INSTALL_DIR?}/include"
+  if [ -n "$(contains ${INCLUDES?} libethereum)" ]; then    
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libethereum/include"
   fi
   CMAKE_INCLUDE_PATH=$(echo "$CMAKE_INCLUDE_PATH" | sed 's/^://')
       
@@ -299,26 +299,10 @@ function generic_hack() { # ensure script is idempotent
   awk "${AWK_SCRIPT?}" ${FILE?}.bak > ${FILE?}
 }
 
-# ===========================================================================
-function backupdir() {
-  DIR_PATH=${1?} && shift
-  BAK_DIR_PATH="${BACKUPS_DIR?}/bak${DIR_PATH////--}.$(generate_timestamp).bak" # replace '/' with '--'
-  echo "backing up dir first: '${DIR_PATH?}' to '${BAK_DIR_PATH?}.tgz'"
-  mv -i ${DIR_PATH?} ${BAK_DIR_PATH?}
-  tar -C ${BAK_DIR_PATH?}/.. --remove-files -zcf ${BAK_DIR_PATH?}.tgz ./$(basename ${BAK_DIR_PATH?})
-}
-
-# ===========================================================================
-function backup_potential_install_dir() {
-  INSTALL_DIR=${1?}
-  if [ -d ${INSTALL_DIR?} ]; then backupdir ${INSTALL_DIR?}; fi
-}
-
 # ---------------------------------------------------------------------------
 function clone() {
   ORIGIN=${1?} && shift
   TARGET=${1?} && shift
-  if [ -d ${TARGET?} ]; then backupdir ${TARGET?}; fi
   echo "cloning dir: '${ORIGIN?}' to '${TARGET?}'"
   cp -r ${ORIGIN?} ${TARGET?} # so as to not pollute the original dir (makes git commits more difficult)
 }
@@ -335,7 +319,6 @@ function cd_clone() {
 # ---------------------------------------------------------------------------
 function cd_if_not_exists() { # TODO: rename
   DIR=${1?}
-  if [ -d ${DIR?} ]; then backupdir ${DIR?}; fi
   mkdir -p ${DIR?}
   cd ${DIR?}
   printf '=%.0s' {1..75} && echo && pwd
@@ -406,8 +389,6 @@ export -f set_cmake_include_path
 export -f check_cmake_paths
 export -f format_cmake_paths
 export -f generic_hack
-export -f backupdir
-export -f backup_potential_install_dir
 export -f clone
 export -f cd_clone
 export -f cd_if_not_exists
