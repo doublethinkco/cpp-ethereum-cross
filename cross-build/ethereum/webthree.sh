@@ -34,7 +34,7 @@ cmake \
  -DETH_JSON_RPC_STUB=OFF \
    -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/usr/local/lib/libscrypt.a \
 -DUtils_SECP256K1_LIBRARY=${INSTALLS_DIR?}/secp256k1/lib/libsecp256k1.a \
-    -DDev_DEVCORE_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/liblibdevcore.so \
+    -DDev_DEVCORE_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libdevcore.so \
   -DDev_DEVCRYPTO_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libdevcrypto.so \
         -DDev_P2P_LIBRARY=${INSTALLS_DIR?}/libweb3core/usr/local/lib/libp2p.so \
      -DEth_ETHASH_LIBRARY=${INSTALLS_DIR?}/libethereum/usr/local/lib/libethash.so \
