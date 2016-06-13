@@ -23,18 +23,17 @@ export readonly                LOGS_DIR="${BASE_DIR?}/logs"
 export readonly            INSTALLS_DIR="${BASE_DIR?}/installs"
 
 # ===========================================================================
-export readonly            BOOST_VERSION="1.59.0"
-export readonly            CMAKE_VERSION="3.3.2"
-export readonly             CURL_VERSION="7.45.0"
+export readonly            BOOST_VERSION="1.61.0"
+export readonly             CURL_VERSION="7.49.1"
 export readonly         CRYPTOPP_VERSION="c522a8c"
-export readonly              GMP_VERSION="6.0.0a"
+export readonly              GMP_VERSION="6.1.0"
 export readonly          JSONCPP_VERSION="8a6e50a"
 export readonly          LEVELDB_VERSION="77948e7"
 export readonly  LIBJSON_RPC_CPP_VERSION="0da64a9"
-export readonly              MHD_VERSION="0.9.44"
+export readonly              MHD_VERSION="0.9.50"
 
 # ===========================================================================
-export readonly            BOOST_DOWNLOAD_URL="https://github.com/doublethinkco/cpp-ethereum-cross/releases/download/boost_${BOOST_VERSION//\./_}.tar.gz/boost_${BOOST_VERSION//\./_}.tar.gz"
+export readonly            BOOST_DOWNLOAD_URL="https://github.com/doublethinkco/cpp-ethereum-cross/releases/download/ExternalDependencies/boost_${BOOST_VERSION//\./_}.tar.gz"
 export readonly             CURL_DOWNLOAD_URL="http://curl.haxx.se/download/curl-${CURL_VERSION?}.tar.gz"
 export readonly         CRYPTOPP_DOWNLOAD_URL="https://github.com/doublethinkco/cryptopp.git"
 export readonly              GMP_DOWNLOAD_URL="https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION?}.tar.bz2"
