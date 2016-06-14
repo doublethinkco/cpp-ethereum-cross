@@ -39,5 +39,5 @@ matrix:
           dist: trusty
           sudo: required
           env: TRAVIS_BUILD_TYPE=armhf-apt
-before_script:
+script:
     - sudo ./build-$TRAVIS_BUILD_TYPE.sh
