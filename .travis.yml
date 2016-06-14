@@ -22,7 +22,4 @@ sudo: required
 services:
     - docker
 script:
-    - sudo ./build-armel.sh
     - sudo ./build-armhf.sh
-    - sudo ./build-armel-apt.sh
-    - sudo ./build-armhf-apt.sh
