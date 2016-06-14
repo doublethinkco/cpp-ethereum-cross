@@ -18,8 +18,26 @@
 # limitations under the License.  
 #------------------------------------------------------------------------------
 
-sudo: required
+language: cpp
 services:
     - docker
-script:
-    - sudo ./build-armhf.sh
+matrix:
+    include:
+        - os: linux
+          dist: trusty
+          sudo: required
+          env: TRAVIS_BUILD_TYPE=armel
+        - os: linux
+          dist: trusty
+          sudo: required
+          env: TRAVIS_BUILD_TYPE=armhf
+        - os: linux
+          dist: trusty
+          sudo: required
+          env: TRAVIS_BUILD_TYPE=armel-apt
+        - os: linux
+          dist: trusty
+          sudo: required
+          env: TRAVIS_BUILD_TYPE=armhf-apt
+before_script:
+    - sudo ./build-$TRAVIS_BUILD_TYPE.sh
