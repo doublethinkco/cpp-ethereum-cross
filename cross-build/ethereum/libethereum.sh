@@ -34,13 +34,6 @@ section_configuring libethereum
 generic_hack \
   ${WORK_DIR?}/libethereum/libethcore/CMakeLists.txt \
   '!/Eth::ethash-cl Cpuid/'
-generic_hack \
-  ${WORK_DIR?}/libethereum/libethereum/ExtVM.cpp \
-  "{ \
-    gsub(/std::exception_ptr/,     \"boost::exception_ptr\"    ); \
-    gsub(/std::current_exception/, \"boost::current_exception\"); \
-    gsub(/std::rethrow_exception/, \"boost::rethrow_exception\"); \
-  }1"
 
 # ---------------------------------------------------------------------------
 set_cmake_paths "jsoncpp:boost:leveldb:cryptopp:gmp:curl:libjson-rpc-cpp:libmicrohttpd"
