@@ -76,11 +76,14 @@ RUN apt-get update && apt-get install -y \
 RUN useradd -ms /bin/bash crosseth
 USER crosseth
 
+# Commit of the webthree-umbrella repo to use.
+ENV WEBTHREE_UMBRELLA_COMMIT 3f5d16d
+
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
 RUN git clone --recursive https://github.com/bobsummerwill/webthree-umbrella.git && \
     cd webthree-umbrella && \
-    git checkout 7ccbe603b04842af748d338b8656cfca4cfc6347 && \
+    git checkout ${WEBTHREE_UMBRELLA_COMMIT} && \
     git submodule sync
 
 # Copy our cross-building scripts into the container
