@@ -45,7 +45,7 @@ cmake \
   -DFATDB=OFF \
   -DMINIUPNPC=OFF \
   -DGUI=OFF \
-  -DTESTS=OFF \
+  -DTESTS=ON \
   -DTOOLS=OFF \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
