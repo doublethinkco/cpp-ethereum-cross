@@ -49,8 +49,6 @@ cmake \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
   -DSOLIDITY=OFF  \
-  -DTESTS=ON \
-  -DTOOLS=OFF \
   -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/usr/local/lib/libscrypt.a \
   -DUtils_SECP256K1_LIBRARY=${INSTALLS_DIR?}/secp256k1/lib/libsecp256k1.a
 return_code $?
