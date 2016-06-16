@@ -81,7 +81,7 @@ WORKDIR /home/crosseth
 RUN git clone --recursive https://github.com/bobsummerwill/webthree-umbrella.git && \
     cd webthree-umbrella && \
     git checkout 3f5d16d && \
-    git submodule sync
+    git submodule update
 
 # Copy our cross-building scripts into the container
 ADD cross-build/ /home/crosseth/webthree-umbrella/cross-build/
