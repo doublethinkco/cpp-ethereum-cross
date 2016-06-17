@@ -4,7 +4,7 @@ This repo contains [Docker](https://www.docker.com/) files for
 [cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler) of the
 [Ethereum](https://en.wikipedia.org/wiki/Ethereum) C++ components.
 
-![build status](https://travis-ci.org/doublethinkco/cpp-ethereum-cross.svg?branch=master)
+[![Build Status](https://travis-ci.org/doublethinkco/cpp-ethereum-cross.svg?branch=master)](https://travis-ci.org/doublethinkco/cpp-ethereum-cross)
 
 The C++ cross-build support was developed by
 [Bob Summerwill](http://bobsummerwill.com)
