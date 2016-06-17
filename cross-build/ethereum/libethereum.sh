@@ -42,7 +42,6 @@ cmake \
    -G "Unix Makefiles" \
   -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?} \
-  -DFATDB=OFF \
   -DMINIUPNPC=OFF \
   -DGUI=OFF \
   -DTOOLS=OFF \
