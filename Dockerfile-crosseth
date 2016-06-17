@@ -83,7 +83,7 @@ ENV WEBTHREE_UMBRELLA_COMMIT 6eacd10
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
-RUN git clone -b ${WEBTHREE_UMBRELLA_BRANCH} --recursive ${WEBTHREE_UMBRELLA_REPO}
+RUN git clone -b ${WEBTHREE_UMBRELLA_BRANCH} --recursive ${WEBTHREE_UMBRELLA_REPO} && \
     cd webthree-umbrella && \
     git checkout ${WEBTHREE_UMBRELLA_COMMIT}
  
