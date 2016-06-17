@@ -77,15 +77,16 @@ RUN useradd -ms /bin/bash crosseth
 USER crosseth
 
 # Commit of the webthree-umbrella repo to use.
-ENV WEBTHREE_UMBRELLA_COMMIT 6fab8f733d9a69e1ca17eaa909ea064f05cfc5f2
+ENV WEBTHREE_UMBRELLA_REPO   https://github.com/bobsummerwill/webthree-umbrella.git
+ENV WEBTHREE_UMBRELLA_BRANCH glibc_workaround
+ENV WEBTHREE_UMBRELLA_COMMIT 6eacd10
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
-RUN git clone --recursive https://github.com/ethereum/webthree-umbrella.git && \
+RUN git clone -b ${WEBTHREE_UMBRELLA_BRANCH} --recursive ${WEBTHREE_UMBRELLA_REPO} && \
     cd webthree-umbrella && \
-    git checkout ${WEBTHREE_UMBRELLA_COMMIT} && \
-    git submodule sync
-
+    git checkout ${WEBTHREE_UMBRELLA_COMMIT}
+ 
 # Copy our cross-building scripts into the container
 ADD cross-build/ /home/crosseth/webthree-umbrella/cross-build/
 

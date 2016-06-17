@@ -43,14 +43,11 @@ cmake \
   -G "Unix Makefiles" \
   -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?} \
-  -DFATDB=OFF \
   -DMINIUPNPC=OFF \
   -DGUI=OFF \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
   -DSOLIDITY=OFF  \
-  -DTESTS=OFF \
-  -DTOOLS=OFF \
   -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/usr/local/lib/libscrypt.a \
   -DUtils_SECP256K1_LIBRARY=${INSTALLS_DIR?}/secp256k1/lib/libsecp256k1.a
 return_code $?
