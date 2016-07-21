@@ -85,7 +85,7 @@
 </g>
 <!-- libevmjit&#45;&gt;llvm -->
 <g id="edge40" class="edge"><title>libevmjit&#45;&gt;llvm</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M471.394,-483.267C536.077,-470.998 662,-435.719 662,-347 662,-347 662,-347 662,-273 662,-194.725 751.739,-229.368 809,-176 816.134,-169.351 822.924,-161.175 828.646,-153.517"/>
+<path fill="none" stroke="black" d="M471.394,-483.267C536.077,-470.998 662,-435.719 662,-347 662,-347 662,-347 662,-273 662,-194.725 751.739,-229.368 809,-176 816.134,-169.351 822.924,-161.175 828.646,-153.517"/>
 <polygon fill="black" stroke="black" points="831.85,-155.055 834.829,-144.888 826.16,-150.978 831.85,-155.055"/>
 </g>
 <!-- bench -->
@@ -270,7 +270,7 @@
 </g>
 <!-- ethereum&#45;&gt;libevmjit -->
 <g id="edge41" class="edge"><title>ethereum&#45;&gt;libevmjit</title>
-<path fill="none" stroke="black" d="M312.27,-548.967C335.958,-537.687 371.612,-520.709 398.219,-508.039"/>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M312.27,-548.967C335.958,-537.687 371.612,-520.709 398.219,-508.039"/>
 <polygon fill="black" stroke="black" points="400.05,-511.043 407.573,-503.584 397.04,-504.723 400.05,-511.043"/>
 </g>
 <!-- ethereum&#45;&gt;p2p -->
