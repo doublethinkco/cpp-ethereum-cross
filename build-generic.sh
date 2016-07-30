@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -e
 
 #------------------------------------------------------------------------------
 # Building-block bash script which uses docker to cross-build cpp-ethereum

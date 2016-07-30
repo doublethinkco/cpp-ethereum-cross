@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -e
 
 #------------------------------------------------------------------------------
 # Helper functions used as building-blocks in the other scripts.

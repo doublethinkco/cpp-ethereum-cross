@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -e
 
 #------------------------------------------------------------------------------
 # Bash script used to cross-build armel v5 ARM Linux binaries for cpp-ethereum.
