@@ -21,14 +21,14 @@
 set -e
 
 INSTALL_DIR=${1?} && shift
-WEBTHREE_BIN_DIR=${1?} && shift
+CPP_ETHEREUM_BIN_DIR=${1?} && shift
 
 RESULT_FILE_NAME="crosseth.tgz"
 
 TMP_DIR=$(mktemp -d)
 mkdir ${TMP_DIR?}/eth
 mkdir ${TMP_DIR?}/eth/lib
-cp -r ${WEBTHREE_BIN_DIR?} ${TMP_DIR?}/eth/
+cp -r ${CPP_ETHEREUM_BIN_DIR?} ${TMP_DIR?}/eth/
 for FILE in $(find ${INSTALL_DIR?} | grep '\.so'); do
 cp ${FILE?} ${TMP_DIR?}/eth/lib
 done
