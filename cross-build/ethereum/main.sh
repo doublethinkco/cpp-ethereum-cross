@@ -112,12 +112,9 @@ generic_hack \
 
 
 # ===========================================================================
-# Layers 3, 4 and 5 are libweb3core, libethereum and webthree, which are
-# stacked on top of each other.
+# Layers 3 is cpp-ethereum
 
-./libweb3core.sh "${TARGET_SUBTYPE?}" # requires secp256k1 and more
-./libethereum.sh "${TARGET_SUBTYPE?}" # requires libweb3core and more
-./webthree.sh "${TARGET_SUBTYPE?}" # requires libethereum and more
+./cpp-ethereum.sh "${TARGET_SUBTYPE?}"
 
 
 # ===========================================================================
