@@ -38,9 +38,7 @@ export_cross_compiler && sanity_check_cross_compiler
 section_configuring cpp-ethereum
 
 # ---------------------------------------------------------------------------
-set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd:libscrypt:mhd"
-
-tree ${INSTALLS_DIR?}
+set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd:libmicrohttpd:libscrypt:secp256k1"
 
 cmake \
    . \
@@ -50,22 +48,19 @@ cmake \
   -DMINIUPNPC=OFF \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
-  -DETH_JSON_RPC_STUB=OFF \
-  -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/lib/libscrypt.a \
-  -DUtils_SECP256K1_LIBRARY=${INSTALLS_DIR?}/secp256k1/lib/libsecp256k1.a
+  -DETH_JSON_RPC_STUB=OFF
 return_code $?
 
 # ---------------------------------------------------------------------------
 # hack: somehow these don't get properly included
-readonly MISSING_LIBETHEREUM="-I${INSTALLS_DIR?}/libethereum/include"
 readonly MISSING_LIBJSON_RPC_CPP1="-I${WORK_DIR?}/libjson-rpc-cpp/src"
 readonly MISSING_LIBJSON_RPC_CPP2="-I${INSTALLS_DIR?}/libjson-rpc-cpp/include/jsonrpccpp/common"
 
 generic_hack \
-  ${WORK_DIR?}/webthree/eth/CMakeFiles/eth.dir/flags.make \
+  ${WORK_DIR?}/eth/CMakeFiles/eth.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ")}1'
 generic_hack \
-  ${WORK_DIR?}/webthree/libweb3jsonrpc/CMakeFiles/web3jsonrpc.dir/flags.make \
+  ${WORK_DIR?}/libweb3jsonrpc/CMakeFiles/web3jsonrpc.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ");gsub(/ -Werror/,"")}1'
 
 # hacks
