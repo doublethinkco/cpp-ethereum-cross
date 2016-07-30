@@ -85,6 +85,7 @@ ENV CPP_ETHEREUM_COMMIT 1356742
 WORKDIR /home/crosseth
 RUN git clone -b ${CPP_ETHEREUM_BRANCH} --recursive ${CPP_ETHEREUM_REPO} && \
     cd cpp-ethereum && \
+    git checkout ${CPP_ETHEREUM_COMMIT} && \
     git submodule update --init
  
 # Copy our cross-building scripts into the container
