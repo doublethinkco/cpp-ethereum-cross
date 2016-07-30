@@ -32,7 +32,9 @@ source ./setup.sh $*
 
 # ===========================================================================
 
-cd ${INITIAL_DIR?} && pwd && git log -1 --format="%h"
+cd ${INITIAL_DIR?}       && pwd && git log -1 --format="%h"
+cd ${INITIAL_DIR?}/../.. && pwd && git log -1 --format="%h"
+cd ${INITIAL_DIR?}
 
 # ===========================================================================
 # init:
@@ -67,13 +69,13 @@ echo && tree -L 1 ${BASE_DIR?} && \
   echo -e "\n\n${CMAKE_TOOLCHAIN_FILE?}:\n$(cat ${CMAKE_TOOLCHAIN_FILE?})\n"
 
 # ---------------------------------------------------------------------------
-# webthree-helpers hack (for libethereum):
-clone ${INITIAL_DIR?}/../../webthree-helpers ${WORK_DIR?}/webthree-helpers # clones without cd-ing
+# cmake file hacks (for libethereum):
+clone ${INITIAL_DIR?}/../../cmake ${WORK_DIR?}/cmake # clones without cd-ing
 generic_hack \
-  ${WORK_DIR?}/webthree-helpers/cmake/UseEth.cmake \
+  ${WORK_DIR?}/cmake/UseEth.cmake \
   '!/Eth::ethash-cl Cpuid/'
 generic_hack \
-  ${WORK_DIR?}/webthree-helpers/cmake/UseDev.cmake \
+  ${WORK_DIR?}/cmake/UseDev.cmake \
   '!/Miniupnpc/'
 
 

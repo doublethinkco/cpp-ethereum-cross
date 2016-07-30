@@ -1,5 +1,5 @@
 #!/bin/bash
-# cross-compiles and installs secp256k1 (as part of webthree-helpers)
+# cross-compiles and installs secp256k1
 # @author: Anthony Cros
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
@@ -20,7 +20,7 @@
 # ===========================================================================
 set -e
 SCRIPT_DIR=$(dirname $0) && ([ -n "$SETUP" ] && ${SETUP?}) || source ${SCRIPT_DIR?}/setup.sh $*
-cd_clone ${INITIAL_DIR?}/../../webthree-helpers/utils/secp256k1 ${WORK_DIR?}/secp256k1
+cd_clone ${INITIAL_DIR?}/../../utils/secp256k1 ${WORK_DIR?}/secp256k1
 export_cross_compiler && sanity_check_cross_compiler
 
 
@@ -29,7 +29,7 @@ export_cross_compiler && sanity_check_cross_compiler
 
 generic_hack \
   ${WORK_DIR?}/secp256k1/CMakeLists.txt \
-  'BEGIN{printf("cmake_minimum_required(VERSION 3.0.0)\nset(ETH_CMAKE_DIR \"'${INITIAL_DIR?}/../../webthree-helpers/cmake'\" CACHE PATH \"The path to the cmake directory\")\nlist(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
+  'BEGIN{printf("cmake_minimum_required(VERSION 3.0.0)\nset(ETH_CMAKE_DIR \"'${INITIAL_DIR?}/../../cmake'\" CACHE PATH \"The path to the cmake directory\")\nlist(APPEND CMAKE_MODULE_PATH ${ETH_CMAKE_DIR})\n")}1'
 
 # TODO - Only including boost here because of EthDependencies bug, not because we need it.
 section_configuring secp256k1
