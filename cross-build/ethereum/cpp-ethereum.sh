@@ -40,6 +40,8 @@ section_configuring cpp-ethereum
 # ---------------------------------------------------------------------------
 set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd:libscrypt:mhd"
 
+tree ${INSTALLS_DIR?}
+
 cmake \
    . \
    -G "Unix Makefiles" \
@@ -49,8 +51,7 @@ cmake \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
   -DETH_JSON_RPC_STUB=OFF \
-
-   -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/lib/libscrypt.a \
+#   -DUtils_SCRYPT_LIBRARY=${INSTALLS_DIR?}/libscrypt/lib/libscrypt.a \
 -DUtils_SECP256K1_LIBRARY=${INSTALLS_DIR?}/secp256k1/lib/libsecp256k1.a
 return_code $?
 
