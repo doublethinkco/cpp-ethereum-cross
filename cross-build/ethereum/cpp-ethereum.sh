@@ -49,7 +49,7 @@ generic_hack \
   '!/Miniupnpc/'
 
 # ---------------------------------------------------------------------------
-set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd:libmicrohttpd:libscrypt:secp256k1"
+set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd"
 
 mkdir build
 cd build
@@ -59,6 +59,7 @@ cmake \
   -DMINIUPNPC=OFF \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
+  -DTOOLS=OFF \
   -DETH_JSON_RPC_STUB=OFF
 return_code $?
 cd ..

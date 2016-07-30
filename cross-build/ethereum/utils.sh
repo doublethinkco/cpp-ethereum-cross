@@ -196,38 +196,29 @@ function set_cmake_library_path() { # private
   LIBS=${1?}
   unset CMAKE_LIBRARY_PATH
   
-  if [ -n "$(contains ${LIBS?} libscrypt)" ]; then
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libscrypt/lib"
-  fi
-  if [ -n "$(contains ${LIBS?} jsoncpp)" ]; then
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/jsoncpp/lib"
-  fi
   if [ -n "$(contains ${LIBS?} boost)" ]; then  
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/boost/lib"
-  fi
-  if [ -n "$(contains ${LIBS?} leveldb)" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/leveldb/lib"
   fi
   if [ -n "$(contains ${LIBS?} cryptopp)" ]; then      
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/cryptopp/lib"
   fi
+  if [ -n "$(contains ${LIBS?} curl)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/curl/lib"
+  fi
   if [ -n "$(contains ${LIBS?} gmp)" ]; then      
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/gmp/lib"
   fi
-  if [ -n "$(contains ${LIBS?} curl)" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/curl/lib"
+  if [ -n "$(contains ${LIBS?} jsoncpp)" ]; then
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/jsoncpp/lib"
+  fi
+  if [ -n "$(contains ${LIBS?} leveldb)" ]; then      
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/leveldb/lib"
   fi
   if [ -n "$(contains ${LIBS?} libjson-rpc-cpp)" ]; then      
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libjson-rpc-cpp/lib"
   fi    
   if [ -n "$(contains ${LIBS?} libmicrohttpd)" ]; then      
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libmicrohttpd/lib"
-  fi
-  if [ -n "$(contains ${LIBS?} libweb3core)" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libweb3core/lib"
-  fi
-  if [ -n "$(contains ${LIBS?} libethereum)" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libweb3core/lib"
   fi
   CMAKE_LIBRARY_PATH=$(echo "$CMAKE_LIBRARY_PATH" | sed 's/^://')
   
@@ -239,38 +230,29 @@ function set_cmake_include_path() { # private
   INCLUDES=${1?}
   unset CMAKE_INCLUDE_PATH
   
-  if [ -n "$(contains ${INCLUDES?} libscrypt)" ]; then
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libscrypt/include"
-  fi
-  if [ -n "$(contains ${INCLUDES?} jsoncpp)" ]; then
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/jsoncpp/include"
-  fi
   if [ -n "$(contains ${INCLUDES?} boost)" ]; then
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/boost/include"
-  fi
-  if [ -n "$(contains ${INCLUDES?} leveldb)" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/leveldb/include"
   fi
   if [ -n "$(contains ${INCLUDES?} cryptopp)" ]; then    
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${SOURCES_DIR?}" # hack + see softlink hack in install-dependencies script
   fi
+  if [ -n "$(contains ${INCLUDES?} curl)" ]; then    
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/curl/include"
+  fi
   if [ -n "$(contains ${INCLUDES?} gmp)" ]; then    
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/gmp/include"
   fi
-  if [ -n "$(contains ${INCLUDES?} curl)" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/curl/include"
+  if [ -n "$(contains ${INCLUDES?} jsoncpp)" ]; then
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/jsoncpp/include"
+  fi
+  if [ -n "$(contains ${INCLUDES?} leveldb)" ]; then    
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/leveldb/include"
   fi
   if [ -n "$(contains ${INCLUDES?} libjson-rpc-cpp)" ]; then
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libjson-rpc-cpp/include"
   fi
   if [ -n "$(contains ${INCLUDES?} libmicrohttpd)" ]; then    
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libmicrohttpd/include"
-  fi
-  if [ -n "$(contains ${INCLUDES?} libweb3core)" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libweb3core/include"
-  fi
-  if [ -n "$(contains ${INCLUDES?} libethereum)" ]; then    
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libethereum/include"
   fi
   CMAKE_INCLUDE_PATH=$(echo "$CMAKE_INCLUDE_PATH" | sed 's/^://')
       

@@ -79,40 +79,29 @@ generic_hack \
   '!/Miniupnpc/'
 
 
-# ===========================================================================
-# Layer 0 is Boost.
-# Absolutely everything depends on Boost, whether they use it or not,
-# because of EthDependencies.cmake in webthree-helper, which does an
-# unconditional find_module() for boost, irrespective of what is being built.
+# ---------------------------------------------------------------------------
+# Layer 1 contains most of our external dependencies.  All mutually independent.
 
 ./boost.sh     "${TARGET_SUBTYPE?}"
-
-
-# ===========================================================================
-# Layer 1 are the external libraries.  Do any of these themselves depend on
-# Boost?  I think that the majority or indeed all of them *might not*, and
-# that if we fixed up the CMake code so that the unconditional Boost
-# dependency could be skipped then we could improve the build ordering here.
-
-./curl.sh      "${TARGET_SUBTYPE?}"
 ./cryptopp.sh  "${TARGET_SUBTYPE?}"
+./curl.sh      "${TARGET_SUBTYPE?}"
 ./gmp.sh       "${TARGET_SUBTYPE?}"
 ./jsoncpp.sh   "${TARGET_SUBTYPE?}"
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
-./libscrypt.sh "${TARGET_SUBTYPE?}"
 ./mhd.sh       "${TARGET_SUBTYPE?}"
 
+# ---------------------------------------------------------------------------
+# Layer 2 contains external dependencies which are dependent on other
+# external dependencies:
+#
+# - libjson-rpc-cpp depends on curl, jsoncpp and libmicrohtppd.
+# - secp256k1 depends on gmp (but we build it as part of cpp-ethereum)
 
-# ===========================================================================
-# Layer 2 comprises secp256k1 and libjson-rpc-cpp (which are external
-# libraries which depend on Layer 1 external libraries)
-
-./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}" # requires curl, jsoncpp and mhd
-./secp256k1.sh       "${TARGET_SUBTYPE?}"
+./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}"
 
 
-# ===========================================================================
-# Layers 3 is cpp-ethereum
+# ---------------------------------------------------------------------------
+# Layers 3 is the cpp-ethereum project itself.
 
 ./cpp-ethereum.sh "${TARGET_SUBTYPE?}"
 
