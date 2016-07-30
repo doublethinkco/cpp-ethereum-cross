@@ -113,7 +113,7 @@ printf '=%.0s' {1..75} && echo
 # produces a packaged-up file (will spit out instructions on how to use it)
 ./package.sh \
   ${INSTALLS_DIR?} \
-  ${INSTALLS_DIR?}/webthree/usr/local/bin
+  ${INSTALLS_DIR?}/cpp-ethereum/usr/local/bin
 
 # ===========================================================================
 echo "done."
