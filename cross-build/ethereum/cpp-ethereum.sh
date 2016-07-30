@@ -38,18 +38,30 @@ export_cross_compiler && sanity_check_cross_compiler
 section_configuring cpp-ethereum
 
 # ---------------------------------------------------------------------------
+# hacks
+generic_hack \
+  ${WORK_DIR?}/cpp-ethereum/libethcore/CMakeLists.txt \
+  '!/Eth::ethash-cl Cpuid/'
+
+# configuration hack to remove miniupnp (optional and broken at the moment)
+generic_hack \
+  ${WORK_DIR?}/cpp-ethereum/libp2p/CMakeLists.txt \
+  '!/Miniupnpc/'
+
+# ---------------------------------------------------------------------------
 set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd:libmicrohttpd:libscrypt:secp256k1"
 
+mkdir build
+cd build
 cmake \
-   . \
-   -G "Unix Makefiles" \
-  -DCMAKE_VERBOSE_MAKEFILE=true \
+   .. \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?} \
   -DMINIUPNPC=OFF \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
   -DETH_JSON_RPC_STUB=OFF
 return_code $?
+cd ..
 
 # ---------------------------------------------------------------------------
 # hack: somehow these don't get properly included
@@ -57,36 +69,30 @@ readonly MISSING_LIBJSON_RPC_CPP1="-I${WORK_DIR?}/libjson-rpc-cpp/src"
 readonly MISSING_LIBJSON_RPC_CPP2="-I${INSTALLS_DIR?}/libjson-rpc-cpp/include/jsonrpccpp/common"
 
 generic_hack \
-  ${WORK_DIR?}/eth/CMakeFiles/eth.dir/flags.make \
+  ${WORK_DIR?}/cpp-ethereum/build/eth/CMakeFiles/eth.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ")}1'
 generic_hack \
-  ${WORK_DIR?}/libweb3jsonrpc/CMakeFiles/web3jsonrpc.dir/flags.make \
+  ${WORK_DIR?}/cpp-ethereum/build/libweb3jsonrpc/CMakeFiles/web3jsonrpc.dir/flags.make \
   '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ");gsub(/ -Werror/,"")}1'
-
-# hacks
-generic_hack \
-  ${WORK_DIR?}/libethcore/CMakeLists.txt \
-  '!/Eth::ethash-cl Cpuid/'
-
-# configuration hack to remove miniupnp (optional and broken at the moment)
-generic_hack \
-  ${WORK_DIR?}/libp2p/CMakeLists.txt \
-  '!/Miniupnpc/'
 
 # ===========================================================================
 # cross-compile:
 
 section_cross_compiling cpp-ethereum
+cd build
 make -j 8
 return_code $?
+cd ..
 
 
 # ===========================================================================
 # install:
 
 section_installing cpp-ethereum
+cd build
 make DESTDIR="${INSTALLS_DIR?}/cpp-ethereum" install
 return_code $?
+cd ..
 
 
 # ===========================================================================

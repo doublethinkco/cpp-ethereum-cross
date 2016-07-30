@@ -37,8 +37,6 @@ section_configuring libscrypt
 set_cmake_paths "boost"
 cmake \
    . \
-  -G "Unix Makefiles" \
-  -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?}
 return_code $?
 

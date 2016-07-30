@@ -32,8 +32,6 @@ section_configuring jsoncpp
 
 cmake \
    ${SOURCES_DIR?}/jsoncpp \
-  -G "Unix Makefiles" \
-  -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?} \
   -DBUILD_STATIC_LIBS=ON \
   -DBUILD_SHARED_LIBS=OFF \

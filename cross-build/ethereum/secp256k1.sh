@@ -36,8 +36,6 @@ section_configuring secp256k1
 set_cmake_paths "boost:gmp"
 cmake \
    . \
-  -G "Unix Makefiles" \
-  -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?}
 return_code $?
 

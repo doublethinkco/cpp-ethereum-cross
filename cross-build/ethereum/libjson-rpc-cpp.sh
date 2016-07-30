@@ -33,7 +33,6 @@ section_configuring libjson-rpc-cpp
 set_cmake_paths "jsoncpp:curl:libmicrohttpd"
 cmake \
    ${SOURCES_DIR?}/libjson-rpc-cpp \
-  -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?} \
   -DHTTP_SERVER=YES \
   -DHTTP_CLIENT=YES \
