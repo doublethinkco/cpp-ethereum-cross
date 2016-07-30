@@ -38,7 +38,7 @@ export_cross_compiler && sanity_check_cross_compiler
 section_configuring cpp-ethereum
 
 # ---------------------------------------------------------------------------
-set_cmake_paths "jsoncpp:boost:leveldb:cryptopp:curl:libjson-rpc-cpp:libmicrohttpd:libscrypt"
+set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd:libscrypt:mhd"
 
 cmake \
    . \
