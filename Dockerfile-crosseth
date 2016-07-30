@@ -77,18 +77,19 @@ RUN useradd -ms /bin/bash crosseth
 USER crosseth
 
 # Commit of the webthree-umbrella repo to use.
-ENV WEBTHREE_UMBRELLA_REPO   https://github.com/bobsummerwill/webthree-umbrella.git
-ENV WEBTHREE_UMBRELLA_BRANCH glibc_workaround
-ENV WEBTHREE_UMBRELLA_COMMIT 6eacd10
+ENV CPP_ETHEREUM_REPO   https://github.com/bobsummerwill/cpp-ethereum.git
+ENV CPP_ETHEREUM_BRANCH merge_repos
+ENV CPP_ETHEREUM_COMMIT 1356742
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
-RUN git clone -b ${WEBTHREE_UMBRELLA_BRANCH} --recursive ${WEBTHREE_UMBRELLA_REPO} && \
-    cd webthree-umbrella && \
-    git checkout ${WEBTHREE_UMBRELLA_COMMIT}
+RUN git clone -b ${CPP_ETHEREUM_BRANCH} --recursive ${CPP_ETHEREUM_REPO} && \
+    cd cpp-ethereum && \
+    git checkout ${CPP_ETHEREUM_COMMIT} && \
+    git submodule update --init
  
 # Copy our cross-building scripts into the container
-ADD cross-build/ /home/crosseth/webthree-umbrella/cross-build/
+ADD cross-build/ /home/crosseth/cpp-ethereum/cross-build/
 
 # And switch the working directory to the Ethereum cross-build scripts
-WORKDIR /home/crosseth/webthree-umbrella/cross-build/ethereum
+WORKDIR /home/crosseth/cpp-ethereum/cross-build/ethereum

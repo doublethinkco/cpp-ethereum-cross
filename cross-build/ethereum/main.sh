@@ -32,12 +32,7 @@ source ./setup.sh $*
 
 # ===========================================================================
 
-cd ${INITIAL_DIR?}                         && pwd && git log -1 --format="%h"
-cd ${INITIAL_DIR?}/../../webthree-helpers  && pwd && git log -1 --format="%h"
-cd ${INITIAL_DIR?}/../../libweb3core       && pwd && git log -1 --format="%h"
-cd ${INITIAL_DIR?}/../../libethereum       && pwd && git log -1 --format="%h"
-cd ${INITIAL_DIR?}/../../webthree          && pwd && git log -1 --format="%h"
-cd ${INITIAL_DIR?}
+cd ${INITIAL_DIR?} && pwd && git log -1 --format="%h"
 
 # ===========================================================================
 # init:
