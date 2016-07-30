@@ -6,8 +6,7 @@
 # See http://ethereum.org/ to learn more about Ethereum.
 # See http://doublethink.co/ to learn more about doublethinkco
 #
-# ------------------------------------------------------------------------------
-# This file is part of cpp-ethereum-cross.
+# Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,13 +19,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-# Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
 FROM ubuntu:14.04
 MAINTAINER Bob Summerwill <bob@summerwill.net>
 
+# So we DO appear to need this, perhaps because the contents in the package
+# repository have changed since the base Dockerfile image was created?
+# Not 100% sure, but without this we get errors about specific versions
+# not being available in later steps.
 RUN apt-get update
 
 # External packages required by our scripts themselves
@@ -58,7 +59,8 @@ RUN useradd -ms /bin/bash xcompiler
 USER xcompiler
 
 # Copy our cross-building scripts into the container
-ADD cross-build/ /home/xcompiler/cpp-ethereum-cross/cross-build/
+ADD cross-build/ /home/xcompiler/webthree-umbrella/cross-build/
 
 # And switch the working directory to the cross-compiler scripts
-WORKDIR /home/xcompiler/cpp-ethereum-cross/cross-build/ct-ng
+WORKDIR /home/xcompiler/webthree-umbrella/cross-build/ct-ng
+

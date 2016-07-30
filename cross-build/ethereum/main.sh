@@ -1,14 +1,11 @@
-
-#!/usr/bin/env bash
-
-#------------------------------------------------------------------------------
-# Main script for cpp-ethereum-cross project, which contains Docker files and
-# bash scripts for cross-building cpp-ethereum binaries for ARM Linux devices.
+#!/bin/bash
 #
-# https://github.com/doublethinkco/cpp-ethereum-cross
+# @author: Anthony Cros
 #
-# ------------------------------------------------------------------------------
-# This file is part of cpp-ethereum-cross.
+# TODO:
+# - libjson RPC CPP seems to contact github somehow...
+#
+# Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,11 +17,8 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
-# limitations under the License.
-#
-# Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
-#------------------------------------------------------------------------------
- 
+# limitations under the License.  
+
  
 # ===========================================================================
 set -e
@@ -59,12 +53,13 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?}
 # strip out the cmake download here.
 #
 # NOTE - We use orphaned copies secp256k1 and scrypt which live inside
-# the cpp-ethereum package.   Their oddness makes them pigs to
+# the webthree-helper package.   Their oddness makes them pigs to
 # cross-build, because we are not running CMake from a repo root
-# directory for these packages.
+# directory
 
-./download.sh "${TARGET_SUBTYPE?}"
-
+./download.sh \
+  "boost:cmake:cryptopp:curl:gmp:jsoncpp:leveldb:libjson-rpc-cpp:libmicrohttpd" \
+  "${TARGET_SUBTYPE?}"
 
 # ===========================================================================
 # cmake:
@@ -99,13 +94,13 @@ generic_hack \
 # that if we fixed up the CMake code so that the unconditional Boost
 # dependency could be skipped then we could improve the build ordering here.
 
-./curl.sh          "${TARGET_SUBTYPE?}"
-./cryptopp.sh      "${TARGET_SUBTYPE?}"
-./gmp.sh           "${TARGET_SUBTYPE?}"
-./jsoncpp.sh       "${TARGET_SUBTYPE?}"
-./leveldb.sh       "${TARGET_SUBTYPE?}"
-./libmicrohttpd.sh "${TARGET_SUBTYPE?}"
-./libscrypt.sh     "${TARGET_SUBTYPE?}"
+./curl.sh      "${TARGET_SUBTYPE?}"
+./cryptopp.sh  "${TARGET_SUBTYPE?}"
+./gmp.sh       "${TARGET_SUBTYPE?}"
+./jsoncpp.sh   "${TARGET_SUBTYPE?}"
+./leveldb.sh   "${TARGET_SUBTYPE?}"
+./libscrypt.sh "${TARGET_SUBTYPE?}"
+./mhd.sh       "${TARGET_SUBTYPE?}"
 
 
 # ===========================================================================

@@ -1,14 +1,8 @@
-
-#!/usr/bin/env bash
-
-#------------------------------------------------------------------------------
-# Bash script containing constants and other configuration details which are
-# used in the rest of the cpp-ethereum-cross bash scripts.
+#!/bin/bash
 #
-# https://github.com/doublethinkco/cpp-ethereum-cross
+# @author: Anthony Cros
 #
-# ------------------------------------------------------------------------------
-# This file is part of cpp-ethereum-cross.
+# Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,10 +14,7 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
-# limitations under the License.
-#
-# Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
-#------------------------------------------------------------------------------
+# limitations under the License.  
 
 set -e
 if [ ! -f "./setup.sh" ]; then echo "ERROR: wrong pwd"; exit 1; fi

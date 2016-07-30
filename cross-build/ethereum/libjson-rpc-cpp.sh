@@ -1,13 +1,9 @@
-#!/usr/bin/env bash
-
-#------------------------------------------------------------------------------
-# Bash script for cross-building libjson-rpc-cpp for ARM Linux devices.
+#!/bin/bash
+# configures, cross-compiles and installs libjson RPC CPP (https://github.com/cinemast/libjson-rpc-cpp)
+# depends on CUrl (see dedicated script)
+# @author: Anthony Cros
 #
-# https://github.com/cinemast/libjson-rpc-cpp
-# https://github.com/doublethinkco/cpp-ethereum-cross
-#
-# ------------------------------------------------------------------------------
-# This file is part of cpp-ethereum-cross.
+# Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,10 +15,7 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
-# limitations under the License.
-#
-# Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
-#------------------------------------------------------------------------------
+# limitations under the License.  
 
 
 # ===========================================================================
@@ -40,6 +33,7 @@ section_configuring libjson-rpc-cpp
 set_cmake_paths "jsoncpp:curl:libmicrohttpd"
 cmake \
    ${SOURCES_DIR?}/libjson-rpc-cpp \
+  -DCMAKE_VERBOSE_MAKEFILE=true \
   -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE?} \
   -DHTTP_SERVER=YES \
   -DHTTP_CLIENT=YES \
