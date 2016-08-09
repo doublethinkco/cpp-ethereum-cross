@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.  
 
-GOAL=${1?} && shift # "xcompiler" or "cross-eth"
+GOAL=${1?} && shift # "xcompiler" or "crosseth"
 DEST_DIR=${1?} && shift
 SCRIPT=${1?} && shift
 ARGS=$*
