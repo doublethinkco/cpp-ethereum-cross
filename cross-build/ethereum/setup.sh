@@ -54,7 +54,7 @@ export readonly              GMP_DOWNLOAD_URL="https://ftp.gnu.org/gnu/gmp/gmp-$
 export readonly          JSONCPP_DOWNLOAD_URL="https://github.com/doublethinkco/jsoncpp.git"
 export readonly          LEVELDB_DOWNLOAD_URL="https://github.com/google/leveldb.git"
 export readonly  LIBJSON_RPC_CPP_DOWNLOAD_URL="https://github.com/doublethinkco/libjson-rpc-cpp.git"
-export readonly              MHD_DOWNLOAD_URL="http://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-${MHD_VERSION?}.tar.gz"
+export readonly              MHD_DOWNLOAD_URL="https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-${MHD_VERSION?}.tar.gz"
 
 # ===========================================================================
 if [ "${CROSS_COMPILER_PROVENANCE?}" == "xcode" ]; then
