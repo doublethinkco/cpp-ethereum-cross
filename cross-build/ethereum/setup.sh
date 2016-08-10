@@ -111,10 +111,10 @@ elif [ "${CROSS_COMPILER_PROVENANCE?}" == "xcode" ]; then
   export readonly XCODE_ROOT=$(xcode-select -print-path)
   export readonly PLATFORM_ROOT="${XCODE_ROOT}/Platforms/${PLATFORM}.platform/Developer"
   export readonly SDK_ROOT="${PLATFORM_ROOT}/SDKs/${PLATFORM}.sdk"
-  export readonly TOOLCHAIN_ROOT="${XCODE_ROOT}/Toolchains/XcodeDefault.xctoolchain/usr/bin/"
+  export readonly CROSS_COMPILER_ROOT_DIR="${XCODE_ROOT}/Toolchains/XcodeDefault.xctoolchain/usr"
 
-  export readonly GCC_CROSS_COMPILER="${TOOLCHAIN_ROOT}/clang"
-  export readonly GXX_CROSS_COMPILER="${TOOLCHAIN_ROOT}/clang++}"
+  export readonly GCC_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR}/bin/clang"
+  export readonly GXX_CROSS_COMPILER="${CROSS_COMPILER_ROOT_DIR}/bin/clang++"
 
 else
   echo "ERROR: invalid CROSS_COMPILER_PROVENANCE '${CROSS_COMPILER_PROVENANCE}'"
