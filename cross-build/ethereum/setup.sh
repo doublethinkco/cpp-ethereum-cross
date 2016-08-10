@@ -1,8 +1,9 @@
 #!/bin/bash
 #
-# @author: Anthony Cros
+# @author: Anthony Cros, Jahn Bertsch
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
+# Copyright (c) 2016 Jahn Bertsch
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,8 +23,8 @@ source ./utils.sh
 echo "running setup"
 
 # ===========================================================================
-export readonly TARGET_SUBTYPE=${1?} # "armel" or "armhf"
-export readonly CROSS_COMPILER_PROVENANCE=${2?} # true/false
+export readonly TARGET_SUBTYPE=${1?} # "armel", "armhf", "armv7" or "arm64"
+export readonly CROSS_COMPILER_PROVENANCE=${2?} # "manual", "apt" or "xcode"
 export readonly INITIAL_DIR=${PWD?}
 export readonly ORIGIN_ARCHITECTURE="x86_64"
 export readonly TARGET_ARCHITECTURE="arm"

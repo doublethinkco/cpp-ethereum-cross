@@ -22,7 +22,7 @@ set -e
 function check_args() {
   TARGET_SUBTYPE=${1?} && shift
   CROSS_COMPILER_PROVENANCE=${1?} && shift  
-  [ "${TARGET_SUBTYPE?}" == "armel" -o "${TARGET_SUBTYPE?}" == "armhf" ] && [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" -o "${CROSS_COMPILER_PROVENANCE?}" == "manual" ] || {
+  [ "${TARGET_SUBTYPE?}" == "armel" -o "${TARGET_SUBTYPE?}" == "armhf" -o "${TARGET_SUBTYPE?}" == "armv7" -o "${TARGET_SUBTYPE?}" == "arm64" ] && [ "${CROSS_COMPILER_PROVENANCE?}" == "apt" -o "${CROSS_COMPILER_PROVENANCE?}" == "manual" -o "${CROSS_COMPILER_PROVENANCE?}" == "xcode" ] || {
     echo "ERROR: TODO $TARGET_SUBTYPE $CROSS_COMPILER_PROVENANCE"
     exit 1
   }
