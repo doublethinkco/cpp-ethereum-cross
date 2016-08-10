@@ -1,6 +1,5 @@
 #!/bin/bash
 # configures, cross-compiles and installs Json CPP (https://github.com/open-source-parsers/jsoncpp)
-# @author: Anthony Cros
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #

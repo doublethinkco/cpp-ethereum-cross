@@ -1,6 +1,5 @@
 #!/bin/bash
 # downloads all components and dependencies (this will take a while)
-# @author: Anthony Cros
 
 # TODO: turn into loop
 #

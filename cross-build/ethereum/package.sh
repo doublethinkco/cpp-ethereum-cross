@@ -1,6 +1,5 @@
 #!/bin/bash
 # packages up all that is needed for eth to run
-# @author: Anthony Cros
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #

@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-# @author: Anthony Cros, Jahn Bertsch
-#
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 # Copyright (c) 2016 Jahn Bertsch
 #

@@ -1,6 +1,5 @@
 #!/bin/bash
 # configures, cross-compiles and installs CUrl (http://curl.haxx.se/)
-# @author: Anthony Cros
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #
