@@ -68,7 +68,9 @@ if [ "${TARGET_SUBTYPE?}" == "armel" ]; then
 elif [ "${TARGET_SUBTYPE?}" == "armhf" ]; then
   export readonly AUTOCONF_HOST_ARCHITECTURE="${TARGET_ARCHITECTURE?}-unknown-linux-gnueabihf"
 elif [ "${TARGET_SUBTYPE?}" == "armv7" ]; then
-  export readonly AUTOCONF_HOST_ARCHITECTURE="${TARGET_SUBTYPE?}-apple-darwin"
+  export readonly AUTOCONF_HOST_ARCHITECTURE="arm-apple-darwin"
+elif [ "${TARGET_SUBTYPE?}" == "arm64" ]; then
+  export readonly AUTOCONF_HOST_ARCHITECTURE="aarch64-apple-darwin"
 else
   echo "ERROR: invalid TARGET_SUBTYPE '${TARGET_SUBTYPE}'"
   exit 1
