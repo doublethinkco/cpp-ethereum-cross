@@ -1,6 +1,5 @@
 #!/bin/bash
 # configures, cross-compiles and installs MHD (https://www.gnu.org/software/libmicrohttpd/)
-# @author: Anthony Cros
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #

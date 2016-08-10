@@ -1,7 +1,6 @@
 #!/bin/bash
 # configures, cross-compiles and installs libjson RPC CPP (https://github.com/cinemast/libjson-rpc-cpp)
 # depends on CUrl (see dedicated script)
-# @author: Anthony Cros
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #

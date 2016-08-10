@@ -1,6 +1,5 @@
 #!/bin/bash
 # configures, cross-compiles and installs Boost (http://www.boost.org/)
-# @author: Anthony Cros
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #

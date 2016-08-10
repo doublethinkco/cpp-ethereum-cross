@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-# @author: Anthony Cros
-#
 # TODO:
 # - libjson RPC CPP seems to contact github somehow...
 #

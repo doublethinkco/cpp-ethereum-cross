@@ -1,6 +1,5 @@
 #!/bin/bash
 # configures, cross-compiles and installs LevelDB (https://github.com/google/leveldb)
-# @author: Anthony Cros
 #
 # Copyright (c) 2015-2016 Kitsilano Software Inc (https://doublethink.co)
 #
