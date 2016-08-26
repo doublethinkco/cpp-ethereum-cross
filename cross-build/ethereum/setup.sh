@@ -44,7 +44,7 @@ export readonly  LIBJSON_RPC_CPP_VERSION="0da64a9"
 export readonly              MHD_VERSION="0.9.50"
 
 # ===========================================================================
-export readonly            BOOST_DOWNLOAD_URL="https://github.com/doublethinkco/cpp-ethereum-cross/releases/download/ExternalDependencies/boost_${BOOST_VERSION//\./_}.tar.gz"
+export readonly            BOOST_DOWNLOAD_URL="https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/boost_${BOOST_VERSION//\./_}.tar.bz2/download"
 export readonly             CURL_DOWNLOAD_URL="http://curl.haxx.se/download/curl-${CURL_VERSION?}.tar.gz"
 export readonly         CRYPTOPP_DOWNLOAD_URL="https://github.com/doublethinkco/cryptopp.git"
 export readonly              GMP_DOWNLOAD_URL="https://ftp.gnu.org/gnu/gmp/gmp-${GMP_VERSION?}.tar.bz2"
