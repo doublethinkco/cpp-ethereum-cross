@@ -77,9 +77,9 @@ RUN useradd -ms /bin/bash crosseth
 USER crosseth
 
 # Commit of the webthree-umbrella repo to use.
-ENV CPP_ETHEREUM_REPO   https://github.com/bobsummerwill/cpp-ethereum.git
-ENV CPP_ETHEREUM_BRANCH merge_repos
-ENV CPP_ETHEREUM_COMMIT 1356742
+ENV CPP_ETHEREUM_REPO   https://github.com/ethereum/cpp-ethereum.git
+ENV CPP_ETHEREUM_BRANCH develop
+ENV CPP_ETHEREUM_COMMIT f2d7fd9
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
