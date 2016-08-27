@@ -79,7 +79,15 @@ USER crosseth
 # Commit of the webthree-umbrella repo to use.
 ENV CPP_ETHEREUM_REPO   https://github.com/ethereum/cpp-ethereum.git
 ENV CPP_ETHEREUM_BRANCH develop
-ENV CPP_ETHEREUM_COMMIT f2d7fd9
+
+# Workaround - using the commit before 'output of dots to stdout for testeth'
+# (https://github.com/ethereum/cpp-ethereum/commit/8924b40)
+# because the use of 'std::future' in those changes is breaking on ARM.
+#
+# See "Build break - armel - invalid use of incomplete type 'class std::future<void>"
+# https://github.com/doublethinkco/cpp-ethereum-cross/issues/111
+#
+ENV CPP_ETHEREUM_COMMIT 4943d3e
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
