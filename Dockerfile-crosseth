@@ -77,21 +77,15 @@ RUN useradd -ms /bin/bash crosseth
 USER crosseth
 
 # Commit of the webthree-umbrella repo to use.
-ENV CPP_ETHEREUM_REPO   https://github.com/ethereum/cpp-ethereum.git
+ENV CPP_ETHEREUM_REPO   https://github.com/doublethinkco/cpp-ethereum.git
 ENV CPP_ETHEREUM_BRANCH develop
 
-# Workaround - using the commit before 'output of dots to stdout for testeth'
-# (https://github.com/ethereum/cpp-ethereum/commit/8924b40)
-# because the use of 'std::future' in those changes is breaking on ARM.
-#
-# Actually, we need to go back further, because the same problematic pattern
-# was used for some earlier mining timeouts as well:
-# (https://github.com/ethereum/cpp-ethereum/commit/51ca3f6)
+# Workaround - using doublethinkco fork of cpp-ethereum to chop out std::future usage.
 #
 # See "Build break - armel - invalid use of incomplete type 'class std::future<void>"
 # https://github.com/doublethinkco/cpp-ethereum-cross/issues/111
 #
-ENV CPP_ETHEREUM_COMMIT 131f80e
+ENV CPP_ETHEREUM_COMMIT edfafc4
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
