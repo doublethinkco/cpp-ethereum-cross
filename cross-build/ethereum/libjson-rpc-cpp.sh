@@ -64,10 +64,6 @@ section_installing libjson-rpc-cpp
 make DESTDIR="${INSTALLS_DIR?}/libjson-rpc-cpp" -j 8 install
 return_code $?
 
-# homogenization
-ln -s ${INSTALLS_DIR?}/libjson-rpc-cpp/usr/local/lib     ${INSTALLS_DIR?}/libjson-rpc-cpp/lib
-ln -s ${INSTALLS_DIR?}/libjson-rpc-cpp/usr/local/include ${INSTALLS_DIR?}/libjson-rpc-cpp/include
-
 
 # ===========================================================================
 

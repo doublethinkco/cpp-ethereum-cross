@@ -54,13 +54,6 @@ section_installing jsoncpp
 make DESTDIR="${INSTALLS_DIR?}/jsoncpp" install
 return_code $?
 
-# hack: required by libjson-rpc-cpp
-ln -s ${INSTALLS_DIR?}/jsoncpp/usr/local/include ${INSTALLS_DIR?}/jsoncpp/usr/local/include/jsoncpp
-
-# homogenization
-ln -s ${INSTALLS_DIR?}/jsoncpp/usr/local/lib     ${INSTALLS_DIR?}/jsoncpp/lib
-ln -s ${INSTALLS_DIR?}/jsoncpp/usr/local/include ${INSTALLS_DIR?}/jsoncpp/include
-
 # ===========================================================================
 
 section "done" jsoncpp

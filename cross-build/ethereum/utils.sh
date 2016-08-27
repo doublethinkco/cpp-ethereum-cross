@@ -207,13 +207,13 @@ function set_cmake_library_path() { # private
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/gmp/lib"
   fi
   if [ -n "$(contains ${LIBS?} jsoncpp)" ]; then
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/jsoncpp/lib"
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/jsoncpp/usr/local/lib"
   fi
   if [ -n "$(contains ${LIBS?} leveldb)" ]; then      
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/leveldb/lib"
   fi
   if [ -n "$(contains ${LIBS?} libjson-rpc-cpp)" ]; then      
-    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libjson-rpc-cpp/lib"
+    CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libjson-rpc-cpp/usr/local/lib"
   fi    
   if [ -n "$(contains ${LIBS?} libmicrohttpd)" ]; then      
     CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${INSTALLS_DIR?}/libmicrohttpd/lib"
@@ -241,13 +241,13 @@ function set_cmake_include_path() { # private
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/gmp/include"
   fi
   if [ -n "$(contains ${INCLUDES?} jsoncpp)" ]; then
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/jsoncpp/include"
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/jsoncpp/usr/local/include"
   fi
   if [ -n "$(contains ${INCLUDES?} leveldb)" ]; then    
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/leveldb/include"
   fi
   if [ -n "$(contains ${INCLUDES?} libjson-rpc-cpp)" ]; then
-    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libjson-rpc-cpp/include"
+    CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libjson-rpc-cpp/usr/local/include"
   fi
   if [ -n "$(contains ${INCLUDES?} libmicrohttpd)" ]; then    
     CMAKE_INCLUDE_PATH="$CMAKE_INCLUDE_PATH:${INSTALLS_DIR?}/libmicrohttpd/include"
