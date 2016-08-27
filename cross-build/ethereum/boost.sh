@@ -46,7 +46,7 @@ grep ${GCC_CROSS_COMPILER_PATTERN?} ./project-config.jam 2>&-  || { echo "ERROR:
 section_cross_compiling boost
 ./b2 \
   install \
-  -j 8 \
+  -j 2 \
   --debug-configuration \
   --prefix=${INSTALLS_DIR?}/boost # also installs (expect some warnings) - takes a while
 return_code $?

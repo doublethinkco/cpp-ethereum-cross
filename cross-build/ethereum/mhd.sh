@@ -44,7 +44,7 @@ grep ${TARGET_ARCHITECTURE?} ./Makefile >/dev/null # sanity check
 # cross-compile:
 
 section_cross_compiling libmicrohttpd
-make -j 8
+make -j2
 return_code $?
 
 

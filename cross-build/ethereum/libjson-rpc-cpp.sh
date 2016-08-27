@@ -48,13 +48,7 @@ return_code $?
 # cross-compile:
 
 section_cross_compiling libjson-rpc-cpp
-
-# somehow these aren't available as is (throws a lot of warnings and eventually dies for lack of finding curl.h)
-generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpccommon.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${INSTALLS_DIR?}/curl'/include ")}1'
-generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpcserver.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${INSTALLS_DIR?}/curl'/include ")}1'
-generic_hack ./src/jsonrpccpp/CMakeFiles/jsonrpcclient.dir/flags.make '{gsub(/^CXX_FLAGS = /,"CXX_FLAGS = -std=c++11 -isystem'${INSTALLS_DIR?}/curl'/include ")}1'
-
-make
+make -j2
 return_code $?
 
 
@@ -62,7 +56,7 @@ return_code $?
 # install:
 
 section_installing libjson-rpc-cpp
-make DESTDIR="${INSTALLS_DIR?}/libjson-rpc-cpp" -j 8 install
+make DESTDIR="${INSTALLS_DIR?}/libjson-rpc-cpp" install
 return_code $?
 
 

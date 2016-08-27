@@ -43,7 +43,7 @@ return_code $?
 # cross-compile:
 
 section_cross_compiling jsoncpp
-make -j 8
+make -j2
 return_code $?
 
 

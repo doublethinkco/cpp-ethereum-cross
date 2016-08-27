@@ -81,7 +81,7 @@ generic_hack \
 
 section_cross_compiling cpp-ethereum
 cd build
-make -j 8
+make -j2
 return_code $?
 cd ..
 

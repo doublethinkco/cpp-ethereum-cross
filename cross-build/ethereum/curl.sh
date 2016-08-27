@@ -43,7 +43,7 @@ grep ${TARGET_ARCHITECTURE?} ./Makefile # sanity check
 # cross-compile:
 
 section_cross_compiling curl
-make -j 8
+make -j2
 return_code $?
 
 

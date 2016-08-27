@@ -45,7 +45,7 @@ grep '=native' ./GNUmakefile && exit 1 || :
 # cross-compile:
 
 section_cross_compiling cryptopp
-make
+make -j2
 return_code $?
 
 
