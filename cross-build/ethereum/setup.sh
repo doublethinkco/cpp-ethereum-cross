@@ -40,7 +40,7 @@ export readonly         CRYPTOPP_VERSION="c522a8c"
 export readonly              GMP_VERSION="6.1.0"
 export readonly          JSONCPP_VERSION="8a6e50a"
 export readonly          LEVELDB_VERSION="77948e7"
-export readonly  LIBJSON_RPC_CPP_VERSION="0da64a9"
+export readonly  LIBJSON_RPC_CPP_VERSION="98787ff"
 export readonly              MHD_VERSION="0.9.50"
 
 # ===========================================================================
