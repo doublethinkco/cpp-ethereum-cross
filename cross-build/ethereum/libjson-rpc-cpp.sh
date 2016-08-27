@@ -40,6 +40,7 @@ cmake \
   -DCOMPILE_TESTS=NO \
   -DCOMPILE_STUBGEN=NO \
   -DCOMPILE_EXAMPLES=NO # watch for UNIX_DOMAIN_SOCKET_SERVER spelling (TODO: detail)
+  -DJSONCPP_INCLUDE_PREFIX=json  # force sub-directory structure to use json/ not jsoncpp/json/
 return_code $?
 
 
