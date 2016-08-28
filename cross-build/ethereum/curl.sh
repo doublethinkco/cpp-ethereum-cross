@@ -24,10 +24,6 @@ export_cross_compiler && sanity_check_cross_compiler
 
 
 # ===========================================================================
-# hack: somehow exported CC and CXX for ARM do not get picked up, so have to resort to that instead
-export PATH="$PATH:${CROSS_COMPILER_ROOT_DIR?}/bin"
-
-# ===========================================================================
 # configuration:
 
 section_configuring curl
