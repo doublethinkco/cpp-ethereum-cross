@@ -85,7 +85,7 @@ ENV CPP_ETHEREUM_BRANCH develop
 # See "Build break - armel - invalid use of incomplete type 'class std::future<void>"
 # https://github.com/doublethinkco/cpp-ethereum-cross/issues/111
 #
-ENV CPP_ETHEREUM_COMMIT edfafc4
+ENV CPP_ETHEREUM_COMMIT e1ba214
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
