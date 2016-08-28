@@ -64,18 +64,6 @@ cmake \
 return_code $?
 cd ..
 
-# ---------------------------------------------------------------------------
-# hack: somehow these don't get properly included
-readonly MISSING_LIBJSON_RPC_CPP1="-I${WORK_DIR?}/libjson-rpc-cpp/src"
-readonly MISSING_LIBJSON_RPC_CPP2="-I${INSTALLS_DIR?}/libjson-rpc-cpp/include/jsonrpccpp/common"
-
-generic_hack \
-  ${WORK_DIR?}/cpp-ethereum/build/eth/CMakeFiles/eth.dir/flags.make \
-  '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ")}1'
-generic_hack \
-  ${WORK_DIR?}/cpp-ethereum/build/libweb3jsonrpc/CMakeFiles/web3jsonrpc.dir/flags.make \
-  '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ");gsub(/ -Werror/,"")}1'
-
 # ===========================================================================
 # cross-compile:
 
