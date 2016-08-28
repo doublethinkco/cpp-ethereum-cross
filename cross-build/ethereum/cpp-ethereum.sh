@@ -32,31 +32,6 @@ cd_clone ${INITIAL_DIR?}/../.. ${WORK_DIR?}/cpp-ethereum
 export_cross_compiler && sanity_check_cross_compiler
 
 
-# ===========================================================================
-# configuration:
-
-section_configuring cpp-ethereum
-
-# ---------------------------------------------------------------------------
-# hacks
-
-clone ${INITIAL_DIR?}/../../cmake ${WORK_DIR?}/cmake # clones without cd-ing
-generic_hack \
-  ${WORK_DIR?}/cmake/UseEth.cmake \
-  '!/Eth::ethash-cl Cpuid/'
-generic_hack \
-  ${WORK_DIR?}/cmake/UseDev.cmake \
-  '!/Miniupnpc/'
-
-generic_hack \
-  ${WORK_DIR?}/cpp-ethereum/libethcore/CMakeLists.txt \
-  '!/Eth::ethash-cl Cpuid/'
-
-# configuration hack to remove miniupnp (optional and broken at the moment)
-generic_hack \
-  ${WORK_DIR?}/cpp-ethereum/libp2p/CMakeLists.txt \
-  '!/Miniupnpc/'
-
 # ---------------------------------------------------------------------------
 set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd"
 
