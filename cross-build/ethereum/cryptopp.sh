@@ -24,29 +24,18 @@ export_cross_compiler && sanity_check_cross_compiler
 cd_clone ${SOURCES_DIR?}/cryptopp ${WORK_DIR?}/cryptopp
 
 
-# ---------------------------------------------------------------------------
-make clean
-return_code $?
-
-
-# ===========================================================================
-# configuration: no configuration phase (bare Makefile), but hack needed
-
-# hack
-section_hacking cryptopp
-generic_hack ./GNUmakefile '!/=native/'
-
-# hack sanity check
-grep '=native' ./GNUmakefile.bak
-grep '=native' ./GNUmakefile && exit 1 || :
-
-
 # ===========================================================================
 # cross-compile:
+# See https://www.cryptopp.com/wiki/ARM_Embedded_(Command_Line)
+#
+# TODO We need some conditionals here to cope with all of the different build
+# variants which we have.  Also, I think this GNUmakefile-cross approach is
+# likely Ubuntu-specific, so will need something different done for iOS.
 
 section_cross_compiling cryptopp
-make -j2
-return_code $?
+tree -L 3 /usr/arm-linux-gnueabi/include/c++
+${INITIAL_DIR?}/cryptopp-setenv-embedded.sh
+make -j2 -f GNUmakefile-cross
 
 
 # ===========================================================================

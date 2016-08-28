@@ -70,7 +70,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get update && apt-get install -y \
     g++-arm-linux-gnueabi=4:5.2.1-1 \
-  g++-arm-linux-gnueabihf=4:5.2.1-1
+    gcc-arm-linux-gnueabi=4:5.2.1-1 \
+  g++-arm-linux-gnueabihf=4:5.2.1-1 \
+  gcc-arm-linux-gnueabihf=4:5.2.1-1
 
 # Switch to a normal user account.
 RUN useradd -ms /bin/bash crosseth
@@ -80,19 +82,21 @@ USER crosseth
 ENV CPP_ETHEREUM_REPO   https://github.com/doublethinkco/cpp-ethereum.git
 ENV CPP_ETHEREUM_BRANCH develop
 
-# Workaround - using doublethinkco fork of cpp-ethereum to chop out std::future usage.
+# Workarounds - using doublethinkco fork of cpp-ethereum to chop out std::future usage.
 #
 # See "Build break - armel - invalid use of incomplete type 'class std::future<void>"
 # https://github.com/doublethinkco/cpp-ethereum-cross/issues/111
 #
-ENV CPP_ETHEREUM_COMMIT edfafc4
+# See "Made Miniupnpc an optional dependency for libp2p"
+# https://github.com/doublethinkco/cpp-ethereum/commit/e1ba214
+#
+# See "Added deprecation warning suppression for CryptoPP's sha3.h"
+# https://github.com/doublethinkco/cpp-ethereum/commit/175aa2a
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
 RUN git clone -b ${CPP_ETHEREUM_BRANCH} --recursive ${CPP_ETHEREUM_REPO} && \
-    cd cpp-ethereum && \
-    git checkout ${CPP_ETHEREUM_COMMIT} && \
-    git submodule update --init
+    cd cpp-ethereum
  
 # Copy our cross-building scripts into the container
 ADD cross-build/ /home/crosseth/cpp-ethereum/cross-build/
