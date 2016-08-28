@@ -39,6 +39,15 @@ section_configuring cpp-ethereum
 
 # ---------------------------------------------------------------------------
 # hacks
+
+clone ${INITIAL_DIR?}/../../cmake ${WORK_DIR?}/cmake # clones without cd-ing
+generic_hack \
+  ${WORK_DIR?}/cmake/UseEth.cmake \
+  '!/Eth::ethash-cl Cpuid/'
+generic_hack \
+  ${WORK_DIR?}/cmake/UseDev.cmake \
+  '!/Miniupnpc/'
+
 generic_hack \
   ${WORK_DIR?}/cpp-ethereum/libethcore/CMakeLists.txt \
   '!/Eth::ethash-cl Cpuid/'
