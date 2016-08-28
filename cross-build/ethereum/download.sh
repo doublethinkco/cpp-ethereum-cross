@@ -21,7 +21,7 @@
 # ===========================================================================
 set -e
 
-COMPONENTS=${1?} && shift # e.g "cmake:curl:mhd"
+COMPONENTS=${1?} && shift # e.g "curl:mhd"
 if [ ! -f "./setup.sh" ]; then echo "ERROR: wrong pwd"; exit 1; fi
 ([ -n "$SETUP" ] && ${SETUP?}) || source ./setup.sh $*
 
@@ -36,26 +36,6 @@ else
 fi
 
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} jsoncpp)" ]; then
-  section_downloading jsoncpp
-  fetch ${JSONCPP_DOWNLOAD_URL?} ${SOURCES_DIR?}/jsoncpp
-  return_code $?
-else
-  echo "skipping jsoncpp"
-fi
-
-
-# ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} leveldb)" ]; then
-  section_downloading leveldb
-  fetch ${LEVELDB_DOWNLOAD_URL?} ${SOURCES_DIR?}/leveldb
-  return_code $?
-else
-  echo "skipping leveldb"
-fi
-
-
-# ---------------------------------------------------------------------------
 if [ -n "$(contains ${COMPONENTS?} cryptopp)" ]; then 
   section_downloading cryptopp
   fetch ${CRYPTOPP_DOWNLOAD_URL?} ${SOURCES_DIR?}/cryptopp
@@ -64,6 +44,14 @@ else
   echo "skipping cryptopp"
 fi
 
+# ---------------------------------------------------------------------------
+if [ -n "$(contains ${COMPONENTS?} curl)" ]; then 
+  section_downloading curl
+  fetch ${CURL_DOWNLOAD_URL?} ${SOURCES_DIR?}/curl
+  return_code $?
+else
+  echo "skipping curl"
+fi
 
 # ---------------------------------------------------------------------------
 if [ -n "$(contains ${COMPONENTS?} gmp)" ]; then 
@@ -75,14 +63,22 @@ else
   echo "skipping gmp"
 fi
 
-
 # ---------------------------------------------------------------------------
-if [ -n "$(contains ${COMPONENTS?} curl)" ]; then 
-  section_downloading curl
-  fetch ${CURL_DOWNLOAD_URL?} ${SOURCES_DIR?}/curl
+if [ -n "$(contains ${COMPONENTS?} jsoncpp)" ]; then
+  section_downloading jsoncpp
+  fetch ${JSONCPP_DOWNLOAD_URL?} ${SOURCES_DIR?}/jsoncpp
   return_code $?
 else
-  echo "skipping curl"
+  echo "skipping jsoncpp"
+fi
+
+# ---------------------------------------------------------------------------
+if [ -n "$(contains ${COMPONENTS?} leveldb)" ]; then
+  section_downloading leveldb
+  fetch ${LEVELDB_DOWNLOAD_URL?} ${SOURCES_DIR?}/leveldb
+  return_code $?
+else
+  echo "skipping leveldb"
 fi
 
 # ---------------------------------------------------------------------------
