@@ -43,7 +43,6 @@ cmake \
   -DMINIUPNPC=OFF \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
-  -DTOOLS=OFF \
   -DETH_JSON_RPC_STUB=OFF
 return_code $?
 cd ..

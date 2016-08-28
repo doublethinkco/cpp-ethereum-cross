@@ -86,7 +86,11 @@ echo && tree -L 1 ${BASE_DIR?} && \
 ./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}"
 
 
-# Layers 3 is the cpp-ethereum project itself.
+# Layers 3 is the cpp-ethereum project itself, and also includes building
+# of libscrypt, secp256k1 implicitly, because orphaned copies of those
+# packages are nested in cpp-ethereum/utils.   That directory also
+# contains an orphaned copy of json_spirit, but there is no build step
+# in that case, because it is a header-only library.
 
 ./cpp-ethereum.sh "${TARGET_SUBTYPE?}"
 
