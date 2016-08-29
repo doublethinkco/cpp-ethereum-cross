@@ -32,22 +32,6 @@ cd_clone ${INITIAL_DIR?}/../.. ${WORK_DIR?}/cpp-ethereum
 export_cross_compiler && sanity_check_cross_compiler
 
 
-# ===========================================================================
-# configuration:
-
-section_configuring cpp-ethereum
-
-# ---------------------------------------------------------------------------
-# hacks
-generic_hack \
-  ${WORK_DIR?}/cpp-ethereum/libethcore/CMakeLists.txt \
-  '!/Eth::ethash-cl Cpuid/'
-
-# configuration hack to remove miniupnp (optional and broken at the moment)
-generic_hack \
-  ${WORK_DIR?}/cpp-ethereum/libp2p/CMakeLists.txt \
-  '!/Miniupnpc/'
-
 # ---------------------------------------------------------------------------
 set_cmake_paths "boost:cryptopp:curl:gmp:jsoncpp:leveldb::libjson-rpc-cpp:libmicrohttpd"
 
@@ -59,22 +43,9 @@ cmake \
   -DMINIUPNPC=OFF \
   -DETHASHCL=OFF \
   -DEVMJIT=OFF \
-  -DTOOLS=OFF \
   -DETH_JSON_RPC_STUB=OFF
 return_code $?
 cd ..
-
-# ---------------------------------------------------------------------------
-# hack: somehow these don't get properly included
-readonly MISSING_LIBJSON_RPC_CPP1="-I${WORK_DIR?}/libjson-rpc-cpp/src"
-readonly MISSING_LIBJSON_RPC_CPP2="-I${INSTALLS_DIR?}/libjson-rpc-cpp/include/jsonrpccpp/common"
-
-generic_hack \
-  ${WORK_DIR?}/cpp-ethereum/build/eth/CMakeFiles/eth.dir/flags.make \
-  '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ")}1'
-generic_hack \
-  ${WORK_DIR?}/cpp-ethereum/build/libweb3jsonrpc/CMakeFiles/web3jsonrpc.dir/flags.make \
-  '{gsub(/CXX_FLAGS = /, "CXX_FLAGS = '"${MISSING_LIBJSON_RPC_CPP1?} ${MISSING_LIBJSON_RPC_CPP2?}"' ");gsub(/ -Werror/,"")}1'
 
 # ===========================================================================
 # cross-compile:

@@ -44,40 +44,29 @@ mkdir -p ${SOURCES_DIR?} ${WORK_DIR?} ${LOGS_DIR?} ${INSTALLS_DIR?}
 # webthree-helper does a find_package() for it unconditionally, no matter
 # what we are actually building.
 #
-# We are also still downloading cmake even though the Docker files have
-# already been updated to "apt-get install" it, because there are still
-# references to CMAKE_TOOLCHAIN_FILE all over the place.   Those should
-# be re-directed to point at the installed version, and then we can
-# strip out the cmake download here.
-#
 # NOTE - We use orphaned copies secp256k1 and scrypt which live inside
 # the webthree-helper package.   Their oddness makes them pigs to
 # cross-build, because we are not running CMake from a repo root
 # directory
 
 ./download.sh \
-  "boost:cmake:cryptopp:curl:gmp:jsoncpp:leveldb:libjson-rpc-cpp:libmicrohttpd" \
+  "boost:cryptopp:curl:gmp:jsoncpp:leveldb:libjson-rpc-cpp:libmicrohttpd" \
   "${TARGET_SUBTYPE?}"
 
-# ===========================================================================
-# cmake:
+
+# Generate CMAKE_TOOLCHAIN_FILE, which is a configuration file used for
+# CMake cross-builds.  It points to the C compiler, C++ compiler and a
+# handful of other options relevant to cross-builds.  We pass that
+# configuration file to CMake as a parameter.
+#
+# See http://www.vtk.org/Wiki/CMake_Cross_Compiling for more info.
+
 mkdir -p ${INSTALLS_DIR?}/cmake
 get_cmake_toolchain_file_content > ${CMAKE_TOOLCHAIN_FILE?}
 echo && tree -L 1 ${BASE_DIR?} && \
   echo -e "\n\n${CMAKE_TOOLCHAIN_FILE?}:\n$(cat ${CMAKE_TOOLCHAIN_FILE?})\n"
 
-# ---------------------------------------------------------------------------
-# cmake file hacks (for libethereum):
-clone ${INITIAL_DIR?}/../../cmake ${WORK_DIR?}/cmake # clones without cd-ing
-generic_hack \
-  ${WORK_DIR?}/cmake/UseEth.cmake \
-  '!/Eth::ethash-cl Cpuid/'
-generic_hack \
-  ${WORK_DIR?}/cmake/UseDev.cmake \
-  '!/Miniupnpc/'
 
-
-# ---------------------------------------------------------------------------
 # Layer 1 contains most of our external dependencies.  All mutually independent.
 
 ./boost.sh     "${TARGET_SUBTYPE?}"
@@ -88,7 +77,6 @@ generic_hack \
 ./leveldb.sh   "${TARGET_SUBTYPE?}"
 ./mhd.sh       "${TARGET_SUBTYPE?}"
 
-# ---------------------------------------------------------------------------
 # Layer 2 contains external dependencies which are dependent on other
 # external dependencies:
 #
@@ -98,8 +86,11 @@ generic_hack \
 ./libjson-rpc-cpp.sh "${TARGET_SUBTYPE?}"
 
 
-# ---------------------------------------------------------------------------
-# Layers 3 is the cpp-ethereum project itself.
+# Layers 3 is the cpp-ethereum project itself, and also includes building
+# of libscrypt, secp256k1 implicitly, because orphaned copies of those
+# packages are nested in cpp-ethereum/utils.   That directory also
+# contains an orphaned copy of json_spirit, but there is no build step
+# in that case, because it is a header-only library.
 
 ./cpp-ethereum.sh "${TARGET_SUBTYPE?}"
 
