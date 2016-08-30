@@ -51,3 +51,37 @@ matrix:
           env: TRAVIS_BUILD_TYPE=armhf-apt
 script:
     - sudo ./build-$TRAVIS_BUILD_TYPE.sh
+    - cp ~/crosseth.tgz ~/crosseth-$TRAVIS_BUILD_TYPE.tgz
+
+deploy:
+    # This deploy target generates ZIPs per commit directly from the
+    # master branch.  These are just development binaries, not
+    # official releases.  We are currently missing automation for
+    # the official releases.  Those can be done manually easily
+    # enough for the time being.
+    #
+    # Unlike the Appveyor GitHub Releases target, the support in TravisCI
+    # seemingly doesn't provide a means for passing a description, tag, etc.
+    #
+    # The 'skip_cleanup' stops the workspace being cleaned out prior to
+    # generation of the artifacts.  Strange that we should explicitly
+    # need to do that, but we do.
+    #
+    # Tokens in TravisCI can be generated a few different ways.  Bob had
+    # success using the 'travis' gem, and then using that gem to
+    # create/edit this .travis.yml file, and then cut-and-pasting the
+    # good bits back out of what it generated.  The gem changes all the
+    # whitespace and deletes comments, so cannot be used as-is.  But
+    # it does generate an appropriate auth token.
+    #
+    # See https://docs.travis-ci.com/user/deployment/releases
+    # See https://blog.travis-ci.com/2013-01-28-token-token-token/
+
+    - provider: releases
+      api_key:
+          secure: Xr5y5FhiJbFRNesJZzgbXu2OYVsEqEAvc7ImxVVyHc4dhcHPozuUbuqtPDmsBnbcPUtJKb/TG0ltWkFW/NkdYTBhtF1taROPNt4DoZYyc05KFGQOJXPrZXDeE57SHdTU77GG16G3EYcThohzZDwA9ZGXvtkn83PxbATi3UC2CkMezKgYPd0JC9J2vc31yt3jpq4adt9mX14gG/F7eKcb6DJobjVPIgdMxv50vEu5Le/OEpajSeria8SJJWfJZ+xSj+0Adnn4lDpMmuOrBPKoEUWEtPlEvEhaKbtU4LH3b9Ee11G/yFFg7Rhv8iIUk5iYKM2hN6VqxbczdDBy85RQFFhPwfGqb3zryrO3k6csA2joc6zMN5K7nEJiGEFfE7WsAKX9JWuCAngz8nCxrO0RSZESPB34VCBdjSpRjEO3O/y8pezqv44VLrDPyjFVzDium2e6qVI2sN/BKR8DOBUbn/PXuDXPB/WQu6RwFwy91idrpmG7YgYlMVF/rH/RB8OagVsMyUy/HpzSzhGJU6EuoBtTL5QaQFy+1AWvXSRC+J/AZRpV/AApn6VyJu5yLm3TCao1ymEFyrfydmfSf4Q3aFawSAkIZREfvR3dR7jvQzvhOHY9iqTKkqCx0QL5ccIZKO50AihgKZ2BdzqgYEnH/ThdA0XhvP9v2cShHIbND88=
+      file: ~/crosseth-$TRAVIS_BUILD_TYPE.tgz
+      skip_cleanup: true
+      on:
+          repo: doublethinkco/cpp-ethereum-cross
+          branch: master
