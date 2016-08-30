@@ -93,7 +93,7 @@ ENV CPP_ETHEREUM_BRANCH develop
 # See "Added deprecation warning suppression for CryptoPP's sha3.h"
 # https://github.com/doublethinkco/cpp-ethereum/commit/175aa2a
 
-ENV CPP_ETHEREUM_COMMIT 7e1b585
+ENV CPP_ETHEREUM_COMMIT 11cd22e
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
