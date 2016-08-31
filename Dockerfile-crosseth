@@ -82,18 +82,13 @@ USER crosseth
 ENV CPP_ETHEREUM_REPO   https://github.com/doublethinkco/cpp-ethereum.git
 ENV CPP_ETHEREUM_BRANCH develop
 
-# Workarounds - using doublethinkco fork of cpp-ethereum to chop out std::future usage.
+# Workaround - using doublethinkco fork of cpp-ethereum to chop out std::future usage.
 #
 # See "Build break - armel - invalid use of incomplete type 'class std::future<void>"
 # https://github.com/doublethinkco/cpp-ethereum-cross/issues/111
-#
-# See "Made Miniupnpc an optional dependency for libp2p"
-# https://github.com/doublethinkco/cpp-ethereum/commit/e1ba214
-#
-# See "Added deprecation warning suppression for CryptoPP's sha3.h"
-# https://github.com/doublethinkco/cpp-ethereum/commit/175aa2a
+# https://github.com/doublethinkco/cpp-ethereum/commit/edfafc
 
-ENV CPP_ETHEREUM_COMMIT 99766d1
+ENV CPP_ETHEREUM_COMMIT 415fe0c
 
 # Clone the webthree-umbrella repo into the docker container, including sub-modules
 WORKDIR /home/crosseth
