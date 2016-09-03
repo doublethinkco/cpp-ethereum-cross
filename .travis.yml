@@ -49,6 +49,9 @@ matrix:
           dist: trusty
           sudo: required
           env: TRAVIS_BUILD_TYPE=armhf-apt
+        - os: osx
+          osx_image: xcode8
+          env: TRAVIS_BUILD_TYPE=armv7
 script:
     - sudo ./build-$TRAVIS_BUILD_TYPE.sh
     - cp /tmp/crosseth.tgz /tmp/crosseth-$TRAVIS_BUILD_TYPE.tgz
